@@ -1,6 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL COMPLETE CSS - INCLUDING LANDSCAPE FIX
+   FINAL COMPLETE CSS - LANDSCAPE IMAGE FIXED
 ===================================================== */
 
 :root {
@@ -565,7 +565,6 @@ nav .active::after {
         object-position: center center;
     }
 
-    /* PHOTO CARDS - % based so they land on the photo */
     .left-card {
         width: 68px; height: 84px;
         left: 30px; top: 22%;
@@ -704,18 +703,12 @@ nav .active::after {
 
 /* =====================================================
    LANDSCAPE MODE ON PHONES - FULLY FIXED
-   Everything is in normal flow - no overlap possible
+   Two-column grid: image on left, content on right
 ===================================================== */
 @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px) {
 
-    /* Hide side borders to save space */
-    .side-border { 
-        width: 22px; 
-        gap: 8px;
-    }
-    .side-border-text { font-size: 8px; letter-spacing: 0; }
-    .side-border-icon { font-size: 8px; }
-    .side-border-dot { width: 2px; height: 2px; }
+    /* Hide side borders in landscape to save space */
+    .side-border { display: none; }
 
     /* Compact navbar */
     .navbar {
@@ -732,24 +725,27 @@ nav .active::after {
     .donate { padding: 5px 10px; font-size: 11px; }
     .nav-paw { font-size: 14px; }
 
-    /* Hero layout: image on left, content on right */
+    /* Hero: two-column grid */
     .hero {
+        position: relative;
         height: auto;
         min-height: auto;
-        padding: 0;
         display: grid;
         grid-template-columns: 55% 45%;
+        grid-template-rows: auto auto auto;
+        padding: 0;
         overflow: visible;
+        background: var(--blend-bg);
     }
 
-    /* Image on the left */
+    /* Image on left column, spans all rows */
     .hero-image {
         position: relative;
         grid-column: 1;
+        grid-row: 1 / 4;
         width: 100%;
-        height: calc(100vh - 55px);
-        min-height: 280px;
-        flex-shrink: 0;
+        height: auto;
+        min-height: 100%;
         overflow: hidden;
         background: var(--blend-bg);
     }
@@ -757,77 +753,83 @@ nav .active::after {
     .hero-image img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center center;
     }
 
-    /* Side borders only appear in the image area on landscape */
-    .side-border.left {
-        top: 0; bottom: auto;
-        height: calc(100vh - 55px);
-        width: 22px;
-        left: 0;
-    }
-    .side-border.right {
-        top: 0; bottom: auto;
-        height: calc(100vh - 55px);
-        width: 22px;
-        right: 45%;
+    .hero-overlay {
+        position: absolute;
+        grid-column: 1;
+        grid-row: 1 / 4;
+        inset: auto;
+        top: 0; left: 0;
+        width: 55%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
     }
 
-    /* Photo cards - smaller on landscape */
+    /* Photo cards inside the image column */
     .left-card {
-        width: 55px; height: 68px;
-        left: 26px; top: 10%;
+        position: absolute;
+        width: 52px; height: 64px;
+        left: 20px; top: 15px;
         bottom: auto;
-        padding: 3px 3px 14px 3px;
+        padding: 3px 3px 13px 3px;
         animation: float-left 3s ease-in-out infinite;
         z-index: 30;
         border-width: 2px;
     }
-    .left-card img { height: 36px; }
+    .left-card img { height: 34px; }
     .left-card::before, .left-card::after { display: none; }
-    .left-card .photo-label { font-size: 5px; padding: 2px 4px; bottom: 3px; }
+    .left-card .photo-label { font-size: 5px; padding: 1px 4px; bottom: 2px; }
 
     .right-top-card {
-        width: 53px; height: 66px;
-        right: 26px; top: 10%;
+        position: absolute;
+        width: 50px; height: 62px;
+        right: 20px; top: 15px;
         bottom: auto;
-        padding: 3px 3px 14px 3px;
+        padding: 3px 3px 13px 3px;
         animation: float-right-top 4s ease-in-out infinite;
         z-index: 30;
         border-width: 2px;
     }
-    .right-top-card img { height: 34px; }
+    .right-top-card img { height: 32px; }
     .right-top-card::before, .right-top-card::after { display: none; }
-    .right-top-card p { font-size: 4px; bottom: 3px; }
+    .right-top-card p { font-size: 4px; bottom: 2px; }
 
     .right-bottom-card {
-        width: 55px; height: 68px;
-        right: 26px; top: 35%;
+        position: absolute;
+        width: 52px; height: 64px;
+        right: 20px; top: 90px;
         bottom: auto;
-        padding: 3px 3px 14px 3px;
+        padding: 3px 3px 13px 3px;
         animation: float-right-bottom 3.5s ease-in-out infinite;
         z-index: 30;
         border-width: 2px;
     }
-    .right-bottom-card img { height: 36px; }
+    .right-bottom-card img { height: 34px; }
     .right-bottom-card::before, .right-bottom-card::after { display: none; }
-    .right-bottom-card p { font-size: 4px; bottom: 3px; padding: 0 2px; }
+    .right-bottom-card p { font-size: 4px; bottom: 2px; padding: 0 2px; }
 
-    .center-heart { font-size: 22px; top: 50%; }
+    .center-heart { 
+        position: absolute;
+        left: 50%; top: 55%; 
+        font-size: 22px; 
+        z-index: 30; 
+    }
 
-    /* Cloud title on the right column */
+    /* Cloud title in the right column */
     .main-title {
         position: relative;
         grid-column: 2;
         grid-row: 1;
         bottom: auto; left: auto;
-        width: 90%;
+        width: 92%;
         max-width: none;
-        margin: 10px auto 8px auto;
+        margin: 8px auto 6px auto;
         padding: 10px 14px;
-        border-radius: 25px 25px 25px 8px;
+        border-radius: 22px 22px 22px 8px;
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
@@ -837,43 +839,44 @@ nav .active::after {
     .main-title h2 { font-size: 16px; line-height: 1; }
     .main-title p { font-size: 9px; margin-top: 3px; }
     .title-heart, .title-lines, .title-paw { display: none; }
-    .title-underline { width: 60px; height: 2px; margin: 5px auto 0; }
+    .title-underline { width: 55px; height: 2px; margin: 5px auto 0; }
 
-    /* Action buttons on the right column, stacked */
+    /* Action buttons in the right column */
     .actions {
         position: relative;
         grid-column: 2;
         grid-row: 2;
         left: auto; transform: none;
         bottom: auto; top: auto;
-        width: 90%;
-        margin: 0 auto 8px auto;
+        width: 92%;
+        margin: 0 auto 6px auto;
         grid-template-columns: 1fr;
         gap: 6px;
         z-index: 50;
     }
 
     .action {
-        min-height: 52px;
+        min-height: 50px;
         padding: 8px 12px;
         border-radius: 12px;
         gap: 10px;
     }
-    .action-icon { width: 34px; min-width: 34px; height: 34px; font-size: 14px; }
-    .action-text h3 { font-size: 18px; }
-    .action-text p { font-size: 10px; margin-top: 2px; }
+    .action-icon { width: 32px; min-width: 32px; height: 32px; font-size: 14px; }
+    .action-text h3 { font-size: 17px; }
+    .action-text p { font-size: 9px; margin-top: 2px; }
 
-    /* Bottom bar also on right column */
+    /* Bottom bar in the right column */
     .bottom {
         position: relative;
         grid-column: 2;
         grid-row: 3;
         bottom: auto;
-        height: 36px;
+        height: 34px;
         margin: 0;
     }
     .bottom p { font-size: 11px; padding: 0 20px; }
-    .bottom-decoration { font-size: 18px; }
+    .bottom-decoration { font-size: 16px; }
     .bottom-decoration.left { left: 14px; }
     .bottom-decoration.right { right: 14px; }
+    .bottom::before { display: none; }
 }
