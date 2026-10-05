@@ -1,8 +1,7 @@
-```css
-/* =========================================================
+/* =====================================================
    ANIMAL CONNECT TRUST
-   ONE DESKTOP CANVAS — SCALES ON MOBILE
-========================================================= */
+   FINAL CSS
+===================================================== */
 
 :root {
     --dark-green: #21472f;
@@ -14,10 +13,7 @@
     --paper: #fffef1;
     --text-green: #315638;
     --blend-bg: #7a8a5e;
-
-    --canvas-width: 1500px;
 }
-
 
 * {
     margin: 0;
@@ -26,12 +22,10 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
 }
-
 
 body {
     margin: 0;
@@ -40,29 +34,23 @@ body {
     overflow-x: hidden;
 }
 
-
 a {
     text-decoration: none;
     color: inherit;
 }
-
-
-/* =========================================================
-   PAGE
-========================================================= */
 
 .page {
     width: 100%;
     max-width: 1500px;
     margin: auto;
     background: var(--cream);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
-/* =========================================================
+/* =====================================================
    NAVBAR
-========================================================= */
+===================================================== */
 
 .navbar {
     height: 90px;
@@ -77,28 +65,25 @@ a {
     z-index: 100;
 }
 
-
 .brand-area {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-
 .brand-logo {
     width: 62px;
     height: 62px;
+
     overflow: hidden;
     flex-shrink: 0;
 }
-
 
 .brand-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-
 
 .brand-text h1 {
     font-family: Georgia, serif;
@@ -107,34 +92,27 @@ a {
     white-space: nowrap;
 }
 
-
 .brand-text h1 span {
     color: var(--orange);
 }
-
 
 .brand-text h1 b {
     color: var(--olive-green);
 }
 
-
 .brand-text p {
     margin-top: 6px;
+
     font-family: "Caveat", cursive;
     color: var(--olive-green);
+
     font-size: 16px;
 }
-
 
 .brand-text p span {
     color: var(--orange);
     margin: 0 3px;
 }
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 nav {
     display: flex;
@@ -142,37 +120,43 @@ nav {
     gap: 34px;
 }
 
-
 nav a {
     color: var(--dark-green);
+
     font-size: 16px;
     font-weight: 600;
+
     position: relative;
     transition: 0.25s ease;
 }
-
 
 nav a:hover {
     color: var(--orange);
 }
 
-
 nav .active::after {
     content: "";
+
     position: absolute;
+
     left: 0;
     right: 0;
     bottom: -12px;
+
     height: 3px;
+
     background: var(--dark-green);
+
     border-radius: 50%;
 }
 
-
 .donate {
     color: white !important;
+
     background: var(--dark-green);
+
     padding: 13px 21px;
+
     border-radius: 12px;
 
     display: flex;
@@ -182,12 +166,10 @@ nav .active::after {
     transition: 0.25s ease;
 }
 
-
 .donate:hover {
     background: var(--forest-green);
     transform: translateY(-2px);
 }
-
 
 .nav-paw {
     color: var(--olive-green);
@@ -195,32 +177,28 @@ nav .active::after {
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero {
     position: relative;
 
     width: 100%;
 
-    height: calc(100vh - 90px);
-    height: calc(100dvh - 90px);
+    height: 100vh;
+    height: 100dvh;
 
-    min-height: 610px;
+    min-height: 700px;
 
     overflow: hidden;
 
     background: var(--blend-bg);
 }
 
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
 .hero-image {
     position: absolute;
+
     inset: 0;
 
     width: 100%;
@@ -233,20 +211,13 @@ nav .active::after {
     background: var(--blend-bg);
 }
 
-
 .hero-image img {
     width: 100%;
     height: 100%;
 
     display: block;
 
-    /*
-       IMPORTANT:
-       Desktop image remains exactly as before.
-    */
-
     object-fit: contain;
-
     object-position: center center;
 
     filter:
@@ -255,13 +226,9 @@ nav .active::after {
         contrast(1.02);
 }
 
-
-/* =========================================================
-   OVERLAY
-========================================================= */
-
 .hero-overlay {
     position: absolute;
+
     inset: 0;
 
     z-index: 2;
@@ -279,40 +246,11 @@ nav .active::after {
 }
 
 
-/* =========================================================
-   ONE DESKTOP CANVAS
-========================================================= */
-
-.hero-canvas {
-
-    /*
-       This is the actual design area.
-
-       Every object inside uses desktop coordinates.
-    */
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    width: 1500px;
-    height: 100%;
-
-    transform: translateX(-50%);
-
-    transform-origin: top center;
-
-    z-index: 10;
-}
-
-
-/* =========================================================
+/* =====================================================
    SIDE BORDERS
-========================================================= */
+===================================================== */
 
 .side-border {
-
     position: absolute;
 
     z-index: 20;
@@ -325,9 +263,9 @@ nav .active::after {
     background:
         linear-gradient(
             to bottom,
-            rgba(33,71,47,0.85) 0%,
-            rgba(49,91,54,0.90) 50%,
-            rgba(33,71,47,0.85) 100%
+            rgba(33, 71, 47, 0.85) 0%,
+            rgba(49, 91, 54, 0.90) 50%,
+            rgba(33, 71, 47, 0.85) 100%
         );
 
     display: flex;
@@ -341,14 +279,12 @@ nav .active::after {
     gap: 30px;
 
     backdrop-filter: blur(4px);
-
     -webkit-backdrop-filter: blur(4px);
 
     box-shadow:
-        inset 0 0 30px rgba(0,0,0,0.2),
-        0 0 20px rgba(0,0,0,0.15);
+        inset 0 0 30px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(0, 0, 0, 0.15);
 }
-
 
 .side-border.left {
     left: 0;
@@ -357,7 +293,6 @@ nav .active::after {
         2px solid rgba(255,255,255,0.15);
 }
 
-
 .side-border.right {
     right: 0;
 
@@ -365,13 +300,10 @@ nav .active::after {
         2px solid rgba(255,255,255,0.15);
 }
 
-
 .side-border-text {
-
     font-family: "Caveat", cursive;
 
     font-size: 22px;
-
     font-weight: 700;
 
     color: rgba(255,255,255,0.95);
@@ -392,14 +324,11 @@ nav .active::after {
     white-space: nowrap;
 }
 
-
 .side-border.right .side-border-text {
     transform: rotate(0deg);
 }
 
-
 .side-border-icon {
-
     color: rgba(255,255,255,0.85);
 
     font-size: 18px;
@@ -411,9 +340,30 @@ nav .active::after {
         pulse-icon 3s ease-in-out infinite;
 }
 
+.side-border-icon:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.side-border-icon:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes pulse-icon {
+
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+        color: var(--orange);
+    }
+
+}
 
 .side-border-dot {
-
     width: 5px;
     height: 5px;
 
@@ -424,28 +374,11 @@ nav .active::after {
 }
 
 
-@keyframes pulse-icon {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.85;
-    }
-
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-        color: var(--orange);
-    }
-}
-
-
-/* =========================================================
-   MAIN TITLE
-========================================================= */
+/* =====================================================
+   MAIN TITLE - CLOUD
+===================================================== */
 
 .main-title {
-
     position: absolute;
 
     z-index: 30;
@@ -453,8 +386,9 @@ nav .active::after {
     bottom: 120px;
     left: 75px;
 
-    width: 340px;
-    min-width: 340px;
+    width: 100%;
+
+    min-width: 260px;
     max-width: 340px;
 
     padding: 18px 22px;
@@ -471,21 +405,19 @@ nav .active::after {
         0 10px 30px rgba(33,71,47,0.12);
 
     backdrop-filter: blur(20px);
-
     -webkit-backdrop-filter: blur(20px);
 
     border:
         1px solid rgba(255,255,255,0.5);
 }
 
-
 .main-title h2 {
-
     margin: 0;
 
     font-family: "Kalam", cursive;
 
-    font-size: 30px;
+    font-size:
+        clamp(22px, 2.5vw, 30px);
 
     line-height: 0.95;
 
@@ -498,14 +430,11 @@ nav .active::after {
         0 0 8px rgba(255,255,255,0.7);
 }
 
-
 .main-title h2 span {
     color: var(--olive-green);
 }
 
-
 .main-title p {
-
     margin-top: 8px;
 
     color: var(--text-green);
@@ -521,11 +450,9 @@ nav .active::after {
         0 0 6px rgba(255,255,255,0.7);
 }
 
-
 .title-heart,
 .title-lines,
 .title-paw {
-
     position: absolute;
 
     color: var(--dark-green);
@@ -533,9 +460,7 @@ nav .active::after {
     opacity: 0.7;
 }
 
-
 .title-heart {
-
     top: 10px;
     left: 18px;
 
@@ -544,9 +469,7 @@ nav .active::after {
     transform: rotate(-15deg);
 }
 
-
 .title-lines {
-
     top: 15px;
     left: 45px;
 
@@ -555,9 +478,7 @@ nav .active::after {
     transform: rotate(-20deg);
 }
 
-
 .title-paw {
-
     right: 18px;
     bottom: 18px;
 
@@ -566,16 +487,13 @@ nav .active::after {
     transform: rotate(-15deg);
 }
 
-
 .title-underline {
-
     width: 100px;
     height: 3px;
 
     margin: 8px auto 0;
 
-    background:
-        var(--olive-green);
+    background: var(--olive-green);
 
     border-radius: 50%;
 
@@ -585,15 +503,14 @@ nav .active::after {
 }
 
 
-/* =========================================================
+/* =====================================================
    TYPEWRITER
-========================================================= */
+===================================================== */
 
 .typewriter,
 .typewriter-2,
 .typewriter-3,
 .typewriter-4 {
-
     display: inline-block;
 
     overflow: hidden;
@@ -608,38 +525,29 @@ nav .active::after {
     animation-fill-mode: forwards;
 }
 
-
 .typewriter {
-
     animation:
         typing 2s steps(20,end) 0.5s forwards,
         blink-caret 0.75s step-end infinite;
 }
 
-
 .typewriter-2 {
-
     animation:
         typing 1.5s steps(15,end) 2.5s forwards,
         blink-caret 0.75s step-end infinite;
 }
 
-
 .typewriter-3 {
-
     animation:
         typing 2.5s steps(30,end) 4s forwards,
         blink-caret 0.75s step-end infinite;
 }
 
-
 .typewriter-4 {
-
     animation:
         typing 1.5s steps(15,end) 6.5s forwards,
         blink-caret 0.75s step-end infinite;
 }
-
 
 @keyframes typing {
 
@@ -650,8 +558,8 @@ nav .active::after {
     to {
         width: 100%;
     }
-}
 
+}
 
 @keyframes blink-caret {
 
@@ -663,28 +571,26 @@ nav .active::after {
     50% {
         border-color: var(--olive-green);
     }
+
 }
 
 
-/* =========================================================
+/* =====================================================
    PHOTO CARDS
-========================================================= */
+===================================================== */
 
 .photo-card {
-
     position: absolute;
 
     z-index: 25;
 
     background: var(--paper);
 
-    padding:
-        12px 12px 55px;
+    padding: 12px 12px 55px 12px;
 
     border-radius: 4px;
 
-    border:
-        3px solid #ffffff;
+    border: 3px solid #ffffff;
 
     outline:
         1px solid rgba(33,71,47,0.15);
@@ -696,12 +602,13 @@ nav .active::after {
         0 10px 25px rgba(38,60,31,0.25),
         0 20px 40px rgba(38,60,31,0.15),
         inset 0 0 0 1px rgba(255,255,255,0.8);
-}
 
+    max-width:
+        calc(100% - 20px);
+}
 
 .photo-card::before,
 .photo-card::after {
-
     content: "";
 
     position: absolute;
@@ -721,27 +628,21 @@ nav .active::after {
     z-index: 5;
 }
 
-
 .photo-card::before {
-
     top: -8px;
     left: 20px;
 
     transform: rotate(-8deg);
 }
 
-
 .photo-card::after {
-
     top: -8px;
     right: 20px;
 
     transform: rotate(8deg);
 }
 
-
 .photo-card img {
-
     display: block;
 
     width: 100%;
@@ -754,47 +655,7 @@ nav .active::after {
         1px solid rgba(33,71,47,0.1);
 }
 
-
-/* =========================================================
-   LEFT CARD
-========================================================= */
-
-.left-card {
-
-    width: 260px;
-    height: 280px;
-
-    left: 75px;
-    top: 60px;
-
-    transform:
-        rotate(-4deg);
-
-    animation:
-        float-left 4s ease-in-out infinite;
-}
-
-
-.left-card img {
-
-    height: 195px;
-
-    border:
-        2px dashed rgba(33,71,47,0.2);
-
-    padding: 3px;
-
-    background:
-        #fffef1;
-}
-
-
-/* =========================================================
-   PHOTO LABEL
-========================================================= */
-
 .photo-label {
-
     position: absolute;
 
     left: 50%;
@@ -804,18 +665,15 @@ nav .active::after {
 
     bottom: 15px;
 
-    padding:
-        8px 18px;
+    padding: 8px 18px;
 
-    background:
-        var(--forest-green);
+    background: var(--forest-green);
 
     color: white;
 
     border-radius: 20px;
 
-    font-family:
-        "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
     font-size: 17px;
 
@@ -834,36 +692,54 @@ nav .active::after {
 }
 
 
-/* =========================================================
-   RIGHT TOP
-========================================================= */
+/* =====================================================
+   DESKTOP CARD POSITIONS
+===================================================== */
+
+.left-card {
+    width: 260px;
+    height: 280px;
+
+    left: 75px;
+    top: 60px;
+
+    transform: rotate(-4deg);
+
+    animation:
+        float-left 4s ease-in-out infinite;
+}
+
+.left-card img {
+    height: 195px;
+
+    border:
+        2px dashed rgba(33,71,47,0.2);
+
+    padding: 3px;
+
+    background: #fffef1;
+}
 
 .right-top-card {
-
     width: 240px;
     height: 310px;
 
     right: 75px;
     top: 50px;
 
-    transform:
-        rotate(-6deg);
+    transform: rotate(-6deg);
 
     animation:
         float-right-top 5s ease-in-out infinite;
 
-    border-color:
-        #f5e6a8;
+    border-color: #f5e6a8;
 }
-
 
 .right-top-card img {
     height: 215px;
 }
 
-
 .right-top-card p {
-
     position: absolute;
 
     bottom: 14px;
@@ -873,51 +749,37 @@ nav .active::after {
 
     text-align: center;
 
-    font-family:
-        "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
-    color:
-        var(--text-green);
+    color: var(--text-green);
 
     font-size: 15px;
 
     line-height: 1.1;
 
-    padding:
-        0 8px;
+    padding: 0 8px;
 }
 
-
-/* =========================================================
-   RIGHT BOTTOM
-========================================================= */
-
 .right-bottom-card {
-
     width: 260px;
     height: 330px;
 
     right: 75px;
     bottom: 150px;
 
-    transform:
-        rotate(5deg);
+    transform: rotate(5deg);
 
     animation:
         float-right-bottom 4.5s ease-in-out infinite;
 
-    border-color:
-        #d4e5b8;
+    border-color: #d4e5b8;
 }
-
 
 .right-bottom-card img {
     height: 240px;
 }
 
-
 .right-bottom-card p {
-
     position: absolute;
 
     bottom: 15px;
@@ -927,27 +789,23 @@ nav .active::after {
 
     text-align: center;
 
-    font-family:
-        "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
-    color:
-        var(--text-green);
+    color: var(--text-green);
 
     font-size: 15px;
 
-    padding:
-        0 8px;
+    padding: 0 8px;
 }
 
 
-/* =========================================================
-   FLOATING ANIMATIONS
-========================================================= */
+/* =====================================================
+   FLOATING
+===================================================== */
 
 @keyframes float-left {
 
-    0%,
-    100% {
+    0%,100% {
         transform:
             rotate(-4deg)
             translateY(0);
@@ -958,13 +816,12 @@ nav .active::after {
             rotate(-4deg)
             translateY(-12px);
     }
-}
 
+}
 
 @keyframes float-right-top {
 
-    0%,
-    100% {
+    0%,100% {
         transform:
             rotate(-6deg)
             translateY(0);
@@ -975,13 +832,12 @@ nav .active::after {
             rotate(-6deg)
             translateY(-15px);
     }
-}
 
+}
 
 @keyframes float-right-bottom {
 
-    0%,
-    100% {
+    0%,100% {
         transform:
             rotate(5deg)
             translateY(0);
@@ -992,15 +848,15 @@ nav .active::after {
             rotate(5deg)
             translateY(-10px);
     }
+
 }
 
 
-/* =========================================================
+/* =====================================================
    CENTER HEART
-========================================================= */
+===================================================== */
 
 .center-heart {
-
     position: absolute;
 
     z-index: 15;
@@ -1010,25 +866,22 @@ nav .active::after {
 
     color: white;
 
-    font-family:
-        "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
     font-size: 65px;
 
-    transform:
-        rotate(-10deg);
+    transform: rotate(-10deg);
 
     text-shadow:
         0 2px 8px rgba(0,0,0,0.4);
 }
 
 
-/* =========================================================
-   ACTIONS
-========================================================= */
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
 
 .actions {
-
     position: absolute;
 
     z-index: 40;
@@ -1040,23 +893,22 @@ nav .active::after {
 
     bottom: 45px;
 
-    width: 850px;
+    width: 75%;
+
+    max-width: 850px;
 
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
     gap: 20px;
 }
 
-
 .action {
-
     min-height: 110px;
 
-    padding:
-        15px 20px;
+    padding: 15px 20px;
 
     background:
         rgba(248,247,219,0.95);
@@ -1073,31 +925,25 @@ nav .active::after {
         0 8px 25px rgba(36,61,33,0.15),
         inset 0 1px 0 rgba(255,255,255,0.5);
 
-    transition:
-        0.3s ease;
+    transition: 0.3s ease;
 
-    backdrop-filter:
-        blur(5px);
+    backdrop-filter: blur(5px);
 
     border:
         2px solid rgba(255,255,255,0.8);
 }
 
-
 .action:hover {
-
-    transform:
-        translateY(-6px);
+    transform: translateY(-6px);
 
     box-shadow:
         0 12px 35px rgba(36,61,33,0.25);
 }
 
-
 .action-icon {
-
     width: 55px;
     min-width: 55px;
+
     height: 55px;
 
     border-radius: 50%;
@@ -1118,43 +964,30 @@ nav .active::after {
         0 4px 12px rgba(0,0,0,0.15);
 }
 
-
 .action-icon.orange {
-    background:
-        var(--orange);
+    background: var(--orange);
 }
-
 
 .action-icon.green {
-    background:
-        var(--olive-green);
+    background: var(--olive-green);
 }
 
-
 .action-text h3 {
-
-    font-family:
-        "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
     font-size: 28px;
 
     line-height: 1;
 
-    color:
-        var(--olive-green);
+    color: var(--olive-green);
 }
-
 
 .action:nth-child(3) h3 {
-    color:
-        var(--orange);
+    color: var(--orange);
 }
 
-
 .action-text p {
-
-    color:
-        var(--text-green);
+    color: var(--text-green);
 
     font-size: 13px;
 
@@ -1164,21 +997,11 @@ nav .active::after {
 }
 
 
-.action-text strong {
-
-    color:
-        var(--orange);
-
-    font-size: 20px;
-}
-
-
-/* =========================================================
+/* =====================================================
    BOTTOM BAR
-========================================================= */
+===================================================== */
 
 .bottom {
-
     position: absolute;
 
     z-index: 35;
@@ -1187,10 +1010,10 @@ nav .active::after {
     left: 0;
 
     width: 100%;
+
     height: 50px;
 
-    background:
-        var(--forest-green);
+    background: var(--forest-green);
 
     display: flex;
 
@@ -1198,9 +1021,7 @@ nav .active::after {
     align-items: center;
 }
 
-
 .bottom::before {
-
     content: "";
 
     position: absolute;
@@ -1211,92 +1032,72 @@ nav .active::after {
     width: 110%;
     height: 20px;
 
-    background:
-        var(--forest-green);
+    background: var(--forest-green);
 
     border-radius:
         50% 50% 0 0;
 }
 
-
 .bottom p {
-
     position: relative;
 
     z-index: 5;
 
     color: white;
 
-    font-family:
-        "Caveat", cursive;
+    font-family: "Caveat", cursive;
 
     font-size: 22px;
 
     letter-spacing: 1px;
 }
 
-
 .bottom-decoration {
-
     position: absolute;
 
     z-index: 5;
 
-    color:
-        var(--olive-green);
+    color: var(--olive-green);
 
     font-size: 50px;
 }
 
-
 .bottom-decoration.left {
-
     left: 70px;
-
     bottom: -10px;
 
-    transform:
-        rotate(-30deg);
+    transform: rotate(-30deg);
 }
-
 
 .bottom-decoration.right {
-
     right: 70px;
-
     bottom: -10px;
 
-    transform:
-        rotate(30deg);
+    transform: rotate(30deg);
 }
 
 
-/* =========================================================
+/* =====================================================
    LARGE DESKTOP
-========================================================= */
+===================================================== */
 
 @media (min-width: 1201px) {
 
     .main-title {
-
         bottom: 130px;
-
         left: 85px;
 
-        width: 360px;
-        min-width: 360px;
         max-width: 360px;
     }
+
 }
 
 
-/* =========================================================
+/* =====================================================
    TABLET
+===================================================== */
 
-   SAME CANVAS — ONLY SCALE IT
-========================================================= */
-
-@media (min-width: 701px) and (max-width: 1200px) {
+@media (min-width: 901px) and (max-width: 1200px) {
 
     .navbar {
         padding: 0 3%;
@@ -1310,184 +1111,574 @@ nav .active::after {
         font-size: 14px;
     }
 
-
     .hero {
-        min-height: 0;
+        height: 100vh;
+        min-height: 700px;
     }
 
-
-    .hero-canvas {
-
-        /*
-           Scale the complete desktop design.
-        */
-
-        width: 1500px;
-
-        height: 100%;
-
-        transform:
-            translateX(-50%)
-            scale(
-                calc(100vw / 1500)
-            );
-
-        transform-origin:
-            top center;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-
-   =========================================================
-
-   DO NOT CHANGE INDIVIDUAL ELEMENTS.
-
-   DO NOT STACK.
-
-   DO NOT MOVE.
-
-   DO NOT HIDE.
-
-   JUST SCALE THE DESKTOP CANVAS.
-========================================================= */
-
-@media (max-width: 700px) {
-
-    /* ---------------- NAVBAR ---------------- */
-
-    .navbar {
-
-        height: 60px;
-
-        padding: 0 8px;
-
-        flex-direction: row;
-
-        justify-content: space-between;
-
-        align-items: center;
+    .side-border {
+        width: 45px;
     }
 
-
-    .brand-area {
-
-        gap: 5px;
-
-        flex-shrink: 0;
+    .side-border-text {
+        font-size: 18px;
+        letter-spacing: 2px;
     }
 
-
-    .brand-logo {
-
-        width: 38px;
-
-        height: 38px;
-    }
-
-
-    .brand-text h1 {
-
+    .side-border-icon {
         font-size: 15px;
     }
 
+    .main-title {
+        bottom: 110px;
+        left: 60px;
 
-    .brand-text p {
+        max-width: 320px;
 
-        margin-top: 3px;
+        padding: 15px 18px;
+    }
 
-        font-size: 9px;
+    .main-title h2 {
+        font-size: 26px;
+    }
+
+    .main-title p {
+        font-size: 11px;
+    }
+
+    .left-card {
+        width: 200px;
+        height: 220px;
+
+        left: 60px;
+        top: 50px;
+
+        padding: 10px 10px 45px 10px;
+    }
+
+    .left-card img {
+        height: 155px;
+    }
+
+    .right-top-card {
+        width: 190px;
+        height: 250px;
+
+        right: 60px;
+        top: 40px;
+
+        padding: 10px 10px 45px 10px;
+    }
+
+    .right-top-card img {
+        height: 175px;
+    }
+
+    .right-bottom-card {
+        width: 200px;
+        height: 270px;
+
+        right: 60px;
+        bottom: 130px;
+
+        padding: 10px 10px 45px 10px;
+    }
+
+    .right-bottom-card img {
+        height: 190px;
+    }
+
+    .actions {
+        width: 80%;
+        bottom: 40px;
+    }
+
+    .photo-label {
+        font-size: 15px;
+        padding: 7px 14px;
+    }
+
+    .right-top-card p,
+    .right-bottom-card p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL DESKTOP
+===================================================== */
+
+@media (min-width: 701px) and (max-width: 900px) {
+
+    .hero {
+        height: 100vh;
+        min-height: 700px;
+    }
+
+    .side-border {
+        width: 40px;
+    }
+
+    .side-border-text {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .side-border-icon {
+        font-size: 13px;
+    }
+
+    .main-title {
+        bottom: 100px;
+        left: 50px;
+
+        max-width: 300px;
+
+        padding: 14px 18px;
+    }
+
+    .main-title h2 {
+        font-size: 24px;
+    }
+
+    .main-title p {
+        font-size: 11px;
+    }
+
+    .left-card {
+        width: 170px;
+        height: 190px;
+
+        left: 50px;
+        top: 40px;
+
+        padding: 8px 8px 40px 8px;
+    }
+
+    .left-card img {
+        height: 130px;
+    }
+
+    .right-top-card {
+        width: 160px;
+        height: 210px;
+
+        right: 50px;
+        top: 35px;
+
+        padding: 8px 8px 40px 8px;
+    }
+
+    .right-top-card img {
+        height: 145px;
+    }
+
+    .right-bottom-card {
+        width: 170px;
+        height: 230px;
+
+        right: 50px;
+        bottom: 100px;
+
+        padding: 8px 8px 40px 8px;
+    }
+
+    .right-bottom-card img {
+        height: 160px;
+    }
+
+    .actions {
+        width: 85%;
+        bottom: 35px;
+        gap: 12px;
+    }
+
+    .action {
+        padding: 12px;
+        min-height: 95px;
+    }
+
+    .action-text h3 {
+        font-size: 22px;
+    }
+
+    .photo-label {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .right-top-card p,
+    .right-bottom-card p {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   ONLY MOBILE IS CHANGED
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* =========================
+       SIDE BORDERS
+    ========================= */
+
+    .side-border {
+        display: none;
     }
 
 
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+        height: auto;
+
+        padding: 12px 15px;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .brand-area {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .brand-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .brand-text h1 {
+        font-size: 18px;
+    }
+
+    .brand-text p {
+        font-size: 14px;
+    }
+
     nav {
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+
+        padding: 4px 0;
+    }
+
+    nav .active::after {
+        bottom: -6px;
+    }
+
+    .donate {
+        padding: 8px 16px;
+
+        font-size: 14px;
+
+        border-radius: 10px;
+    }
+
+    .nav-paw {
+        font-size: 18px;
+    }
+
+
+    /* =========================
+       MOBILE HERO
+    ========================= */
+
+    .hero {
+        width: 100%;
+
+        height: auto;
+
+        min-height: 100vh;
+
+        position: relative;
+
+        display: flex;
+
+        flex-direction: column;
+
+        overflow: visible;
+
+        background: var(--blend-bg);
+    }
+
+
+    /* =========================
+       MOBILE TOP BLOCK
+    ========================= */
+
+    .mobile-top-block {
+        position: relative;
+
+        z-index: 50;
+
+        width: 100%;
+
+        padding:
+            12px 10px 0 10px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    /* =========================
+       CLOUD
+    ========================= */
+
+    .main-title {
+        position: relative;
+
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+
+        width: 100%;
+
+        max-width: none;
+
+        min-width: 0;
+
+        margin: 0;
+
+        padding: 14px 18px;
+
+        text-align: center;
+
+        background:
+            rgba(255,255,255,0.90);
+
+        border-radius:
+            40px 40px 40px 12px;
+
+        box-shadow:
+            0 8px 25px rgba(33,71,47,0.20);
+
+        backdrop-filter: blur(15px);
+
+        -webkit-backdrop-filter: blur(15px);
+
+        border:
+            1px solid rgba(255,255,255,0.7);
+
+        z-index: 50;
+    }
+
+    .main-title h2 {
+        font-size: 22px;
+
+        line-height: 1.05;
+    }
+
+    .main-title p {
+        font-size: 11px;
+
+        line-height: 1.35;
+
+        margin-top: 5px;
+    }
+
+    .title-heart,
+    .title-lines,
+    .title-paw {
+        display: none;
+    }
+
+    .title-underline {
+        width: 80px;
+
+        height: 3px;
+
+        margin-top: 7px;
+    }
+
+
+    /* =========================
+       THREE PHOTOS IN ONE ROW
+    ========================= */
+
+    .photo-row {
+        position: relative;
+
+        width: 100%;
 
         display: flex;
 
         flex-direction: row;
 
-        flex-wrap: nowrap;
+        justify-content: space-between;
 
-        align-items: center;
+        align-items: flex-start;
 
-        gap: 5px;
-
-        flex-shrink: 0;
+        gap: 6px;
     }
 
+    .left-card,
+    .right-top-card,
+    .right-bottom-card {
 
-    nav a {
+        position: relative;
 
-        font-size: 8px;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
 
-        white-space: nowrap;
-    }
+        width:
+            calc((100% - 12px) / 3);
 
+        max-width: none;
 
-    nav .active::after {
+        height: auto;
 
-        bottom: -5px;
-
-        height: 2px;
-    }
-
-
-    .donate {
+        margin: 0;
 
         padding:
-            6px 7px;
+            4px 4px 22px 4px;
 
-        border-radius: 7px;
+        animation: none;
 
-        gap: 3px;
+        border-width: 2px;
 
-        font-size: 8px;
+        outline-width: 1px;
+    }
+
+    .left-card {
+        transform: rotate(-3deg);
+    }
+
+    .right-top-card {
+        transform: rotate(2deg);
+    }
+
+    .right-bottom-card {
+        transform: rotate(-2deg);
     }
 
 
-    .nav-paw {
+    /* =========================
+       PHOTO IMAGES
+    ========================= */
 
-        font-size: 11px;
-    }
+    .left-card img,
+    .right-top-card img,
+    .right-bottom-card img {
 
-
-    /* ---------------- HERO ---------------- */
-
-    .hero {
+        display: block;
 
         width: 100%;
 
-        height:
-            calc(100dvh - 60px);
+        height: auto;
 
-        min-height: 0;
+        aspect-ratio: 1 / 1;
+
+        object-fit: cover;
+    }
+
+    .left-card img {
+        border:
+            1px solid rgba(33,71,47,0.15);
+
+        padding: 0;
+
+        background: transparent;
+    }
+
+
+    /* =========================
+       REMOVE TAPE ON MOBILE
+    ========================= */
+
+    .left-card::before,
+    .left-card::after,
+
+    .right-top-card::before,
+    .right-top-card::after,
+
+    .right-bottom-card::before,
+    .right-bottom-card::after {
+        display: none;
+    }
+
+
+    /* =========================
+       PHOTO TEXT
+    ========================= */
+
+    .photo-label {
+
+        font-size: 7px;
+
+        line-height: 1.05;
+
+        padding: 2px 5px;
+
+        bottom: 4px;
+
+        border-width: 1px;
+    }
+
+    .right-top-card p,
+    .right-bottom-card p {
+
+        font-size: 6px;
+
+        line-height: 1;
+
+        bottom: 4px;
+
+        padding: 0 2px;
+    }
+
+
+    /* =========================
+       HERO IMAGE BELOW PHOTOS
+    ========================= */
+
+    .hero-image {
+
+        position: relative;
+
+        width: 100%;
+
+        height: 55vh;
+
+        min-height: 380px;
+
+        flex-shrink: 0;
 
         overflow: hidden;
 
         background:
             var(--blend-bg);
+
+        order: 3;
+
+        margin-top: 10px;
     }
-
-
-    /*
-       Background image remains full hero.
-    */
-
-    .hero-image {
-
-        position: absolute;
-
-        inset: 0;
-
-        width: 100%;
-
-        height: 100%;
-
-        z-index: 1;
-    }
-
 
     .hero-image img {
 
@@ -1495,222 +1686,154 @@ nav .active::after {
 
         height: 100%;
 
-        object-fit: contain;
+        display: block;
+
+        object-fit: cover;
 
         object-position: center center;
     }
 
 
-    /*
-       ======================================================
-       THE ONLY MOBILE TRANSFORMATION
+    /* =========================
+       MOBILE OVERLAY
+    ========================= */
 
-       The entire desktop canvas is scaled.
-
-       Nothing inside it is moved.
-       ======================================================
-    */
-
-    .hero-canvas {
+    .hero-overlay {
 
         position: absolute;
 
-        top: 0;
+        top: auto;
 
-        left: 50%;
+        bottom: 0;
 
-        width: 1500px;
+        left: 0;
+        right: 0;
 
-        height: 100%;
+        height: 55vh;
 
-        transform:
-            translateX(-50%)
-            scale(
-                calc(100vw / 1500)
+        min-height: 380px;
+
+        z-index: 5;
+
+        pointer-events: none;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.05) 0%,
+                transparent 35%,
+                transparent 75%,
+                rgba(0,0,0,0.25) 100%
             );
-
-        transform-origin:
-            top center;
-
-        z-index: 10;
     }
 
 
-    /*
-       Explicitly prevent the old mobile layout.
-    */
+    /* =========================
+       CENTER HEART
+    ========================= */
 
-    .mobile-top-block {
-        position: static;
-        display: block;
-        padding: 0;
-        margin: 0;
+    .center-heart {
+        display: none;
     }
 
 
-    .photo-row {
-        position: static;
-        display: block;
-        width: auto;
-        padding: 0;
-        margin: 0;
-    }
-
-
-    /*
-       NEVER hide the desktop borders.
-    */
-
-    .side-border {
-        display: flex;
-    }
-
-
-    /*
-       NEVER hide title decorations.
-    */
-
-    .title-heart,
-    .title-lines,
-    .title-paw {
-        display: block;
-    }
-
-
-    /*
-       NEVER turn actions into a column.
-    */
+    /* =========================
+       ACTION CARDS
+    ========================= */
 
     .actions {
 
+        position: relative;
+
+        left: auto;
+
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        max-width: none;
+
+        padding:
+            15px 10px;
+
         display: grid;
 
-        grid-template-columns:
-            repeat(3, 1fr);
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        order: 4;
+
+        z-index: 40;
     }
+
+    .action {
+
+        width: 100%;
+
+        min-height: 85px;
+
+        padding:
+            12px 15px;
+
+        border-radius: 16px;
+
+        gap: 12px;
+    }
+
+    .action-icon {
+
+        width: 48px;
+
+        min-width: 48px;
+
+        height: 48px;
+
+        font-size: 21px;
+    }
+
+    .action-text h3 {
+        font-size: 24px;
+    }
+
+    .action-text p {
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       BOTTOM GREEN BAR
+    ========================= */
+
+    .bottom {
+
+        position: relative;
+
+        left: auto;
+
+        bottom: auto;
+
+        width: 100%;
+
+        height: 50px;
+
+        order: 5;
+    }
+
+    .bottom p {
+
+        font-size: 18px;
+
+        text-align: center;
+
+        padding:
+            0 10px;
+    }
+
+    .bottom-decoration {
+        display: none;
+    }
+
 }
-
-
-/* =========================================================
-   VERY SMALL PHONES
-
-   STILL THE SAME CANVAS.
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .navbar {
-        height: 55px;
-        padding: 0 5px;
-    }
-
-
-    .brand-logo {
-        width: 34px;
-        height: 34px;
-    }
-
-
-    .brand-text h1 {
-        font-size: 13px;
-    }
-
-
-    .brand-text p {
-        font-size: 7px;
-    }
-
-
-    nav {
-        gap: 3px;
-    }
-
-
-    nav a {
-        font-size: 7px;
-    }
-
-
-    .donate {
-        padding: 5px 6px;
-        font-size: 7px;
-    }
-
-
-    .nav-paw {
-        font-size: 10px;
-    }
-
-
-    .hero {
-        height:
-            calc(100dvh - 55px);
-    }
-
-
-    /*
-       EXACT SAME 1500px DESKTOP CANVAS
-    */
-
-    .hero-canvas {
-
-        width: 1500px;
-
-        height: 100%;
-
-        left: 50%;
-        top: 0;
-
-        transform:
-            translateX(-50%)
-            scale(
-                calc(100vw / 1500)
-            );
-
-        transform-origin:
-            top center;
-    }
-}
-
-
-/* =========================================================
-   MOBILE LANDSCAPE
-
-   SAME DESKTOP COMPOSITION.
-========================================================= */
-
-@media (max-width: 900px) and (orientation: landscape) {
-
-    .navbar {
-        height: 55px;
-    }
-
-
-    .hero {
-        height:
-            calc(100dvh - 55px);
-
-        min-height: 0;
-    }
-
-
-    .hero-canvas {
-
-        width: 1500px;
-
-        height: 100%;
-
-        left: 50%;
-        top: 0;
-
-        transform:
-            translateX(-50%)
-            scale(
-                calc(100vw / 1500)
-            );
-
-        transform-origin:
-            top center;
-    }
-}
-```
