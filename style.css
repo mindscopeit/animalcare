@@ -9,18 +9,14 @@
 }
 
 html {
-    width: 100%;
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: #1f512f;
-    color: #234d31;
     font-family: "DM Sans", sans-serif;
+    background: #eef0df;
+    color: #214b32;
+    overflow-x: hidden;
 }
 
 img {
@@ -35,13 +31,13 @@ a {
 
 
 /* =========================================================
-   MAIN PAGE
+   PAGE
 ========================================================= */
 
 .page {
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
+    background: #eef0df;
 }
 
 
@@ -51,35 +47,35 @@ a {
 
 .navbar {
     width: 100%;
-    min-height: 100px;
-    background: #faf9e9;
+    height: 100px;
+    background: #f8f8e9;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 18px 5%;
+    padding: 15px 5%;
+
     position: relative;
-    z-index: 100;
+    z-index: 1000;
 
-    border-top: 3px solid #243f30;
+    border-top: 3px solid #214b32;
 }
-
-
-/* BRAND */
 
 .brand-area {
     display: flex;
     align-items: center;
     gap: 15px;
-    min-width: 0;
 }
 
 .brand-logo {
     width: 66px;
     height: 66px;
     background: white;
-    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .brand-logo img {
@@ -90,76 +86,80 @@ a {
 
 .brand-text h1 {
     font-family: Georgia, serif;
-    font-size: 27px;
+    font-size: 28px;
     line-height: 1;
-    white-space: nowrap;
-}
-
-.brand-text h1 span {
-    color: #e86f32;
+    color: #ed6d36;
 }
 
 .brand-text h1 b {
-    color: #4c733e;
+    color: #4f763e;
 }
 
 .brand-text p {
-    margin-top: 9px;
-    font-family: "Kalam", cursive;
-    font-size: 16px;
-    color: #6e8652;
+    margin-top: 8px;
+
+    font-family: "Caveat", cursive;
+    font-size: 18px;
+    color: #648353;
 }
 
 .brand-text p span {
-    color: #d72828;
+    color: #d8322d;
     font-size: 20px;
-    margin: 0 5px;
+    padding: 0 5px;
 }
-
-
-/* NAVIGATION */
 
 .navbar nav {
     display: flex;
     align-items: center;
     gap: 38px;
-    flex-shrink: 0;
 }
 
 .navbar nav a {
     font-size: 17px;
     font-weight: 600;
-    color: #123f2c;
+    color: #173e2b;
+
     position: relative;
+
     white-space: nowrap;
 }
 
 .navbar nav a.active::after {
     content: "";
+
     position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+
     width: 48px;
     height: 3px;
-    background: #1c5438;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -15px;
+
+    margin: auto;
+
+    background: #214b32;
     border-radius: 50%;
 }
 
-.navbar nav .donate {
-    background: #1c5438;
+.navbar .donate {
+    background: #174b32;
     color: white;
-    padding: 15px 24px;
+
+    padding: 17px 25px;
+
     border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
-.navbar nav .donate i {
+.navbar .donate i {
     margin-right: 8px;
 }
 
 .nav-paw {
-    color: #71964f;
-    font-size: 26px;
+    font-size: 25px;
+    color: #739456;
 }
 
 
@@ -168,36 +168,41 @@ a {
 ========================================================= */
 
 .hero {
-    width: 100%;
-    min-height: 1000px;
-    background: #71885d;
     position: relative;
+
+    width: 100%;
+    min-height: calc(100vh - 100px);
+
+    background: #71875d;
+
+    padding: 0 3.5% 100px;
+
     overflow: hidden;
-    padding-bottom: 130px;
 }
 
 
 /* =========================================================
-   MAIN HERO IMAGE
+   HERO IMAGE
 ========================================================= */
 
 .hero-image {
     position: relative;
 
-    width: min(1200px, calc(100% - 260px));
-    height: 760px;
+    width: min(78vw, 1250px);
 
     margin: 0 auto;
 
-    overflow: visible;
     z-index: 2;
 }
 
 .hero-image > img {
     width: 100%;
-    height: 100%;
+    height: 750px;
+
     object-fit: cover;
     object-position: center;
+
+    display: block;
 }
 
 
@@ -207,16 +212,18 @@ a {
 
 .hero-overlay {
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 3;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,0.04),
-            rgba(0,0,0,0.04)
-        );
+    top: 100px;
+    left: 10%;
+    right: 10%;
+
+    height: 600px;
+
+    background: rgba(255,255,255,0.05);
+
+    pointer-events: none;
+
+    z-index: 3;
 }
 
 
@@ -226,20 +233,25 @@ a {
 
 .side-border {
     position: absolute;
+
     top: 0;
     bottom: 0;
 
-    width: 70px;
+    width: 3.5%;
 
-    background: #255838;
-    color: #f5f5df;
+    background: #315d3b;
 
-    z-index: 20;
+    color: white;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+
     align-items: center;
+    justify-content: space-around;
+
+    padding: 25px 5px;
+
+    z-index: 20;
 
     overflow: hidden;
 }
@@ -254,73 +266,100 @@ a {
 
 .side-border-text {
     writing-mode: vertical-rl;
+
     transform: rotate(180deg);
 
     font-family: "Kalam", cursive;
-    font-size: 19px;
+
+    font-size: 18px;
+
     letter-spacing: 1px;
 
     text-align: center;
+
+    white-space: nowrap;
 }
 
 .side-border-icon {
-    font-size: 21px;
+    font-size: 20px;
 }
 
 .side-border-dot {
     width: 5px;
     height: 5px;
-    background: #d9d6a9;
+
     border-radius: 50%;
+
+    background: #d9d7b5;
 }
 
 
 /* =========================================================
-   PHOTO CARDS
+   FLOATING PHOTO CARDS
 ========================================================= */
 
 .photo-card {
     position: absolute;
 
-    background: #fbf8dc;
-    border: 4px solid #f8f6df;
+    background: #fffdf0;
+
+    border: 5px solid #f3f1d9;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.22),
+        0 2px 5px rgba(0,0,0,0.1);
 
     padding: 12px;
 
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.25);
-
     z-index: 15;
 
-    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-12px) rotate(0deg);
+
+    box-shadow:
+        0 20px 35px rgba(0,0,0,0.25);
 }
 
 .photo-card img {
     width: 100%;
-    height: 100%;
+
     object-fit: cover;
+
+    border: 2px dashed #b9bd94;
 }
 
 
-/* LEFT PHOTO */
+/* =========================================================
+   LEFT PHOTO
+========================================================= */
 
 .left-card {
-    width: 270px;
-    height: 310px;
+    width: 290px;
 
-    left: -110px;
-    top: 70px;
+    left: -125px;
+    top: 55px;
 
-    transform: rotate(-4deg);
+    transform: rotate(-5deg);
 }
 
-.left-card .photo-label {
-    margin: 12px auto 0;
+.left-card img {
+    height: 210px;
+}
 
-    width: 105px;
+.photo-label {
+    width: 95px;
+
+    margin: 18px auto 0;
+
     padding: 10px;
 
-    background: #23603b;
+    background: #285e39;
+
     color: white;
 
     border-radius: 20px;
@@ -328,125 +367,59 @@ a {
     text-align: center;
 
     font-family: "Kalam", cursive;
+
     font-size: 16px;
 
-    line-height: 1.1;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
 
 
-/* RIGHT TOP PHOTO */
+/* =========================================================
+   RIGHT TOP PHOTO
+========================================================= */
 
 .right-top-card {
-    width: 275px;
-    height: 315px;
+    width: 290px;
 
     right: -115px;
-    top: 70px;
+    top: 55px;
 
-    transform: rotate(-4deg);
+    transform: rotate(4deg);
+}
+
+.right-top-card img {
+    height: 210px;
 }
 
 .right-top-card p,
 .right-bottom-card p {
     font-family: "Kalam", cursive;
+
+    color: #557448;
+
+    font-size: 16px;
+
     text-align: center;
-    color: #55744b;
-    font-size: 14px;
-    margin-top: 10px;
-}
 
-
-/* RIGHT BOTTOM PHOTO */
-
-.right-bottom-card {
-    width: 275px;
-    height: 340px;
-
-    right: -105px;
-    top: 330px;
-
-    transform: rotate(4deg);
-}
-
-.right-bottom-card img {
-    height: 270px;
+    padding: 12px 5px 3px;
 }
 
 
 /* =========================================================
-   MAIN TITLE / CLOUD
+   RIGHT BOTTOM PHOTO
 ========================================================= */
 
-.main-title {
-    position: absolute;
+.right-bottom-card {
+    width: 290px;
 
-    left: -100px;
-    bottom: -20px;
+    right: -115px;
+    top: 350px;
 
-    width: 410px;
-    min-height: 185px;
-
-    padding: 30px 35px;
-
-    background: rgba(245, 247, 232, 0.95);
-
-    border-radius: 45px;
-
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-
-    z-index: 30;
-
-    text-align: center;
+    transform: rotate(5deg);
 }
 
-.main-title h2 {
-    font-family: "Kalam", cursive;
-    color: #608b4e;
-    font-size: 31px;
-    line-height: 1.05;
-}
-
-.main-title p {
-    margin-top: 15px;
-
-    font-size: 15px;
-    line-height: 1.5;
-    font-weight: 600;
-
-    color: #365942;
-}
-
-.title-heart {
-    position: absolute;
-    top: 15px;
-    left: 20px;
-    font-size: 23px;
-    color: #648d57;
-}
-
-.title-lines {
-    position: absolute;
-    top: 12px;
-    right: 20px;
-    color: #648d57;
-}
-
-.title-paw {
-    position: absolute;
-    right: 20px;
-    bottom: 18px;
-    font-size: 17px;
-}
-
-.title-underline {
-    width: 105px;
-    height: 3px;
-
-    background: #75985e;
-
-    margin: 12px auto 0;
-
-    border-radius: 50%;
+.right-bottom-card img {
+    height: 220px;
 }
 
 
@@ -458,17 +431,169 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 70%;
+    top: 68%;
 
     transform: translate(-50%, -50%);
 
-    z-index: 25;
-
-    font-size: 55px;
     color: white;
 
+    font-size: 52px;
+
+    z-index: 25;
+
     text-shadow:
-        0 2px 5px rgba(0,0,0,0.25);
+        0 3px 8px rgba(0,0,0,0.3);
+
+    animation: heartFloat 3s ease-in-out infinite;
+}
+
+@keyframes heartFloat {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   CLOUD / TITLE BOX
+========================================================= */
+
+.main-title {
+    position: absolute;
+
+    left: -100px;
+    bottom: 35px;
+
+    width: 440px;
+    min-height: 190px;
+
+    padding: 28px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef0df,
+            #dfe4d1
+        );
+
+    border-radius:
+        55px
+        55px
+        45px
+        45px;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,0.18);
+
+    z-index: 30;
+
+    text-align: center;
+}
+
+.main-title::before {
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 35px;
+
+    background: #eef0df;
+
+    border-radius: 50%;
+
+    top: -15px;
+    left: 65px;
+}
+
+.main-title::after {
+    content: "";
+
+    position: absolute;
+
+    width: 60px;
+    height: 30px;
+
+    background: #eef0df;
+
+    border-radius: 50%;
+
+    top: -10px;
+    right: 70px;
+}
+
+.main-title h2 {
+    position: relative;
+
+    font-family: "Kalam", cursive;
+
+    font-size: 32px;
+
+    line-height: 1.1;
+
+    color: #5e8548;
+
+    z-index: 2;
+}
+
+.main-title p {
+    margin-top: 15px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #305b3d;
+
+    font-weight: 600;
+}
+
+.title-heart {
+    position: absolute;
+
+    left: 20px;
+    top: 15px;
+
+    font-size: 25px;
+
+    color: #6c8c59;
+}
+
+.title-paw {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    font-size: 20px;
+}
+
+.title-lines {
+    position: absolute;
+
+    right: 22px;
+    top: 15px;
+
+    color: #71915b;
+
+    font-size: 20px;
+}
+
+.title-underline {
+    width: 105px;
+    height: 3px;
+
+    margin: 14px auto 0;
+
+    background: #78945f;
+
+    border-radius: 50%;
 }
 
 
@@ -478,45 +603,57 @@ a {
 
 .actions {
     position: relative;
-    z-index: 40;
 
-    width: min(950px, calc(100% - 180px));
+    width: min(930px, 80%);
 
-    margin: -15px auto 0;
+    margin: -5px auto 0;
 
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+
+    gap: 18px;
+
+    z-index: 40;
 }
 
 .action {
-    min-height: 170px;
+    min-height: 145px;
 
-    background: #f8f6df;
+    background: #f4f2d9;
 
-    border: 3px solid white;
-    border-radius: 25px;
+    border: 3px solid rgba(255,255,255,0.85);
 
-    padding: 25px;
+    border-radius: 22px;
 
     display: flex;
+
     align-items: center;
+
     gap: 20px;
 
-    box-shadow: 0 7px 18px rgba(0,0,0,0.12);
+    padding: 20px;
 
-    transition: transform 0.25s ease;
+    box-shadow:
+        0 8px 18px rgba(0,0,0,0.14);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .action:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 25px rgba(0,0,0,0.2);
 }
 
 .action-icon {
-    width: 62px;
-    height: 62px;
+    flex: 0 0 65px;
 
-    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
 
     border-radius: 50%;
 
@@ -526,40 +663,50 @@ a {
 
     color: white;
 
-    font-size: 25px;
+    font-size: 27px;
 
-    border: 3px solid rgba(255,255,255,0.7);
+    box-shadow:
+        inset 0 0 0 4px rgba(255,255,255,0.35),
+        0 5px 10px rgba(0,0,0,0.15);
 }
 
 .action-icon.orange {
-    background: #f2783c;
+    background: #f17b43;
 }
 
 .action-icon.green {
-    background: #68994d;
+    background: #6d9c4e;
 }
 
 .action-text h3 {
     font-family: "Kalam", cursive;
+
     font-size: 27px;
-    color: #608b4e;
+
+    color: #62894b;
 }
 
 .action:nth-child(3) h3 {
-    color: #ef6e38;
+    color: #ef7040;
 }
 
 .action-text p {
-    margin-top: 4px;
-    font-size: 14px;
-    line-height: 1.35;
-    color: #416044;
+    margin-top: 3px;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    color: #426044;
 }
 
 .action-text strong {
     display: block;
-    margin-top: 8px;
+
+    margin-top: 5px;
+
     font-size: 22px;
+
     color: #222;
 }
 
@@ -570,35 +717,35 @@ a {
 
 .bottom {
     position: relative;
-    z-index: 30;
 
-    width: 100%;
-    height: 100px;
+    margin: 25px auto 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 
     color: white;
-}
 
-.bottom p {
     font-family: "Kalam", cursive;
-    font-size: 20px;
+
+    font-size: 18px;
+
+    z-index: 10;
 }
 
 .bottom-decoration {
     position: absolute;
-    font-size: 45px;
-    color: #82a765;
+
+    color: #8fac75;
+
+    font-size: 40px;
 }
 
 .bottom-decoration.left {
-    left: 5%;
+    left: 10%;
 }
 
 .bottom-decoration.right {
-    right: 5%;
+    right: 10%;
+    transform: scaleX(-1);
 }
 
 
@@ -609,47 +756,40 @@ a {
 @media (max-width: 1100px) {
 
     .navbar {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding: 12px 25px;
     }
 
     .navbar nav {
-        gap: 20px;
+        gap: 18px;
     }
 
     .navbar nav a {
         font-size: 15px;
     }
 
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
     .hero-image {
-        width: calc(100% - 150px);
+        width: 82vw;
     }
 
     .left-card {
-        left: -70px;
-        width: 220px;
-        height: 270px;
+        left: -90px;
+        width: 240px;
     }
 
-    .right-top-card {
-        right: -70px;
-        width: 220px;
-        height: 270px;
-    }
-
+    .right-top-card,
     .right-bottom-card {
-        right: -65px;
-        width: 220px;
-        height: 290px;
+        right: -80px;
+        width: 240px;
     }
 
     .main-title {
         left: -60px;
-        width: 350px;
-    }
-
-    .actions {
-        width: calc(100% - 120px);
+        width: 380px;
     }
 }
 
@@ -658,11 +798,10 @@ a {
    MOBILE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 
     body {
-        width: 100%;
-        overflow-x: hidden;
+        background: #71875d;
     }
 
     .page {
@@ -671,147 +810,171 @@ a {
     }
 
 
-    /* -----------------------------------------------------
-       MOBILE NAVBAR
-    ----------------------------------------------------- */
+    /* ---------------- NAVBAR ---------------- */
 
     .navbar {
-        width: 100%;
-        min-height: auto;
+        height: auto;
+
+        min-height: 135px;
 
         padding: 10px 12px 12px;
 
-        display: block;
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        border-top: 3px solid #214b32;
     }
 
     .brand-area {
         width: 100%;
+
         justify-content: center;
+
         gap: 8px;
     }
 
     .brand-logo {
-        width: 48px;
-        height: 48px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .brand-text {
+        text-align: center;
     }
 
     .brand-text h1 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .brand-text p {
-        font-size: 12px;
+        font-size: 15px;
         margin-top: 4px;
     }
 
     .brand-text p span {
-        font-size: 14px;
-        margin: 0 2px;
+        font-size: 16px;
     }
 
 
-    /* NAV ON ONE LINE */
+    /* NAVIGATION */
 
     .navbar nav {
         width: 100%;
 
-        margin-top: 13px;
-
         display: flex;
+
         justify-content: center;
 
         gap: 13px;
 
-        overflow-x: auto;
-        overflow-y: hidden;
-
-        scrollbar-width: none;
-    }
-
-    .navbar nav::-webkit-scrollbar {
-        display: none;
+        flex-wrap: nowrap;
     }
 
     .navbar nav a {
         font-size: 13px;
-        flex-shrink: 0;
     }
 
     .navbar nav a.active::after {
-        bottom: -8px;
+        bottom: -7px;
+
         height: 2px;
-        width: 35px;
+
+        width: 30px;
     }
 
-    .navbar nav .donate {
-        padding: 9px 13px;
+    .navbar .donate {
+        padding: 10px 12px;
+
         border-radius: 12px;
     }
 
     .nav-paw {
-        font-size: 19px;
-        flex-shrink: 0;
+        font-size: 20px;
     }
 
 
-    /* -----------------------------------------------------
-       HERO
-    ----------------------------------------------------- */
+    /* ---------------- HERO ---------------- */
 
     .hero {
-        min-height: 0;
-        padding-bottom: 30px;
-        background: #71885d;
-        overflow: hidden;
+        min-height: auto;
+
+        padding:
+            15px
+            15px
+            45px;
+
+        background: #71875d;
     }
 
 
-    /* -----------------------------------------------------
-       MAIN IMAGE
-       IMPORTANT: FULL WIDTH ON PHONE
-    ----------------------------------------------------- */
+    /* ---------------- MAIN IMAGE ---------------- */
 
     .hero-image {
-        width: calc(100% - 70px);
-        height: 430px;
+        width: 100%;
 
-        margin-left: 35px;
-        margin-right: 35px;
+        margin: 0 auto;
+
+        padding: 0;
+
+        display: flex;
+
+        flex-direction: column;
 
         position: relative;
-
-        overflow: visible;
     }
 
     .hero-image > img {
         width: 100%;
-        height: 100%;
+
+        height: auto;
+
+        min-height: 330px;
+
+        max-height: 520px;
 
         object-fit: cover;
+
         object-position: center;
 
-        position: relative;
-        z-index: 1;
+        border-radius: 0;
     }
 
 
-    /* -----------------------------------------------------
-       SIDE BORDERS
-    ----------------------------------------------------- */
+    /* ---------------- SIDE BORDERS ---------------- */
 
     .side-border {
-        width: 35px;
+        position: absolute;
+
         top: 0;
-        bottom: 0;
+
+        width: 26px;
+
+        padding: 15px 2px;
+
+        z-index: 100;
+
+        justify-content: space-evenly;
+    }
+
+    .side-border.left {
+        left: 0;
+    }
+
+    .side-border.right {
+        right: 0;
     }
 
     .side-border-text {
-        font-size: 11px;
+        font-size: 10px;
+
         letter-spacing: 0.5px;
     }
 
     .side-border-icon {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .side-border-dot {
@@ -820,227 +983,264 @@ a {
     }
 
 
-    /* -----------------------------------------------------
-       PHOTO 1 - LEFT
-    ----------------------------------------------------- */
+    /* ---------------- FLOATING PHOTO CARDS ---------------- */
 
-    .left-card {
-        width: 92px;
-        height: 115px;
+    .photo-card {
+        position: absolute;
 
-        left: 8px;
-        top: 18px;
+        width: 115px;
 
         padding: 5px;
-        border-width: 2px;
 
-        transform: rotate(-3deg);
+        border-width: 3px;
 
-        z-index: 10;
+        border-radius: 2px;
+
+        z-index: 50;
+
+        box-shadow:
+            0 7px 15px rgba(0,0,0,0.25);
     }
 
-    .left-card .photo-label {
-        width: 62px;
-
-        padding: 4px;
-
-        margin-top: 4px;
-
-        font-size: 9px;
-
-        border-radius: 10px;
-    }
-
-
-    /* -----------------------------------------------------
-       PHOTO 2 - RIGHT TOP
-    ----------------------------------------------------- */
-
-    .right-top-card {
-        width: 92px;
-        height: 115px;
-
-        right: 8px;
-        top: 18px;
-
-        padding: 5px;
-        border-width: 2px;
-
-        transform: rotate(3deg);
-
-        z-index: 10;
-    }
-
-    .right-top-card p {
-        font-size: 7px;
-        line-height: 1;
-        margin-top: 4px;
-    }
-
-
-    /* -----------------------------------------------------
-       PHOTO 3 - RIGHT BOTTOM
-       KEEP IT VISIBLE
-    ----------------------------------------------------- */
-
-    .right-bottom-card {
-        width: 92px;
-        height: 125px;
-
-        right: 8px;
-        top: auto;
-        bottom: 25px;
-
-        padding: 5px;
-        border-width: 2px;
-
-        transform: rotate(3deg);
-
-        z-index: 12;
-    }
-
-    .right-bottom-card img {
+    .photo-card img {
         width: 100%;
-        height: 91px;
+
+        height: 80px;
 
         object-fit: cover;
     }
 
-    .right-bottom-card p {
-        font-size: 7px;
-        line-height: 1;
-        margin-top: 3px;
+
+    /* LEFT FLOATING CARD */
+
+    .left-card {
+        left: 4px;
+
+        top: 15px;
+
+        transform: rotate(-5deg);
+    }
+
+    .left-card:hover {
+        transform: rotate(-2deg) translateY(-5px);
+    }
+
+    .photo-label {
+        width: 65px;
+
+        margin: 6px auto 2px;
+
+        padding: 5px;
+
+        font-size: 10px;
+
+        border-radius: 12px;
     }
 
 
-    /* -----------------------------------------------------
-       CLOUD TITLE
-       PUT IT INSIDE IMAGE BOTTOM
-    ----------------------------------------------------- */
+    /* RIGHT TOP */
+
+    .right-top-card {
+        right: 4px;
+
+        top: 25px;
+
+        transform: rotate(4deg);
+    }
+
+    .right-top-card:hover {
+        transform: rotate(1deg) translateY(-5px);
+    }
+
+    .right-top-card p,
+    .right-bottom-card p {
+        font-size: 9px;
+
+        line-height: 1.1;
+
+        padding: 5px 2px 2px;
+    }
+
+
+    /* RIGHT BOTTOM */
+
+    .right-bottom-card {
+        right: 8px;
+
+        top: auto;
+
+        bottom: 15px;
+
+        transform: rotate(4deg);
+    }
+
+    .right-bottom-card img {
+        height: 80px;
+    }
+
+
+    /* ---------------- CENTER HEART ---------------- */
+
+    .center-heart {
+        top: 48%;
+
+        font-size: 30px;
+
+        z-index: 20;
+    }
+
+
+    /* ---------------- CLOUD TITLE ---------------- */
 
     .main-title {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
         width: calc(100% - 30px);
 
-        min-height: 125px;
+        min-height: 150px;
 
-        left: 15px;
-        bottom: -45px;
+        margin: -25px auto 25px;
 
-        padding: 20px 15px;
+        padding: 25px 15px 20px;
 
-        border-radius: 28px;
+        border-radius: 38px;
 
-        z-index: 30;
+        z-index: 60;
+
+        background:
+            linear-gradient(
+                135deg,
+                #eef0df,
+                #dfe4d1
+            );
+
+        box-shadow:
+            0 10px 20px rgba(0,0,0,0.2);
     }
 
     .main-title h2 {
-        font-size: 23px;
+        font-size: 26px;
+
         line-height: 1.05;
     }
 
     .main-title p {
-        font-size: 11px;
-        margin-top: 9px;
+        font-size: 13px;
+
+        line-height: 1.4;
+
+        margin-top: 10px;
     }
 
     .title-heart {
-        font-size: 16px;
+        left: 13px;
         top: 10px;
-        left: 12px;
+
+        font-size: 18px;
     }
 
     .title-lines {
-        font-size: 12px;
-        top: 10px;
         right: 12px;
+        top: 10px;
+
+        font-size: 15px;
     }
 
     .title-paw {
-        font-size: 12px;
-        right: 12px;
-        bottom: 10px;
+        right: 15px;
+        bottom: 12px;
+
+        font-size: 15px;
     }
 
     .title-underline {
-        width: 70px;
-        height: 2px;
-        margin-top: 7px;
+        width: 75px;
+
+        margin-top: 10px;
+    }
+
+    .main-title::before {
+        width: 55px;
+        height: 25px;
+
+        left: 40px;
+        top: -10px;
+    }
+
+    .main-title::after {
+        width: 45px;
+        height: 22px;
+
+        right: 45px;
+        top: -7px;
     }
 
 
-    /* -----------------------------------------------------
-       HEART
-    ----------------------------------------------------- */
-
-    .center-heart {
-        top: 65%;
-        font-size: 32px;
-        z-index: 25;
-    }
-
-
-    /* -----------------------------------------------------
-       ACTION CARDS
-       THREE CARDS STACKED
-    ----------------------------------------------------- */
+    /* ---------------- ACTIONS ---------------- */
 
     .actions {
-        width: calc(100% - 55px);
+        position: relative;
 
-        margin: 70px auto 0;
+        width: 100%;
+
+        margin: 0 auto;
 
         display: flex;
+
         flex-direction: column;
 
-        gap: 12px;
+        gap: 14px;
 
-        z-index: 50;
+        z-index: 70;
     }
 
     .action {
         width: 100%;
+
         min-height: 105px;
 
-        padding: 15px 16px;
+        padding: 15px;
 
         border-radius: 20px;
 
-        gap: 14px;
+        gap: 15px;
     }
 
     .action-icon {
-        width: 50px;
-        height: 50px;
+        flex: 0 0 52px;
 
-        font-size: 20px;
-    }
+        width: 52px;
+        height: 52px;
 
-    .action-text h3 {
         font-size: 22px;
     }
 
+    .action-text h3 {
+        font-size: 23px;
+    }
+
     .action-text p {
-        font-size: 12px;
-        line-height: 1.25;
+        font-size: 13px;
     }
 
     .action-text strong {
-        font-size: 17px;
-        margin-top: 3px;
+        font-size: 18px;
+
+        margin-top: 2px;
     }
 
 
-    /* -----------------------------------------------------
-       BOTTOM
-    ----------------------------------------------------- */
+    /* ---------------- BOTTOM ---------------- */
 
     .bottom {
-        height: 75px;
-    }
+        margin-top: 25px;
 
-    .bottom p {
+        padding-bottom: 10px;
+
         font-size: 14px;
-        text-align: center;
     }
 
     .bottom-decoration {
@@ -1050,78 +1250,181 @@ a {
 
 
 /* =========================================================
-   VERY SMALL PHONES
+   SMALL PHONE
 ========================================================= */
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
+
+    .navbar {
+        min-height: 125px;
+    }
+
+    .brand-logo {
+        width: 40px;
+        height: 40px;
+    }
 
     .brand-text h1 {
-        font-size: 17px;
+        font-size: 19px;
     }
 
     .brand-text p {
-        font-size: 10px;
+        font-size: 13px;
     }
 
     .navbar nav {
-        gap: 9px;
+        gap: 8px;
     }
 
     .navbar nav a {
         font-size: 11px;
     }
 
-    .navbar nav .donate {
-        padding: 8px 10px;
+    .navbar .donate {
+        padding: 8px 9px;
+
+        font-size: 11px;
     }
 
-    .hero-image {
-        width: calc(100% - 62px);
-        margin-left: 31px;
-        margin-right: 31px;
-        height: 390px;
+    .nav-paw {
+        font-size: 16px;
     }
 
-    .side-border {
-        width: 31px;
+
+    .hero {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .side-border-text {
-        font-size: 9px;
+    .hero-image > img {
+        min-height: 300px;
     }
 
-    .left-card,
+
+    .photo-card {
+        width: 95px;
+
+        padding: 4px;
+    }
+
+    .photo-card img {
+        height: 65px;
+    }
+
+    .left-card {
+        left: 2px;
+        top: 10px;
+    }
+
     .right-top-card {
-        width: 78px;
-        height: 100px;
+        right: 2px;
+        top: 15px;
     }
 
     .right-bottom-card {
-        width: 78px;
-        height: 108px;
+        right: 3px;
+        bottom: 12px;
     }
 
-    .right-bottom-card img {
-        height: 78px;
+    .photo-label {
+        width: 55px;
+
+        font-size: 8px;
+
+        padding: 4px;
     }
+
+    .right-top-card p,
+    .right-bottom-card p {
+        font-size: 8px;
+    }
+
 
     .main-title {
         width: calc(100% - 20px);
-        left: 10px;
-        min-height: 115px;
-        padding: 17px 10px;
+
+        min-height: 140px;
+
+        padding: 23px 10px 17px;
+
+        margin-top: -20px;
     }
 
     .main-title h2 {
-        font-size: 20px;
+        font-size: 23px;
+    }
+
+    .main-title p {
+        font-size: 11px;
+    }
+
+
+    .action {
+        min-height: 100px;
+
+        padding: 13px;
+    }
+
+    .action-icon {
+        flex-basis: 48px;
+
+        width: 48px;
+        height: 48px;
+    }
+
+    .action-text h3 {
+        font-size: 21px;
+    }
+
+    .action-text p {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .brand-text h1 {
+        font-size: 17px;
+    }
+
+    .brand-text p {
+        font-size: 11px;
+    }
+
+    .navbar nav {
+        gap: 6px;
+    }
+
+    .navbar nav a {
+        font-size: 10px;
+    }
+
+    .navbar .donate {
+        padding: 7px 8px;
+    }
+
+    .photo-card {
+        width: 82px;
+    }
+
+    .photo-card img {
+        height: 58px;
+    }
+
+    .main-title h2 {
+        font-size: 21px;
     }
 
     .main-title p {
         font-size: 10px;
     }
 
-    .actions {
-        width: calc(100% - 45px);
-        margin-top: 65px;
+    .action-text h3 {
+        font-size: 19px;
     }
 }
