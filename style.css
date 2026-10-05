@@ -10,13 +10,17 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
-    font-family: "DM Sans", sans-serif;
-    background: #eef0df;
-    color: #214b32;
+    width: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
+    background: #315d3d;
+    color: #214b35;
+    font-family: "DM Sans", sans-serif;
 }
 
 img {
@@ -37,7 +41,7 @@ a {
 .page {
     width: 100%;
     min-height: 100vh;
-    background: #eef0df;
+    overflow-x: hidden;
 }
 
 
@@ -46,36 +50,40 @@ a {
 ========================================================= */
 
 .navbar {
+    position: relative;
+    z-index: 1000;
+
     width: 100%;
-    height: 100px;
+    min-height: 100px;
+
     background: #f8f8e9;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 15px 5%;
+    padding: 15px 4.5%;
 
-    position: relative;
-    z-index: 1000;
-
-    border-top: 3px solid #214b32;
+    border-top: 3px solid #244d35;
 }
 
 .brand-area {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
 .brand-logo {
-    width: 66px;
-    height: 66px;
+    width: 74px;
+    height: 68px;
     background: white;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 }
 
 .brand-logo img {
@@ -88,39 +96,50 @@ a {
     font-family: Georgia, serif;
     font-size: 28px;
     line-height: 1;
-    color: #ed6d36;
+    white-space: nowrap;
+}
+
+.brand-text h1 span {
+    color: #ed7040;
 }
 
 .brand-text h1 b {
-    color: #4f763e;
+    color: #396b3e;
 }
 
 .brand-text p {
-    margin-top: 8px;
+    margin-top: 9px;
 
-    font-family: "Caveat", cursive;
-    font-size: 18px;
-    color: #648353;
+    font-family: "Kalam", cursive;
+    font-size: 16px;
+
+    color: #729263;
 }
 
 .brand-text p span {
-    color: #d8322d;
-    font-size: 20px;
-    padding: 0 5px;
+    color: #d93636;
+    font-size: 19px;
+    margin: 0 5px;
 }
+
+
+/* NAVIGATION */
 
 .navbar nav {
     display: flex;
     align-items: center;
-    gap: 38px;
+    gap: 34px;
 }
 
 .navbar nav a {
+    position: relative;
+
     font-size: 17px;
     font-weight: 600;
+
     color: #173e2b;
 
-    position: relative;
+    padding: 10px 0;
 
     white-space: nowrap;
 }
@@ -131,35 +150,35 @@ a {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -18px;
+    bottom: 0;
 
-    width: 48px;
+    width: 50px;
     height: 3px;
 
     margin: auto;
 
-    background: #214b32;
-    border-radius: 50%;
+    background: #174d36;
+    border-radius: 20px;
 }
 
-.navbar .donate {
-    background: #174b32;
-    color: white;
+.navbar nav .donate {
+    padding: 15px 25px;
 
-    padding: 17px 25px;
+    background: #164d35;
+    color: white;
 
     border-radius: 15px;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-.navbar .donate i {
-    margin-right: 8px;
+    box-shadow: 0 5px 14px rgba(0,0,0,.15);
 }
 
 .nav-paw {
     font-size: 25px;
-    color: #739456;
+    color: #769552;
 }
 
 
@@ -173,11 +192,11 @@ a {
     width: 100%;
     min-height: calc(100vh - 100px);
 
-    background: #71875d;
-
-    padding: 0 3.5% 100px;
+    background: #809668;
 
     overflow: hidden;
+
+    padding-bottom: 40px;
 }
 
 
@@ -188,40 +207,44 @@ a {
 .hero-image {
     position: relative;
 
-    width: min(78vw, 1250px);
+    width: calc(100% - 200px);
+
+    max-width: 1285px;
 
     margin: 0 auto;
+
+    height: 780px;
+
+    overflow: visible;
 
     z-index: 2;
 }
 
 .hero-image > img {
     width: 100%;
-    height: 750px;
+    height: 100%;
 
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
 
     display: block;
 }
 
 
-/* =========================================================
-   LIGHT OVERLAY
-========================================================= */
+/* LIGHT EFFECT */
 
 .hero-overlay {
     position: absolute;
-
-    top: 100px;
-    left: 10%;
-    right: 10%;
-
-    height: 600px;
-
-    background: rgba(255,255,255,0.05);
+    inset: 0;
 
     pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,255,255,.08),
+            transparent 45%
+        );
 
     z-index: 3;
 }
@@ -237,11 +260,11 @@ a {
     top: 0;
     bottom: 0;
 
-    width: 3.5%;
+    width: 100px;
 
-    background: #315d3b;
+    background: #285c3b;
 
-    color: white;
+    z-index: 20;
 
     display: flex;
     flex-direction: column;
@@ -249,9 +272,9 @@ a {
     align-items: center;
     justify-content: space-around;
 
-    padding: 25px 5px;
+    padding: 30px 8px;
 
-    z-index: 20;
+    color: #f6f5dd;
 
     overflow: hidden;
 }
@@ -271,223 +294,333 @@ a {
 
     font-family: "Kalam", cursive;
 
-    font-size: 18px;
-
-    letter-spacing: 1px;
+    font-size: 17px;
 
     text-align: center;
 
-    white-space: nowrap;
+    letter-spacing: 1px;
 }
 
 .side-border-icon {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .side-border-dot {
     width: 5px;
     height: 5px;
 
-    border-radius: 50%;
+    background: #e7e7c8;
 
-    background: #d9d7b5;
+    border-radius: 50%;
 }
 
 
 /* =========================================================
-   FLOATING PHOTO CARDS
+   PHOTO CARDS
 ========================================================= */
 
 .photo-card {
     position: absolute;
 
-    background: #fffdf0;
+    z-index: 30;
 
-    border: 5px solid #f3f1d9;
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.22),
-        0 2px 5px rgba(0,0,0,0.1);
+    background: #f7f5df;
 
     padding: 12px;
 
-    z-index: 15;
+    border: 2px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25),
+        0 3px 5px rgba(0,0,0,.15);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    animation: floatingCard 5s ease-in-out infinite;
 }
 
 .photo-card:hover {
-    transform: translateY(-12px) rotate(0deg);
+    transform: translateY(-8px) rotate(0deg) !important;
 
     box-shadow:
-        0 20px 35px rgba(0,0,0,0.25);
+        0 18px 35px rgba(0,0,0,.30);
 }
 
 .photo-card img {
     width: 100%;
+    height: 100%;
 
     object-fit: cover;
 
-    border: 2px dashed #b9bd94;
+    border: 4px solid #f7f5df;
 }
 
 
-/* =========================================================
-   FLOATING IMAGE ANIMATIONS (inside cards)
-========================================================= */
-
-@keyframes imgFloatA {
-    0%, 100% { transform: translateY(0)     scale(1);    }
-    50%      { transform: translateY(-10px) scale(1.02); }
-}
-
-@keyframes imgFloatB {
-    0%, 100% { transform: translateY(0)    scale(1);    }
-    50%      { transform: translateY(-14px) scale(1.03); }
-}
-
-@keyframes imgFloatC {
-    0%, 100% { transform: translateY(0)    scale(1);    }
-    50%      { transform: translateY(-12px) scale(1.02); }
-}
-
-.left-card img {
-    animation: imgFloatA 3.8s ease-in-out infinite;
-}
-
-.right-top-card img {
-    animation: imgFloatB 4.4s ease-in-out infinite;
-    animation-delay: 0.4s;
-}
-
-.right-bottom-card img {
-    animation: imgFloatC 4.1s ease-in-out infinite;
-    animation-delay: 0.8s;
-}
-
-.photo-card:hover img {
-    animation-play-state: paused;
-}
-
-
-/* =========================================================
-   LEFT PHOTO
-========================================================= */
+/* LEFT PHOTO */
 
 .left-card {
     width: 290px;
+    height: 355px;
 
-    left: -125px;
-    top: 55px;
+    left: -110px;
+    top: 65px;
 
     transform: rotate(-5deg);
-
-    animation: floatLeft 4s ease-in-out infinite;
 }
 
-.left-card img {
-    height: 210px;
+
+/* RIGHT TOP */
+
+.right-top-card {
+    width: 285px;
+    height: 345px;
+
+    right: -105px;
+    top: 55px;
+
+    transform: rotate(4deg);
+
+    animation-delay: .7s;
+}
+
+
+/* RIGHT BOTTOM */
+
+.right-bottom-card {
+    width: 300px;
+    height: 350px;
+
+    right: -100px;
+    top: 370px;
+
+    transform: rotate(5deg);
+
+    animation-delay: 1.4s;
+}
+
+
+/* PHOTO CARD TEXT */
+
+.photo-card p {
+    font-family: "Kalam", cursive;
+
+    color: #5c8056;
+
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    padding: 7px 4px 2px;
 }
 
 .photo-label {
-    width: 95px;
+    position: absolute;
 
-    margin: 18px auto 0;
+    bottom: 20px;
+    left: 50%;
 
-    padding: 10px;
+    transform: translateX(-50%);
 
-    background: #285e39;
+    background: #28613c;
 
     color: white;
 
     border-radius: 20px;
 
-    text-align: center;
+    padding: 10px 18px;
 
     font-family: "Kalam", cursive;
 
-    font-size: 16px;
-
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
-}
-
-
-/* =========================================================
-   RIGHT TOP PHOTO
-========================================================= */
-
-.right-top-card {
-    width: 290px;
-
-    right: -115px;
-    top: 55px;
-
-    transform: rotate(4deg);
-
-    animation: floatRightTop 5s ease-in-out infinite;
-}
-
-.right-top-card img {
-    height: 210px;
-}
-
-.right-top-card p,
-.right-bottom-card p {
-    font-family: "Kalam", cursive;
-
-    color: #557448;
-
-    font-size: 16px;
+    font-size: 15px;
 
     text-align: center;
 
-    padding: 12px 5px 3px;
+    line-height: 1.1;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
 }
 
 
 /* =========================================================
-   RIGHT BOTTOM PHOTO
+   FLOATING ANIMATION
 ========================================================= */
 
-.right-bottom-card {
-    width: 290px;
+@keyframes floatingCard {
 
-    right: -115px;
-    top: 350px;
+    0% {
+        margin-top: 0;
+    }
 
-    transform: rotate(5deg);
+    50% {
+        margin-top: -9px;
+    }
 
-    animation: floatRightBottom 4.5s ease-in-out infinite;
-}
-
-.right-bottom-card img {
-    height: 220px;
+    100% {
+        margin-top: 0;
+    }
 }
 
 
 /* =========================================================
-   CARD FLOAT KEYFRAMES (container motion)
+   MAIN CLOUD / TITLE
 ========================================================= */
 
-@keyframes floatLeft {
-    0%, 100% { transform: rotate(-5deg) translateY(0); }
-    50%      { transform: rotate(-5deg) translateY(-14px); }
+.main-title {
+    position: absolute;
+
+    z-index: 50;
+
+    left: -105px;
+    bottom: 25px;
+
+    width: 430px;
+
+    min-height: 220px;
+
+    padding: 35px 35px 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,245,.98),
+            rgba(237,240,213,.97)
+        );
+
+    border-radius: 45px;
+
+    border: 2px solid rgba(255,255,255,.85);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.20);
+
+    text-align: center;
+
+    animation: floatingCloud 6s ease-in-out infinite;
 }
 
-@keyframes floatRightTop {
-    0%, 100% { transform: rotate(4deg) translateY(0); }
-    50%      { transform: rotate(4deg) translateY(-12px); }
+
+/* CLOUD BUBBLES */
+
+.main-title::before,
+.main-title::after {
+    content: "";
+
+    position: absolute;
+
+    background: #f1f2dc;
+
+    border-radius: 50%;
+
+    z-index: -1;
 }
 
-@keyframes floatRightBottom {
-    0%, 100% { transform: rotate(5deg) translateY(0); }
-    50%      { transform: rotate(5deg) translateY(-16px); }
+.main-title::before {
+    width: 85px;
+    height: 55px;
+
+    left: 45px;
+    top: -25px;
 }
 
-.photo-card:hover {
-    animation-play-state: paused;
+.main-title::after {
+    width: 75px;
+    height: 50px;
+
+    right: 40px;
+    top: -20px;
+}
+
+
+@keyframes floatingCloud {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* TITLE DECORATIONS */
+
+.title-heart {
+    position: absolute;
+
+    top: 15px;
+    left: 20px;
+
+    font-size: 28px;
+
+    color: #6b965d;
+}
+
+.title-lines {
+    position: absolute;
+
+    top: 16px;
+    right: 20px;
+
+    color: #71915f;
+
+    font-size: 20px;
+}
+
+.title-paw {
+    position: absolute;
+
+    bottom: 15px;
+    right: 22px;
+
+    font-size: 19px;
+
+    opacity: .7;
+}
+
+
+/* TITLE */
+
+.main-title h2 {
+    font-family: "Kalam", cursive;
+
+    color: #5c8754;
+
+    font-size: 34px;
+
+    line-height: 1.08;
+
+    margin-bottom: 18px;
+}
+
+.main-title p {
+    color: #345c45;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    font-weight: 600;
+}
+
+.title-underline {
+    width: 115px;
+    height: 3px;
+
+    margin: 15px auto 0;
+
+    background: #72995d;
+
+    border-radius: 50%;
 }
 
 
@@ -498,19 +631,18 @@ a {
 .center-heart {
     position: absolute;
 
-    left: 50%;
-    top: 68%;
+    z-index: 40;
 
-    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 190px;
+
+    transform: translateX(-50%);
 
     color: white;
 
-    font-size: 52px;
+    font-size: 50px;
 
-    z-index: 25;
-
-    text-shadow:
-        0 3px 8px rgba(0,0,0,0.3);
+    text-shadow: 0 3px 10px rgba(0,0,0,.25);
 
     animation: heartFloat 3s ease-in-out infinite;
 }
@@ -519,149 +651,12 @@ a {
 
     0%,
     100% {
-        transform: translate(-50%, -50%) translateY(0);
+        transform: translate(-50%, 0);
     }
 
     50% {
-        transform: translate(-50%, -50%) translateY(-10px);
+        transform: translate(-50%, -8px);
     }
-}
-
-
-/* =========================================================
-   CLOUD / TITLE BOX
-========================================================= */
-
-.main-title {
-    position: absolute;
-
-    left: -100px;
-    bottom: 35px;
-
-    width: 440px;
-    min-height: 190px;
-
-    padding: 28px 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eef0df,
-            #dfe4d1
-        );
-
-    border-radius:
-        55px
-        55px
-        45px
-        45px;
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,0.18);
-
-    z-index: 30;
-
-    text-align: center;
-}
-
-.main-title::before {
-    content: "";
-
-    position: absolute;
-
-    width: 80px;
-    height: 35px;
-
-    background: #eef0df;
-
-    border-radius: 50%;
-
-    top: -15px;
-    left: 65px;
-}
-
-.main-title::after {
-    content: "";
-
-    position: absolute;
-
-    width: 60px;
-    height: 30px;
-
-    background: #eef0df;
-
-    border-radius: 50%;
-
-    top: -10px;
-    right: 70px;
-}
-
-.main-title h2 {
-    position: relative;
-
-    font-family: "Kalam", cursive;
-
-    font-size: 32px;
-
-    line-height: 1.1;
-
-    color: #5e8548;
-
-    z-index: 2;
-}
-
-.main-title p {
-    margin-top: 15px;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-
-    color: #305b3d;
-
-    font-weight: 600;
-}
-
-.title-heart {
-    position: absolute;
-
-    left: 20px;
-    top: 15px;
-
-    font-size: 25px;
-
-    color: #6c8c59;
-}
-
-.title-paw {
-    position: absolute;
-
-    right: 25px;
-    bottom: 25px;
-
-    font-size: 20px;
-}
-
-.title-lines {
-    position: absolute;
-
-    right: 22px;
-    top: 15px;
-
-    color: #71915b;
-
-    font-size: 20px;
-}
-
-.title-underline {
-    width: 105px;
-    height: 3px;
-
-    margin: 14px auto 0;
-
-    background: #78945f;
-
-    border-radius: 50%;
 }
 
 
@@ -672,7 +667,11 @@ a {
 .actions {
     position: relative;
 
-    width: min(930px, 80%);
+    z-index: 100;
+
+    width: calc(100% - 200px);
+
+    max-width: 1100px;
 
     margin: -5px auto 0;
 
@@ -681,101 +680,103 @@ a {
     grid-template-columns: repeat(3, 1fr);
 
     gap: 18px;
-
-    z-index: 40;
 }
 
 .action {
-    min-height: 145px;
+    min-height: 160px;
 
-    background: #f4f2d9;
+    background: #f7f6df;
 
-    border: 3px solid rgba(255,255,255,0.85);
+    border: 2px solid rgba(255,255,255,.9);
 
-    border-radius: 22px;
+    border-radius: 28px;
+
+    padding: 24px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 20px;
-
-    padding: 20px;
+    gap: 22px;
 
     box-shadow:
-        0 8px 18px rgba(0,0,0,0.14);
+        0 10px 20px rgba(0,0,0,.18);
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .action:hover {
     transform: translateY(-8px);
 
     box-shadow:
-        0 15px 25px rgba(0,0,0,0.2);
+        0 18px 30px rgba(0,0,0,.25);
 }
 
-.action-icon {
-    flex: 0 0 65px;
 
-    width: 65px;
-    height: 65px;
+/* ACTION ICON */
+
+.action-icon {
+    flex: 0 0 70px;
+
+    width: 70px;
+    height: 70px;
 
     border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     color: white;
 
-    font-size: 27px;
+    font-size: 28px;
+
+    border: 4px solid rgba(255,255,255,.6);
 
     box-shadow:
-        inset 0 0 0 4px rgba(255,255,255,0.35),
-        0 5px 10px rgba(0,0,0,0.15);
+        0 5px 12px rgba(0,0,0,.15);
 }
 
 .action-icon.orange {
-    background: #f17b43;
+    background: #f57a4c;
 }
 
 .action-icon.green {
-    background: #6d9c4e;
+    background: #70a258;
 }
+
+
+/* ACTION TEXT */
 
 .action-text h3 {
     font-family: "Kalam", cursive;
 
     font-size: 27px;
 
-    color: #62894b;
-}
+    color: #668c59;
 
-.action:nth-child(3) h3 {
-    color: #ef7040;
+    margin-bottom: 4px;
 }
 
 .action-text p {
-    margin-top: 3px;
-
     font-size: 15px;
 
     line-height: 1.4;
 
-    color: #426044;
+    color: #456349;
 }
 
 .action-text strong {
     display: block;
 
-    margin-top: 5px;
+    font-size: 27px;
 
-    font-size: 22px;
+    margin-top: 6px;
 
-    color: #222;
+    color: #1f3525;
 }
 
 
@@ -786,34 +787,40 @@ a {
 .bottom {
     position: relative;
 
-    margin: 25px auto 0;
+    z-index: 50;
 
-    text-align: center;
+    width: 100%;
 
-    color: white;
+    min-height: 80px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #f5f3dc;
 
     font-family: "Kalam", cursive;
 
     font-size: 18px;
 
-    z-index: 10;
+    padding: 25px;
 }
 
 .bottom-decoration {
     position: absolute;
 
-    color: #8fac75;
-
     font-size: 40px;
+
+    color: #6e9559;
 }
 
 .bottom-decoration.left {
-    left: 10%;
+    left: 25px;
 }
 
 .bottom-decoration.right {
-    right: 10%;
-    transform: scaleX(-1);
+    right: 25px;
 }
 
 
@@ -821,52 +828,41 @@ a {
    TABLET
 ========================================================= */
 
-@media (max-width: 1100px) {
-
-    .navbar {
-        padding: 12px 25px;
-    }
-
-    .navbar nav {
-        gap: 18px;
-    }
-
-    .navbar nav a {
-        font-size: 15px;
-    }
-
-    .hero {
-        padding-left: 6%;
-        padding-right: 6%;
-    }
+@media (max-width: 1200px) {
 
     .hero-image {
-        width: 82vw;
+        width: calc(100% - 150px);
+    }
+
+    .side-border {
+        width: 75px;
     }
 
     .left-card {
-        left: -90px;
+        left: -75px;
         width: 240px;
+        height: 300px;
     }
 
-    .right-top-card,
+    .right-top-card {
+        right: -75px;
+        width: 240px;
+        height: 295px;
+    }
+
     .right-bottom-card {
-        right: -80px;
-        width: 240px;
-    }
-
-    .left-card img,
-    .right-top-card img {
-        height: 180px;
-    }
-
-    .right-bottom-card img {
-        height: 190px;
+        right: -75px;
+        width: 250px;
+        height: 300px;
     }
 
     .main-title {
-        left: -60px;
-        width: 380px;
+        left: -75px;
+        width: 390px;
+    }
+
+    .actions {
+        width: calc(100% - 150px);
     }
 }
 
@@ -877,49 +873,36 @@ a {
 
 @media (max-width: 768px) {
 
+    html,
     body {
-        background: #71875d;
-    }
-
-    .page {
         width: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
 
-    /* ---------------- NAVBAR ---------------- */
+    /* -----------------------------------------
+       NAVBAR
+    ----------------------------------------- */
 
     .navbar {
-        height: auto;
+        min-height: auto;
 
-        min-height: 135px;
+        padding: 12px 15px 10px;
 
-        padding: 10px 12px 12px;
+        display: block;
 
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 8px;
-
-        border-top: 3px solid #214b32;
+        text-align: center;
     }
 
     .brand-area {
-        width: 100%;
-
         justify-content: center;
 
-        gap: 8px;
+        gap: 9px;
     }
 
     .brand-logo {
-        width: 45px;
-        height: 45px;
-    }
-
-    .brand-text {
-        text-align: center;
+        width: 58px;
+        height: 52px;
     }
 
     .brand-text h1 {
@@ -927,8 +910,9 @@ a {
     }
 
     .brand-text p {
-        font-size: 15px;
-        margin-top: 4px;
+        font-size: 13px;
+
+        margin-top: 5px;
     }
 
     .brand-text p span {
@@ -936,36 +920,34 @@ a {
     }
 
 
-    /* NAVIGATION */
+    /* MOBILE NAV */
 
     .navbar nav {
+        margin-top: 10px;
+
         width: 100%;
 
         display: flex;
 
         justify-content: center;
 
-        gap: 13px;
+        gap: 15px;
 
         flex-wrap: nowrap;
     }
 
     .navbar nav a {
-        font-size: 13px;
+        font-size: 14px;
+
+        padding: 8px 0;
     }
 
-    .navbar nav a.active::after {
-        bottom: -7px;
-
-        height: 2px;
-
-        width: 30px;
-    }
-
-    .navbar .donate {
-        padding: 10px 12px;
+    .navbar nav .donate {
+        padding: 10px 14px;
 
         border-radius: 12px;
+
+        font-size: 14px;
     }
 
     .nav-paw {
@@ -973,89 +955,65 @@ a {
     }
 
 
-    /* ---------------- HERO ---------------- */
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
 
     .hero {
         min-height: auto;
 
-        padding:
-            15px
-            15px
-            45px;
+        padding-bottom: 30px;
 
-        background: #71875d;
+        overflow: hidden;
     }
 
 
-    /* ---------------- MAIN IMAGE ---------------- */
+    /* -----------------------------------------
+       HERO IMAGE
+    ----------------------------------------- */
 
     .hero-image {
         width: 100%;
 
-        margin: 0 auto;
+        height: 720px;
 
-        padding: 0;
+        margin: 0;
 
-        display: flex;
-
-        flex-direction: column;
-
-        position: relative;
-
-        /* give extra room at bottom so the bottom card never
-           slides off the hero image on tall phones */
-        padding-bottom: 20px;
+        overflow: visible;
     }
 
     .hero-image > img {
         width: 100%;
-
-        height: auto;
-
-        min-height: 330px;
-
-        max-height: 520px;
+        height: 100%;
 
         object-fit: cover;
 
-        object-position: center;
-
-        border-radius: 0;
+        object-position: center center;
     }
 
 
-    /* ---------------- SIDE BORDERS ---------------- */
+    /* -----------------------------------------
+       SIDE BORDERS
+    ----------------------------------------- */
 
     .side-border {
         position: absolute;
 
-        top: 0;
+        width: 34px;
 
-        width: 26px;
+        padding: 20px 2px;
 
-        padding: 15px 2px;
-
-        z-index: 100;
-
-        justify-content: space-evenly;
-    }
-
-    .side-border.left {
-        left: 0;
-    }
-
-    .side-border.right {
-        right: 0;
+        z-index: 80;
     }
 
     .side-border-text {
-        font-size: 10px;
+        font-size: 11px;
 
-        letter-spacing: 0.5px;
+        letter-spacing: .5px;
     }
 
     .side-border-icon {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .side-border-dot {
@@ -1064,275 +1022,214 @@ a {
     }
 
 
-    /* ---------------- FLOATING PHOTO CARDS ---------------- */
+    /* -----------------------------------------
+       PHOTO CARDS
+    ----------------------------------------- */
 
     .photo-card {
-        position: absolute;
+        padding: 6px;
 
-        width: 115px;
-
-        padding: 5px;
-
-        border-width: 3px;
-
-        border-radius: 2px;
-
-        z-index: 50;
+        border-width: 1px;
 
         box-shadow:
-            0 7px 15px rgba(0,0,0,0.25);
+            0 7px 15px rgba(0,0,0,.25);
     }
 
     .photo-card img {
-        width: 100%;
-
-        height: 80px;
-
-        object-fit: cover;
+        border-width: 2px;
     }
 
 
-    /* ====== IMAGE FLOAT ON MOBILE (lighter motion) ====== */
-
-    @keyframes imgFloatAMobile {
-        0%, 100% { transform: translateY(0)    scale(1);    }
-        50%      { transform: translateY(-6px) scale(1.01); }
-    }
-
-    @keyframes imgFloatBMobile {
-        0%, 100% { transform: translateY(0)    scale(1);    }
-        50%      { transform: translateY(-8px) scale(1.02); }
-    }
-
-    @keyframes imgFloatCMobile {
-        0%, 100% { transform: translateY(0)    scale(1);    }
-        50%      { transform: translateY(-7px) scale(1.01); }
-    }
-
-    .left-card img {
-        animation: imgFloatAMobile 3.8s ease-in-out infinite;
-    }
-
-    .right-top-card img {
-        animation: imgFloatBMobile 4.4s ease-in-out infinite;
-        animation-delay: 0.4s;
-    }
-
-    .right-bottom-card img {
-        animation: imgFloatCMobile 4.1s ease-in-out infinite;
-        animation-delay: 0.8s;
-    }
-
-
-    /* LEFT FLOATING CARD */
+    /* LEFT */
 
     .left-card {
-        left: 4px;
+        left: 42px;
+        top: 22px;
 
-        top: 15px;
+        width: 125px;
+        height: 165px;
 
-        transform: rotate(-5deg);
+        transform: rotate(-4deg);
 
-        animation: floatLeftMobile 4s ease-in-out infinite;
-    }
-
-    .left-card:hover {
-        transform: rotate(-2deg) translateY(-5px);
-    }
-
-    .photo-label {
-        width: 65px;
-
-        margin: 6px auto 2px;
-
-        padding: 5px;
-
-        font-size: 10px;
-
-        border-radius: 12px;
+        z-index: 60;
     }
 
 
     /* RIGHT TOP */
 
     .right-top-card {
-        right: 4px;
-
+        right: 42px;
         top: 25px;
 
-        transform: rotate(4deg);
-
-        animation: floatRightTopMobile 5s ease-in-out infinite;
-    }
-
-    .right-top-card:hover {
-        transform: rotate(1deg) translateY(-5px);
-    }
-
-    .right-top-card p,
-    .right-bottom-card p {
-        font-size: 9px;
-
-        line-height: 1.1;
-
-        padding: 5px 2px 2px;
-    }
-
-
-    /* ============================================
-       RIGHT BOTTOM — FIXED FOR GOOGLE PIXEL
-       (was: bottom: 15px  →  now: bottom: 25px
-        plus  max-height cap + will-change hint)
-       ============================================ */
-
-    .right-bottom-card {
-        right: 8px;
-
-        top: auto;
-
-        /* raised from 15px → 25px so the card never
-           slides past the hero image on tall phones */
-        bottom: 25px;
+        width: 125px;
+        height: 160px;
 
         transform: rotate(4deg);
-
-        animation: floatRightBottomMobile 4.5s ease-in-out infinite;
-
-        /* keep the GPU layer stable so it doesn't drop out of frame */
-        will-change: transform;
-    }
-
-    .right-bottom-card img {
-        height: 80px;
-    }
-
-
-    /* MOBILE CARD FLOAT KEYFRAMES (lighter motion) */
-
-    @keyframes floatLeftMobile {
-        0%, 100% { transform: rotate(-5deg) translateY(0); }
-        50%      { transform: rotate(-5deg) translateY(-6px); }
-    }
-
-    @keyframes floatRightTopMobile {
-        0%, 100% { transform: rotate(4deg) translateY(0); }
-        50%      { transform: rotate(4deg) translateY(-5px); }
-    }
-
-    @keyframes floatRightBottomMobile {
-        0%, 100% { transform: rotate(4deg) translateY(0); }
-        50%      { transform: rotate(4deg) translateY(-6px); }
-    }
-
-
-    /* ---------------- CENTER HEART ---------------- */
-
-    .center-heart {
-        top: 48%;
-
-        font-size: 30px;
-
-        z-index: 20;
-    }
-
-
-    /* ---------------- CLOUD TITLE ---------------- */
-
-    .main-title {
-        position: relative;
-
-        left: auto;
-        bottom: auto;
-
-        width: calc(100% - 30px);
-
-        min-height: 150px;
-
-        margin: -25px auto 25px;
-
-        padding: 25px 15px 20px;
-
-        border-radius: 38px;
 
         z-index: 60;
+    }
 
-        background:
-            linear-gradient(
-                135deg,
-                #eef0df,
-                #dfe4d1
-            );
 
-        box-shadow:
-            0 10px 20px rgba(0,0,0,0.2);
+    /* RIGHT BOTTOM */
+
+    .right-bottom-card {
+        right: 40px;
+        top: 190px;
+
+        width: 125px;
+        height: 160px;
+
+        transform: rotate(4deg);
+
+        z-index: 61;
+    }
+
+
+    /* PHOTO TEXT */
+
+    .photo-card p {
+        font-size: 9px;
+
+        line-height: 1.05;
+
+        padding: 3px 1px 0;
+    }
+
+    .photo-label {
+        bottom: 8px;
+
+        padding: 5px 8px;
+
+        font-size: 9px;
+
+        border-radius: 10px;
+    }
+
+
+    /* -----------------------------------------
+       MAIN CLOUD
+    ----------------------------------------- */
+
+    .main-title {
+        left: 50%;
+
+        bottom: 25px;
+
+        transform: translateX(-50%);
+
+        width: calc(100% - 80px);
+
+        min-height: 190px;
+
+        padding: 28px 18px 20px;
+
+        border-radius: 35px;
+
+        animation: floatingCloudMobile 6s ease-in-out infinite;
+
+        z-index: 70;
+    }
+
+    @keyframes floatingCloudMobile {
+
+        0% {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+            transform: translateX(-50%) translateY(-6px);
+        }
+
+        100% {
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    .main-title::before {
+        width: 55px;
+        height: 35px;
+
+        left: 35px;
+        top: -17px;
+    }
+
+    .main-title::after {
+        width: 50px;
+        height: 32px;
+
+        right: 30px;
+        top: -14px;
     }
 
     .main-title h2 {
-        font-size: 26px;
+        font-size: 28px;
 
         line-height: 1.05;
+
+        margin-bottom: 12px;
     }
 
     .main-title p {
-        font-size: 13px;
+        font-size: 12px;
 
-        line-height: 1.4;
-
-        margin-top: 10px;
+        line-height: 1.5;
     }
 
     .title-heart {
-        left: 13px;
         top: 10px;
+        left: 14px;
 
-        font-size: 18px;
+        font-size: 21px;
     }
 
     .title-lines {
-        right: 12px;
         top: 10px;
+        right: 15px;
 
         font-size: 15px;
     }
 
     .title-paw {
-        right: 15px;
-        bottom: 12px;
+        bottom: 10px;
+        right: 13px;
 
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .title-underline {
-        width: 75px;
+        width: 85px;
 
         margin-top: 10px;
     }
 
-    .main-title::before {
-        width: 55px;
-        height: 25px;
 
-        left: 40px;
-        top: -10px;
+    /* -----------------------------------------
+       CENTER HEART
+    ----------------------------------------- */
+
+    .center-heart {
+        left: 50%;
+
+        bottom: 205px;
+
+        font-size: 35px;
+
+        z-index: 65;
     }
 
-    .main-title::after {
-        width: 45px;
-        height: 22px;
 
-        right: 45px;
-        top: -7px;
-    }
-
-
-    /* ---------------- ACTIONS ---------------- */
+    /* -----------------------------------------
+       ACTIONS
+       IMPORTANT:
+       They are now BELOW the hero image.
+    ----------------------------------------- */
 
     .actions {
         position: relative;
 
-        width: 100%;
+        width: calc(100% - 70px);
 
-        margin: 0 auto;
+        margin: 20px auto 0;
 
         display: flex;
 
@@ -1340,32 +1237,57 @@ a {
 
         gap: 14px;
 
-        z-index: 70;
+        z-index: 100;
     }
 
     .action {
         width: 100%;
 
-        min-height: 105px;
+        min-height: 125px;
 
-        padding: 15px;
+        padding: 18px;
 
-        border-radius: 20px;
+        border-radius: 25px;
 
-        gap: 15px;
+        gap: 17px;
+
+        animation: floatingAction 5s ease-in-out infinite;
+    }
+
+    .action:nth-child(2) {
+        animation-delay: .7s;
+    }
+
+    .action:nth-child(3) {
+        animation-delay: 1.4s;
+    }
+
+    @keyframes floatingAction {
+
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-5px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
     }
 
     .action-icon {
-        flex: 0 0 52px;
+        width: 58px;
+        height: 58px;
 
-        width: 52px;
-        height: 52px;
+        flex-basis: 58px;
 
-        font-size: 22px;
+        font-size: 23px;
     }
 
     .action-text h3 {
-        font-size: 23px;
+        font-size: 25px;
     }
 
     .action-text p {
@@ -1373,41 +1295,52 @@ a {
     }
 
     .action-text strong {
-        font-size: 18px;
-
-        margin-top: 2px;
+        font-size: 22px;
     }
 
 
-    /* ---------------- BOTTOM ---------------- */
+    /* -----------------------------------------
+       BOTTOM
+    ----------------------------------------- */
 
     .bottom {
-        margin-top: 25px;
-
-        padding-bottom: 10px;
+        min-height: 70px;
 
         font-size: 14px;
+
+        padding: 20px 40px;
+
+        text-align: center;
     }
 
     .bottom-decoration {
         font-size: 25px;
     }
+
+    .bottom-decoration.left {
+        left: 8px;
+    }
+
+    .bottom-decoration.right {
+        right: 8px;
+    }
 }
 
 
 /* =========================================================
-   SMALL PHONE
+   SMALL PHONES
 ========================================================= */
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
 
     .navbar {
-        min-height: 125px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .brand-logo {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 45px;
     }
 
     .brand-text h1 {
@@ -1415,91 +1348,95 @@ a {
     }
 
     .brand-text p {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .navbar nav {
-        gap: 8px;
+        gap: 10px;
     }
 
     .navbar nav a {
-        font-size: 11px;
+        font-size: 12px;
     }
 
-    .navbar .donate {
-        padding: 8px 9px;
-
-        font-size: 11px;
+    .navbar nav .donate {
+        padding: 9px 11px;
+        font-size: 12px;
     }
 
     .nav-paw {
-        font-size: 16px;
+        font-size: 17px;
     }
 
 
-    .hero {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+    /* HERO */
 
-    .hero-image > img {
-        min-height: 300px;
+    .hero-image {
+        height: 690px;
     }
 
 
-    .photo-card {
-        width: 95px;
+    /* SIDE BORDERS */
 
-        padding: 4px;
+    .side-border {
+        width: 29px;
     }
 
-    .photo-card img {
-        height: 65px;
-    }
+
+    /* PHOTO CARDS */
 
     .left-card {
-        left: 2px;
-        top: 10px;
+        left: 34px;
+
+        width: 108px;
+        height: 145px;
+
+        top: 18px;
     }
 
     .right-top-card {
-        right: 2px;
-        top: 15px;
+        right: 34px;
+
+        width: 108px;
+        height: 140px;
+
+        top: 20px;
     }
 
-    /* RIGHT BOTTOM — fixed for small phones too */
     .right-bottom-card {
-        right: 3px;
+        right: 33px;
 
-        bottom: 22px;   /* raised from 12px */
+        width: 108px;
+        height: 140px;
+
+        top: 170px;
+    }
+
+    .photo-card p {
+        font-size: 8px;
     }
 
     .photo-label {
-        width: 55px;
-
         font-size: 8px;
 
-        padding: 4px;
+        padding: 4px 6px;
     }
 
-    .right-top-card p,
-    .right-bottom-card p {
-        font-size: 8px;
-    }
 
+    /* CLOUD */
 
     .main-title {
-        width: calc(100% - 20px);
+        width: calc(100% - 70px);
 
-        min-height: 140px;
+        min-height: 175px;
 
-        padding: 23px 10px 17px;
+        padding: 25px 12px 18px;
 
-        margin-top: -20px;
+        bottom: 22px;
     }
 
     .main-title h2 {
-        font-size: 23px;
+        font-size: 24px;
     }
 
     .main-title p {
@@ -1507,21 +1444,31 @@ a {
     }
 
 
-    .action {
-        min-height: 100px;
+    /* ACTIONS */
 
-        padding: 13px;
+    .actions {
+        width: calc(100% - 58px);
+
+        margin-top: 18px;
+    }
+
+    .action {
+        min-height: 115px;
+
+        padding: 15px;
     }
 
     .action-icon {
-        flex-basis: 48px;
+        width: 52px;
+        height: 52px;
 
-        width: 48px;
-        height: 48px;
+        flex-basis: 52px;
+
+        font-size: 21px;
     }
 
     .action-text h3 {
-        font-size: 21px;
+        font-size: 23px;
     }
 
     .action-text p {
@@ -1531,7 +1478,7 @@ a {
 
 
 /* =========================================================
-   VERY SMALL PHONE
+   VERY SMALL PHONES
 ========================================================= */
 
 @media (max-width: 360px) {
@@ -1541,32 +1488,52 @@ a {
     }
 
     .brand-text p {
-        font-size: 11px;
-    }
-
-    .navbar nav {
-        gap: 6px;
-    }
-
-    .navbar nav a {
         font-size: 10px;
     }
 
-    .navbar .donate {
-        padding: 7px 8px;
+    .navbar nav {
+        gap: 7px;
     }
 
-    .photo-card {
-        width: 82px;
+    .navbar nav a {
+        font-size: 11px;
     }
 
-    .photo-card img {
-        height: 58px;
+    .navbar nav .donate {
+        padding: 8px 9px;
     }
 
-    /* RIGHT BOTTOM — same fix for very small phones */
+    .hero-image {
+        height: 650px;
+    }
+
+    .left-card {
+        left: 32px;
+
+        width: 92px;
+        height: 125px;
+    }
+
+    .right-top-card {
+        right: 32px;
+
+        width: 92px;
+        height: 120px;
+    }
+
     .right-bottom-card {
-        bottom: 20px;   /* raised from 12px */
+        right: 30px;
+
+        width: 92px;
+        height: 120px;
+
+        top: 150px;
+    }
+
+    .main-title {
+        width: calc(100% - 62px);
+
+        min-height: 160px;
     }
 
     .main-title h2 {
@@ -1577,7 +1544,7 @@ a {
         font-size: 10px;
     }
 
-    .action-text h3 {
-        font-size: 19px;
+    .actions {
+        width: calc(100% - 50px);
     }
 }
