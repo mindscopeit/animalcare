@@ -1,5 +1,6 @@
 /* ============================================
-   ANIMAL CONNECT TRUST - SIMPLE FIX
+   ANIMAL CONNECT TRUST
+   BIG SCREEN = MOBILE (same layout)
    ============================================ */
 
 :root {
@@ -10,6 +11,7 @@
     --cream: #f8f8e8;
     --paper: #fffef1;
     --text-green: #315638;
+    --blend-bg: #7a8a5e;
 }
 
 * {
@@ -18,17 +20,23 @@
     box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
 body {
     margin: 0;
     background: #000;
     font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
 }
+
+a { text-decoration: none; color: inherit; }
 
 .page {
     width: 100%;
     max-width: 1500px;
     margin: auto;
     background: var(--cream);
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -39,17 +47,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 100;
 }
 
 .brand-area { display: flex; align-items: center; gap: 12px; }
 
-.brand-logo { width: 62px; height: 62px; }
+.brand-logo {
+    width: 62px; height: 62px;
+    overflow: hidden; flex-shrink: 0;
+}
 .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
 
 .brand-text h1 {
     font-family: Georgia, serif;
-    font-size: 23px;
-    line-height: 1;
+    font-size: 23px; line-height: 1; white-space: nowrap;
 }
 .brand-text h1 span { color: var(--orange); }
 .brand-text h1 b { color: var(--olive-green); }
@@ -60,27 +72,30 @@ body {
     color: var(--olive-green);
     font-size: 16px;
 }
+.brand-text p span { color: var(--orange); margin: 0 3px; }
 
 nav { display: flex; align-items: center; gap: 34px; }
-nav a { color: var(--dark-green); font-size: 16px; font-weight: 600; }
-nav a.active::after {
-    content: "";
-    display: block;
-    height: 3px;
-    background: var(--dark-green);
-    margin-top: 8px;
+
+nav a {
+    color: var(--dark-green);
+    font-size: 16px; font-weight: 600;
+    position: relative; transition: 0.25s ease;
+}
+nav a:hover { color: var(--orange); }
+
+nav .active::after {
+    content: ""; position: absolute;
+    left: 0; right: 0; bottom: -12px;
+    height: 3px; background: var(--dark-green);
+    border-radius: 50%;
 }
 
 .donate {
-    color: white;
+    color: white !important;
     background: var(--dark-green);
-    padding: 13px 21px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 9px;
+    padding: 13px 21px; border-radius: 12px;
+    display: flex; align-items: center; gap: 9px;
 }
-
 .nav-paw { color: var(--olive-green); font-size: 22px; }
 
 /* HERO */
@@ -88,9 +103,10 @@ nav a.active::after {
     position: relative;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     min-height: 700px;
     overflow: hidden;
-    background: #7a8a5e;
+    background: var(--blend-bg);
 }
 
 .hero-image {
@@ -99,11 +115,14 @@ nav a.active::after {
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
+    background: var(--blend-bg);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: contain;
     object-position: center center;
 }
@@ -113,16 +132,19 @@ nav a.active::after {
     inset: 0;
     z-index: 2;
     pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.3) 100%);
 }
 
 /* SIDE BORDERS */
 .side-border {
     position: absolute;
     z-index: 20;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     width: 55px;
-    background: rgba(33, 71, 47, 0.88);
+    background: linear-gradient(to bottom,
+        rgba(33, 71, 47, 0.85) 0%,
+        rgba(49, 91, 54, 0.90) 50%,
+        rgba(33, 71, 47, 0.85) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,88 +157,108 @@ nav a.active::after {
 
 .side-border-text {
     font-family: "Caveat", cursive;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 2px;
+    font-size: 22px; font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 3px;
+    text-transform: uppercase;
     writing-mode: vertical-rl;
+    text-orientation: mixed;
     transform: rotate(180deg);
+    white-space: nowrap;
 }
 
 .side-border.right .side-border-text { transform: rotate(0deg); }
 
 .side-border-icon {
-    color: white;
+    color: rgba(255, 255, 255, 0.85);
     font-size: 18px;
-    animation: pulse 3s infinite;
+    animation: pulse-icon 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.85; }
-    50% { opacity: 1; color: var(--orange); }
+.side-border-icon:nth-child(2) { animation-delay: 0.5s; }
+.side-border-icon:nth-child(3) { animation-delay: 1s; }
+
+@keyframes pulse-icon {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.2); opacity: 1; color: var(--orange); }
 }
 
 .side-border-dot {
     width: 5px; height: 5px;
-    background: white;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
 }
 
-/* MAIN TITLE - CLOUD */
+/* MAIN TITLE */
 .main-title {
     position: absolute;
     z-index: 30;
-    bottom: 130px;
-    left: 80px;
-    width: 340px;
-    padding: 22px;
+    bottom: 120px;
+    left: 75px;
+    width: 100%;
+    min-width: 260px;
+    max-width: 340px;
+    padding: 18px 22px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.35);
     border-radius: 40px 40px 40px 12px;
-    box-shadow: 0 10px 30px rgba(33, 71, 47, 0.2);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .main-title h2 {
+    margin: 0;
     font-family: "Kalam", cursive;
-    font-size: 30px;
-    line-height: 1;
+    font-size: clamp(22px, 2.5vw, 30px);
+    line-height: 0.95; font-weight: 700;
     color: var(--dark-green);
 }
+.main-title h2 span { color: var(--olive-green); }
 
 .main-title p {
-    margin-top: 10px;
+    margin-top: 8px;
     color: var(--text-green);
     font-size: 12px;
+    line-height: 1.35;
     font-weight: 600;
 }
 
-.title-heart, .title-lines, .title-paw { display: none; }
+.title-heart, .title-lines, .title-paw {
+    position: absolute; color: var(--dark-green); opacity: 0.7;
+}
+.title-heart { top: 10px; left: 18px; font-size: 24px; }
+.title-lines { top: 15px; left: 45px; font-size: 16px; }
+.title-paw { right: 18px; bottom: 18px; font-size: 18px; }
 
 .title-underline {
-    width: 100px;
-    height: 3px;
-    margin: 10px auto 0;
+    width: 100px; height: 3px;
+    margin: 8px auto 0;
     background: var(--olive-green);
+    border-radius: 50%;
+    opacity: 0.8;
 }
 
 /* TYPEWRITER */
-.typewriter, .typewriter-2, .typewriter-3, .typewriter-4 {
+.typewriter,
+.typewriter-2,
+.typewriter-3,
+.typewriter-4 {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid transparent;
+    border-right: 3px solid transparent;
     width: 0;
     animation-fill-mode: forwards;
 }
 
-.typewriter { animation: type 2s steps(20) 0.5s forwards, blink 0.75s infinite; }
-.typewriter-2 { animation: type 1.5s steps(15) 2.5s forwards, blink 0.75s infinite; }
-.typewriter-3 { animation: type 2.5s steps(30) 4s forwards, blink 0.75s infinite; }
-.typewriter-4 { animation: type 1.5s steps(15) 6.5s forwards, blink 0.75s infinite; }
+.typewriter { animation: typing 2s steps(20, end) 0.5s forwards, blink-caret 0.75s step-end infinite; }
+.typewriter-2 { animation: typing 1.5s steps(15, end) 2.5s forwards, blink-caret 0.75s step-end infinite; }
+.typewriter-3 { animation: typing 2.5s steps(30, end) 4s forwards, blink-caret 0.75s step-end infinite; }
+.typewriter-4 { animation: typing 1.5s steps(15, end) 6.5s forwards, blink-caret 0.75s step-end infinite; }
 
-@keyframes type { from { width: 0; } to { width: 100%; } }
-@keyframes blink {
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: var(--olive-green); }
 }
@@ -226,99 +268,93 @@ nav a.active::after {
     position: absolute;
     z-index: 25;
     background: var(--paper);
-    padding: 10px 10px 45px 10px;
+    padding: 12px 12px 55px 12px;
     border-radius: 4px;
-    border: 3px solid white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border: 3px solid #ffffff;
+    box-shadow:
+        0 4px 8px rgba(38, 60, 31, 0.15),
+        0 10px 25px rgba(38, 60, 31, 0.25),
+        0 20px 40px rgba(38, 60, 31, 0.15);
+    max-width: calc(100% - 20px);
 }
 
 .photo-card img {
-    display: block;
-    width: 100%;
+    display: block; width: 100%;
     object-fit: cover;
+    border-radius: 2px;
 }
 
 .photo-label {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-    padding: 5px 12px;
+    left: 50%; transform: translateX(-50%);
+    bottom: 15px;
+    padding: 8px 18px;
     background: var(--forest-green);
-    color: white;
-    border-radius: 15px;
+    color: white; border-radius: 20px;
     font-family: "Caveat", cursive;
-    font-size: 15px;
+    font-size: 17px;
+    line-height: 1.05;
     text-align: center;
     white-space: nowrap;
 }
 
 .left-card {
-    width: 240px;
-    height: 260px;
-    left: 80px;
-    top: 60px;
+    width: 260px; height: 280px;
+    left: 75px; top: 60px;
     transform: rotate(-4deg);
-    animation: floatLeft 4s infinite;
+    animation: float-left 4s ease-in-out infinite;
 }
-
-.left-card img { height: 180px; }
+.left-card img {
+    height: 195px;
+    border: 2px dashed rgba(33, 71, 47, 0.2);
+    padding: 3px;
+    background: #fffef1;
+}
 
 .right-top-card {
-    width: 220px;
-    height: 280px;
-    right: 80px;
-    top: 50px;
+    width: 240px; height: 310px;
+    right: 75px; top: 50px;
     transform: rotate(-6deg);
-    animation: floatRightTop 5s infinite;
+    animation: float-right-top 5s ease-in-out infinite;
 }
-
-.right-top-card img { height: 200px; }
-
+.right-top-card img { height: 215px; }
 .right-top-card p {
     position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+    bottom: 14px; left: 0; right: 0;
     text-align: center;
     font-family: "Caveat", cursive;
     color: var(--text-green);
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.1;
+    padding: 0 8px;
 }
 
 .right-bottom-card {
-    width: 240px;
-    height: 300px;
-    right: 80px;
-    bottom: 150px;
+    width: 260px; height: 330px;
+    right: 75px; bottom: 150px;
     transform: rotate(5deg);
-    animation: floatRightBottom 4.5s infinite;
+    animation: float-right-bottom 4.5s ease-in-out infinite;
 }
-
-.right-bottom-card img { height: 220px; }
-
+.right-bottom-card img { height: 240px; }
 .right-bottom-card p {
     position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+    bottom: 15px; left: 0; right: 0;
     text-align: center;
     font-family: "Caveat", cursive;
     color: var(--text-green);
-    font-size: 14px;
+    font-size: 15px;
+    padding: 0 8px;
 }
 
-@keyframes floatLeft {
+@keyframes float-left {
     0%, 100% { transform: rotate(-4deg) translateY(0); }
     50% { transform: rotate(-4deg) translateY(-12px); }
 }
-
-@keyframes floatRightTop {
+@keyframes float-right-top {
     0%, 100% { transform: rotate(-6deg) translateY(0); }
     50% { transform: rotate(-6deg) translateY(-15px); }
 }
-
-@keyframes floatRightBottom {
+@keyframes float-right-bottom {
     0%, 100% { transform: rotate(5deg) translateY(0); }
     50% { transform: rotate(5deg) translateY(-10px); }
 }
@@ -326,11 +362,10 @@ nav a.active::after {
 .center-heart {
     position: absolute;
     z-index: 15;
-    left: 48%;
-    top: 420px;
+    left: 48%; top: 420px;
     color: white;
     font-family: "Caveat", cursive;
-    font-size: 60px;
+    font-size: 65px;
     transform: rotate(-10deg);
 }
 
@@ -338,11 +373,9 @@ nav a.active::after {
 .actions {
     position: absolute;
     z-index: 40;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50%; transform: translateX(-50%);
     bottom: 45px;
-    width: 75%;
-    max-width: 850px;
+    width: 75%; max-width: 850px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -353,35 +386,30 @@ nav a.active::after {
     padding: 15px 20px;
     background: rgba(248, 247, 219, 0.95);
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border: 2px solid white;
+    display: flex; align-items: center; gap: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .action-icon {
-    width: 55px;
-    height: 55px;
+    width: 55px; min-width: 55px; height: 55px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 25px;
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-size: 25px;
 }
-
 .action-icon.orange { background: var(--orange); }
 .action-icon.green { background: var(--olive-green); }
 
 .action-text h3 {
     font-family: "Caveat", cursive;
-    font-size: 26px;
+    font-size: 28px;
+    line-height: 1;
     color: var(--olive-green);
 }
-
+.action:nth-child(3) h3 { color: var(--orange); }
 .action-text p {
     color: var(--text-green);
     font-size: 13px;
+    line-height: 1.3;
     margin-top: 5px;
 }
 
@@ -389,190 +417,198 @@ nav a.active::after {
 .bottom {
     position: absolute;
     z-index: 35;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
+    bottom: 0; left: 0;
+    width: 100%; height: 50px;
     background: var(--forest-green);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
 }
 
 .bottom::before {
     content: "";
     position: absolute;
-    top: -15px;
-    left: -5%;
-    width: 110%;
-    height: 20px;
+    top: -15px; left: -5%;
+    width: 110%; height: 20px;
     background: var(--forest-green);
     border-radius: 50% 50% 0 0;
 }
 
 .bottom p {
+    position: relative;
+    z-index: 5;
     color: white;
     font-family: "Caveat", cursive;
     font-size: 22px;
+    letter-spacing: 1px;
 }
 
-.bottom-decoration { display: none; }
+.bottom-decoration { position: absolute; z-index: 5; color: var(--olive-green); font-size: 50px; }
+.bottom-decoration.left { left: 70px; bottom: -10px; transform: rotate(-30deg); }
+.bottom-decoration.right { right: 70px; bottom: -10px; transform: rotate(30deg); }
 
 /* ============================================
-   MOBILE - THE ONLY PART THAT MATTERS
+   MOBILE - EXACT SAME AS DESKTOP
+   Just scaled down, nothing moved
    ============================================ */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
-    /* Hide side borders */
-    .side-border { display: none; }
-
-    /* Navbar */
     .navbar {
         height: auto;
-        padding: 12px 15px;
+        padding: 10px 15px;
         flex-direction: column;
-        gap: 12px;
-    }
-    .brand-text h1 { font-size: 18px; }
-    .brand-text p { font-size: 13px; }
-    nav { flex-wrap: wrap; justify-content: center; gap: 12px; }
-    nav a { font-size: 14px; }
-    .donate { padding: 8px 14px; font-size: 13px; }
-    .nav-paw { font-size: 18px; }
-
-    /* HERO - stack everything */
-    .hero {
-        height: auto;
-        min-height: auto;
-        padding: 0;
-        overflow: visible;
-        display: flex;
-        flex-direction: column;
-        background: var(--cream);
-    }
-
-    /* 1. CLOUD FIRST (top) */
-    .main-title {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        width: 92%;
-        max-width: 92%;
-        margin: 15px auto 15px auto;
-        padding: 15px;
-        border-radius: 25px;
-        background: white;
-        order: 1;
-    }
-    .main-title h2 { font-size: 20px; }
-    .main-title p { font-size: 11px; }
-
-    /* 2. HERO IMAGE SECOND */
-    .hero-image {
-        position: relative;
-        width: 100%;
-        height: 50vh;
-        min-height: 320px;
-        order: 2;
-        background: #7a8a5e;
-    }
-    .hero-image img {
-        object-fit: cover;
-        object-position: 30% center;
-    }
-
-    /* 3. THREE PHOTOS IN A ROW - AS A GRID */
-    .left-card,
-    .right-top-card,
-    .right-bottom-card {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        bottom: auto !important;
-        transform: none !important;
-        animation: none !important;
-        width: 32% !important;
-        height: auto !important;
-        padding: 5px 5px 25px 5px !important;
-        border-width: 2px !important;
-        margin: 0 !important;
-    }
-
-    /* Mobile photo row layout */
-    .hero {
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* Wrap photos: override to make them appear in a row after image */
-    .photo-card {
-        flex: 0 0 32%;
-    }
-
-    /* We need a wrapper - use body order trick */
-    .left-card { order: 3; margin-left: 15px; margin-top: 15px; }
-    .right-top-card { order: 4; margin-top: 15px; }
-    .right-bottom-card { order: 5; margin-right: 15px; margin-top: 15px; }
-
-    /* Make photo row using flex on hero */
-    .hero {
-        flex-wrap: wrap;
-    }
-    .main-title { flex: 0 0 100%; }
-    .hero-image { flex: 0 0 100%; }
-
-    /* Photo cards smaller */
-    .left-card img,
-    .right-top-card img,
-    .right-bottom-card img {
-        width: 100% !important;
-        height: 60px !important;
-        object-fit: cover;
-    }
-
-    .photo-label {
-        font-size: 8px !important;
-        padding: 2px 6px !important;
-        bottom: 5px !important;
-    }
-
-    .right-top-card p,
-    .right-bottom-card p {
-        font-size: 7px !important;
-        bottom: 4px !important;
-        padding: 0 3px !important;
-    }
-
-    /* Center heart hide */
-    .center-heart { display: none; }
-
-    /* 6. ACTION BUTTONS */
-    .actions {
-        position: relative;
-        left: auto;
-        transform: none;
-        bottom: auto;
-        width: 92%;
-        margin: 20px auto 15px auto;
-        grid-template-columns: 1fr;
         gap: 10px;
-        order: 6;
+    }
+    .brand-logo { width: 45px; height: 45px; }
+    .brand-text h1 { font-size: 17px; }
+    .brand-text p { font-size: 12px; }
+    nav { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav a { font-size: 13px; }
+    .donate { padding: 7px 13px; font-size: 12px; }
+    .nav-paw { font-size: 16px; }
+
+    /* SIDE BORDERS - smaller but STILL VISIBLE */
+    .side-border { width: 28px; gap: 12px; }
+    .side-border-text { font-size: 10px; letter-spacing: 1px; }
+    .side-border-icon { font-size: 10px; }
+    .side-border-dot { width: 3px; height: 3px; }
+
+    /* HERO - same as desktop but scaled */
+    .hero { min-height: 500px; height: 85vh; }
+
+    /* CLOUD - same bottom-left position, scaled down */
+    .main-title {
+        bottom: 90px;
+        left: 42px;
+        max-width: 200px;
+        padding: 10px 14px;
+        border-radius: 25px 25px 25px 8px;
+    }
+    .main-title h2 { font-size: 18px; }
+    .main-title p { font-size: 10px; margin-top: 4px; }
+    .title-heart { font-size: 16px; top: 6px; left: 10px; }
+    .title-lines { font-size: 12px; top: 10px; left: 28px; }
+    .title-paw { font-size: 12px; right: 10px; bottom: 10px; }
+    .title-underline { width: 60px; height: 2px; }
+
+    /* PHOTO CARDS - same positions, scaled down */
+    .left-card {
+        width: 110px;
+        height: 120px;
+        left: 42px;
+        top: 40px;
+        padding: 6px 6px 30px 6px;
+    }
+    .left-card img { height: 75px; }
+
+    .right-top-card {
+        width: 100px;
+        height: 130px;
+        right: 42px;
+        top: 40px;
+        padding: 6px 6px 30px 6px;
+    }
+    .right-top-card img { height: 85px; }
+    .right-top-card p { font-size: 8px; bottom: 8px; padding: 0 3px; }
+
+    .right-bottom-card {
+        width: 110px;
+        height: 140px;
+        right: 42px;
+        bottom: 110px;
+        padding: 6px 6px 30px 6px;
+    }
+    .right-bottom-card img { height: 90px; }
+    .right-bottom-card p { font-size: 8px; bottom: 8px; padding: 0 3px; }
+
+    .photo-label { font-size: 9px; padding: 4px 8px; bottom: 8px; }
+
+    /* CENTER HEART - same position, smaller */
+    .center-heart {
+        left: 48%;
+        top: 45%;
+        font-size: 32px;
     }
 
+    /* ACTION BUTTONS - same position, scaled */
+    .actions {
+        bottom: 30px;
+        width: 78%;
+        gap: 8px;
+    }
     .action {
-        min-height: 70px;
-        padding: 12px 15px;
+        min-height: 60px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        gap: 8px;
     }
-    .action-icon { width: 42px; height: 42px; font-size: 18px; }
-    .action-text h3 { font-size: 22px; }
-    .action-text p { font-size: 11px; }
+    .action-icon { width: 32px; min-width: 32px; height: 32px; font-size: 14px; }
+    .action-text h3 { font-size: 16px; }
+    .action-text p { font-size: 8px; margin-top: 2px; }
 
-    /* 7. BOTTOM BAR */
-    .bottom {
-        position: relative;
-        height: 55px;
-        order: 7;
+    /* BOTTOM BAR */
+    .bottom { height: 35px; }
+    .bottom p { font-size: 12px; }
+    .bottom-decoration { font-size: 26px; }
+    .bottom-decoration.left { left: 35px; }
+    .bottom-decoration.right { right: 35px; }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 480px) {
+    .side-border { width: 22px; gap: 8px; }
+    .side-border-text { font-size: 8px; letter-spacing: 0; }
+    .side-border-icon { font-size: 8px; }
+
+    .main-title {
+        bottom: 80px;
+        left: 34px;
+        max-width: 170px;
+        padding: 8px 12px;
     }
-    .bottom p { font-size: 14px; }
+    .main-title h2 { font-size: 15px; }
+    .main-title p { font-size: 9px; }
+
+    .left-card {
+        width: 90px;
+        height: 100px;
+        left: 34px;
+        top: 35px;
+        padding: 5px 5px 24px 5px;
+    }
+    .left-card img { height: 60px; }
+
+    .right-top-card {
+        width: 82px;
+        height: 105px;
+        right: 34px;
+        top: 35px;
+        padding: 5px 5px 24px 5px;
+    }
+    .right-top-card img { height: 68px; }
+    .right-top-card p { font-size: 7px; bottom: 6px; }
+
+    .right-bottom-card {
+        width: 90px;
+        height: 115px;
+        right: 34px;
+        bottom: 100px;
+        padding: 5px 5px 24px 5px;
+    }
+    .right-bottom-card img { height: 72px; }
+    .right-bottom-card p { font-size: 7px; bottom: 6px; }
+
+    .photo-label { font-size: 8px; padding: 3px 6px; bottom: 6px; }
+
+    .center-heart { font-size: 26px; }
+
+    .actions { bottom: 25px; gap: 6px; }
+    .action { min-height: 52px; padding: 6px 8px; gap: 6px; }
+    .action-icon { width: 28px; min-width: 28px; height: 28px; font-size: 12px; }
+    .action-text h3 { font-size: 14px; }
+    .action-text p { font-size: 7px; }
+
+    .bottom { height: 30px; }
+    .bottom p { font-size: 10px; }
+    .bottom-decoration { font-size: 22px; }
+    .bottom-decoration.left { left: 28px; }
+    .bottom-decoration.right { right: 28px; }
 }
