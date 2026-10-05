@@ -1,6 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL RESPONSIVE CSS
+   DESKTOP DESIGN + SAME DESKTOP-STYLE MOBILE DESIGN
 ===================================================== */
 
 :root {
@@ -14,6 +14,11 @@
     --text-green: #315638;
     --blend-bg: #7a8a5e;
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     margin: 0;
@@ -55,10 +60,13 @@ a {
 .navbar {
     height: 90px;
     padding: 0 5%;
+
     background: var(--cream);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     position: relative;
     z-index: 100;
 }
@@ -99,8 +107,11 @@ a {
 
 .brand-text p {
     margin-top: 6px;
+
     font-family: "Caveat", cursive;
+
     color: var(--olive-green);
+
     font-size: 16px;
 }
 
@@ -117,9 +128,12 @@ nav {
 
 nav a {
     color: var(--dark-green);
+
     font-size: 16px;
     font-weight: 600;
+
     position: relative;
+
     transition: 0.25s ease;
 }
 
@@ -129,23 +143,33 @@ nav a:hover {
 
 nav .active::after {
     content: "";
+
     position: absolute;
+
     left: 0;
     right: 0;
     bottom: -12px;
+
     height: 3px;
+
     background: var(--dark-green);
+
     border-radius: 50%;
 }
 
 .donate {
     color: white !important;
+
     background: var(--dark-green);
+
     padding: 13px 21px;
+
     border-radius: 12px;
+
     display: flex;
     align-items: center;
     gap: 9px;
+
     transition: 0.25s ease;
 }
 
@@ -166,45 +190,67 @@ nav .active::after {
 
 .hero {
     position: relative;
+
     width: 100%;
+
     height: 100vh;
     height: 100dvh;
+
     min-height: 700px;
+
     overflow: hidden;
+
     background: var(--blend-bg);
 }
 
 .hero-image {
     position: absolute;
+
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     z-index: 1;
+
     overflow: hidden;
+
     background: var(--blend-bg);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
+
     display: block;
+
     object-fit: contain;
+
     object-position: center center;
-    filter: brightness(1.02) saturate(1.05) contrast(1.02);
+
+    filter:
+        brightness(1.02)
+        saturate(1.05)
+        contrast(1.02);
 }
 
 .hero-overlay {
     position: absolute;
+
     inset: 0;
+
     z-index: 2;
+
     pointer-events: none;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.2) 0%,
-        transparent 20%,
-        transparent 80%,
-        rgba(0,0,0,0.3) 100%
-    );
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.2) 0%,
+            transparent 20%,
+            transparent 80%,
+            rgba(0,0,0,0.3) 100%
+        );
 }
 
 
@@ -214,23 +260,33 @@ nav .active::after {
 
 .side-border {
     position: absolute;
+
     z-index: 20;
+
     top: 0;
     bottom: 0;
+
     width: 55px;
-    background: linear-gradient(
-        to bottom,
-        rgba(33,71,47,0.85) 0%,
-        rgba(49,91,54,0.90) 50%,
-        rgba(33,71,47,0.85) 100%
-    );
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(33,71,47,0.85) 0%,
+            rgba(49,91,54,0.90) 50%,
+            rgba(33,71,47,0.85) 100%
+        );
+
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
+
     gap: 30px;
+
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+
     box-shadow:
         inset 0 0 30px rgba(0,0,0,0.2),
         0 0 20px rgba(0,0,0,0.15);
@@ -238,25 +294,39 @@ nav .active::after {
 
 .side-border.left {
     left: 0;
-    border-right: 2px solid rgba(255,255,255,0.15);
+
+    border-right:
+        2px solid rgba(255,255,255,0.15);
 }
 
 .side-border.right {
     right: 0;
-    border-left: 2px solid rgba(255,255,255,0.15);
+
+    border-left:
+        2px solid rgba(255,255,255,0.15);
 }
 
 .side-border-text {
     font-family: "Caveat", cursive;
+
     font-size: 22px;
     font-weight: 700;
+
     color: rgba(255,255,255,0.95);
+
     letter-spacing: 3px;
+
     text-transform: uppercase;
+
     writing-mode: vertical-rl;
+
     text-orientation: mixed;
+
     transform: rotate(180deg);
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.4);
+
     white-space: nowrap;
 }
 
@@ -266,9 +336,14 @@ nav .active::after {
 
 .side-border-icon {
     color: rgba(255,255,255,0.85);
+
     font-size: 18px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-    animation: pulse-icon 3s ease-in-out infinite;
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,0.4);
+
+    animation:
+        pulse-icon 3s ease-in-out infinite;
 }
 
 .side-border-icon:nth-child(2) {
@@ -280,7 +355,8 @@ nav .active::after {
 }
 
 @keyframes pulse-icon {
-    0%,100% {
+
+    0%, 100% {
         transform: scale(1);
         opacity: 0.85;
     }
@@ -295,40 +371,84 @@ nav .active::after {
 .side-border-dot {
     width: 5px;
     height: 5px;
-    background: rgba(255,255,255,0.5);
+
+    background:
+        rgba(255,255,255,0.5);
+
     border-radius: 50%;
 }
 
 
 /* =====================================================
-   MAIN TITLE
+   HERO CONTENT WRAPPER
+===================================================== */
+
+.mobile-top-block {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 25;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   MAIN TITLE / CLOUD
 ===================================================== */
 
 .main-title {
     position: absolute;
+
     z-index: 30;
+
     bottom: 120px;
     left: 75px;
+
     width: 100%;
+
     min-width: 260px;
     max-width: 340px;
+
     padding: 18px 22px;
+
     text-align: center;
-    background: rgba(255,255,255,0.35);
-    border-radius: 40px 40px 40px 12px;
-    box-shadow: 0 10px 30px rgba(33,71,47,0.12);
+
+    background:
+        rgba(255,255,255,0.35);
+
+    border-radius:
+        40px 40px 40px 12px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(33,71,47,0.12);
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.5);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.5);
+
+    pointer-events: auto;
 }
 
 .main-title h2 {
     margin: 0;
+
     font-family: "Kalam", cursive;
-    font-size: clamp(22px,2.5vw,30px);
+
+    font-size:
+        clamp(22px, 2.5vw, 30px);
+
     line-height: 0.95;
+
     font-weight: 700;
+
     color: var(--dark-green);
+
     text-shadow:
         0 1px 2px rgba(255,255,255,0.9),
         0 0 8px rgba(255,255,255,0.7);
@@ -340,51 +460,72 @@ nav .active::after {
 
 .main-title p {
     margin-top: 8px;
+
     color: var(--text-green);
+
     font-size: 12px;
+
     line-height: 1.35;
+
     font-weight: 600;
+
     text-shadow:
         0 1px 2px rgba(255,255,255,0.9),
         0 0 6px rgba(255,255,255,0.7);
 }
 
+
+/* TITLE DECORATIONS */
+
 .title-heart,
 .title-lines,
 .title-paw {
     position: absolute;
+
     color: var(--dark-green);
+
     opacity: 0.7;
 }
 
 .title-heart {
     top: 10px;
     left: 18px;
+
     font-size: 24px;
+
     transform: rotate(-15deg);
 }
 
 .title-lines {
     top: 15px;
     left: 45px;
+
     font-size: 16px;
+
     transform: rotate(-20deg);
 }
 
 .title-paw {
     right: 18px;
     bottom: 18px;
+
     font-size: 18px;
+
     transform: rotate(-15deg);
 }
 
 .title-underline {
     width: 100px;
     height: 3px;
+
     margin: 8px auto 0;
+
     background: var(--olive-green);
+
     border-radius: 50%;
+
     transform: rotate(-2deg);
+
     opacity: 0.8;
 }
 
@@ -397,11 +538,18 @@ nav .active::after {
 .typewriter-2,
 .typewriter-3,
 .typewriter-4 {
+
     display: inline-block;
+
     overflow: hidden;
+
     white-space: nowrap;
-    border-right: 3px solid transparent;
+
+    border-right:
+        3px solid transparent;
+
     width: 0;
+
     animation-fill-mode: forwards;
 }
 
@@ -430,6 +578,7 @@ nav .active::after {
 }
 
 @keyframes typing {
+
     from {
         width: 0;
     }
@@ -440,7 +589,9 @@ nav .active::after {
 }
 
 @keyframes blink-caret {
-    from,to {
+
+    from,
+    to {
         border-color: transparent;
     }
 
@@ -456,102 +607,179 @@ nav .active::after {
 
 .photo-card {
     position: absolute;
+
     z-index: 25;
+
     background: var(--paper);
-    padding: 12px 12px 55px 12px;
+
+    padding:
+        12px 12px 55px 12px;
+
     border-radius: 4px;
+
     border: 3px solid #ffffff;
-    outline: 1px solid rgba(33,71,47,0.15);
+
+    outline:
+        1px solid
+        rgba(33,71,47,0.15);
+
     outline-offset: 3px;
+
     box-shadow:
         0 4px 8px rgba(38,60,31,0.15),
         0 10px 25px rgba(38,60,31,0.25),
         0 20px 40px rgba(38,60,31,0.15),
-        inset 0 0 0 1px rgba(255,255,255,0.8);
-    max-width: calc(100% - 20px);
+        inset 0 0 0 1px
+        rgba(255,255,255,0.8);
+
+    max-width:
+        calc(100% - 20px);
 }
 
 .photo-card::before,
 .photo-card::after {
+
     content: "";
+
     position: absolute;
+
     width: 45px;
     height: 18px;
-    background: rgba(255,249,200,0.75);
-    border: 1px solid rgba(200,190,140,0.5);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+    background:
+        rgba(255,249,200,0.75);
+
+    border:
+        1px solid
+        rgba(200,190,140,0.5);
+
+    box-shadow:
+        0 1px 3px
+        rgba(0,0,0,0.1);
+
     z-index: 5;
 }
 
 .photo-card::before {
     top: -8px;
     left: 20px;
+
     transform: rotate(-8deg);
 }
 
 .photo-card::after {
     top: -8px;
     right: 20px;
+
     transform: rotate(8deg);
 }
 
 .photo-card img {
     display: block;
+
     width: 100%;
+
     object-fit: cover;
+
     border-radius: 2px;
-    border: 1px solid rgba(33,71,47,0.1);
+
+    border:
+        1px solid
+        rgba(33,71,47,0.1);
 }
 
 .photo-label {
     position: absolute;
+
     left: 50%;
-    transform: translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     bottom: 15px;
-    padding: 8px 18px;
-    background: var(--forest-green);
+
+    padding:
+        8px 18px;
+
+    background:
+        var(--forest-green);
+
     color: white;
+
     border-radius: 20px;
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat", cursive;
+
     font-size: 17px;
+
     line-height: 1.05;
+
     box-shadow:
         0 3px 8px rgba(0,0,0,0.2),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-    border: 2px solid rgba(255,255,255,0.9);
+        inset 0 1px 0
+        rgba(255,255,255,0.2);
+
+    border:
+        2px solid
+        rgba(255,255,255,0.9);
+
     text-align: center;
+
     white-space: nowrap;
 }
 
 
 /* =====================================================
-   DESKTOP CARD POSITIONS
+   DESKTOP PHOTO POSITIONS
 ===================================================== */
 
 .left-card {
+
     width: 260px;
     height: 280px;
+
     left: 75px;
     top: 60px;
-    transform: rotate(-4deg);
-    animation: float-left 4s ease-in-out infinite;
+
+    transform:
+        rotate(-4deg);
+
+    animation:
+        float-left 4s ease-in-out infinite;
 }
 
 .left-card img {
+
     height: 195px;
-    border: 2px dashed rgba(33,71,47,0.2);
+
+    border:
+        2px dashed
+        rgba(33,71,47,0.2);
+
     padding: 3px;
-    background: #fffef1;
+
+    background:
+        #fffef1;
 }
 
+
 .right-top-card {
+
     width: 240px;
     height: 310px;
+
     right: 75px;
     top: 50px;
-    transform: rotate(-6deg);
-    animation: float-right-top 5s ease-in-out infinite;
-    border-color: #f5e6a8;
+
+    transform:
+        rotate(-6deg);
+
+    animation:
+        float-right-top 5s ease-in-out infinite;
+
+    border-color:
+        #f5e6a8;
 }
 
 .right-top-card img {
@@ -559,26 +787,46 @@ nav .active::after {
 }
 
 .right-top-card p {
+
     position: absolute;
+
     bottom: 14px;
+
     left: 0;
     right: 0;
+
     text-align: center;
-    font-family: "Caveat", cursive;
-    color: var(--text-green);
+
+    font-family:
+        "Caveat", cursive;
+
+    color:
+        var(--text-green);
+
     font-size: 15px;
+
     line-height: 1.1;
+
     padding: 0 8px;
 }
 
+
 .right-bottom-card {
+
     width: 260px;
     height: 330px;
+
     right: 75px;
     bottom: 150px;
-    transform: rotate(5deg);
-    animation: float-right-bottom 4.5s ease-in-out infinite;
-    border-color: #d4e5b8;
+
+    transform:
+        rotate(5deg);
+
+    animation:
+        float-right-bottom 4.5s ease-in-out infinite;
+
+    border-color:
+        #d4e5b8;
 }
 
 .right-bottom-card img {
@@ -586,198 +834,338 @@ nav .active::after {
 }
 
 .right-bottom-card p {
+
     position: absolute;
+
     bottom: 15px;
+
     left: 0;
     right: 0;
+
     text-align: center;
-    font-family: "Caveat", cursive;
-    color: var(--text-green);
+
+    font-family:
+        "Caveat", cursive;
+
+    color:
+        var(--text-green);
+
     font-size: 15px;
+
     padding: 0 8px;
 }
 
 
 /* =====================================================
-   FLOATING
+   FLOATING ANIMATIONS
 ===================================================== */
 
 @keyframes float-left {
-    0%,100% {
-        transform: rotate(-4deg) translateY(0);
+
+    0%, 100% {
+        transform:
+            rotate(-4deg)
+            translateY(0);
     }
 
     50% {
-        transform: rotate(-4deg) translateY(-12px);
+        transform:
+            rotate(-4deg)
+            translateY(-12px);
     }
 }
 
 @keyframes float-right-top {
-    0%,100% {
-        transform: rotate(-6deg) translateY(0);
+
+    0%, 100% {
+        transform:
+            rotate(-6deg)
+            translateY(0);
     }
 
     50% {
-        transform: rotate(-6deg) translateY(-15px);
+        transform:
+            rotate(-6deg)
+            translateY(-15px);
     }
 }
 
 @keyframes float-right-bottom {
-    0%,100% {
-        transform: rotate(5deg) translateY(0);
+
+    0%, 100% {
+        transform:
+            rotate(5deg)
+            translateY(0);
     }
 
     50% {
-        transform: rotate(5deg) translateY(-10px);
+        transform:
+            rotate(5deg)
+            translateY(-10px);
     }
-}
-
-.center-heart {
-    position: absolute;
-    z-index: 15;
-    left: 48%;
-    top: 420px;
-    color: white;
-    font-family: "Caveat", cursive;
-    font-size: 65px;
-    transform: rotate(-10deg);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 
 /* =====================================================
-   ACTION BUTTONS
+   CENTER HEART
+===================================================== */
+
+.center-heart {
+
+    position: absolute;
+
+    z-index: 15;
+
+    left: 48%;
+    top: 420px;
+
+    color: white;
+
+    font-family:
+        "Caveat", cursive;
+
+    font-size: 65px;
+
+    transform:
+        rotate(-10deg);
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,0.4);
+}
+
+
+/* =====================================================
+   ACTION CARDS
 ===================================================== */
 
 .actions {
+
     position: absolute;
+
     z-index: 40;
+
     left: 50%;
-    transform: translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     bottom: 45px;
+
     width: 75%;
+
     max-width: 850px;
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 20px;
 }
 
 .action {
+
     min-height: 110px;
-    padding: 15px 20px;
-    background: rgba(248,247,219,0.95);
+
+    padding:
+        15px 20px;
+
+    background:
+        rgba(248,247,219,0.95);
+
     border-radius: 20px;
+
     display: flex;
+
     align-items: center;
+
     gap: 15px;
+
     box-shadow:
-        0 8px 25px rgba(36,61,33,0.15),
-        inset 0 1px 0 rgba(255,255,255,0.5);
+        0 8px 25px
+        rgba(36,61,33,0.15),
+        inset 0 1px 0
+        rgba(255,255,255,0.5);
+
     transition: 0.3s ease;
-    backdrop-filter: blur(5px);
-    border: 2px solid rgba(255,255,255,0.8);
+
+    backdrop-filter:
+        blur(5px);
+
+    border:
+        2px solid
+        rgba(255,255,255,0.8);
 }
 
 .action:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(36,61,33,0.25);
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(36,61,33,0.25);
 }
 
 .action-icon {
+
     width: 55px;
     min-width: 55px;
     height: 55px;
+
     border-radius: 50%;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     color: white;
+
     font-size: 25px;
-    border: 2px solid rgba(255,255,255,0.4);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    border:
+        2px solid
+        rgba(255,255,255,0.4);
+
+    box-shadow:
+        0 4px 12px
+        rgba(0,0,0,0.15);
 }
 
 .action-icon.orange {
-    background: var(--orange);
+    background:
+        var(--orange);
 }
 
 .action-icon.green {
-    background: var(--olive-green);
+    background:
+        var(--olive-green);
 }
 
 .action-text h3 {
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat", cursive;
+
     font-size: 28px;
+
     line-height: 1;
-    color: var(--olive-green);
+
+    color:
+        var(--olive-green);
 }
 
 .action:nth-child(3) h3 {
-    color: var(--orange);
+    color:
+        var(--orange);
 }
 
 .action-text p {
-    color: var(--text-green);
+
+    color:
+        var(--text-green);
+
     font-size: 13px;
+
     line-height: 1.3;
+
     margin-top: 5px;
 }
 
 
 /* =====================================================
-   BOTTOM
+   BOTTOM BAR
 ===================================================== */
 
 .bottom {
+
     position: absolute;
+
     z-index: 35;
+
     bottom: 0;
+
     left: 0;
+
     width: 100%;
+
     height: 50px;
-    background: var(--forest-green);
+
+    background:
+        var(--forest-green);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 }
 
 .bottom::before {
+
     content: "";
+
     position: absolute;
+
     top: -15px;
     left: -5%;
+
     width: 110%;
     height: 20px;
-    background: var(--forest-green);
-    border-radius: 50% 50% 0 0;
+
+    background:
+        var(--forest-green);
+
+    border-radius:
+        50% 50% 0 0;
 }
 
 .bottom p {
+
     position: relative;
+
     z-index: 5;
+
     color: white;
-    font-family: "Caveat", cursive;
+
+    font-family:
+        "Caveat", cursive;
+
     font-size: 22px;
+
     letter-spacing: 1px;
 }
 
 .bottom-decoration {
+
     position: absolute;
+
     z-index: 5;
-    color: var(--olive-green);
+
+    color:
+        var(--olive-green);
+
     font-size: 50px;
 }
 
 .bottom-decoration.left {
+
     left: 70px;
     bottom: -10px;
-    transform: rotate(-30deg);
+
+    transform:
+        rotate(-30deg);
 }
 
 .bottom-decoration.right {
+
     right: 70px;
     bottom: -10px;
-    transform: rotate(30deg);
+
+    transform:
+        rotate(30deg);
 }
 
 
@@ -785,7 +1173,7 @@ nav .active::after {
    LARGE DESKTOP
 ===================================================== */
 
-@media (min-width:1201px) {
+@media (min-width: 1201px) {
 
     .main-title {
         bottom: 130px;
@@ -799,7 +1187,7 @@ nav .active::after {
    TABLET
 ===================================================== */
 
-@media (min-width:901px) and (max-width:1200px) {
+@media (min-width: 901px) and (max-width: 1200px) {
 
     .navbar {
         padding: 0 3%;
@@ -849,9 +1237,12 @@ nav .active::after {
     .left-card {
         width: 200px;
         height: 220px;
+
         left: 60px;
         top: 50px;
-        padding: 10px 10px 45px;
+
+        padding:
+            10px 10px 45px 10px;
     }
 
     .left-card img {
@@ -859,11 +1250,15 @@ nav .active::after {
     }
 
     .right-top-card {
+
         width: 190px;
         height: 250px;
+
         right: 60px;
         top: 40px;
-        padding: 10px 10px 45px;
+
+        padding:
+            10px 10px 45px 10px;
     }
 
     .right-top-card img {
@@ -871,11 +1266,15 @@ nav .active::after {
     }
 
     .right-bottom-card {
+
         width: 200px;
         height: 270px;
+
         right: 60px;
         bottom: 130px;
-        padding: 10px 10px 45px;
+
+        padding:
+            10px 10px 45px 10px;
     }
 
     .right-bottom-card img {
@@ -900,10 +1299,10 @@ nav .active::after {
 
 
 /* =====================================================
-   SMALL DESKTOP
+   SMALL DESKTOP / TABLET
 ===================================================== */
 
-@media (min-width:701px) and (max-width:900px) {
+@media (min-width: 701px) and (max-width: 900px) {
 
     .hero {
         height: 100vh;
@@ -939,11 +1338,15 @@ nav .active::after {
     }
 
     .left-card {
+
         width: 170px;
         height: 190px;
+
         left: 50px;
         top: 40px;
-        padding: 8px 8px 40px;
+
+        padding:
+            8px 8px 40px 8px;
     }
 
     .left-card img {
@@ -951,11 +1354,15 @@ nav .active::after {
     }
 
     .right-top-card {
+
         width: 160px;
         height: 210px;
+
         right: 50px;
         top: 35px;
-        padding: 8px 8px 40px;
+
+        padding:
+            8px 8px 40px 8px;
     }
 
     .right-top-card img {
@@ -963,11 +1370,15 @@ nav .active::after {
     }
 
     .right-bottom-card {
+
         width: 170px;
         height: 230px;
+
         right: 50px;
         bottom: 100px;
-        padding: 8px 8px 40px;
+
+        padding:
+            8px 8px 40px 8px;
     }
 
     .right-bottom-card img {
@@ -1003,68 +1414,79 @@ nav .active::after {
 
 /* =====================================================
    MOBILE
-   CLOUD
-   3 PHOTOS
-   HERO IMAGE
-   ACTIONS
-   BOTTOM
+   SAME DESKTOP-STYLE COMPOSITION
 ===================================================== */
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
 
-    body {
-        background: var(--cream);
+
+    /* -------------------------------------------------
+       HIDE DESKTOP SIDE BORDERS
+    ------------------------------------------------- */
+
+    .side-border {
+        display: none;
     }
 
-    .page {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
 
-
-    /* ---------- NAVBAR ---------- */
+    /* -------------------------------------------------
+       NAVBAR
+    ------------------------------------------------- */
 
     .navbar {
-        width: 100%;
-        height: auto;
-        padding: 10px 10px;
-        flex-direction: column;
-        gap: 9px;
+
+        height: 76px;
+
+        padding:
+            6px 10px;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        gap: 5px;
     }
 
     .brand-area {
-        width: 100%;
-        justify-content: center;
-        gap: 8px;
+        gap: 7px;
     }
 
     .brand-logo {
-        width: 48px;
-        height: 48px;
+        width: 45px;
+        height: 45px;
     }
 
     .brand-text h1 {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .brand-text p {
-        font-size: 13px;
+        font-size: 12px;
         margin-top: 4px;
     }
 
     nav {
-        width: 100%;
+
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+
         align-items: center;
-        gap: 9px;
+
+        justify-content: flex-end;
+
+        gap: 8px;
+
+        width: auto;
+
+        flex-wrap: nowrap;
     }
 
     nav a {
-        font-size: 13px;
-        padding: 3px 0;
+
+        font-size: 10px;
+
+        font-weight: 600;
+
+        white-space: nowrap;
     }
 
     nav .active::after {
@@ -1073,326 +1495,68 @@ nav .active::after {
     }
 
     .donate {
-        padding: 7px 12px;
-        font-size: 13px;
-        border-radius: 9px;
+
+        padding:
+            7px 9px;
+
+        border-radius: 8px;
+
+        gap: 4px;
+
+        font-size: 10px !important;
     }
 
     .nav-paw {
-        font-size: 17px;
+        font-size: 14px;
     }
 
 
-    /* ---------- HERO ---------- */
+    /* -------------------------------------------------
+       HERO
+       
+       IMPORTANT:
+       Background remains BEHIND everything.
+       Nothing becomes a vertical section.
+    ------------------------------------------------- */
 
     .hero {
-        width: 100%;
-        height: auto;
-        min-height: 0;
-
-        display: flex;
-        flex-direction: column;
 
         position: relative;
+
+        width: 100%;
+
+        height: calc(100dvh - 76px);
+
+        min-height: 570px;
 
         overflow: hidden;
-
-        background: var(--cream);
-    }
-
-
-    /* Hide desktop-only items */
-
-    .side-border {
-        display: none;
-    }
-
-    .hero-overlay {
-        display: none;
-    }
-
-    .center-heart {
-        display: none;
-    }
-
-
-    /* =================================================
-       TOP BLOCK
-    ================================================= */
-
-    .mobile-top-block {
-        position: relative;
-
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-
-        padding: 10px 10px 0;
-
-        gap: 10px;
-
-        order: 1;
-
-        z-index: 20;
-    }
-
-
-    /* =================================================
-       CLOUD
-    ================================================= */
-
-    .main-title {
-        position: relative;
-
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
-
-        width: 100%;
-        max-width: none;
-        min-width: 0;
-
-        margin: 0;
-
-        padding: 13px 15px;
-
-        background: rgba(255,255,255,0.94);
-
-        border-radius: 32px 32px 32px 12px;
-
-        border: 1px solid rgba(255,255,255,0.9);
-
-        box-shadow:
-            0 7px 20px rgba(33,71,47,0.18);
-
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-
-        text-align: center;
-
-        z-index: 30;
-    }
-
-    .main-title h2 {
-        font-size: 21px;
-        line-height: 1.05;
-    }
-
-    .main-title p {
-        font-size: 10px;
-        line-height: 1.3;
-        margin-top: 5px;
-    }
-
-    .title-heart,
-    .title-lines,
-    .title-paw {
-        display: none;
-    }
-
-    .title-underline {
-        width: 70px;
-        height: 2px;
-        margin-top: 6px;
-    }
-
-
-    /* =================================================
-       PHOTO ROW
-    ================================================= */
-
-    .photo-row {
-        width: 100%;
-
-        display: flex;
-        flex-direction: row;
-
-        justify-content: space-between;
-        align-items: flex-start;
-
-        gap: 6px;
-
-        margin: 0;
-        padding: 0;
-    }
-
-
-    /* =================================================
-       ALL THREE PHOTO CARDS
-    ================================================= */
-
-    .photo-card,
-    .left-card,
-    .right-top-card,
-    .right-bottom-card {
-
-        position: relative;
-
-        top: auto;
-        right: auto;
-        bottom: auto;
-        left: auto;
-
-        width: calc((100% - 12px) / 3);
-
-        height: auto;
-
-        margin: 0;
-
-        padding: 4px 4px 25px;
-
-        max-width: none;
-
-        background: var(--paper);
-
-        border: 2px solid white;
-
-        border-radius: 3px;
-
-        outline: 1px solid rgba(33,71,47,0.12);
-
-        box-shadow:
-            0 4px 10px rgba(38,60,31,0.20);
-
-        animation: none;
-    }
-
-    .left-card {
-        transform: rotate(-3deg);
-    }
-
-    .right-top-card {
-        transform: rotate(2deg);
-    }
-
-    .right-bottom-card {
-        transform: rotate(-2deg);
-    }
-
-
-    /* =================================================
-       MOBILE IMAGES
-    ================================================= */
-
-    .photo-card img,
-    .left-card img,
-    .right-top-card img,
-    .right-bottom-card img {
 
         display: block;
 
-        width: 100%;
-        height: auto;
-
-        aspect-ratio: 1 / 1;
-
-        object-fit: cover;
-
-        border-radius: 2px;
-
-        border: 1px solid rgba(33,71,47,0.12);
-
-        padding: 0;
-
-        background: transparent;
-    }
-
-    .left-card img {
-        border: 1px solid rgba(33,71,47,0.15);
-        padding: 0;
+        background:
+            var(--blend-bg);
     }
 
 
-    /* Remove tape */
-
-    .photo-card::before,
-    .photo-card::after {
-        display: none;
-    }
-
-
-    /* =================================================
-       PHOTO LABEL
-    ================================================= */
-
-    .photo-label {
-        position: absolute;
-
-        left: 50%;
-        bottom: 5px;
-
-        transform: translateX(-50%);
-
-        padding: 3px 5px;
-
-        font-size: 7px;
-
-        line-height: 1;
-
-        border-radius: 10px;
-
-        border-width: 1px;
-
-        white-space: nowrap;
-    }
-
-
-    /* =================================================
-       PHOTO TEXT
-    ================================================= */
-
-    .right-top-card p,
-    .right-bottom-card p {
-
-        position: absolute;
-
-        left: 0;
-        right: 0;
-        bottom: 6px;
-
-        margin: 0;
-
-        padding: 0 2px;
-
-        font-family: "Caveat", cursive;
-
-        color: var(--text-green);
-
-        font-size: 6.5px;
-
-        line-height: 1;
-
-        text-align: center;
-    }
-
-
-    /* =================================================
-       HERO IMAGE
-    ================================================= */
+    /* -------------------------------------------------
+       BACKGROUND IMAGE
+    ------------------------------------------------- */
 
     .hero-image {
 
-        position: relative;
+        position: absolute;
 
-        order: 2;
+        inset: 0;
 
         width: 100%;
+        height: 100%;
 
-        height: 52vh;
-
-        min-height: 330px;
-
-        max-height: 500px;
-
-        margin-top: 12px;
+        z-index: 1;
 
         overflow: hidden;
 
-        background: var(--blend-bg);
-
-        flex-shrink: 0;
+        background:
+            var(--blend-bg);
     }
 
     .hero-image img {
@@ -1401,6 +1565,11 @@ nav .active::after {
         height: 100%;
 
         display: block;
+
+        /*
+           Keep the image as the background.
+           This prevents it from moving below the cards.
+        */
 
         object-fit: cover;
 
@@ -1413,137 +1582,707 @@ nav .active::after {
     }
 
 
-    /* =================================================
-       ACTIONS
-    ================================================= */
+    /* -------------------------------------------------
+       LIGHT OVERLAY
+    ------------------------------------------------- */
+
+    .hero-overlay {
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 2;
+    }
+
+
+    /* -------------------------------------------------
+       MAIN WRAPPER
+       
+       IMPORTANT:
+       It stays absolute like desktop.
+    ------------------------------------------------- */
+
+    .mobile-top-block {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 25;
+
+        display: block;
+
+        padding: 0;
+
+        pointer-events: none;
+    }
+
+
+    /* -------------------------------------------------
+       CONNECTING HEARTS CLOUD
+       
+       Same desktop design.
+       Only size + position are changed.
+    ------------------------------------------------- */
+
+    .main-title {
+
+        position: absolute;
+
+        z-index: 30;
+
+        /*
+           Desktop:
+           bottom: 120px;
+           left: 75px;
+
+           Mobile:
+           place it toward upper-left/center
+           without changing its design.
+        */
+
+        top: 65px;
+
+        left: 50%;
+
+        bottom: auto;
+
+        transform:
+            translateX(-50%);
+
+        width: 245px;
+
+        min-width: 245px;
+
+        max-width: 245px;
+
+        padding:
+            15px 17px;
+
+        text-align: center;
+
+        background:
+            rgba(255,255,255,0.35);
+
+        border-radius:
+            40px 40px 40px 12px;
+
+        box-shadow:
+            0 10px 30px
+            rgba(33,71,47,0.12);
+
+        backdrop-filter:
+            blur(20px);
+
+        -webkit-backdrop-filter:
+            blur(20px);
+
+        border:
+            1px solid
+            rgba(255,255,255,0.5);
+
+        pointer-events: auto;
+    }
+
+    .main-title h2 {
+
+        margin: 0;
+
+        font-family:
+            "Kalam", cursive;
+
+        font-size: 22px;
+
+        line-height: 0.95;
+
+        font-weight: 700;
+
+        color:
+            var(--dark-green);
+
+        text-shadow:
+            0 1px 2px
+            rgba(255,255,255,0.9),
+            0 0 8px
+            rgba(255,255,255,0.7);
+    }
+
+    .main-title h2 span {
+        color:
+            var(--olive-green);
+    }
+
+    .main-title p {
+
+        margin-top: 7px;
+
+        color:
+            var(--text-green);
+
+        font-size: 10px;
+
+        line-height: 1.35;
+
+        font-weight: 600;
+
+        text-shadow:
+            0 1px 2px
+            rgba(255,255,255,0.9),
+            0 0 6px
+            rgba(255,255,255,0.7);
+    }
+
+
+    /* -------------------------------------------------
+       KEEP TITLE DECORATIONS
+    ------------------------------------------------- */
+
+    .title-heart {
+
+        display: block;
+
+        top: 8px;
+        left: 14px;
+
+        font-size: 20px;
+
+        transform:
+            rotate(-15deg);
+    }
+
+    .title-lines {
+
+        display: block;
+
+        top: 12px;
+        left: 38px;
+
+        font-size: 14px;
+
+        transform:
+            rotate(-20deg);
+    }
+
+    .title-paw {
+
+        display: block;
+
+        right: 14px;
+        bottom: 14px;
+
+        font-size: 16px;
+
+        transform:
+            rotate(-15deg);
+    }
+
+    .title-underline {
+
+        width: 80px;
+
+        height: 3px;
+
+        margin:
+            7px auto 0;
+    }
+
+
+    /* -------------------------------------------------
+       TYPEWRITER
+    ------------------------------------------------- */
+
+    .typewriter,
+    .typewriter-2,
+    .typewriter-3,
+    .typewriter-4 {
+
+        display: inline-block;
+
+        overflow: hidden;
+
+        white-space: nowrap;
+
+        border-right:
+            2px solid transparent;
+
+        width: 0;
+    }
+
+
+    /* -------------------------------------------------
+       PHOTO ROW
+       
+       DO NOT use flex column.
+       DO NOT make it part of normal document flow.
+       
+       It stays absolute, just like desktop.
+    ------------------------------------------------- */
+
+    .photo-row {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        z-index: 25;
+
+        pointer-events: none;
+    }
+
+
+    /* -------------------------------------------------
+       COMMON MOBILE PHOTO CARD
+    ------------------------------------------------- */
+
+    .photo-card {
+
+        position: absolute;
+
+        z-index: 25;
+
+        background:
+            var(--paper);
+
+        border-radius: 4px;
+
+        border:
+            2px solid #ffffff;
+
+        outline:
+            1px solid
+            rgba(33,71,47,0.15);
+
+        outline-offset: 2px;
+
+        box-shadow:
+            0 4px 8px
+            rgba(38,60,31,0.15),
+            0 10px 25px
+            rgba(38,60,31,0.25),
+            0 20px 40px
+            rgba(38,60,31,0.15),
+            inset 0 0 0 1px
+            rgba(255,255,255,0.8);
+
+        pointer-events: auto;
+    }
+
+
+    .photo-card::before,
+    .photo-card::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 30px;
+        height: 12px;
+
+        background:
+            rgba(255,249,200,0.75);
+
+        border:
+            1px solid
+            rgba(200,190,140,0.5);
+
+        box-shadow:
+            0 1px 3px
+            rgba(0,0,0,0.1);
+
+        z-index: 5;
+    }
+
+    .photo-card::before {
+
+        top: -6px;
+        left: 12px;
+
+        transform:
+            rotate(-8deg);
+    }
+
+    .photo-card::after {
+
+        top: -6px;
+        right: 12px;
+
+        transform:
+            rotate(8deg);
+    }
+
+
+    .photo-card img {
+
+        display: block;
+
+        width: 100%;
+
+        object-fit: cover;
+
+        border-radius: 2px;
+
+        border:
+            1px solid
+            rgba(33,71,47,0.1);
+    }
+
+
+    /* -------------------------------------------------
+       LEFT CARD
+       Same desktop position idea:
+       upper-left
+    ------------------------------------------------- */
+
+    .left-card {
+
+        width: 130px;
+        height: 150px;
+
+        left: 7px;
+        top: 30px;
+
+        padding:
+            7px 7px 35px 7px;
+
+        transform:
+            rotate(-4deg);
+
+        animation:
+            float-left 4s ease-in-out infinite;
+    }
+
+    .left-card img {
+
+        height: 105px;
+
+        border:
+            1px dashed
+            rgba(33,71,47,0.2);
+
+        padding: 2px;
+
+        background:
+            #fffef1;
+    }
+
+
+    /* -------------------------------------------------
+       RIGHT TOP CARD
+       Same desktop position idea:
+       upper-right
+    ------------------------------------------------- */
+
+    .right-top-card {
+
+        width: 125px;
+        height: 165px;
+
+        right: 7px;
+        top: 20px;
+
+        padding:
+            7px 7px 35px 7px;
+
+        transform:
+            rotate(-6deg);
+
+        animation:
+            float-right-top 5s ease-in-out infinite;
+
+        border-color:
+            #f5e6a8;
+    }
+
+    .right-top-card img {
+        height: 115px;
+    }
+
+    .right-top-card p {
+
+        position: absolute;
+
+        bottom: 8px;
+
+        left: 0;
+        right: 0;
+
+        text-align: center;
+
+        font-family:
+            "Caveat", cursive;
+
+        color:
+            var(--text-green);
+
+        font-size: 9px;
+
+        line-height: 1.05;
+
+        padding: 0 4px;
+    }
+
+
+    /* -------------------------------------------------
+       RIGHT BOTTOM CARD
+       Same desktop position idea:
+       lower-right
+    ------------------------------------------------- */
+
+    .right-bottom-card {
+
+        width: 135px;
+        height: 175px;
+
+        right: 30px;
+        bottom: 150px;
+
+        padding:
+            7px 7px 35px 7px;
+
+        transform:
+            rotate(5deg);
+
+        animation:
+            float-right-bottom 4.5s ease-in-out infinite;
+
+        border-color:
+            #d4e5b8;
+    }
+
+    .right-bottom-card img {
+        height: 125px;
+    }
+
+    .right-bottom-card p {
+
+        position: absolute;
+
+        bottom: 8px;
+
+        left: 0;
+        right: 0;
+
+        text-align: center;
+
+        font-family:
+            "Caveat", cursive;
+
+        color:
+            var(--text-green);
+
+        font-size: 9px;
+
+        line-height: 1.05;
+
+        padding: 0 4px;
+    }
+
+
+    /* -------------------------------------------------
+       PHOTO LABEL
+    ------------------------------------------------- */
+
+    .photo-label {
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        bottom: 7px;
+
+        padding:
+            4px 8px;
+
+        font-size: 10px;
+
+        line-height: 1;
+
+        border-radius: 14px;
+
+        border-width: 1px;
+
+        white-space: nowrap;
+    }
+
+
+    /* -------------------------------------------------
+       CENTER HEART
+    ------------------------------------------------- */
+
+    .center-heart {
+
+        position: absolute;
+
+        z-index: 30;
+
+        left: 50%;
+
+        top: 285px;
+
+        transform:
+            translateX(-50%)
+            rotate(-10deg);
+
+        color: white;
+
+        font-family:
+            "Caveat", cursive;
+
+        font-size: 45px;
+
+        text-shadow:
+            0 2px 8px
+            rgba(0,0,0,0.4);
+    }
+
+
+    /* -------------------------------------------------
+       ACTION CARDS
+       
+       Keep them at bottom like desktop.
+    ------------------------------------------------- */
 
     .actions {
 
-        position: relative;
+        position: absolute;
 
-        order: 3;
+        z-index: 40;
 
-        left: auto;
-        bottom: auto;
+        left: 50%;
 
-        transform: none;
+        transform:
+            translateX(-50%);
 
-        width: 100%;
+        bottom: 58px;
+
+        width: 94%;
+
         max-width: none;
 
-        display: flex;
+        display: grid;
 
-        flex-direction: column;
+        grid-template-columns:
+            repeat(3,1fr);
 
-        gap: 10px;
-
-        padding: 12px 10px 65px;
-
-        background: var(--cream);
+        gap: 6px;
     }
 
     .action {
 
-        width: 100%;
+        min-height: 78px;
 
-        min-height: 82px;
+        padding:
+            8px 6px;
 
-        padding: 12px 14px;
+        border-radius: 13px;
 
-        border-radius: 16px;
+        gap: 6px;
 
         display: flex;
 
         align-items: center;
 
-        gap: 12px;
-
-        background: rgba(248,247,219,0.96);
-
-        border: 1px solid rgba(255,255,255,0.9);
-
         box-shadow:
-            0 5px 15px rgba(36,61,33,0.13);
+            0 5px 15px
+            rgba(36,61,33,0.18);
 
-        backdrop-filter: blur(5px);
-    }
-
-    .action:hover {
-        transform: none;
+        border-width: 1px;
     }
 
     .action-icon {
-        width: 45px;
-        min-width: 45px;
-        height: 45px;
-        font-size: 20px;
+
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+
+        font-size: 14px;
+
+        border-width: 1px;
     }
 
     .action-text h3 {
-        font-size: 23px;
+
+        font-size: 18px;
+
+        line-height: 1;
     }
 
     .action-text p {
-        font-size: 11px;
+
+        font-size: 7px;
+
         line-height: 1.25;
+
         margin-top: 3px;
     }
 
+    .action-text strong {
+        display: none;
+    }
 
-    /* =================================================
-       BOTTOM BAR
-    ================================================= */
+
+    /* -------------------------------------------------
+       BOTTOM GREEN BAR
+    ------------------------------------------------- */
 
     .bottom {
 
-        position: relative;
+        position: absolute;
 
-        order: 4;
+        z-index: 35;
 
-        left: auto;
-        bottom: auto;
+        bottom: 0;
+        left: 0;
 
         width: 100%;
 
-        height: 48px;
+        height: 40px;
 
-        background: var(--forest-green);
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;
+        background:
+            var(--forest-green);
     }
 
     .bottom::before {
+
         top: -10px;
-        height: 14px;
+
+        height: 15px;
     }
 
     .bottom p {
 
-        font-size: 16px;
+        font-size: 14px;
 
         letter-spacing: 0.5px;
-
-        text-align: center;
-
-        padding: 0 35px;
     }
 
     .bottom-decoration {
-        font-size: 30px;
+
+        font-size: 32px;
     }
 
     .bottom-decoration.left {
-        left: 8px;
-        bottom: -5px;
+
+        left: 15px;
+
+        bottom: -8px;
     }
 
     .bottom-decoration.right {
-        right: 8px;
-        bottom: -5px;
+
+        right: 15px;
+
+        bottom: -8px;
     }
 }
 
@@ -1552,101 +2291,153 @@ nav .active::after {
    VERY SMALL PHONES
 ===================================================== */
 
-@media (max-width:380px) {
+@media (max-width: 380px) {
 
     .navbar {
-        padding: 8px;
+        height: 70px;
     }
 
     .brand-logo {
-        width: 42px;
-        height: 42px;
+        width: 40px;
+        height: 40px;
     }
 
     .brand-text h1 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .brand-text p {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     nav {
-        gap: 7px;
+        gap: 5px;
     }
 
     nav a {
-        font-size: 11px;
+        font-size: 8px;
     }
 
     .donate {
-        padding: 6px 9px;
-        font-size: 11px;
+        padding: 6px 7px;
+        font-size: 8px !important;
     }
 
-    .mobile-top-block {
-        padding: 8px 7px 0;
+    .hero {
+        height: calc(100dvh - 70px);
+        min-height: 540px;
     }
 
     .main-title {
-        padding: 11px 10px;
+        top: 55px;
+
+        width: 220px;
+        min-width: 220px;
+        max-width: 220px;
+
+        padding:
+            13px 14px;
     }
 
     .main-title h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .main-title p {
         font-size: 9px;
     }
 
-    .photo-row {
-        gap: 4px;
+    .left-card {
+        width: 112px;
+        height: 135px;
+
+        left: 3px;
+        top: 25px;
+
+        padding:
+            6px 6px 30px 6px;
     }
 
-    .photo-card,
-    .left-card,
-    .right-top-card,
+    .left-card img {
+        height: 95px;
+    }
+
+    .right-top-card {
+        width: 108px;
+        height: 145px;
+
+        right: 3px;
+        top: 18px;
+
+        padding:
+            6px 6px 30px 6px;
+    }
+
+    .right-top-card img {
+        height: 100px;
+    }
+
     .right-bottom-card {
-        width: calc((100% - 8px) / 3);
-        padding: 3px 3px 22px;
+        width: 115px;
+        height: 155px;
+
+        right: 20px;
+        bottom: 145px;
+
+        padding:
+            6px 6px 30px 6px;
+    }
+
+    .right-bottom-card img {
+        height: 108px;
     }
 
     .photo-label {
-        font-size: 6px;
-        padding: 2px 3px;
+        font-size: 8px;
+        padding: 3px 6px;
     }
 
     .right-top-card p,
     .right-bottom-card p {
-        font-size: 5.5px;
+        font-size: 7px;
     }
 
-    .hero-image {
-        height: 48vh;
-        min-height: 280px;
+    .center-heart {
+        top: 265px;
+        font-size: 38px;
+    }
+
+    .actions {
+        bottom: 55px;
+        width: 96%;
+        gap: 4px;
     }
 
     .action {
-        min-height: 75px;
+        min-height: 70px;
+        padding: 6px 4px;
     }
 
     .action-icon {
-        width: 40px;
-        min-width: 40px;
-        height: 40px;
-        font-size: 18px;
+        width: 27px;
+        min-width: 27px;
+        height: 27px;
+        font-size: 12px;
     }
 
     .action-text h3 {
-        font-size: 21px;
+        font-size: 15px;
     }
 
     .action-text p {
-        font-size: 10px;
+        font-size: 6px;
+    }
+
+    .bottom {
+        height: 36px;
     }
 
     .bottom p {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
