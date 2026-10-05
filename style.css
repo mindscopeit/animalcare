@@ -1,6 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL CSS
+   FINAL CSS — WITH MOBILE FIX
 ===================================================== */
 
 :root {
@@ -1318,8 +1318,10 @@ nav .active::after {
 
 
 /* =====================================================
-   MOBILE — EXACT DESKTOP LAYOUT, JUST SCALED
-   Uses a fixed 1280x800 stage scaled to fit phone width.
+   MOBILE — SAME DESKTOP LAYOUT, FILLS FULL PHONE HEIGHT
+   Uses a fixed 1280px-wide stage whose HEIGHT adapts to
+   the phone's own aspect ratio, so the scaled hero fills
+   the entire phone screen vertically — no black gap.
 ===================================================== */
 
 @media (max-width: 700px) {
@@ -1333,6 +1335,7 @@ nav .active::after {
         width: 100%;
         max-width: none;
         overflow-x: hidden;
+        background: var(--cream);
     }
 
 
@@ -1341,60 +1344,61 @@ nav .active::after {
     ========================= */
 
     .navbar {
-        height: 60px;
-        padding: 0 12px;
-        gap: 8px;
+        height: 55px;
+        padding: 0 10px;
+        gap: 6px;
     }
 
-    .brand-area { gap: 6px; }
+    .brand-area { gap: 5px; }
 
     .brand-logo {
-        width: 38px;
-        height: 38px;
+        width: 34px;
+        height: 34px;
     }
 
-    .brand-text h1 { font-size: 14px; }
-    .brand-text p  { font-size: 10px; margin-top: 2px; }
+    .brand-text h1 { font-size: 12px; }
+    .brand-text p  { font-size: 9px; margin-top: 2px; }
 
-    nav { gap: 10px; }
+    nav { gap: 8px; }
 
-    nav a { font-size: 10px; }
+    nav a { font-size: 9px; }
 
     nav .active::after {
-        bottom: -6px;
+        bottom: -5px;
         height: 2px;
     }
 
     .donate {
-        padding: 6px 9px;
-        border-radius: 7px;
-        gap: 4px;
-        font-size: 10px;
+        padding: 5px 8px;
+        border-radius: 6px;
+        gap: 3px;
+        font-size: 9px;
     }
 
-    .nav-paw { font-size: 13px; }
+    .nav-paw { font-size: 12px; }
 
 
     /* =========================
-       HERO — SCALE DESKTOP STAGE
-       A 1280x800 desktop canvas shrunk to fit the phone.
-       Everything inside keeps its desktop position/size.
+       HERO — sized to phone ASPECT RATIO
+       Width fixed at 1280px (matches desktop).
+       Height = 1280px × (phone height / phone width)
+       so after zooming, the hero EXACTLY fills the
+       phone screen — no black gap on top or bottom.
     ========================= */
 
     .hero {
         position: relative;
 
         width: 1280px;
-        height: 800px;
+
+        /* Adaptive height matching phone aspect ratio */
+        height: calc(1280px * 100vh / 100vw);
 
         min-height: 0;
         max-height: none;
 
-        transform: scale(calc(100vw / 1280));
-        transform-origin: top left;
-
-        /* remove leftover space from scaling */
-        margin-bottom: calc((100vw / 1280) * 800 - 800px);
+        /* Shrink to fit phone width */
+        zoom: calc(100vw / 1280);
 
         overflow: hidden;
 
@@ -1403,7 +1407,7 @@ nav .active::after {
 
 
     /* =========================
-       SIDE BORDERS — keep desktop size
+       SIDE BORDERS — full height
     ========================= */
 
     .side-border {
@@ -1420,44 +1424,30 @@ nav .active::after {
 
 
     /* =========================
-       CLOUD TITLE — desktop values
+       CLOUD TITLE — kept in upper-left
     ========================= */
 
     .main-title {
-        bottom: 120px;
+        bottom: 420px;
         left: 75px;
-
         width: 100%;
         min-width: 260px;
         max-width: 340px;
-
         padding: 18px 22px;
     }
 
-    .main-title h2 {
-        font-size: 30px;
-        line-height: 0.95;
-    }
-
-    .main-title p {
-        margin-top: 8px;
-        font-size: 12px;
-        line-height: 1.35;
-    }
+    .main-title h2 { font-size: 30px; line-height: 0.95; }
+    .main-title p  { font-size: 12px; margin-top: 8px; }
 
     .title-heart { top: 10px; left: 18px; font-size: 24px; }
     .title-lines { top: 15px; left: 45px; font-size: 16px; }
     .title-paw   { right: 18px; bottom: 18px; font-size: 18px; }
 
-    .title-underline {
-        width: 100px;
-        height: 3px;
-        margin: 8px auto 0;
-    }
+    .title-underline { width: 100px; height: 3px; margin: 8px auto 0; }
 
 
     /* =========================
-       PHOTO CARDS — desktop values
+       PHOTO CARDS — spread out vertically
     ========================= */
 
     .photo-card {
@@ -1477,12 +1467,11 @@ nav .active::after {
     .photo-card::before { left: 20px; }
     .photo-card::after  { right: 20px; }
 
-
     .left-card {
         width: 260px;
         height: 280px;
         left: 75px;
-        top: 60px;
+        top: 100px;
         transform: rotate(-4deg);
         animation: float-left 4s ease-in-out infinite;
     }
@@ -1493,12 +1482,11 @@ nav .active::after {
         padding: 3px;
     }
 
-
     .right-top-card {
         width: 240px;
         height: 310px;
         right: 75px;
-        top: 50px;
+        top: 90px;
         transform: rotate(-6deg);
         animation: float-right-top 5s ease-in-out infinite;
     }
@@ -1511,12 +1499,11 @@ nav .active::after {
         padding: 0 8px;
     }
 
-
     .right-bottom-card {
         width: 260px;
         height: 330px;
         right: 75px;
-        bottom: 150px;
+        bottom: 420px;
         transform: rotate(5deg);
         animation: float-right-bottom 4.5s ease-in-out infinite;
     }
@@ -1529,7 +1516,6 @@ nav .active::after {
         padding: 0 8px;
     }
 
-
     .photo-label {
         bottom: 15px;
         padding: 8px 18px;
@@ -1538,23 +1524,23 @@ nav .active::after {
 
 
     /* =========================
-       CENTER HEART — desktop values
+       CENTER HEART — middle of stage
     ========================= */
 
     .center-heart {
         left: 48%;
-        top: 420px;
+        top: 720px;
         font-size: 65px;
     }
 
 
     /* =========================
-       ACTIONS — desktop 3-column
+       ACTIONS — bottom of stage
     ========================= */
 
     .actions {
         left: 50%;
-        bottom: 45px;
+        bottom: 90px;
         width: 75%;
         max-width: 850px;
         grid-template-columns: repeat(3, 1fr);
@@ -1588,7 +1574,7 @@ nav .active::after {
 
 
     /* =========================
-       BOTTOM GREEN BAR — desktop values
+       BOTTOM GREEN BAR — stays at bottom
     ========================= */
 
     .bottom {
@@ -1607,18 +1593,9 @@ nav .active::after {
         letter-spacing: 1px;
     }
 
-    .bottom-decoration {
-        font-size: 50px;
-    }
+    .bottom-decoration { font-size: 50px; }
 
-    .bottom-decoration.left {
-        left: 70px;
-        bottom: -10px;
-    }
-
-    .bottom-decoration.right {
-        right: 70px;
-        bottom: -10px;
-    }
+    .bottom-decoration.left  { left: 70px;  bottom: -10px; }
+    .bottom-decoration.right { right: 70px; bottom: -10px; }
 
 }
