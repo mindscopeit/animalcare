@@ -345,6 +345,8 @@ a {
     top: 55px;
 
     transform: rotate(-5deg);
+
+    animation: floatLeft 4s ease-in-out infinite;
 }
 
 .left-card img {
@@ -385,6 +387,8 @@ a {
     top: 55px;
 
     transform: rotate(4deg);
+
+    animation: floatRightTop 5s ease-in-out infinite;
 }
 
 .right-top-card img {
@@ -416,10 +420,37 @@ a {
     top: 350px;
 
     transform: rotate(5deg);
+
+    animation: floatRightBottom 4.5s ease-in-out infinite;
 }
 
 .right-bottom-card img {
     height: 220px;
+}
+
+
+/* =========================================================
+   FLOATING KEYFRAMES
+========================================================= */
+
+@keyframes floatLeft {
+    0%, 100% { transform: rotate(-5deg) translateY(0); }
+    50%      { transform: rotate(-5deg) translateY(-10px); }
+}
+
+@keyframes floatRightTop {
+    0%, 100% { transform: rotate(4deg) translateY(0); }
+    50%      { transform: rotate(4deg) translateY(-8px); }
+}
+
+@keyframes floatRightBottom {
+    0%, 100% { transform: rotate(5deg) translateY(0); }
+    50%      { transform: rotate(5deg) translateY(-12px); }
+}
+
+/* pause float on hover so the lift effect takes over */
+.photo-card:hover {
+    animation-play-state: paused;
 }
 
 
@@ -787,6 +818,15 @@ a {
         width: 240px;
     }
 
+    .left-card img,
+    .right-top-card img {
+        height: 180px;
+    }
+
+    .right-bottom-card img {
+        height: 190px;
+    }
+
     .main-title {
         left: -60px;
         width: 380px;
@@ -1019,6 +1059,8 @@ a {
         top: 15px;
 
         transform: rotate(-5deg);
+
+        animation: floatLeftMobile 4s ease-in-out infinite;
     }
 
     .left-card:hover {
@@ -1046,6 +1088,8 @@ a {
         top: 25px;
 
         transform: rotate(4deg);
+
+        animation: floatRightTopMobile 5s ease-in-out infinite;
     }
 
     .right-top-card:hover {
@@ -1072,10 +1116,30 @@ a {
         bottom: 15px;
 
         transform: rotate(4deg);
+
+        animation: floatRightBottomMobile 4.5s ease-in-out infinite;
     }
 
     .right-bottom-card img {
         height: 80px;
+    }
+
+
+    /* MOBILE FLOAT KEYFRAMES (lighter motion) */
+
+    @keyframes floatLeftMobile {
+        0%, 100% { transform: rotate(-5deg) translateY(0); }
+        50%      { transform: rotate(-5deg) translateY(-5px); }
+    }
+
+    @keyframes floatRightTopMobile {
+        0%, 100% { transform: rotate(4deg) translateY(0); }
+        50%      { transform: rotate(4deg) translateY(-4px); }
+    }
+
+    @keyframes floatRightBottomMobile {
+        0%, 100% { transform: rotate(4deg) translateY(0); }
+        50%      { transform: rotate(4deg) translateY(-6px); }
     }
 
 
