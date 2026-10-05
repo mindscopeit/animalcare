@@ -1,57 +1,28 @@
 ```css
 /* =========================================================
    ANIMAL CONNECT TRUST
-   SCALABLE DESKTOP CANVAS
-
-   IMPORTANT:
-   The hero design is created at 1500px wide.
-
-   On smaller screens:
-   - NOTHING is rearranged
-   - NOTHING is stacked
-   - photos stay in the same places
-   - cloud stays in the same place
-   - heart stays in the same place
-   - side borders stay visible
-   - 3 buttons stay in one row
-
-   The entire canvas simply scales.
-========================================================= */
-
-
-/* =========================================================
-   ROOT
+   ONE DESKTOP CANVAS — SCALES ON MOBILE
 ========================================================= */
 
 :root {
-
     --dark-green: #21472f;
     --forest-green: #315b36;
     --olive-green: #668744;
     --light-olive: #78964d;
-
     --orange: #ef7538;
-
     --cream: #f8f8e8;
     --paper: #fffef1;
-
     --text-green: #315638;
-
     --blend-bg: #7a8a5e;
 
     --canvas-width: 1500px;
 }
 
 
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -63,13 +34,9 @@ html {
 
 
 body {
-
     margin: 0;
-
     background: #000;
-
     font-family: "DM Sans", sans-serif;
-
     overflow-x: hidden;
 }
 
@@ -85,15 +52,10 @@ a {
 ========================================================= */
 
 .page {
-
     width: 100%;
-
     max-width: 1500px;
-
     margin: auto;
-
     background: var(--cream);
-
     overflow: hidden;
 }
 
@@ -103,169 +65,118 @@ a {
 ========================================================= */
 
 .navbar {
-
     height: 90px;
-
     padding: 0 5%;
-
     background: var(--cream);
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     position: relative;
-
     z-index: 100;
 }
 
 
 .brand-area {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
 }
 
 
 .brand-logo {
-
     width: 62px;
-
     height: 62px;
-
     overflow: hidden;
-
     flex-shrink: 0;
 }
 
 
 .brand-logo img {
-
     width: 100%;
-
     height: 100%;
-
     object-fit: contain;
 }
 
 
 .brand-text h1 {
-
     font-family: Georgia, serif;
-
     font-size: 23px;
-
     line-height: 1;
-
     white-space: nowrap;
 }
 
 
 .brand-text h1 span {
-
     color: var(--orange);
 }
 
 
 .brand-text h1 b {
-
     color: var(--olive-green);
 }
 
 
 .brand-text p {
-
     margin-top: 6px;
-
     font-family: "Caveat", cursive;
-
     color: var(--olive-green);
-
     font-size: 16px;
 }
 
 
 .brand-text p span {
-
     color: var(--orange);
-
     margin: 0 3px;
 }
 
 
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 nav {
-
     display: flex;
-
     align-items: center;
-
     gap: 34px;
 }
 
 
 nav a {
-
     color: var(--dark-green);
-
     font-size: 16px;
-
     font-weight: 600;
-
     position: relative;
-
     transition: 0.25s ease;
 }
 
 
 nav a:hover {
-
     color: var(--orange);
 }
 
 
 nav .active::after {
-
     content: "";
-
     position: absolute;
-
     left: 0;
-
     right: 0;
-
     bottom: -12px;
-
     height: 3px;
-
     background: var(--dark-green);
-
     border-radius: 50%;
 }
 
 
 .donate {
-
     color: white !important;
-
     background: var(--dark-green);
-
     padding: 13px 21px;
-
     border-radius: 12px;
 
     display: flex;
-
     align-items: center;
-
     gap: 9px;
 
     transition: 0.25s ease;
@@ -273,17 +184,13 @@ nav .active::after {
 
 
 .donate:hover {
-
     background: var(--forest-green);
-
     transform: translateY(-2px);
 }
 
 
 .nav-paw {
-
     color: var(--olive-green);
-
     font-size: 22px;
 }
 
@@ -293,13 +200,11 @@ nav .active::after {
 ========================================================= */
 
 .hero {
-
     position: relative;
 
     width: 100%;
 
     height: calc(100vh - 90px);
-
     height: calc(100dvh - 90px);
 
     min-height: 610px;
@@ -311,17 +216,14 @@ nav .active::after {
 
 
 /* =========================================================
-   HERO BACKGROUND
+   HERO IMAGE
 ========================================================= */
 
 .hero-image {
-
     position: absolute;
-
     inset: 0;
 
     width: 100%;
-
     height: 100%;
 
     z-index: 1;
@@ -333,12 +235,15 @@ nav .active::after {
 
 
 .hero-image img {
-
     width: 100%;
-
     height: 100%;
 
     display: block;
+
+    /*
+       IMPORTANT:
+       Desktop image remains exactly as before.
+    */
 
     object-fit: contain;
 
@@ -351,10 +256,12 @@ nav .active::after {
 }
 
 
+/* =========================================================
+   OVERLAY
+========================================================= */
+
 .hero-overlay {
-
     position: absolute;
-
     inset: 0;
 
     z-index: 2;
@@ -373,31 +280,30 @@ nav .active::after {
 
 
 /* =========================================================
-   THE IMPORTANT PART
-
-   DESKTOP CANVAS
-
-   Every element inside this stays at its desktop
-   coordinates.
-
-   Mobile scales THIS ENTIRE CANVAS.
+   ONE DESKTOP CANVAS
 ========================================================= */
 
 .hero-canvas {
 
+    /*
+       This is the actual design area.
+
+       Every object inside uses desktop coordinates.
+    */
+
     position: absolute;
 
-    z-index: 10;
-
+    top: 0;
     left: 50%;
 
-    top: 0;
-
-    width: var(--canvas-width);
-
+    width: 1500px;
     height: 100%;
 
     transform: translateX(-50%);
+
+    transform-origin: top center;
+
+    z-index: 10;
 }
 
 
@@ -412,7 +318,6 @@ nav .active::after {
     z-index: 20;
 
     top: 0;
-
     bottom: 0;
 
     width: 55px;
@@ -446,7 +351,6 @@ nav .active::after {
 
 
 .side-border.left {
-
     left: 0;
 
     border-right:
@@ -455,7 +359,6 @@ nav .active::after {
 
 
 .side-border.right {
-
     right: 0;
 
     border-left:
@@ -491,7 +394,6 @@ nav .active::after {
 
 
 .side-border.right .side-border-text {
-
     transform: rotate(0deg);
 }
 
@@ -513,7 +415,6 @@ nav .active::after {
 .side-border-dot {
 
     width: 5px;
-
     height: 5px;
 
     background:
@@ -527,18 +428,13 @@ nav .active::after {
 
     0%,
     100% {
-
         transform: scale(1);
-
         opacity: 0.85;
     }
 
     50% {
-
         transform: scale(1.2);
-
         opacity: 1;
-
         color: var(--orange);
     }
 }
@@ -555,13 +451,10 @@ nav .active::after {
     z-index: 30;
 
     bottom: 120px;
-
     left: 75px;
 
     width: 340px;
-
     min-width: 340px;
-
     max-width: 340px;
 
     padding: 18px 22px;
@@ -607,7 +500,6 @@ nav .active::after {
 
 
 .main-title h2 span {
-
     color: var(--olive-green);
 }
 
@@ -645,7 +537,6 @@ nav .active::after {
 .title-heart {
 
     top: 10px;
-
     left: 18px;
 
     font-size: 24px;
@@ -657,7 +548,6 @@ nav .active::after {
 .title-lines {
 
     top: 15px;
-
     left: 45px;
 
     font-size: 16px;
@@ -669,7 +559,6 @@ nav .active::after {
 .title-paw {
 
     right: 18px;
-
     bottom: 18px;
 
     font-size: 18px;
@@ -681,12 +570,12 @@ nav .active::after {
 .title-underline {
 
     width: 100px;
-
     height: 3px;
 
     margin: 8px auto 0;
 
-    background: var(--olive-green);
+    background:
+        var(--olive-green);
 
     border-radius: 50%;
 
@@ -789,6 +678,9 @@ nav .active::after {
 
     background: var(--paper);
 
+    padding:
+        12px 12px 55px;
+
     border-radius: 4px;
 
     border:
@@ -815,7 +707,6 @@ nav .active::after {
     position: absolute;
 
     width: 45px;
-
     height: 18px;
 
     background:
@@ -834,7 +725,6 @@ nav .active::after {
 .photo-card::before {
 
     top: -8px;
-
     left: 20px;
 
     transform: rotate(-8deg);
@@ -844,7 +734,6 @@ nav .active::after {
 .photo-card::after {
 
     top: -8px;
-
     right: 20px;
 
     transform: rotate(8deg);
@@ -860,25 +749,23 @@ nav .active::after {
     object-fit: cover;
 
     border-radius: 2px;
+
+    border:
+        1px solid rgba(33,71,47,0.1);
 }
 
 
 /* =========================================================
-   LEFT PHOTO
+   LEFT CARD
 ========================================================= */
 
 .left-card {
 
     width: 260px;
-
     height: 280px;
 
     left: 75px;
-
     top: 60px;
-
-    padding:
-        12px 12px 55px;
 
     transform:
         rotate(-4deg);
@@ -948,21 +835,16 @@ nav .active::after {
 
 
 /* =========================================================
-   RIGHT TOP PHOTO
+   RIGHT TOP
 ========================================================= */
 
 .right-top-card {
 
     width: 240px;
-
     height: 310px;
 
     right: 75px;
-
     top: 50px;
-
-    padding:
-        12px 12px 55px;
 
     transform:
         rotate(-6deg);
@@ -976,7 +858,6 @@ nav .active::after {
 
 
 .right-top-card img {
-
     height: 215px;
 }
 
@@ -988,7 +869,6 @@ nav .active::after {
     bottom: 14px;
 
     left: 0;
-
     right: 0;
 
     text-align: center;
@@ -1003,26 +883,22 @@ nav .active::after {
 
     line-height: 1.1;
 
-    padding: 0 8px;
+    padding:
+        0 8px;
 }
 
 
 /* =========================================================
-   RIGHT BOTTOM PHOTO
+   RIGHT BOTTOM
 ========================================================= */
 
 .right-bottom-card {
 
     width: 260px;
-
     height: 330px;
 
     right: 75px;
-
     bottom: 150px;
-
-    padding:
-        12px 12px 55px;
 
     transform:
         rotate(5deg);
@@ -1036,7 +912,6 @@ nav .active::after {
 
 
 .right-bottom-card img {
-
     height: 240px;
 }
 
@@ -1048,7 +923,6 @@ nav .active::after {
     bottom: 15px;
 
     left: 0;
-
     right: 0;
 
     text-align: center;
@@ -1061,26 +935,25 @@ nav .active::after {
 
     font-size: 15px;
 
-    padding: 0 8px;
+    padding:
+        0 8px;
 }
 
 
 /* =========================================================
-   FLOATING
+   FLOATING ANIMATIONS
 ========================================================= */
 
 @keyframes float-left {
 
     0%,
     100% {
-
         transform:
             rotate(-4deg)
             translateY(0);
     }
 
     50% {
-
         transform:
             rotate(-4deg)
             translateY(-12px);
@@ -1092,14 +965,12 @@ nav .active::after {
 
     0%,
     100% {
-
         transform:
             rotate(-6deg)
             translateY(0);
     }
 
     50% {
-
         transform:
             rotate(-6deg)
             translateY(-15px);
@@ -1111,14 +982,12 @@ nav .active::after {
 
     0%,
     100% {
-
         transform:
             rotate(5deg)
             translateY(0);
     }
 
     50% {
-
         transform:
             rotate(5deg)
             translateY(-10px);
@@ -1137,7 +1006,6 @@ nav .active::after {
     z-index: 15;
 
     left: 48%;
-
     top: 420px;
 
     color: white;
@@ -1205,9 +1073,11 @@ nav .active::after {
         0 8px 25px rgba(36,61,33,0.15),
         inset 0 1px 0 rgba(255,255,255,0.5);
 
-    transition: 0.3s ease;
+    transition:
+        0.3s ease;
 
-    backdrop-filter: blur(5px);
+    backdrop-filter:
+        blur(5px);
 
     border:
         2px solid rgba(255,255,255,0.8);
@@ -1227,9 +1097,7 @@ nav .active::after {
 .action-icon {
 
     width: 55px;
-
     min-width: 55px;
-
     height: 55px;
 
     border-radius: 50%;
@@ -1237,7 +1105,6 @@ nav .active::after {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     color: white;
@@ -1253,14 +1120,12 @@ nav .active::after {
 
 
 .action-icon.orange {
-
     background:
         var(--orange);
 }
 
 
 .action-icon.green {
-
     background:
         var(--olive-green);
 }
@@ -1281,7 +1146,6 @@ nav .active::after {
 
 
 .action:nth-child(3) h3 {
-
     color:
         var(--orange);
 }
@@ -1320,11 +1184,9 @@ nav .active::after {
     z-index: 35;
 
     bottom: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 50px;
 
     background:
@@ -1333,7 +1195,6 @@ nav .active::after {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 }
 
@@ -1345,11 +1206,9 @@ nav .active::after {
     position: absolute;
 
     top: -15px;
-
     left: -5%;
 
     width: 110%;
-
     height: 20px;
 
     background:
@@ -1413,7 +1272,7 @@ nav .active::after {
 
 
 /* =========================================================
-   DESKTOP
+   LARGE DESKTOP
 ========================================================= */
 
 @media (min-width: 1201px) {
@@ -1425,9 +1284,7 @@ nav .active::after {
         left: 85px;
 
         width: 360px;
-
         min-width: 360px;
-
         max-width: 360px;
     }
 }
@@ -1436,43 +1293,43 @@ nav .active::after {
 /* =========================================================
    TABLET
 
-   Still the same canvas.
+   SAME CANVAS — ONLY SCALE IT
 ========================================================= */
 
 @media (min-width: 701px) and (max-width: 1200px) {
 
     .navbar {
-
-        padding:
-            0 3%;
+        padding: 0 3%;
     }
 
-
     nav {
-
         gap: 18px;
     }
 
-
     nav a {
-
         font-size: 14px;
     }
 
 
-    /*
-       Scale the SAME desktop canvas.
-    */
+    .hero {
+        min-height: 0;
+    }
+
 
     .hero-canvas {
+
+        /*
+           Scale the complete desktop design.
+        */
+
+        width: 1500px;
+
+        height: 100%;
 
         transform:
             translateX(-50%)
             scale(
-                min(
-                    calc(100vw / 1500),
-                    calc(100% / 1500)
-                )
+                calc(100vw / 1500)
             );
 
         transform-origin:
@@ -1484,31 +1341,34 @@ nav .active::after {
 /* =========================================================
    MOBILE
 
-   THIS IS THE IMPORTANT PART.
+   =========================================================
 
-   NO ELEMENT IS REPOSITIONED.
+   DO NOT CHANGE INDIVIDUAL ELEMENTS.
 
-   THE WHOLE 1500px DESKTOP CANVAS IS SCALED.
+   DO NOT STACK.
 
+   DO NOT MOVE.
+
+   DO NOT HIDE.
+
+   JUST SCALE THE DESKTOP CANVAS.
 ========================================================= */
 
 @media (max-width: 700px) {
 
-
-    /* -----------------------------------------------------
-       NAVBAR
-    ----------------------------------------------------- */
+    /* ---------------- NAVBAR ---------------- */
 
     .navbar {
 
         height: 60px;
 
-        padding:
-            0 8px;
+        padding: 0 8px;
 
         flex-direction: row;
 
-        gap: 4px;
+        justify-content: space-between;
+
+        align-items: center;
     }
 
 
@@ -1544,7 +1404,15 @@ nav .active::after {
 
     nav {
 
-        gap: 6px;
+        display: flex;
+
+        flex-direction: row;
+
+        flex-wrap: nowrap;
+
+        align-items: center;
+
+        gap: 5px;
 
         flex-shrink: 0;
     }
@@ -1569,7 +1437,7 @@ nav .active::after {
     .donate {
 
         padding:
-            6px 8px;
+            6px 7px;
 
         border-radius: 7px;
 
@@ -1581,31 +1449,208 @@ nav .active::after {
 
     .nav-paw {
 
-        font-size: 12px;
+        font-size: 11px;
     }
 
 
-    /* -----------------------------------------------------
-       HERO
-    ----------------------------------------------------- */
+    /* ---------------- HERO ---------------- */
 
     .hero {
+
+        width: 100%;
 
         height:
             calc(100dvh - 60px);
 
-        min-height: 450px;
+        min-height: 0;
 
         overflow: hidden;
+
+        background:
+            var(--blend-bg);
     }
 
 
-    /* -----------------------------------------------------
-       SAME DESKTOP CANVAS
-       
-       Width stays 1500px.
-       We only scale it.
-    ----------------------------------------------------- */
+    /*
+       Background image remains full hero.
+    */
+
+    .hero-image {
+
+        position: absolute;
+
+        inset: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        z-index: 1;
+    }
+
+
+    .hero-image img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: contain;
+
+        object-position: center center;
+    }
+
+
+    /*
+       ======================================================
+       THE ONLY MOBILE TRANSFORMATION
+
+       The entire desktop canvas is scaled.
+
+       Nothing inside it is moved.
+       ======================================================
+    */
+
+    .hero-canvas {
+
+        position: absolute;
+
+        top: 0;
+
+        left: 50%;
+
+        width: 1500px;
+
+        height: 100%;
+
+        transform:
+            translateX(-50%)
+            scale(
+                calc(100vw / 1500)
+            );
+
+        transform-origin:
+            top center;
+
+        z-index: 10;
+    }
+
+
+    /*
+       Explicitly prevent the old mobile layout.
+    */
+
+    .mobile-top-block {
+        position: static;
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .photo-row {
+        position: static;
+        display: block;
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    /*
+       NEVER hide the desktop borders.
+    */
+
+    .side-border {
+        display: flex;
+    }
+
+
+    /*
+       NEVER hide title decorations.
+    */
+
+    .title-heart,
+    .title-lines,
+    .title-paw {
+        display: block;
+    }
+
+
+    /*
+       NEVER turn actions into a column.
+    */
+
+    .actions {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+
+   STILL THE SAME CANVAS.
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .navbar {
+        height: 55px;
+        padding: 0 5px;
+    }
+
+
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .brand-text h1 {
+        font-size: 13px;
+    }
+
+
+    .brand-text p {
+        font-size: 7px;
+    }
+
+
+    nav {
+        gap: 3px;
+    }
+
+
+    nav a {
+        font-size: 7px;
+    }
+
+
+    .donate {
+        padding: 5px 6px;
+        font-size: 7px;
+    }
+
+
+    .nav-paw {
+        font-size: 10px;
+    }
+
+
+    .hero {
+        height:
+            calc(100dvh - 55px);
+    }
+
+
+    /*
+       EXACT SAME 1500px DESKTOP CANVAS
+    */
 
     .hero-canvas {
 
@@ -1614,7 +1659,6 @@ nav .active::after {
         height: 100%;
 
         left: 50%;
-
         top: 0;
 
         transform:
@@ -1630,120 +1674,34 @@ nav .active::after {
 
 
 /* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-    .navbar {
-
-        height: 55px;
-
-        padding:
-            0 5px;
-    }
-
-
-    .brand-logo {
-
-        width: 34px;
-
-        height: 34px;
-    }
-
-
-    .brand-text h1 {
-
-        font-size: 13px;
-    }
-
-
-    .brand-text p {
-
-        font-size: 7px;
-    }
-
-
-    nav {
-
-        gap: 4px;
-    }
-
-
-    nav a {
-
-        font-size: 7px;
-    }
-
-
-    .donate {
-
-        padding:
-            5px 6px;
-
-        font-size: 7px;
-    }
-
-
-    .nav-paw {
-
-        font-size: 10px;
-    }
-
-
-    .hero {
-
-        height:
-            calc(100dvh - 55px);
-
-        min-height: 420px;
-    }
-
-
-    /*
-       Still exactly the same 1500px canvas.
-    */
-
-    .hero-canvas {
-
-        width: 1500px;
-
-        transform:
-            translateX(-50%)
-            scale(
-                calc(100vw / 1500)
-            );
-
-        transform-origin:
-            top center;
-    }
-}
-
-
-/* =========================================================
    MOBILE LANDSCAPE
+
+   SAME DESKTOP COMPOSITION.
 ========================================================= */
 
 @media (max-width: 900px) and (orientation: landscape) {
 
     .navbar {
-
         height: 55px;
     }
 
 
     .hero {
-
         height:
             calc(100dvh - 55px);
 
-        min-height: 350px;
+        min-height: 0;
     }
 
 
     .hero-canvas {
 
         width: 1500px;
+
+        height: 100%;
+
+        left: 50%;
+        top: 0;
 
         transform:
             translateX(-50%)
