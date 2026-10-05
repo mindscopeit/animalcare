@@ -1,7 +1,7 @@
-/* =====================================================
+/* =========================================================
    ANIMAL CONNECT TRUST
-   ONE SAME LAYOUT FOR DESKTOP + MOBILE
-===================================================== */
+   SAME DESKTOP + MOBILE COMPOSITION
+   ========================================================= */
 
 :root {
     --dark-green: #21472f;
@@ -19,48 +19,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
 }
 
 body {
-    margin: 0;
-    background: #000;
     font-family: "DM Sans", sans-serif;
+    background: var(--cream);
+    color: var(--dark-green);
     overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 .page {
     width: 100%;
     max-width: 1500px;
-    margin: auto;
+    margin: 0 auto;
     background: var(--cream);
-    overflow: hidden;
 }
 
-
-/* =====================================================
+/* =========================================================
    NAVBAR
-===================================================== */
+   ========================================================= */
 
 .navbar {
+    width: 100%;
     height: 90px;
-    padding: 0 5%;
-    background: var(--cream);
-
+    padding: 0 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    background: var(--cream);
     position: relative;
     z-index: 100;
 }
@@ -74,301 +64,206 @@ a {
 .brand-logo {
     width: 62px;
     height: 62px;
+    border-radius: 50%;
     overflow: hidden;
+    border: 3px solid var(--forest-green);
     flex-shrink: 0;
 }
 
 .brand-logo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .brand-text h1 {
-    font-family: Georgia, serif;
-    font-size: 23px;
-    line-height: 1;
-    white-space: nowrap;
+    font-family: "Kalam", cursive;
+    font-size: 27px;
+    line-height: 25px;
+    color: var(--dark-green);
 }
 
 .brand-text h1 span {
-    color: var(--orange);
+    display: block;
 }
 
 .brand-text h1 b {
-    color: var(--olive-green);
+    color: var(--orange);
+    font-weight: 700;
 }
 
 .brand-text p {
-    margin-top: 6px;
+    margin-top: 4px;
     font-family: "Caveat", cursive;
-    color: var(--olive-green);
-    font-size: 16px;
+    font-size: 15px;
+    color: var(--forest-green);
 }
 
 .brand-text p span {
     color: var(--orange);
-    margin: 0 3px;
 }
 
-nav {
+.navbar nav {
     display: flex;
     align-items: center;
     gap: 34px;
 }
 
-nav a {
+.navbar nav a {
+    text-decoration: none;
     color: var(--dark-green);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     position: relative;
-    transition: 0.25s ease;
+    transition: 0.3s ease;
+    white-space: nowrap;
 }
 
-nav a:hover {
+.navbar nav a:hover,
+.navbar nav a.active {
     color: var(--orange);
 }
 
-nav .active::after {
+.navbar nav a.active::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -12px;
-    height: 3px;
-    background: var(--dark-green);
-    border-radius: 50%;
+    bottom: -8px;
+    height: 2px;
+    background: var(--orange);
+    border-radius: 10px;
 }
 
-.donate {
-    color: white !important;
-    background: var(--dark-green);
-    padding: 13px 21px;
-    border-radius: 12px;
-
-    display: flex;
-    align-items: center;
-    gap: 9px;
-
-    transition: 0.25s ease;
+.navbar .donate {
+    background: var(--orange);
+    color: white;
+    padding: 11px 19px;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(239, 117, 56, 0.25);
 }
 
-.donate:hover {
-    background: var(--forest-green);
+.navbar .donate:hover {
+    color: white;
     transform: translateY(-2px);
 }
 
 .nav-paw {
-    color: var(--olive-green);
+    color: var(--forest-green);
     font-size: 22px;
 }
 
-
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+   ========================================================= */
 
 .hero {
-    position: relative;
     width: 100%;
-    height: calc(100vh - 90px);
-    height: calc(100dvh - 90px);
-
-    min-height: 610px;
-
+    height: 100vh;
+    height: 100dvh;
+    min-height: 700px;
+    position: relative;
     overflow: hidden;
-
     background: var(--blend-bg);
 }
+
+/* Background image */
 
 .hero-image {
     position: absolute;
     inset: 0;
-
+    z-index: 1;
     width: 100%;
     height: 100%;
-
-    z-index: 1;
-
-    overflow: hidden;
-
-    background: var(--blend-bg);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
-
+    object-fit: cover;
+    object-position: center;
     display: block;
-
-    object-fit: contain;
-    object-position: center center;
-
-    filter:
-        brightness(1.02)
-        saturate(1.05)
-        contrast(1.02);
 }
+
+/* Green/cream overlay */
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-
     z-index: 2;
-
-    pointer-events: none;
-
     background:
         linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.2) 0%,
-            transparent 20%,
-            transparent 80%,
-            rgba(0,0,0,0.3) 100%
+            90deg,
+            rgba(33, 71, 47, 0.12),
+            rgba(255, 255, 255, 0.03),
+            rgba(33, 71, 47, 0.10)
         );
+    pointer-events: none;
 }
 
-
-/* =====================================================
+/* =========================================================
    SIDE BORDERS
-===================================================== */
+   ========================================================= */
 
 .side-border {
     position: absolute;
-
-    z-index: 20;
-
     top: 0;
     bottom: 0;
-
     width: 55px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(33,71,47,0.85),
-            rgba(49,91,54,0.90),
-            rgba(33,71,47,0.85)
-        );
-
+    z-index: 50;
+    background: rgba(248, 248, 232, 0.90);
     display: flex;
     flex-direction: column;
-
     align-items: center;
-    justify-content: center;
-
-    gap: 30px;
-
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-
-    box-shadow:
-        inset 0 0 30px rgba(0,0,0,0.2),
-        0 0 20px rgba(0,0,0,0.15);
+    justify-content: space-around;
+    padding: 25px 0;
+    border-color: rgba(49, 91, 54, 0.25);
+    border-style: solid;
 }
 
 .side-border.left {
     left: 0;
-    border-right: 2px solid rgba(255,255,255,0.15);
+    border-width: 0 1px 0 0;
 }
 
 .side-border.right {
     right: 0;
-    border-left: 2px solid rgba(255,255,255,0.15);
-}
-
-.side-border-text {
-    font-family: "Caveat", cursive;
-
-    font-size: 22px;
-    font-weight: 700;
-
-    color: rgba(255,255,255,0.95);
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    writing-mode: vertical-rl;
-
-    text-orientation: mixed;
-
-    transform: rotate(180deg);
-
-    text-shadow:
-        0 2px 6px rgba(0,0,0,0.4);
-
-    white-space: nowrap;
-}
-
-.side-border.right .side-border-text {
-    transform: rotate(0deg);
+    border-width: 0 0 0 1px;
 }
 
 .side-border-icon {
-    color: rgba(255,255,255,0.85);
-    font-size: 18px;
-
-    text-shadow:
-        0 2px 4px rgba(0,0,0,0.4);
-
-    animation:
-        pulse-icon 3s ease-in-out infinite;
+    font-size: 17px;
+    color: var(--orange);
 }
 
-@keyframes pulse-icon {
-
-    0%,100% {
-        transform: scale(1);
-        opacity: 0.85;
-    }
-
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
-        color: var(--orange);
-    }
+.side-border-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: "Caveat", cursive;
+    font-size: 16px;
+    color: var(--forest-green);
+    letter-spacing: 0.5px;
 }
 
 .side-border-dot {
     width: 5px;
     height: 5px;
-
-    background: rgba(255,255,255,0.5);
-
+    background: var(--olive-green);
     border-radius: 50%;
 }
 
-
-/* =====================================================
-   HERO CONTENT
-   IMPORTANT:
-   ALWAYS ABSOLUTE — SAME DESKTOP LAYOUT
-===================================================== */
-
-.mobile-top-block {
-    position: absolute;
-    inset: 0;
-
-    z-index: 25;
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   MAIN TITLE
-===================================================== */
+/* =========================================================
+   TITLE / CLOUD
+   ========================================================= */
 
 .main-title {
     position: absolute;
-
     z-index: 30;
 
-    bottom: 120px;
     left: 75px;
+    bottom: 120px;
 
-    width: 340px;
+    width: 100%;
     min-width: 260px;
     max-width: 340px;
 
@@ -376,162 +271,108 @@ nav .active::after {
 
     text-align: center;
 
-    background:
-        rgba(255,255,255,0.35);
+    background: rgba(255, 255, 255, 0.35);
 
-    border-radius:
-        40px 40px 40px 12px;
+    border-radius: 40px 40px 40px 12px;
 
     box-shadow:
-        0 10px 30px
-        rgba(33,71,47,0.12);
+        0 10px 30px rgba(33, 71, 47, 0.12);
 
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 
-    border:
-        1px solid
-        rgba(255,255,255,0.5);
-}
-
-.main-title h2 {
-    margin: 0;
-
-    font-family: "Kalam", cursive;
-
-    font-size:
-        clamp(22px, 2.5vw, 30px);
-
-    line-height: 0.95;
-
-    font-weight: 700;
-
-    color: var(--dark-green);
-
-    text-shadow:
-        0 1px 2px rgba(255,255,255,0.9),
-        0 0 8px rgba(255,255,255,0.7);
-}
-
-.main-title h2 span {
-    color: var(--olive-green);
-}
-
-.main-title p {
-    margin-top: 8px;
-
-    color: var(--text-green);
-
-    font-size: 12px;
-    line-height: 1.35;
-    font-weight: 600;
-
-    text-shadow:
-        0 1px 2px rgba(255,255,255,0.9),
-        0 0 6px rgba(255,255,255,0.7);
-}
-
-.title-heart,
-.title-lines,
-.title-paw {
-    position: absolute;
-
-    color: var(--dark-green);
-
-    opacity: 0.7;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .title-heart {
-    top: 10px;
-    left: 18px;
-
-    font-size: 24px;
-
+    position: absolute;
+    left: 25px;
+    top: 18px;
+    font-size: 28px;
+    color: var(--orange);
     transform: rotate(-15deg);
 }
 
 .title-lines {
-    top: 15px;
-    left: 45px;
-
-    font-size: 16px;
-
-    transform: rotate(-20deg);
+    position: absolute;
+    right: 28px;
+    top: 16px;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--olive-green);
+    transform: rotate(15deg);
 }
 
 .title-paw {
-    right: 18px;
+    position: absolute;
+    right: 20px;
     bottom: 18px;
+    font-size: 24px;
+    transform: rotate(-10deg);
+}
 
-    font-size: 18px;
+.main-title h2 {
+    font-family: "Kalam", cursive;
+    font-size: 34px;
+    line-height: 1.05;
+    color: var(--dark-green);
+    font-weight: 700;
+}
 
-    transform: rotate(-15deg);
+.main-title h2 span {
+    display: inline;
+}
+
+.main-title p {
+    margin-top: 12px;
+    font-family: "Caveat", cursive;
+    font-size: 19px;
+    line-height: 1.15;
+    color: var(--text-green);
 }
 
 .title-underline {
-    width: 100px;
+    width: 120px;
     height: 3px;
-
-    margin: 8px auto 0;
-
-    background: var(--olive-green);
-
-    border-radius: 50%;
-
+    margin: 12px auto 0;
+    background: var(--orange);
+    border-radius: 10px;
     transform: rotate(-2deg);
-
-    opacity: 0.8;
 }
 
-
-/* =====================================================
+/* =========================================================
    TYPEWRITER
-===================================================== */
+   ========================================================= */
 
 .typewriter,
 .typewriter-2,
 .typewriter-3,
 .typewriter-4 {
     display: inline-block;
-
     overflow: hidden;
-
     white-space: nowrap;
-
-    border-right:
-        3px solid transparent;
-
-    width: 0;
-
-    animation-fill-mode: forwards;
 }
 
 .typewriter {
-    animation:
-        typing 2s steps(20,end) 0.5s forwards,
-        blink-caret 0.75s step-end infinite;
+    animation: typing1 2s steps(20, end) forwards;
 }
 
 .typewriter-2 {
-    animation:
-        typing 1.5s steps(15,end) 2.5s forwards,
-        blink-caret 0.75s step-end infinite;
+    width: 0;
+    animation: typing2 2s steps(18, end) 1.8s forwards;
 }
 
 .typewriter-3 {
-    animation:
-        typing 2.5s steps(30,end) 4s forwards,
-        blink-caret 0.75s step-end infinite;
+    width: 0;
+    animation: typing3 2s steps(29, end) 3.5s forwards;
 }
 
 .typewriter-4 {
-    animation:
-        typing 1.5s steps(15,end) 6.5s forwards,
-        blink-caret 0.75s step-end infinite;
+    width: 0;
+    animation: typing4 1.5s steps(17, end) 5.2s forwards;
 }
 
-@keyframes typing {
-
+@keyframes typing1 {
     from {
         width: 0;
     }
@@ -541,618 +382,550 @@ nav .active::after {
     }
 }
 
-@keyframes blink-caret {
-
-    from,to {
-        border-color: transparent;
+@keyframes typing2 {
+    from {
+        width: 0;
     }
 
-    50% {
-        border-color: var(--olive-green);
+    to {
+        width: 100%;
     }
 }
 
+@keyframes typing3 {
+    from {
+        width: 0;
+    }
 
-/* =====================================================
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes typing4 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* =========================================================
    PHOTO CARDS
-===================================================== */
+   IMPORTANT:
+   ALL CARDS ARE ABSOLUTE.
+   NEVER TURN THEM INTO A MOBILE ROW.
+   ========================================================= */
+
+.mobile-top-block {
+    position: static;
+    display: block;
+}
 
 .photo-row {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: 25;
-
-    pointer-events: none;
+    position: static;
+    display: block;
 }
 
 .photo-card {
     position: absolute;
-
     z-index: 25;
 
     background: var(--paper);
 
-    padding:
-        12px 12px 55px 12px;
+    padding: 10px 10px 15px;
 
-    border-radius: 4px;
-
-    border: 3px solid #ffffff;
-
-    outline:
-        1px solid
-        rgba(33,71,47,0.15);
-
-    outline-offset: 3px;
+    border: 1px solid rgba(33, 71, 47, 0.15);
 
     box-shadow:
-        0 4px 8px rgba(38,60,31,0.15),
-        0 10px 25px rgba(38,60,31,0.25),
-        0 20px 40px rgba(38,60,31,0.15),
-        inset 0 0 0 1px
-        rgba(255,255,255,0.8);
+        0 15px 30px rgba(33, 71, 47, 0.22);
 
-    pointer-events: auto;
-}
+    border-radius: 3px;
 
-.photo-card::before,
-.photo-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 45px;
-    height: 18px;
-
-    background:
-        rgba(255,249,200,0.75);
-
-    border:
-        1px solid
-        rgba(200,190,140,0.5);
-
-    box-shadow:
-        0 1px 3px rgba(0,0,0,0.1);
-
-    z-index: 5;
+    transition: transform 0.3s ease;
 }
 
 .photo-card::before {
-    top: -8px;
-    left: 20px;
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 22px;
 
-    transform: rotate(-8deg);
-}
+    top: -10px;
+    left: 50%;
 
-.photo-card::after {
-    top: -8px;
-    right: 20px;
+    transform: translateX(-50%) rotate(-3deg);
 
-    transform: rotate(8deg);
+    background: rgba(241, 215, 153, 0.75);
+
+    z-index: 3;
 }
 
 .photo-card img {
-
-    display: block;
-
     width: 100%;
-
+    display: block;
     object-fit: cover;
-
     border-radius: 2px;
-
-    border:
-        1px solid
-        rgba(33,71,47,0.1);
 }
 
+.photo-card p,
 .photo-label {
-
-    position: absolute;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    bottom: 15px;
-
-    padding:
-        8px 18px;
-
-    background:
-        var(--forest-green);
-
-    color: white;
-
-    border-radius: 20px;
-
-    font-family:
-        "Caveat", cursive;
-
-    font-size: 17px;
-
-    line-height: 1.05;
-
-    box-shadow:
-        0 3px 8px rgba(0,0,0,0.2),
-        inset 0 1px 0
-        rgba(255,255,255,0.2);
-
-    border:
-        2px solid
-        rgba(255,255,255,0.9);
-
+    font-family: "Caveat", cursive;
+    color: var(--forest-green);
     text-align: center;
-
-    white-space: nowrap;
+    font-size: 18px;
+    line-height: 1.05;
+    margin-top: 8px;
 }
 
-
-/* =====================================================
-   DESKTOP POSITIONS
-===================================================== */
+/* LEFT */
 
 .left-card {
-
     width: 260px;
     height: 280px;
 
     left: 75px;
     top: 60px;
 
-    transform:
-        rotate(-4deg);
+    transform: rotate(-4deg);
 
-    animation:
-        float-left 4s ease-in-out infinite;
+    animation: float-left 4s ease-in-out infinite;
 }
 
 .left-card img {
-
     height: 195px;
-
-    border:
-        2px dashed
-        rgba(33,71,47,0.2);
-
-    padding: 3px;
-
-    background:
-        #fffef1;
 }
 
+.left-card .photo-label {
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+/* RIGHT TOP */
 
 .right-top-card {
-
     width: 240px;
     height: 310px;
 
     right: 75px;
     top: 50px;
 
-    transform:
-        rotate(-6deg);
+    transform: rotate(-6deg);
 
-    animation:
-        float-right-top 5s ease-in-out infinite;
+    border-color: #f5e6a8;
 
-    border-color:
-        #f5e6a8;
+    animation: float-right-top 5s ease-in-out infinite;
 }
 
 .right-top-card img {
     height: 215px;
 }
 
-.right-top-card p {
-
-    position: absolute;
-
-    bottom: 14px;
-
-    left: 0;
-    right: 0;
-
-    text-align: center;
-
-    font-family:
-        "Caveat", cursive;
-
-    color:
-        var(--text-green);
-
-    font-size: 15px;
-
-    line-height: 1.1;
-
-    padding: 0 8px;
-}
-
+/* RIGHT BOTTOM */
 
 .right-bottom-card {
-
     width: 260px;
     height: 330px;
 
     right: 75px;
     bottom: 150px;
 
-    transform:
-        rotate(5deg);
+    transform: rotate(5deg);
 
-    animation:
-        float-right-bottom 4.5s ease-in-out infinite;
+    border-color: #d4e5b8;
 
-    border-color:
-        #d4e5b8;
+    animation: float-right-bottom 4.5s ease-in-out infinite;
 }
 
 .right-bottom-card img {
     height: 240px;
 }
 
-.right-bottom-card p {
-
-    position: absolute;
-
-    bottom: 15px;
-
-    left: 0;
-    right: 0;
-
-    text-align: center;
-
-    font-family:
-        "Caveat", cursive;
-
-    color:
-        var(--text-green);
-
-    font-size: 15px;
-
-    padding: 0 8px;
-}
-
-
-/* =====================================================
-   FLOAT ANIMATION
-===================================================== */
-
 @keyframes float-left {
-
-    0%,100% {
-        transform:
-            rotate(-4deg)
-            translateY(0);
+    0%,
+    100% {
+        transform: rotate(-4deg) translateY(0);
     }
 
     50% {
-        transform:
-            rotate(-4deg)
-            translateY(-12px);
+        transform: rotate(-4deg) translateY(-7px);
     }
 }
 
 @keyframes float-right-top {
-
-    0%,100% {
-        transform:
-            rotate(-6deg)
-            translateY(0);
+    0%,
+    100% {
+        transform: rotate(-6deg) translateY(0);
     }
 
     50% {
-        transform:
-            rotate(-6deg)
-            translateY(-15px);
+        transform: rotate(-6deg) translateY(-8px);
     }
 }
 
 @keyframes float-right-bottom {
-
-    0%,100% {
-        transform:
-            rotate(5deg)
-            translateY(0);
+    0%,
+    100% {
+        transform: rotate(5deg) translateY(0);
     }
 
     50% {
-        transform:
-            rotate(5deg)
-            translateY(-10px);
+        transform: rotate(5deg) translateY(-7px);
     }
 }
 
-
-/* =====================================================
+/* =========================================================
    CENTER HEART
-===================================================== */
+   ========================================================= */
 
 .center-heart {
-
     position: absolute;
 
-    z-index: 15;
+    z-index: 20;
 
     left: 48%;
     top: 420px;
 
-    color: white;
-
-    font-family:
-        "Caveat", cursive;
-
     font-size: 65px;
 
-    transform:
-        rotate(-10deg);
+    font-family: Arial, sans-serif;
+
+    color: rgba(255, 255, 255, 0.85);
 
     text-shadow:
-        0 2px 8px rgba(0,0,0,0.4);
+        0 5px 20px rgba(33, 71, 47, 0.25);
+
+    animation: heart-beat 2.5s ease-in-out infinite;
 }
 
+@keyframes heart-beat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
 
-/* =====================================================
-   ACTIONS
-===================================================== */
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* =========================================================
+   ACTION CARDS
+   ========================================================= */
 
 .actions {
-
     position: absolute;
 
     z-index: 40;
 
     left: 50%;
-
-    transform:
-        translateX(-50%);
-
     bottom: 45px;
 
-    width: 75%;
+    transform: translateX(-50%);
 
+    width: 75%;
     max-width: 850px;
 
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 20px;
+    gap: 14px;
 }
 
 .action {
-
-    min-height: 110px;
-
-    padding:
-        15px 20px;
-
-    background:
-        rgba(248,247,219,0.95);
-
-    border-radius: 20px;
+    min-height: 105px;
 
     display: flex;
-
     align-items: center;
 
-    gap: 15px;
+    padding: 12px 15px;
+
+    text-decoration: none;
+
+    background: rgba(255, 255, 255, 0.87);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    border-radius: 16px;
 
     box-shadow:
-        0 8px 25px
-        rgba(36,61,33,0.15),
-        inset 0 1px 0
-        rgba(255,255,255,0.5);
+        0 10px 25px rgba(33, 71, 47, 0.16);
 
-    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
-    backdrop-filter:
-        blur(5px);
-
-    border:
-        2px solid
-        rgba(255,255,255,0.8);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .action:hover {
-
-    transform:
-        translateY(-6px);
+    transform: translateY(-6px);
 
     box-shadow:
-        0 12px 35px
-        rgba(36,61,33,0.25);
+        0 16px 30px rgba(33, 71, 47, 0.22);
 }
 
 .action-icon {
+    width: 52px;
+    height: 52px;
 
-    width: 55px;
-    min-width: 55px;
-    height: 55px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    color: white;
-
-    font-size: 25px;
-
-    border:
-        2px solid
-        rgba(255,255,255,0.4);
-
-    box-shadow:
-        0 4px 12px
-        rgba(0,0,0,0.15);
+    font-size: 21px;
 }
 
 .action-icon.orange {
-    background:
-        var(--orange);
+    background: rgba(239, 117, 56, 0.15);
+    color: var(--orange);
 }
 
 .action-icon.green {
-    background:
-        var(--olive-green);
+    background: rgba(102, 135, 68, 0.17);
+    color: var(--forest-green);
+}
+
+.action-text {
+    padding-left: 11px;
+    position: relative;
+    width: 100%;
 }
 
 .action-text h3 {
-
-    font-family:
-        "Caveat", cursive;
-
-    font-size: 28px;
-
+    font-family: "Kalam", cursive;
+    font-size: 22px;
+    color: var(--dark-green);
     line-height: 1;
-
-    color:
-        var(--olive-green);
-}
-
-.action:nth-child(3) h3 {
-    color:
-        var(--orange);
 }
 
 .action-text p {
-
-    color:
-        var(--text-green);
-
-    font-size: 13px;
-
-    line-height: 1.3;
-
     margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.25;
+    color: var(--text-green);
 }
 
+.action-text strong {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 
-/* =====================================================
-   BOTTOM
-===================================================== */
+    font-size: 21px;
+    color: var(--orange);
+}
+
+/* =========================================================
+   BOTTOM BAR
+   ========================================================= */
 
 .bottom {
-
     position: absolute;
 
-    z-index: 35;
+    z-index: 60;
 
-    bottom: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
 
-    width: 100%;
     height: 50px;
 
-    background:
-        var(--forest-green);
-
     display: flex;
-
-    justify-content: center;
     align-items: center;
-}
+    justify-content: center;
 
-.bottom::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: -15px;
-    left: -5%;
-
-    width: 110%;
-    height: 20px;
-
-    background:
-        var(--forest-green);
-
-    border-radius:
-        50% 50% 0 0;
-}
-
-.bottom p {
-
-    position: relative;
-
-    z-index: 5;
+    background: var(--forest-green);
 
     color: white;
 
-    font-family:
-        "Caveat", cursive;
+    overflow: hidden;
+}
 
-    font-size: 22px;
+.bottom p {
+    font-family: "Caveat", cursive;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+}
 
-    letter-spacing: 1px;
+.bottom p:first-letter {
+    color: #ffd7bd;
 }
 
 .bottom-decoration {
-
     position: absolute;
-
-    z-index: 5;
-
-    color:
-        var(--olive-green);
-
-    font-size: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 24px;
 }
 
 .bottom-decoration.left {
-
-    left: 70px;
-    bottom: -10px;
-
-    transform:
-        rotate(-30deg);
+    left: 40px;
 }
 
 .bottom-decoration.right {
-
-    right: 70px;
-    bottom: -10px;
-
-    transform:
-        rotate(30deg);
+    right: 40px;
 }
 
+/* =========================================================
+   LARGE LAPTOP / DESKTOP
+   ========================================================= */
 
-/* =====================================================
+@media (min-width: 1400px) {
+
+    .navbar {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .left-card {
+        left: 85px;
+    }
+
+    .right-top-card,
+    .right-bottom-card {
+        right: 85px;
+    }
+
+    .main-title {
+        left: 85px;
+    }
+}
+
+/* =========================================================
+   TABLET
+   SAME LAYOUT - ONLY SCALED
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 0 22px;
+    }
+
+    .navbar nav {
+        gap: 18px;
+    }
+
+    .navbar nav a {
+        font-size: 13px;
+    }
+
+    .navbar .donate {
+        padding: 9px 14px;
+    }
+
+    .left-card {
+        width: 210px;
+        height: 230px;
+        left: 55px;
+        top: 45px;
+    }
+
+    .left-card img {
+        height: 155px;
+    }
+
+    .right-top-card {
+        width: 195px;
+        height: 250px;
+        right: 55px;
+        top: 40px;
+    }
+
+    .right-top-card img {
+        height: 175px;
+    }
+
+    .right-bottom-card {
+        width: 210px;
+        height: 270px;
+        right: 55px;
+        bottom: 125px;
+    }
+
+    .right-bottom-card img {
+        height: 195px;
+    }
+
+    .main-title {
+        left: 55px;
+        bottom: 105px;
+        width: 270px;
+        min-width: 0;
+        padding: 15px 17px;
+    }
+
+    .main-title h2 {
+        font-size: 29px;
+    }
+
+    .main-title p {
+        font-size: 17px;
+    }
+
+    .center-heart {
+        top: 40%;
+        font-size: 55px;
+    }
+
+    .actions {
+        width: 76%;
+        bottom: 42px;
+    }
+
+    .action {
+        min-height: 90px;
+        padding: 9px;
+    }
+
+    .action-icon {
+        width: 43px;
+        height: 43px;
+        font-size: 18px;
+    }
+
+    .action-text h3 {
+        font-size: 19px;
+    }
+
+    .action-text p {
+        font-size: 10px;
+    }
+}
+
+/* =========================================================
    MOBILE
-   ONLY SCALE — NEVER REARRANGE
-===================================================== */
+   =========================================================
+   IMPORTANT:
+   THIS DOES NOT CREATE A NEW LAYOUT.
+
+   Everything stays:
+   - absolute
+   - same positions
+   - same 3 photo arrangement
+   - same title position
+   - same heart position
+   - same 3 action cards
+   - same bottom bar
+
+   ONLY SIZE IS REDUCED.
+   ========================================================= */
 
 @media (max-width: 700px) {
 
-    /*
-       IMPORTANT:
-       Everything remains absolute.
-       Nothing goes underneath anything.
-       No flex column.
-       No separate mobile page.
-    */
+    /* NAVBAR STAYS HORIZONTAL */
 
     .navbar {
-
-        height: 65px;
-
-        padding:
-            0 8px;
-
-        transform-origin:
-            top left;
+        height: 70px;
+        padding: 0 10px;
     }
 
     .brand-area {
@@ -1160,69 +933,94 @@ nav .active::after {
     }
 
     .brand-logo {
-        width: 42px;
-        height: 42px;
+        width: 43px;
+        height: 43px;
+        border-width: 2px;
     }
 
     .brand-text h1 {
-        font-size: 15px;
+        font-size: 18px;
+        line-height: 17px;
     }
 
     .brand-text p {
         font-size: 10px;
-        margin-top: 3px;
+        margin-top: 2px;
     }
 
-    nav {
-        gap: 7px;
+    .navbar nav {
+        gap: 8px;
     }
 
-    nav a {
+    .navbar nav a {
         font-size: 9px;
     }
 
-    .donate {
-        padding:
-            7px 8px;
+    .navbar nav a.active::after {
+        bottom: -4px;
+        height: 1px;
+    }
 
-        border-radius: 8px;
-
-        gap: 4px;
+    .navbar .donate {
+        padding: 6px 8px;
+        border-radius: 15px;
     }
 
     .nav-paw {
-        font-size: 14px;
+        font-size: 13px;
     }
 
 
-    /* SAME HERO */
+    /* =====================================================
+       HERO REMAINS A FIXED COMPOSITION
+       ===================================================== */
 
     .hero {
+        height: calc(100dvh - 70px);
+        min-height: 520px;
 
-        height:
-            calc(100dvh - 65px);
+        position: relative;
 
-        min-height:
-            540px;
+        display: block;
 
         overflow: hidden;
     }
 
+    .hero-image {
+        position: absolute;
+        inset: 0;
 
-    /* KEEP SIDE-BORDER DESIGN,
-       JUST MAKE THEM SMALLER */
+        width: 100%;
+        height: 100%;
+
+        z-index: 1;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+    /* =====================================================
+       SIDE BORDERS — STILL VISIBLE
+       ===================================================== */
 
     .side-border {
         display: flex;
 
-        width: 25px;
+        width: 23px;
 
-        gap: 15px;
+        padding: 15px 0;
+
+        z-index: 50;
     }
 
     .side-border-text {
-        font-size: 10px;
-        letter-spacing: 1px;
+        font-size: 9px;
     }
 
     .side-border-icon {
@@ -1235,227 +1033,290 @@ nav .active::after {
     }
 
 
-    /* SAME TITLE POSITION/STYLE,
-       ONLY SMALLER */
+    /* =====================================================
+       TITLE — SAME LOWER LEFT POSITION
+       ===================================================== */
 
     .main-title {
+        position: absolute;
 
-        left: 42px;
+        left: 7%;
+        bottom: 19%;
 
-        bottom: 95px;
+        width: 27%;
+        min-width: 0;
+        max-width: none;
 
-        width: 220px;
+        padding: 9px 6px;
 
-        min-width: 220px;
+        border-radius: 25px 25px 25px 8px;
 
-        max-width: 220px;
-
-        padding:
-            13px 15px;
+        z-index: 30;
     }
 
     .main-title h2 {
-        font-size: 20px;
+        font-size: clamp(13px, 3.2vw, 22px);
+        line-height: 1.02;
     }
 
     .main-title p {
-        font-size: 9px;
+        margin-top: 6px;
+        font-size: clamp(9px, 2vw, 14px);
+        line-height: 1.05;
     }
 
     .title-heart {
+        left: 8px;
         top: 7px;
-        left: 13px;
-        font-size: 19px;
-    }
-
-    .title-lines {
-        top: 11px;
-        left: 35px;
-        font-size: 13px;
-    }
-
-    .title-paw {
-        right: 13px;
-        bottom: 13px;
         font-size: 15px;
     }
 
+    .title-lines {
+        right: 9px;
+        top: 6px;
+        font-size: 14px;
+    }
+
+    .title-paw {
+        right: 7px;
+        bottom: 7px;
+        font-size: 13px;
+    }
+
     .title-underline {
-        width: 75px;
+        width: 45%;
         height: 2px;
+        margin-top: 6px;
     }
 
 
-    /* SAME LEFT CARD POSITION */
+    /* =====================================================
+       PHOTO 1 — SAME UPPER LEFT POSITION
+       ===================================================== */
 
     .left-card {
+        position: absolute;
 
-        width: 145px;
-        height: 165px;
+        left: 7%;
+        top: 7%;
 
-        left: 30px;
-        top: 35px;
+        width: 20%;
+        height: auto;
 
-        padding:
-            7px 7px 32px 7px;
+        min-width: 0;
+
+        padding: 6px 6px 9px;
+
+        z-index: 25;
     }
 
     .left-card img {
-        height: 115px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 260 / 195;
+        object-fit: cover;
     }
 
-    .photo-label {
-        bottom: 7px;
+    .left-card .photo-label {
+        font-size: clamp(8px, 1.8vw, 13px);
+        margin-top: 4px;
+    }
 
-        padding:
-            4px 8px;
+    .photo-card::before {
+        width: 40%;
+        height: 8px;
+        top: -5px;
+    }
 
+
+    /* =====================================================
+       PHOTO 2 — SAME UPPER RIGHT POSITION
+       ===================================================== */
+
+    .right-top-card {
+        position: absolute;
+
+        right: 7%;
+        top: 6%;
+
+        width: 19%;
+        height: auto;
+
+        min-width: 0;
+
+        padding: 6px 6px 9px;
+
+        z-index: 25;
+    }
+
+    .right-top-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 240 / 215;
+        object-fit: cover;
+    }
+
+    .right-top-card p {
+        font-size: clamp(8px, 1.7vw, 13px);
+        margin-top: 4px;
+    }
+
+
+    /* =====================================================
+       PHOTO 3 — SAME LOWER RIGHT POSITION
+       ===================================================== */
+
+    .right-bottom-card {
+        position: absolute;
+
+        right: 7%;
+        bottom: 22%;
+
+        width: 20%;
+        height: auto;
+
+        min-width: 0;
+
+        padding: 6px 6px 9px;
+
+        z-index: 25;
+    }
+
+    .right-bottom-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 260 / 240;
+        object-fit: cover;
+    }
+
+    .right-bottom-card p {
+        font-size: clamp(8px, 1.7vw, 13px);
+        margin-top: 4px;
+    }
+
+
+    /* =====================================================
+       CENTER HEART — SAME CENTER POSITION
+       ===================================================== */
+
+    .center-heart {
+        position: absolute;
+
+        left: 48%;
+        top: 48%;
+
+        z-index: 20;
+
+        font-size: clamp(30px, 8vw, 52px);
+    }
+
+
+    /* =====================================================
+       ACTIONS — 3 COLUMNS, NEVER STACK
+       ===================================================== */
+
+    .actions {
+        position: absolute;
+
+        left: 50%;
+        bottom: 6%;
+
+        transform: translateX(-50%);
+
+        width: 72%;
+
+        max-width: none;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 5px;
+
+        z-index: 40;
+    }
+
+    .action {
+        min-height: 55px;
+
+        padding: 5px;
+
+        border-radius: 8px;
+    }
+
+    .action-icon {
+        width: 25px;
+        height: 25px;
+
+        font-size: 11px;
+
+        flex-shrink: 0;
+    }
+
+    .action-text {
+        padding-left: 5px;
+    }
+
+    .action-text h3 {
+        font-size: clamp(10px, 2.3vw, 15px);
+        line-height: 1;
+    }
+
+    .action-text p {
+        margin-top: 2px;
+        font-size: clamp(5px, 1.25vw, 8px);
+        line-height: 1.15;
+    }
+
+    .action-text strong {
+        right: -1px;
+        bottom: -1px;
         font-size: 10px;
     }
 
 
-    /* SAME RIGHT TOP CARD */
-
-    .right-top-card {
-
-        width: 135px;
-        height: 175px;
-
-        right: 30px;
-        top: 30px;
-
-        padding:
-            7px 7px 32px 7px;
-    }
-
-    .right-top-card img {
-        height: 125px;
-    }
-
-    .right-top-card p {
-        bottom: 7px;
-        font-size: 9px;
-        padding: 0 4px;
-    }
-
-
-    /* SAME RIGHT BOTTOM CARD */
-
-    .right-bottom-card {
-
-        width: 145px;
-        height: 185px;
-
-        right: 25px;
-        bottom: 125px;
-
-        padding:
-            7px 7px 32px 7px;
-    }
-
-    .right-bottom-card img {
-        height: 135px;
-    }
-
-    .right-bottom-card p {
-        bottom: 7px;
-        font-size: 9px;
-        padding: 0 4px;
-    }
-
-
-    /* SAME CENTER HEART */
-
-    .center-heart {
-
-        left: 48%;
-
-        top: 300px;
-
-        font-size: 45px;
-    }
-
-
-    /* SAME THREE ACTION CARDS */
-
-    .actions {
-
-        width: 92%;
-
-        bottom: 35px;
-
-        gap: 6px;
-    }
-
-    .action {
-
-        min-height: 75px;
-
-        padding:
-            7px 6px;
-
-        gap: 6px;
-
-        border-radius: 13px;
-    }
-
-    .action-icon {
-
-        width: 32px;
-        min-width: 32px;
-        height: 32px;
-
-        font-size: 14px;
-    }
-
-    .action-text h3 {
-        font-size: 18px;
-    }
-
-    .action-text p {
-        font-size: 7px;
-        margin-top: 3px;
-    }
-
-
-    /* SAME BOTTOM BAR */
+    /* =====================================================
+       BOTTOM BAR — SAME POSITION
+       ===================================================== */
 
     .bottom {
-        height: 38px;
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        height: 27px;
+
+        z-index: 60;
     }
 
     .bottom p {
-        font-size: 13px;
+        font-size: clamp(10px, 2.8vw, 16px);
     }
 
     .bottom-decoration {
-        font-size: 30px;
+        font-size: 13px;
     }
 
     .bottom-decoration.left {
-        left: 12px;
+        left: 20px;
     }
 
     .bottom-decoration.right {
-        right: 12px;
+        right: 20px;
     }
 }
 
-
-/* =====================================================
+/* =========================================================
    VERY SMALL PHONES
-===================================================== */
+   STILL SAME LAYOUT
+   ========================================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
 
     .navbar {
-        height: 60px;
-    }
-
-    .hero {
-        height:
-            calc(100dvh - 60px);
-        min-height: 500px;
+        height: 62px;
     }
 
     .brand-logo {
@@ -1464,142 +1325,172 @@ nav .active::after {
     }
 
     .brand-text h1 {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .brand-text p {
         font-size: 8px;
     }
 
-    nav {
+    .navbar nav {
         gap: 5px;
     }
 
-    nav a {
+    .navbar nav a {
         font-size: 7px;
     }
 
-    .donate {
+    .navbar .donate {
         padding: 5px 6px;
-        font-size: 7px;
+    }
+
+    .hero {
+        height: calc(100dvh - 62px);
+        min-height: 480px;
     }
 
     .side-border {
-        width: 20px;
-    }
-
-    .side-border-text {
-        font-size: 8px;
+        width: 18px;
     }
 
     .main-title {
-
-        left: 27px;
-
-        bottom: 85px;
-
-        width: 190px;
-
-        min-width: 190px;
-
-        max-width: 190px;
-
-        padding:
-            11px 12px;
-    }
-
-    .main-title h2 {
-        font-size: 18px;
-    }
-
-    .main-title p {
-        font-size: 8px;
+        left: 6%;
+        bottom: 19%;
+        width: 29%;
+        padding: 7px 4px;
     }
 
     .left-card {
-
-        width: 115px;
-        height: 140px;
-
-        left: 22px;
-        top: 25px;
-
-        padding:
-            6px 6px 28px 6px;
-    }
-
-    .left-card img {
-        height: 98px;
+        left: 6%;
+        top: 6%;
+        width: 21%;
+        padding: 5px 5px 7px;
     }
 
     .right-top-card {
-
-        width: 108px;
-        height: 145px;
-
-        right: 22px;
-        top: 22px;
-
-        padding:
-            6px 6px 28px 6px;
-    }
-
-    .right-top-card img {
-        height: 100px;
+        right: 6%;
+        top: 5%;
+        width: 20%;
+        padding: 5px 5px 7px;
     }
 
     .right-bottom-card {
-
-        width: 115px;
-        height: 150px;
-
-        right: 18px;
-        bottom: 110px;
-
-        padding:
-            6px 6px 28px 6px;
-    }
-
-    .right-bottom-card img {
-        height: 105px;
-    }
-
-    .center-heart {
-        top: 260px;
-        font-size: 38px;
+        right: 6%;
+        bottom: 22%;
+        width: 21%;
+        padding: 5px 5px 7px;
     }
 
     .actions {
-        width: 94%;
-        bottom: 30px;
-        gap: 4px;
+        width: 75%;
+        gap: 3px;
+        bottom: 6%;
     }
 
     .action {
-        min-height: 65px;
-        padding: 5px 4px;
+        min-height: 48px;
+        padding: 4px;
+        border-radius: 7px;
     }
 
     .action-icon {
-        width: 27px;
-        min-width: 27px;
-        height: 27px;
-        font-size: 11px;
+        width: 21px;
+        height: 21px;
+        font-size: 9px;
+    }
+
+    .action-text {
+        padding-left: 3px;
     }
 
     .action-text h3 {
-        font-size: 15px;
+        font-size: 8px;
     }
 
     .action-text p {
-        font-size: 6px;
+        font-size: 5px;
+    }
+
+    .action-text strong {
+        font-size: 8px;
     }
 
     .bottom {
-        height: 34px;
+        height: 24px;
     }
 
-    .bottom p {
-        font-size: 11px;
+    .bottom-decoration {
+        display: none;
+    }
+}
+
+/* =========================================================
+   LANDSCAPE PHONE
+   SAME DESKTOP COMPOSITION
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .navbar {
+        height: 55px;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-text h1 {
+        font-size: 16px;
+    }
+
+    .brand-text p {
+        font-size: 8px;
+    }
+
+    .navbar nav {
+        gap: 10px;
+    }
+
+    .navbar nav a {
+        font-size: 9px;
+    }
+
+    .hero {
+        height: calc(100dvh - 55px);
+        min-height: 400px;
+    }
+
+    .left-card {
+        top: 5%;
+        width: 17%;
+    }
+
+    .right-top-card {
+        top: 4%;
+        width: 16%;
+    }
+
+    .right-bottom-card {
+        bottom: 18%;
+        width: 17%;
+    }
+
+    .main-title {
+        bottom: 17%;
+        width: 23%;
+    }
+
+    .actions {
+        bottom: 5%;
+        width: 70%;
+    }
+
+    .action {
+        min-height: 45px;
+    }
+
+    .bottom {
+        height: 23px;
     }
 }
