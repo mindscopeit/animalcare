@@ -1,6 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL CSS - MOBILE FIX (CARDS IN FLEX ROW, NO OVERLAP)
+   FINAL CSS - MOBILE FIXED PERMANENTLY
 ===================================================== */
 
 :root {
@@ -299,7 +299,7 @@ nav .active::after {
 }
 
 /* =====================================================
-   PHOTO CARDS
+   PHOTO CARDS (base styles)
 ===================================================== */
 .photo-card {
     position: absolute;
@@ -550,41 +550,25 @@ nav .active::after {
 }
 
 /* =====================================================
-   MOBILE PHONES (700px AND BELOW)
-   FINAL: Cards placed as a flex row OVER the image
+   MOBILE PHONES (700px AND BELOW) - FINAL FIX
+   Uses display: none for the 3rd card completely
 ===================================================== */
 @media (max-width: 700px) {
     
-    /* Side borders */
-    .side-border { 
-        width: 26px;
-        gap: 14px;
-    }
-    .side-border-text { 
-        font-size: 10px; 
-        letter-spacing: 0;
-    }
+    .side-border { width: 26px; gap: 14px; }
+    .side-border-text { font-size: 10px; letter-spacing: 0; }
     .side-border-icon { font-size: 10px; }
     .side-border-dot { width: 3px; height: 3px; }
 
-    /* Navbar */
     .navbar {
-        height: auto;
-        padding: 12px 15px;
-        flex-direction: column;
-        gap: 10px;
+        height: auto; padding: 12px 15px;
+        flex-direction: column; gap: 10px;
     }
     .brand-area { width: 100%; justify-content: center; }
     .brand-logo { width: 50px; height: 50px; }
     .brand-text h1 { font-size: 18px; }
     .brand-text p { font-size: 14px; }
-    
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-        width: 100%;
-    }
+    nav { flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%; }
     nav a { font-size: 14px; padding: 4px 0; }
     nav .active::after { bottom: -6px; }
     .donate { padding: 8px 16px; font-size: 14px; border-radius: 10px; }
@@ -601,98 +585,99 @@ nav .active::after {
         overflow: visible;
     }
 
-    /* Hero image - the fixed-height container */
     .hero-image {
         position: relative;
         width: 100%;
-        height: 48vh;
-        min-height: 340px;
+        height: 45vh;
+        min-height: 320px;
         flex-shrink: 0;
         overflow: hidden;
         background: var(--blend-bg);
     }
 
     .hero-image img {
-        width: 100%;
-        height: 100%;
+        width: 100%; height: 100%;
         object-fit: contain;
         object-position: center center;
     }
 
     /* 
-       FIX: All photo cards are now positioned INSIDE 
-       the top area of the image using absolute positioning 
-       with explicit TOP values, so they can never fall down.
+       CRITICAL FIX: Photos anchored with top AND left/right values
+       using !important to override any cascading issues. 
+       All photos stay at the TOP of the image.
     */
 
-    /* LEFT CARD - anchored to top-left */
     .left-card {
-        position: absolute;
-        width: 75px;
-        height: 90px;
-        left: 34px;
-        top: 15px;                  /* Fixed to top, will never move down */
-        padding: 4px 4px 20px 4px;
-        transform: rotate(-4deg);
-        animation: none;
-        z-index: 30;
-        border-width: 2px;
-        outline-width: 1px;
+        position: absolute !important;
+        width: 72px !important;
+        height: 88px !important;
+        left: 32px !important;
+        top: 12px !important;
+        bottom: auto !important;
+        padding: 4px 4px 20px 4px !important;
+        transform: rotate(-4deg) !important;
+        animation: none !important;
+        z-index: 30 !important;
+        border-width: 2px !important;
+        outline-width: 1px !important;
     }
-    .left-card img { height: 52px; }
-    .left-card::before, .left-card::after { display: none; }
+    .left-card img { height: 50px !important; }
+    .left-card::before, .left-card::after { display: none !important; }
     .left-card .photo-label { 
-        font-size: 7px; 
-        padding: 2px 6px; 
-        bottom: 4px;
-        border-width: 1px;
+        font-size: 7px !important; 
+        padding: 2px 6px !important; 
+        bottom: 4px !important;
+        border-width: 1px !important;
     }
 
-    /* RIGHT TOP CARD - anchored to top-right */
     .right-top-card {
-        position: absolute;
-        width: 72px;
-        height: 88px;
-        right: 34px;
-        top: 15px;                  /* Fixed to top */
-        padding: 4px 4px 20px 4px;
-        transform: rotate(-6deg);
-        animation: none;
-        z-index: 30;
-        border-width: 2px;
-        outline-width: 1px;
+        position: absolute !important;
+        width: 70px !important;
+        height: 86px !important;
+        right: 32px !important;
+        top: 12px !important;
+        bottom: auto !important;
+        padding: 4px 4px 20px 4px !important;
+        transform: rotate(-6deg) !important;
+        animation: none !important;
+        z-index: 30 !important;
+        border-width: 2px !important;
+        outline-width: 1px !important;
     }
-    .right-top-card img { height: 48px; }
-    .right-top-card::before, .right-top-card::after { display: none; }
+    .right-top-card img { height: 47px !important; }
+    .right-top-card::before, .right-top-card::after { display: none !important; }
     .right-top-card p { 
-        font-size: 6px; 
-        bottom: 4px;
-        line-height: 1;
+        font-size: 6px !important; 
+        bottom: 4px !important;
+        line-height: 1 !important;
     }
 
-    /* RIGHT BOTTOM CARD - HIDDEN on mobile */
+    /* 
+       THE 3RD PHOTO IS HIDDEN COMPLETELY ON MOBILE.
+       There's simply no room for 3 photos. This is the 
+       only guaranteed way to prevent overlap.
+    */
     .right-bottom-card {
-        display: none;
+        display: none !important;
     }
 
-    /* Center heart */
     .center-heart { 
-        left: 48%; 
-        top: 55%; 
-        font-size: 30px; 
-        z-index: 30; 
+        left: 48% !important; 
+        top: 60% !important; 
+        font-size: 28px !important; 
+        z-index: 30 !important; 
     }
 
-    /* Cloud title */
+    /* Cloud title - normal flow, no overlap possible */
     .main-title {
-        position: relative;
-        bottom: auto;
-        left: auto;
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
         max-width: 92%;
-        margin: -20px auto 18px auto;
+        margin: -18px auto 16px auto;
         padding: 14px 18px;
         border-radius: 30px 30px 30px 10px;
-        background: rgba(255, 255, 255, 0.75);
+        background: rgba(255, 255, 255, 0.78);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
@@ -702,12 +687,13 @@ nav .active::after {
     .main-title p { font-size: 11px; margin-top: 5px; }
     .title-heart, .title-lines, .title-paw { display: none; }
 
-    /* Action buttons */
+    /* Action buttons - normal flow, guaranteed no overlap */
     .actions {
-        position: relative;
-        left: auto;
-        transform: none;
-        bottom: auto;
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        bottom: auto !important;
+        top: auto !important;
         width: 92%;
         margin: 10px auto 18px;
         grid-template-columns: 1fr;
@@ -725,9 +711,9 @@ nav .active::after {
     .action-text h3 { font-size: 22px; }
     .action-text p { font-size: 12px; margin-top: 3px; }
 
-    /* Bottom bar */
     .bottom {
-        position: relative;
+        position: relative !important;
+        bottom: auto !important;
         height: 55px;
         margin-top: 10px;
     }
@@ -756,29 +742,28 @@ nav .active::after {
     
     .hero-image { height: 42vh; min-height: 300px; }
 
-    /* Even smaller cards on very small phones */
     .left-card { 
-        width: 64px; height: 76px; 
-        top: 12px; left: 28px; 
-        padding: 3px 3px 16px 3px; 
+        width: 62px !important; height: 74px !important; 
+        top: 10px !important; left: 26px !important; 
+        padding: 3px 3px 16px 3px !important; 
     }
-    .left-card img { height: 42px; }
-    .left-card .photo-label { font-size: 6px; padding: 2px 5px; bottom: 3px; }
+    .left-card img { height: 40px !important; }
+    .left-card .photo-label { font-size: 6px !important; padding: 2px 5px !important; bottom: 3px !important; }
 
     .right-top-card { 
-        width: 62px; height: 74px; 
-        top: 12px; right: 28px; 
-        padding: 3px 3px 16px 3px; 
+        width: 60px !important; height: 72px !important; 
+        top: 10px !important; right: 26px !important; 
+        padding: 3px 3px 16px 3px !important; 
     }
-    .right-top-card img { height: 40px; }
-    .right-top-card p { font-size: 5px; bottom: 3px; }
+    .right-top-card img { height: 38px !important; }
+    .right-top-card p { font-size: 5px !important; bottom: 3px !important; }
 
-    .center-heart { font-size: 24px; }
+    .center-heart { font-size: 22px !important; }
 
     .main-title {
         max-width: 94%;
         padding: 12px 15px;
-        margin: -18px auto 14px auto;
+        margin: -16px auto 12px auto;
         border-radius: 25px 25px 25px 8px;
     }
     .main-title h2 { font-size: 19px; }
