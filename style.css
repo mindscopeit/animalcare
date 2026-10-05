@@ -1,22 +1,27 @@
-/* =====================================================
+```css
+/* =========================================================
    ANIMAL CONNECT TRUST
-   FINAL CSS
+   SCALABLE DESKTOP CANVAS
 
-   DESKTOP AND MOBILE USE THE SAME COMPOSITION.
-   MOBILE ONLY SCALES THE ELEMENTS DOWN.
+   IMPORTANT:
+   The hero design is created at 1500px wide.
 
-   NO:
-   - mobile stacking
-   - mobile photo row
-   - cloud at top
-   - hero image below content
-   - hidden side borders
-===================================================== */
+   On smaller screens:
+   - NOTHING is rearranged
+   - NOTHING is stacked
+   - photos stay in the same places
+   - cloud stays in the same place
+   - heart stays in the same place
+   - side borders stay visible
+   - 3 buttons stay in one row
+
+   The entire canvas simply scales.
+========================================================= */
 
 
-/* =====================================================
+/* =========================================================
    ROOT
-===================================================== */
+========================================================= */
 
 :root {
 
@@ -33,12 +38,14 @@
     --text-green: #315638;
 
     --blend-bg: #7a8a5e;
+
+    --canvas-width: 1500px;
 }
 
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 * {
     margin: 0;
@@ -73,9 +80,9 @@ a {
 }
 
 
-/* =====================================================
+/* =========================================================
    PAGE
-===================================================== */
+========================================================= */
 
 .page {
 
@@ -87,13 +94,13 @@ a {
 
     background: var(--cream);
 
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVBAR
-===================================================== */
+========================================================= */
 
 .navbar {
 
@@ -128,6 +135,7 @@ a {
 .brand-logo {
 
     width: 62px;
+
     height: 62px;
 
     overflow: hidden;
@@ -139,6 +147,7 @@ a {
 .brand-logo img {
 
     width: 100%;
+
     height: 100%;
 
     object-fit: contain;
@@ -189,7 +198,9 @@ a {
 }
 
 
-/* NAV */
+/* =========================================================
+   NAV
+========================================================= */
 
 nav {
 
@@ -228,6 +239,7 @@ nav .active::after {
     position: absolute;
 
     left: 0;
+
     right: 0;
 
     bottom: -12px;
@@ -276,9 +288,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero {
 
@@ -286,11 +298,11 @@ nav .active::after {
 
     width: 100%;
 
-    height: 100vh;
+    height: calc(100vh - 90px);
 
-    height: 100dvh;
+    height: calc(100dvh - 90px);
 
-    min-height: 700px;
+    min-height: 610px;
 
     overflow: hidden;
 
@@ -298,11 +310,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
-   HERO IMAGE
-
-   ALWAYS ABSOLUTE
-===================================================== */
+/* =========================================================
+   HERO BACKGROUND
+========================================================= */
 
 .hero-image {
 
@@ -311,6 +321,7 @@ nav .active::after {
     inset: 0;
 
     width: 100%;
+
     height: 100%;
 
     z-index: 1;
@@ -324,6 +335,7 @@ nav .active::after {
 .hero-image img {
 
     width: 100%;
+
     height: 100%;
 
     display: block;
@@ -338,10 +350,6 @@ nav .active::after {
         contrast(1.02);
 }
 
-
-/* =====================================================
-   HERO OVERLAY
-===================================================== */
 
 .hero-overlay {
 
@@ -364,9 +372,38 @@ nav .active::after {
 }
 
 
-/* =====================================================
+/* =========================================================
+   THE IMPORTANT PART
+
+   DESKTOP CANVAS
+
+   Every element inside this stays at its desktop
+   coordinates.
+
+   Mobile scales THIS ENTIRE CANVAS.
+========================================================= */
+
+.hero-canvas {
+
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+
+    top: 0;
+
+    width: var(--canvas-width);
+
+    height: 100%;
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
    SIDE BORDERS
-===================================================== */
+========================================================= */
 
 .side-border {
 
@@ -375,6 +412,7 @@ nav .active::after {
     z-index: 20;
 
     top: 0;
+
     bottom: 0;
 
     width: 55px;
@@ -472,6 +510,19 @@ nav .active::after {
 }
 
 
+.side-border-dot {
+
+    width: 5px;
+
+    height: 5px;
+
+    background:
+        rgba(255,255,255,0.5);
+
+    border-radius: 50%;
+}
+
+
 @keyframes pulse-icon {
 
     0%,
@@ -493,22 +544,9 @@ nav .active::after {
 }
 
 
-.side-border-dot {
-
-    width: 5px;
-
-    height: 5px;
-
-    background:
-        rgba(255,255,255,0.5);
-
-    border-radius: 50%;
-}
-
-
-/* =====================================================
-   MAIN TITLE / CLOUD
-===================================================== */
+/* =========================================================
+   MAIN TITLE
+========================================================= */
 
 .main-title {
 
@@ -520,9 +558,9 @@ nav .active::after {
 
     left: 75px;
 
-    width: 100%;
+    width: 340px;
 
-    min-width: 260px;
+    min-width: 340px;
 
     max-width: 340px;
 
@@ -554,8 +592,7 @@ nav .active::after {
 
     font-family: "Kalam", cursive;
 
-    font-size:
-        clamp(22px, 2.5vw, 30px);
+    font-size: 30px;
 
     line-height: 0.95;
 
@@ -592,8 +629,6 @@ nav .active::after {
         0 0 6px rgba(255,255,255,0.7);
 }
 
-
-/* TITLE DECORATIONS */
 
 .title-heart,
 .title-lines,
@@ -661,9 +696,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    TYPEWRITER
-===================================================== */
+========================================================= */
 
 .typewriter,
 .typewriter-2,
@@ -742,9 +777,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    PHOTO CARDS
-===================================================== */
+========================================================= */
 
 .photo-card {
 
@@ -753,9 +788,6 @@ nav .active::after {
     z-index: 25;
 
     background: var(--paper);
-
-    padding:
-        12px 12px 55px 12px;
 
     border-radius: 4px;
 
@@ -772,13 +804,8 @@ nav .active::after {
         0 10px 25px rgba(38,60,31,0.25),
         0 20px 40px rgba(38,60,31,0.15),
         inset 0 0 0 1px rgba(255,255,255,0.8);
-
-    max-width:
-        calc(100% - 20px);
 }
 
-
-/* TAPE */
 
 .photo-card::before,
 .photo-card::after {
@@ -824,8 +851,6 @@ nav .active::after {
 }
 
 
-/* IMAGES */
-
 .photo-card img {
 
     display: block;
@@ -835,13 +860,51 @@ nav .active::after {
     object-fit: cover;
 
     border-radius: 2px;
-
-    border:
-        1px solid rgba(33,71,47,0.1);
 }
 
 
-/* LABEL */
+/* =========================================================
+   LEFT PHOTO
+========================================================= */
+
+.left-card {
+
+    width: 260px;
+
+    height: 280px;
+
+    left: 75px;
+
+    top: 60px;
+
+    padding:
+        12px 12px 55px;
+
+    transform:
+        rotate(-4deg);
+
+    animation:
+        float-left 4s ease-in-out infinite;
+}
+
+
+.left-card img {
+
+    height: 195px;
+
+    border:
+        2px dashed rgba(33,71,47,0.2);
+
+    padding: 3px;
+
+    background:
+        #fffef1;
+}
+
+
+/* =========================================================
+   PHOTO LABEL
+========================================================= */
 
 .photo-label {
 
@@ -884,43 +947,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
-   DESKTOP PHOTO POSITIONS
-===================================================== */
-
-.left-card {
-
-    width: 260px;
-
-    height: 280px;
-
-    left: 75px;
-
-    top: 60px;
-
-    transform:
-        rotate(-4deg);
-
-    animation:
-        float-left 4s ease-in-out infinite;
-}
-
-
-.left-card img {
-
-    height: 195px;
-
-    border:
-        2px dashed rgba(33,71,47,0.2);
-
-    padding: 3px;
-
-    background:
-        #fffef1;
-}
-
-
-/* RIGHT TOP */
+/* =========================================================
+   RIGHT TOP PHOTO
+========================================================= */
 
 .right-top-card {
 
@@ -931,6 +960,9 @@ nav .active::after {
     right: 75px;
 
     top: 50px;
+
+    padding:
+        12px 12px 55px;
 
     transform:
         rotate(-6deg);
@@ -956,6 +988,7 @@ nav .active::after {
     bottom: 14px;
 
     left: 0;
+
     right: 0;
 
     text-align: center;
@@ -974,7 +1007,9 @@ nav .active::after {
 }
 
 
-/* RIGHT BOTTOM */
+/* =========================================================
+   RIGHT BOTTOM PHOTO
+========================================================= */
 
 .right-bottom-card {
 
@@ -985,6 +1020,9 @@ nav .active::after {
     right: 75px;
 
     bottom: 150px;
+
+    padding:
+        12px 12px 55px;
 
     transform:
         rotate(5deg);
@@ -1010,6 +1048,7 @@ nav .active::after {
     bottom: 15px;
 
     left: 0;
+
     right: 0;
 
     text-align: center;
@@ -1026,9 +1065,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
-   FLOATING ANIMATIONS
-===================================================== */
+/* =========================================================
+   FLOATING
+========================================================= */
 
 @keyframes float-left {
 
@@ -1087,9 +1126,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    CENTER HEART
-===================================================== */
+========================================================= */
 
 .center-heart {
 
@@ -1116,9 +1155,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
-   ACTION BUTTONS
-===================================================== */
+/* =========================================================
+   ACTIONS
+========================================================= */
 
 .actions {
 
@@ -1133,9 +1172,7 @@ nav .active::after {
 
     bottom: 45px;
 
-    width: 75%;
-
-    max-width: 850px;
+    width: 850px;
 
     display: grid;
 
@@ -1272,9 +1309,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
+/* =========================================================
    BOTTOM BAR
-===================================================== */
+========================================================= */
 
 .bottom {
 
@@ -1375,9 +1412,9 @@ nav .active::after {
 }
 
 
-/* =====================================================
-   LARGE DESKTOP
-===================================================== */
+/* =========================================================
+   DESKTOP
+========================================================= */
 
 @media (min-width: 1201px) {
 
@@ -1387,27 +1424,35 @@ nav .active::after {
 
         left: 85px;
 
+        width: 360px;
+
+        min-width: 360px;
+
         max-width: 360px;
     }
 }
 
 
-/* =====================================================
+/* =========================================================
    TABLET
-   SAME COMPOSITION
-===================================================== */
 
-@media (min-width: 901px) and (max-width: 1200px) {
+   Still the same canvas.
+========================================================= */
+
+@media (min-width: 701px) and (max-width: 1200px) {
 
     .navbar {
 
-        padding: 0 3%;
+        padding:
+            0 3%;
     }
+
 
     nav {
 
         gap: 18px;
     }
+
 
     nav a {
 
@@ -1415,375 +1460,93 @@ nav .active::after {
     }
 
 
-    .hero {
+    /*
+       Scale the SAME desktop canvas.
+    */
 
-        height: 100vh;
+    .hero-canvas {
 
-        min-height: 700px;
-    }
+        transform:
+            translateX(-50%)
+            scale(
+                min(
+                    calc(100vw / 1500),
+                    calc(100% / 1500)
+                )
+            );
 
-
-    .side-border {
-
-        width: 45px;
-    }
-
-    .side-border-text {
-
-        font-size: 18px;
-
-        letter-spacing: 2px;
-    }
-
-    .side-border-icon {
-
-        font-size: 15px;
-    }
-
-
-    .main-title {
-
-        bottom: 110px;
-
-        left: 60px;
-
-        max-width: 320px;
-
-        padding: 15px 18px;
-    }
-
-    .main-title h2 {
-
-        font-size: 26px;
-    }
-
-    .main-title p {
-
-        font-size: 11px;
-    }
-
-
-    .left-card {
-
-        width: 200px;
-
-        height: 220px;
-
-        left: 60px;
-
-        top: 50px;
-
-        padding:
-            10px 10px 45px 10px;
-    }
-
-    .left-card img {
-
-        height: 155px;
-    }
-
-
-    .right-top-card {
-
-        width: 190px;
-
-        height: 250px;
-
-        right: 60px;
-
-        top: 40px;
-
-        padding:
-            10px 10px 45px 10px;
-    }
-
-    .right-top-card img {
-
-        height: 175px;
-    }
-
-
-    .right-bottom-card {
-
-        width: 200px;
-
-        height: 270px;
-
-        right: 60px;
-
-        bottom: 130px;
-
-        padding:
-            10px 10px 45px 10px;
-    }
-
-    .right-bottom-card img {
-
-        height: 190px;
-    }
-
-
-    .actions {
-
-        width: 80%;
-
-        bottom: 40px;
-    }
-
-    .photo-label {
-
-        font-size: 15px;
-
-        padding:
-            7px 14px;
-    }
-
-    .right-top-card p,
-    .right-bottom-card p {
-
-        font-size: 14px;
+        transform-origin:
+            top center;
     }
 }
 
 
-/* =====================================================
-   SMALL DESKTOP / TABLET
-   SAME COMPOSITION
-===================================================== */
-
-@media (min-width: 701px) and (max-width: 900px) {
-
-    .hero {
-
-        height: 100vh;
-
-        min-height: 700px;
-    }
-
-
-    .side-border {
-
-        width: 40px;
-    }
-
-    .side-border-text {
-
-        font-size: 15px;
-
-        letter-spacing: 1px;
-    }
-
-    .side-border-icon {
-
-        font-size: 13px;
-    }
-
-
-    .main-title {
-
-        bottom: 100px;
-
-        left: 50px;
-
-        max-width: 300px;
-
-        padding:
-            14px 18px;
-    }
-
-    .main-title h2 {
-
-        font-size: 24px;
-    }
-
-    .main-title p {
-
-        font-size: 11px;
-    }
-
-
-    .left-card {
-
-        width: 170px;
-
-        height: 190px;
-
-        left: 50px;
-
-        top: 40px;
-
-        padding:
-            8px 8px 40px 8px;
-    }
-
-    .left-card img {
-
-        height: 130px;
-    }
-
-
-    .right-top-card {
-
-        width: 160px;
-
-        height: 210px;
-
-        right: 50px;
-
-        top: 35px;
-
-        padding:
-            8px 8px 40px 8px;
-    }
-
-    .right-top-card img {
-
-        height: 145px;
-    }
-
-
-    .right-bottom-card {
-
-        width: 170px;
-
-        height: 230px;
-
-        right: 50px;
-
-        bottom: 100px;
-
-        padding:
-            8px 8px 40px 8px;
-    }
-
-    .right-bottom-card img {
-
-        height: 160px;
-    }
-
-
-    .actions {
-
-        width: 85%;
-
-        bottom: 35px;
-
-        gap: 12px;
-    }
-
-    .action {
-
-        padding: 12px;
-
-        min-height: 95px;
-    }
-
-    .action-text h3 {
-
-        font-size: 22px;
-    }
-
-    .photo-label {
-
-        font-size: 13px;
-
-        padding:
-            6px 12px;
-    }
-
-    .right-top-card p,
-    .right-bottom-card p {
-
-        font-size: 12px;
-    }
-}
-
-
-/* =====================================================
+/* =========================================================
    MOBILE
-   =====================================================
 
-   IMPORTANT:
+   THIS IS THE IMPORTANT PART.
 
-   THIS IS NOT A NEW MOBILE LAYOUT.
+   NO ELEMENT IS REPOSITIONED.
 
-   Everything remains absolute:
+   THE WHOLE 1500px DESKTOP CANVAS IS SCALED.
 
-   PHOTO 1  -> TOP LEFT
-   PHOTO 2  -> TOP RIGHT
-   PHOTO 3  -> BOTTOM RIGHT
-   CLOUD    -> BOTTOM LEFT
-   HEART    -> CENTER
-   ACTIONS  -> THREE COLUMNS
-   BAR      -> BOTTOM
-
-   Only sizes are reduced.
-===================================================== */
+========================================================= */
 
 @media (max-width: 700px) {
 
 
-    /* =================================================
+    /* -----------------------------------------------------
        NAVBAR
-       REMAINS HORIZONTAL
-    ================================================= */
+    ----------------------------------------------------- */
 
     .navbar {
 
-        height: 65px;
+        height: 60px;
 
         padding:
-            0 10px;
+            0 8px;
 
         flex-direction: row;
 
-        gap: 0;
+        gap: 4px;
     }
 
 
     .brand-area {
 
-        width: auto;
+        gap: 5px;
 
-        justify-content:
-            flex-start;
-
-        gap: 6px;
+        flex-shrink: 0;
     }
 
 
     .brand-logo {
 
-        width: 42px;
+        width: 38px;
 
-        height: 42px;
+        height: 38px;
     }
 
 
     .brand-text h1 {
 
-        font-size: 17px;
+        font-size: 15px;
     }
 
 
     .brand-text p {
 
-        font-size: 10px;
-
         margin-top: 3px;
+
+        font-size: 9px;
     }
 
 
     nav {
 
-        width: auto;
+        gap: 6px;
 
-        flex-wrap: nowrap;
-
-        justify-content:
-            flex-end;
-
-        gap: 7px;
+        flex-shrink: 0;
     }
 
 
@@ -1808,11 +1571,11 @@ nav .active::after {
         padding:
             6px 8px;
 
-        font-size: 8px;
-
         border-radius: 7px;
 
         gap: 3px;
+
+        font-size: 8px;
     }
 
 
@@ -1822,642 +1585,82 @@ nav .active::after {
     }
 
 
-    /* =================================================
+    /* -----------------------------------------------------
        HERO
-       SAME DESKTOP STRUCTURE
-    ================================================= */
+    ----------------------------------------------------- */
 
     .hero {
 
-        position: relative;
-
-        width: 100%;
-
         height:
-            calc(100dvh - 65px);
+            calc(100dvh - 60px);
 
-        min-height: 520px;
-
-        display: block;
-
-        overflow: hidden;
-
-        background:
-            var(--blend-bg);
-    }
-
-
-    /* =================================================
-       BACKGROUND
-       SAME POSITION
-    ================================================= */
-
-    .hero-image {
-
-        position: absolute;
-
-        inset: 0;
-
-        width: 100%;
-
-        height: 100%;
-
-        z-index: 1;
+        min-height: 450px;
 
         overflow: hidden;
     }
 
 
-    .hero-image img {
+    /* -----------------------------------------------------
+       SAME DESKTOP CANVAS
+       
+       Width stays 1500px.
+       We only scale it.
+    ----------------------------------------------------- */
 
-        width: 100%;
+    .hero-canvas {
+
+        width: 1500px;
 
         height: 100%;
-
-        object-fit: contain;
-
-        object-position:
-            center center;
-    }
-
-
-    /* =================================================
-       SIDE BORDERS
-       KEEP THEM
-    ================================================= */
-
-    .side-border {
-
-        display: flex;
-
-        width: 23px;
-
-        top: 0;
-
-        bottom: 0;
-
-        gap: 14px;
-
-        padding:
-            12px 0;
-    }
-
-
-    .side-border-text {
-
-        font-size: 9px;
-
-        letter-spacing: 1px;
-    }
-
-
-    .side-border-icon {
-
-        font-size: 9px;
-    }
-
-
-    .side-border-dot {
-
-        width: 3px;
-
-        height: 3px;
-    }
-
-
-    /* =================================================
-       CLOUD
-       SAME LOWER LEFT POSITION
-    ================================================= */
-
-    .main-title {
-
-        position: absolute;
-
-        left: 7%;
-
-        bottom: 18%;
-
-        width: 28%;
-
-        min-width: 0;
-
-        max-width: none;
-
-        margin: 0;
-
-        padding:
-            9px 7px;
-
-        background:
-            rgba(255,255,255,0.35);
-
-        border-radius:
-            28px 28px 28px 9px;
-
-        z-index: 30;
-    }
-
-
-    .main-title h2 {
-
-        font-size:
-            clamp(12px, 3.2vw, 22px);
-
-        line-height: 0.95;
-    }
-
-
-    .main-title p {
-
-        font-size:
-            clamp(6px, 1.7vw, 12px);
-
-        line-height: 1.2;
-
-        margin-top: 5px;
-    }
-
-
-    /* KEEP DECORATIONS */
-
-    .title-heart {
-
-        display: block;
-
-        top: 6px;
-
-        left: 8px;
-
-        font-size: 13px;
-    }
-
-
-    .title-lines {
-
-        display: block;
-
-        top: 8px;
-
-        left: 28px;
-
-        font-size: 9px;
-    }
-
-
-    .title-paw {
-
-        display: block;
-
-        right: 8px;
-
-        bottom: 8px;
-
-        font-size: 11px;
-    }
-
-
-    .title-underline {
-
-        width: 45%;
-
-        height: 2px;
-
-        margin-top: 5px;
-    }
-
-
-    /* =================================================
-       LEFT PHOTO
-       SAME TOP LEFT POSITION
-    ================================================= */
-
-    .left-card {
-
-        position: absolute;
-
-        left: 7%;
-
-        top: 6%;
-
-        width: 20%;
-
-        height: auto;
-
-        min-width: 0;
-
-        margin: 0;
-
-        padding:
-            5px 5px 25px 5px;
-
-        transform:
-            rotate(-4deg);
-
-        animation:
-            float-left 4s ease-in-out infinite;
-
-        z-index: 25;
-    }
-
-
-    .left-card img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio:
-            260 / 195;
-
-        object-fit: cover;
-    }
-
-
-    /* =================================================
-       RIGHT TOP PHOTO
-       SAME TOP RIGHT POSITION
-    ================================================= */
-
-    .right-top-card {
-
-        position: absolute;
-
-        right: 7%;
-
-        top: 5%;
-
-        width: 19%;
-
-        height: auto;
-
-        min-width: 0;
-
-        margin: 0;
-
-        padding:
-            5px 5px 25px 5px;
-
-        transform:
-            rotate(-6deg);
-
-        animation:
-            float-right-top 5s ease-in-out infinite;
-
-        z-index: 25;
-    }
-
-
-    .right-top-card img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio:
-            240 / 215;
-
-        object-fit: cover;
-    }
-
-
-    .right-top-card p {
-
-        position: absolute;
-
-        left: 0;
-
-        right: 0;
-
-        bottom: 6px;
-
-        font-size:
-            clamp(5px, 1.4vw, 10px);
-
-        line-height: 1;
-
-        padding:
-            0 3px;
-    }
-
-
-    /* =================================================
-       RIGHT BOTTOM PHOTO
-       SAME LOWER RIGHT POSITION
-    ================================================= */
-
-    .right-bottom-card {
-
-        position: absolute;
-
-        right: 7%;
-
-        bottom: 22%;
-
-        width: 20%;
-
-        height: auto;
-
-        min-width: 0;
-
-        margin: 0;
-
-        padding:
-            5px 5px 25px 5px;
-
-        transform:
-            rotate(5deg);
-
-        animation:
-            float-right-bottom 4.5s ease-in-out infinite;
-
-        z-index: 25;
-    }
-
-
-    .right-bottom-card img {
-
-        width: 100%;
-
-        height: auto;
-
-        aspect-ratio:
-            260 / 240;
-
-        object-fit: cover;
-    }
-
-
-    .right-bottom-card p {
-
-        position: absolute;
-
-        left: 0;
-
-        right: 0;
-
-        bottom: 6px;
-
-        font-size:
-            clamp(5px, 1.4vw, 10px);
-
-        line-height: 1;
-
-        padding:
-            0 3px;
-    }
-
-
-    /* =================================================
-       PHOTO TAPE
-       KEEP DESKTOP EFFECT
-    ================================================= */
-
-    .photo-card::before,
-    .photo-card::after {
-
-        display: block;
-
-        width: 30px;
-
-        height: 10px;
-
-        top: -5px;
-    }
-
-
-    .photo-card::before {
-
-        left: 10px;
-    }
-
-
-    .photo-card::after {
-
-        right: 10px;
-    }
-
-
-    /* =================================================
-       PHOTO LABEL
-    ================================================= */
-
-    .photo-label {
-
-        font-size:
-            clamp(6px, 1.5vw, 11px);
-
-        padding:
-            3px 6px;
-
-        bottom: 6px;
-
-        border-width: 1px;
-    }
-
-
-    /* =================================================
-       CENTER HEART
-    ================================================= */
-
-    .center-heart {
-
-        position: absolute;
-
-        left: 48%;
-
-        top: 48%;
-
-        font-size:
-            clamp(30px, 8vw, 60px);
-
-        z-index: 15;
-    }
-
-
-    /* =================================================
-       ACTIONS
-       THREE COLUMNS
-       NEVER STACK
-    ================================================= */
-
-    .actions {
-
-        position: absolute;
 
         left: 50%;
 
-        bottom: 6%;
+        top: 0;
 
         transform:
-            translateX(-50%);
+            translateX(-50%)
+            scale(
+                calc(100vw / 1500)
+            );
 
-        width: 72%;
-
-        max-width: none;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        gap: 5px;
-
-        z-index: 40;
-    }
-
-
-    .action {
-
-        min-height: 55px;
-
-        padding: 5px;
-
-        border-radius: 9px;
-
-        gap: 5px;
-    }
-
-
-    .action-icon {
-
-        width: 25px;
-
-        min-width: 25px;
-
-        height: 25px;
-
-        font-size: 11px;
-    }
-
-
-    .action-text {
-
-        min-width: 0;
-    }
-
-
-    .action-text h3 {
-
-        font-size:
-            clamp(9px, 2.4vw, 17px);
-
-        line-height: 1;
-    }
-
-
-    .action-text p {
-
-        font-size:
-            clamp(5px, 1.2vw, 9px);
-
-        line-height: 1.1;
-
-        margin-top: 3px;
-    }
-
-
-    .action-text strong {
-
-        font-size: 11px;
-    }
-
-
-    /* =================================================
-       BOTTOM BAR
-    ================================================= */
-
-    .bottom {
-
-        position: absolute;
-
-        left: 0;
-
-        right: 0;
-
-        bottom: 0;
-
-        width: 100%;
-
-        height: 28px;
-
-        z-index: 35;
-    }
-
-
-    .bottom::before {
-
-        top: -8px;
-
-        height: 12px;
-    }
-
-
-    .bottom p {
-
-        font-size:
-            clamp(10px, 2.5vw, 17px);
-
-        letter-spacing:
-            0.5px;
-    }
-
-
-    .bottom-decoration {
-
-        font-size: 22px;
-    }
-
-
-    .bottom-decoration.left {
-
-        left: 20px;
-
-        bottom: -6px;
-    }
-
-
-    .bottom-decoration.right {
-
-        right: 20px;
-
-        bottom: -6px;
+        transform-origin:
+            top center;
     }
 }
 
 
-/* =====================================================
-   VERY SMALL PHONES
-   STILL SAME COMPOSITION
-===================================================== */
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
 
 @media (max-width: 400px) {
 
     .navbar {
 
-        height: 60px;
+        height: 55px;
 
-        padding: 0 7px;
+        padding:
+            0 5px;
     }
 
 
     .brand-logo {
 
-        width: 36px;
+        width: 34px;
 
-        height: 36px;
+        height: 34px;
     }
 
 
     .brand-text h1 {
 
-        font-size: 14px;
+        font-size: 13px;
     }
 
 
     .brand-text p {
 
-        font-size: 8px;
+        font-size: 7px;
     }
 
 
@@ -2491,155 +1694,35 @@ nav .active::after {
     .hero {
 
         height:
-            calc(100dvh - 60px);
+            calc(100dvh - 55px);
 
-        min-height: 450px;
+        min-height: 420px;
     }
 
 
-    .side-border {
+    /*
+       Still exactly the same 1500px canvas.
+    */
 
-        width: 18px;
+    .hero-canvas {
 
-        gap: 9px;
-    }
+        width: 1500px;
 
+        transform:
+            translateX(-50%)
+            scale(
+                calc(100vw / 1500)
+            );
 
-    .side-border-text {
-
-        font-size: 7px;
-    }
-
-
-    .side-border-icon {
-
-        font-size: 8px;
-    }
-
-
-    .main-title {
-
-        left: 6%;
-
-        bottom: 18%;
-
-        width: 29%;
-
-        padding:
-            7px 5px;
-    }
-
-
-    .main-title h2 {
-
-        font-size:
-            clamp(11px, 3vw, 17px);
-    }
-
-
-    .main-title p {
-
-        font-size: 6px;
-    }
-
-
-    .left-card {
-
-        left: 6%;
-
-        top: 6%;
-
-        width: 21%;
-    }
-
-
-    .right-top-card {
-
-        right: 6%;
-
-        top: 5%;
-
-        width: 20%;
-    }
-
-
-    .right-bottom-card {
-
-        right: 6%;
-
-        bottom: 22%;
-
-        width: 21%;
-    }
-
-
-    .actions {
-
-        width: 74%;
-
-        gap: 3px;
-
-        bottom: 6%;
-    }
-
-
-    .action {
-
-        min-height: 45px;
-
-        padding: 3px;
-
-        gap: 3px;
-    }
-
-
-    .action-icon {
-
-        width: 20px;
-
-        min-width: 20px;
-
-        height: 20px;
-
-        font-size: 9px;
-    }
-
-
-    .action-text h3 {
-
-        font-size: 8px;
-    }
-
-
-    .action-text p {
-
-        font-size: 5px;
-    }
-
-
-    .action-text strong {
-
-        font-size: 8px;
-    }
-
-
-    .bottom {
-
-        height: 24px;
-    }
-
-
-    .bottom-decoration {
-
-        display: none;
+        transform-origin:
+            top center;
     }
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE LANDSCAPE
-   SAME DESKTOP COMPOSITION
-===================================================== */
+========================================================= */
 
 @media (max-width: 900px) and (orientation: landscape) {
 
@@ -2649,95 +1732,27 @@ nav .active::after {
     }
 
 
-    .brand-logo {
-
-        width: 36px;
-
-        height: 36px;
-    }
-
-
-    .brand-text h1 {
-
-        font-size: 16px;
-    }
-
-
-    .brand-text p {
-
-        font-size: 8px;
-    }
-
-
-    nav {
-
-        gap: 10px;
-    }
-
-
-    nav a {
-
-        font-size: 9px;
-    }
-
-
     .hero {
 
         height:
             calc(100dvh - 55px);
 
-        min-height: 400px;
+        min-height: 350px;
     }
 
 
-    .left-card {
+    .hero-canvas {
 
-        top: 5%;
+        width: 1500px;
 
-        width: 17%;
-    }
+        transform:
+            translateX(-50%)
+            scale(
+                calc(100vw / 1500)
+            );
 
-
-    .right-top-card {
-
-        top: 4%;
-
-        width: 16%;
-    }
-
-
-    .right-bottom-card {
-
-        bottom: 18%;
-
-        width: 17%;
-    }
-
-
-    .main-title {
-
-        bottom: 17%;
-
-        width: 23%;
-    }
-
-
-    .actions {
-
-        bottom: 5%;
-
-        width: 70%;
-    }
-
-
-    .action {
-
-        min-height: 45px;
-    }
-
-
-    .bottom {
-
-        height: 23px;
+        transform-origin:
+            top center;
     }
 }
+```
