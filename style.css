@@ -1,6 +1,6 @@
 /* =====================================================
-   ANIMAL CONNECT TRUST
-   FINAL COMPLETE CSS - ALL 3 PHOTOS VISIBLE
+   ANIMAL CONNECT TRUST - FINAL FIX
+   Mobile: 3 images sahi jagah + no green band + cloud upar
 ===================================================== */
 
 :root {
@@ -15,7 +15,6 @@
     --blend-bg: #7a8a5e;
 }
 
-/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -23,10 +22,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
     margin: 0;
@@ -207,7 +203,7 @@ nav .active::after {
     border-radius: 50%;
 }
 
-/* MAIN TITLE - CLOUD */
+/* MAIN TITLE (CLOUD) */
 .main-title {
     position: absolute;
     z-index: 30;
@@ -284,7 +280,7 @@ nav .active::after {
     50% { border-color: var(--olive-green); }
 }
 
-/* PHOTO CARDS - BASE */
+/* PHOTO CARDS */
 .photo-card {
     position: absolute;
     z-index: 25;
@@ -564,16 +560,16 @@ nav .active::after {
 }
 
 /* =====================================================
-   MOBILE PHONES (700px AND BELOW)
-   object-fit: cover -> no green bands, all 3 cards 
-   land on the actual photo
+   MOBILE (700px AND BELOW)
+   - No green band above image (object-fit: cover)
+   - Cloud moved ABOVE the image
+   - Image 1 → top left
+   - Image 2 → top right
+   - Image 3 → right, just below Image 2
 ===================================================== */
 @media (max-width: 700px) {
 
-    .side-border { width: 32px; gap: 20px; }
-    .side-border-text { font-size: 12px; letter-spacing: 1px; }
-    .side-border-icon { font-size: 11px; }
-    .side-border-dot { width: 3px; height: 3px; }
+    .side-border { display: none; }
 
     .navbar {
         height: auto;
@@ -581,7 +577,6 @@ nav .active::after {
         flex-direction: column;
         gap: 10px;
     }
-
     .brand-area { width: 100%; justify-content: center; }
     .brand-logo { width: 50px; height: 50px; }
     .brand-text h1 { font-size: 18px; }
@@ -600,8 +595,31 @@ nav .active::after {
         display: flex;
         flex-direction: column;
         padding-bottom: 0;
+        background: var(--cream);
     }
 
+    /* CLOUD moves ABOVE image on mobile */
+    .main-title {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 92%;
+        max-width: 92%;
+        margin: 10px auto 12px auto;
+        padding: 14px 18px;
+        border-radius: 30px 30px 30px 10px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
+        z-index: 50;
+        order: 1;
+    }
+    .main-title h2 { font-size: 22px; line-height: 1.05; }
+    .main-title p { font-size: 11px; margin-top: 5px; }
+    .title-heart, .title-lines, .title-paw { display: none; }
+
+    /* IMAGE FILLS THE CONTAINER - no green band */
     .hero-image {
         position: relative;
         width: 100%;
@@ -610,9 +628,9 @@ nav .active::after {
         flex-shrink: 0;
         overflow: hidden;
         background: var(--blend-bg);
+        order: 2;
     }
 
-    /* COVER: photo fills the whole container, no green bands */
     .hero-image img {
         width: 100%;
         height: 100%;
@@ -621,31 +639,14 @@ nav .active::after {
         filter: brightness(1.02) saturate(1.05) contrast(1.02);
     }
 
-    /* Cloud title below image */
-    .main-title {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        max-width: 92%;
-        margin: -30px auto 10px auto;
-        padding: 14px 18px;
-        border-radius: 30px 30px 30px 10px;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
-        z-index: 50;
-    }
-    .main-title h2 { font-size: 22px; line-height: 1.05; }
-    .main-title p { font-size: 11px; margin-top: 5px; }
-    .title-heart, .title-lines, .title-paw { display: none; }
+    .hero-overlay { display: none; }
 
-    /* IMAGE 1 - LEFT CARD */
+    /* IMAGE 1 - LEFT CARD top-left */
     .left-card {
         width: 82px;
         height: 96px;
-        left: 42px;
-        top: 22%;
+        left: 15px;
+        top: 15px;
         bottom: auto;
         right: auto;
         padding: 4px 4px 22px 4px;
@@ -663,12 +664,12 @@ nav .active::after {
         border-width: 1px;
     }
 
-    /* IMAGE 2 - RIGHT TOP CARD */
+    /* IMAGE 2 - RIGHT TOP CARD top-right */
     .right-top-card {
         width: 80px;
         height: 94px;
-        right: 42px;
-        top: 22%;
+        right: 15px;
+        top: 15px;
         bottom: auto;
         left: auto;
         padding: 4px 4px 22px 4px;
@@ -685,12 +686,12 @@ nav .active::after {
         line-height: 1;
     }
 
-    /* IMAGE 3 - RIGHT BOTTOM CARD */
+    /* IMAGE 3 - RIGHT BOTTOM CARD just below Image 2 */
     .right-bottom-card {
         width: 82px;
         height: 96px;
-        right: 42px;
-        top: 52%;
+        right: 15px;
+        top: 130px;       /* directly below Image 2 (which is at 15px + 94px height + 20px gap) */
         bottom: auto;
         left: auto;
         padding: 4px 4px 22px 4px;
@@ -713,6 +714,7 @@ nav .active::after {
         z-index: 30;
     }
 
+    /* ACTION BUTTONS below image */
     .actions {
         position: relative;
         left: auto;
@@ -723,6 +725,7 @@ nav .active::after {
         grid-template-columns: 1fr;
         gap: 10px;
         z-index: 50;
+        order: 3;
     }
 
     .action {
@@ -731,39 +734,35 @@ nav .active::after {
         border-radius: 16px;
         gap: 12px;
     }
-
     .action-icon { width: 42px; min-width: 42px; height: 42px; font-size: 18px; }
     .action-text h3 { font-size: 22px; }
     .action-text p { font-size: 11px; margin-top: 3px; }
 
+    /* BOTTOM GREEN BAR */
     .bottom {
         position: relative;
         height: 55px;
         margin-top: 10px;
+        order: 4;
     }
-    .bottom p { font-size: 14px; padding: 0 40px; text-align: center; }
+    .bottom p { font-size: 14px; padding: 0 30px; text-align: center; }
     .bottom-decoration { font-size: 28px; }
-    .bottom-decoration.left { left: 35px; }
-    .bottom-decoration.right { right: 35px; }
+    .bottom-decoration.left { left: 20px; }
+    .bottom-decoration.right { right: 20px; }
 }
 
 /* VERY SMALL PHONES */
 @media (max-width: 480px) {
 
-    .side-border { width: 28px; }
-    .side-border-text { font-size: 10px; letter-spacing: 0; }
-    .side-border-icon { font-size: 10px; }
-
     .navbar { padding: 10px 12px; gap: 8px; }
     .brand-logo { width: 42px; height: 42px; }
     .brand-text h1 { font-size: 16px; }
     .brand-text p { font-size: 12px; }
-
     nav { gap: 10px; }
     nav a { font-size: 13px; }
     .donate { padding: 6px 12px; font-size: 12px; }
 
-    .hero-image { height: 58vh; min-height: 400px; }
+    .hero-image { height: 55vh; min-height: 380px; }
 
     .hero-image img {
         object-fit: cover;
@@ -771,40 +770,40 @@ nav .active::after {
     }
 
     .main-title {
-        max-width: 94%;
+        width: 94%;
         padding: 12px 15px;
-        margin: -25px auto 8px auto;
+        margin: 8px auto 10px auto;
         border-radius: 25px 25px 25px 8px;
     }
     .main-title h2 { font-size: 19px; }
     .main-title p { font-size: 10px; }
 
+    /* IMAGE 1 - left card */
     .left-card {
         width: 72px; height: 86px;
-        top: 22%; left: 36px;
+        top: 12px; left: 12px;
         bottom: auto; right: auto;
         padding: 3px 3px 20px 3px;
-        animation: float-left 4s ease-in-out infinite;
     }
     .left-card img { height: 50px; }
     .left-card .photo-label { font-size: 7px; padding: 2px 5px; bottom: 4px; }
 
+    /* IMAGE 2 - right top card */
     .right-top-card {
         width: 70px; height: 84px;
-        top: 22%; right: 36px;
+        top: 12px; right: 12px;
         bottom: auto; left: auto;
         padding: 3px 3px 20px 3px;
-        animation: float-right-top 5s ease-in-out infinite;
     }
     .right-top-card img { height: 48px; }
     .right-top-card p { font-size: 6px; bottom: 4px; }
 
+    /* IMAGE 3 - right bottom card directly below Image 2 */
     .right-bottom-card {
         width: 72px; height: 86px;
-        top: 52%; right: 36px;
+        top: 116px; right: 12px;
         bottom: auto; left: auto;
         padding: 3px 3px 20px 3px;
-        animation: float-right-bottom 4.5s ease-in-out infinite;
     }
     .right-bottom-card img { height: 50px; }
     .right-bottom-card p { font-size: 6px; bottom: 4px; }
@@ -818,15 +817,15 @@ nav .active::after {
     .action-text p { font-size: 10px; }
 
     .bottom { height: 50px; }
-    .bottom p { font-size: 12px; padding: 0 32px; }
-    .bottom-decoration { font-size: 24px; }
-    .bottom-decoration.left { left: 30px; }
-    .bottom-decoration.right { right: 30px; }
+    .bottom p { font-size: 12px; padding: 0 25px; }
+    .bottom-decoration { font-size: 22px; }
+    .bottom-decoration.left { left: 15px; }
+    .bottom-decoration.right { right: 15px; }
 }
 
 /* LANDSCAPE */
 @media (max-width: 900px) and (orientation: landscape) {
     .hero-image { height: 80vh; min-height: 350px; }
-    .main-title { max-width: 50%; margin: -50px auto 10px auto; }
+    .main-title { max-width: 50%; }
     .actions { grid-template-columns: repeat(3, 1fr); }
 }
