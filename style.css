@@ -1,6 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL CSS - MOBILE FIXED (ALL CARDS FIT, NO OVERLAP)
+   FINAL CSS - MOBILE FIX (CARDS IN FLEX ROW, NO OVERLAP)
 ===================================================== */
 
 :root {
@@ -551,23 +551,18 @@ nav .active::after {
 
 /* =====================================================
    MOBILE PHONES (700px AND BELOW)
-   FINAL FIX: Hides 3rd photo, smaller cards, clear spacing
+   FINAL: Cards placed as a flex row OVER the image
 ===================================================== */
 @media (max-width: 700px) {
     
-    /* Hide the third photo card completely on mobile */
-    .right-bottom-card { 
-        display: none !important; 
-    }
-    
     /* Side borders */
     .side-border { 
-        width: 28px;
-        gap: 18px;
+        width: 26px;
+        gap: 14px;
     }
     .side-border-text { 
-        font-size: 11px; 
-        letter-spacing: 1px;
+        font-size: 10px; 
+        letter-spacing: 0;
     }
     .side-border-icon { font-size: 10px; }
     .side-border-dot { width: 3px; height: 3px; }
@@ -595,7 +590,7 @@ nav .active::after {
     .donate { padding: 8px 16px; font-size: 14px; border-radius: 10px; }
     .nav-paw { font-size: 18px; }
 
-    /* Hero layout - stacked */
+    /* Hero - stacked layout */
     .hero {
         height: auto;
         min-height: 100vh;
@@ -606,12 +601,12 @@ nav .active::after {
         overflow: visible;
     }
 
-    /* Image area */
+    /* Hero image - the fixed-height container */
     .hero-image {
         position: relative;
         width: 100%;
-        height: 55vh;
-        min-height: 380px;
+        height: 48vh;
+        min-height: 340px;
         flex-shrink: 0;
         overflow: hidden;
         background: var(--blend-bg);
@@ -624,31 +619,19 @@ nav .active::after {
         object-position: center center;
     }
 
-    /* Cloud title */
-    .main-title {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        max-width: 92%;
-        margin: -25px auto 20px auto;
-        padding: 14px 18px;
-        border-radius: 30px 30px 30px 10px;
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
-        z-index: 50;
-    }
-    .main-title h2 { font-size: 22px; line-height: 1.05; }
-    .main-title p { font-size: 11px; margin-top: 5px; }
-    .title-heart, .title-lines, .title-paw { display: none; }
+    /* 
+       FIX: All photo cards are now positioned INSIDE 
+       the top area of the image using absolute positioning 
+       with explicit TOP values, so they can never fall down.
+    */
 
-    /* LEFT CARD - top left corner, inside image */
+    /* LEFT CARD - anchored to top-left */
     .left-card {
+        position: absolute;
         width: 75px;
         height: 90px;
-        left: 38px;
-        top: 40px;
+        left: 34px;
+        top: 15px;                  /* Fixed to top, will never move down */
         padding: 4px 4px 20px 4px;
         transform: rotate(-4deg);
         animation: none;
@@ -665,12 +648,13 @@ nav .active::after {
         border-width: 1px;
     }
 
-    /* RIGHT TOP CARD - top right corner, inside image */
+    /* RIGHT TOP CARD - anchored to top-right */
     .right-top-card {
+        position: absolute;
         width: 72px;
         height: 88px;
-        right: 38px;
-        top: 40px;
+        right: 34px;
+        top: 15px;                  /* Fixed to top */
         padding: 4px 4px 20px 4px;
         transform: rotate(-6deg);
         animation: none;
@@ -686,6 +670,11 @@ nav .active::after {
         line-height: 1;
     }
 
+    /* RIGHT BOTTOM CARD - HIDDEN on mobile */
+    .right-bottom-card {
+        display: none;
+    }
+
     /* Center heart */
     .center-heart { 
         left: 48%; 
@@ -694,25 +683,41 @@ nav .active::after {
         z-index: 30; 
     }
 
-    /* 
-       ACTION BUTTONS - placed in normal flow below image,
-       with clear spacing so nothing can overlap.
-    */
+    /* Cloud title */
+    .main-title {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        max-width: 92%;
+        margin: -20px auto 18px auto;
+        padding: 14px 18px;
+        border-radius: 30px 30px 30px 10px;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
+        z-index: 50;
+    }
+    .main-title h2 { font-size: 22px; line-height: 1.05; }
+    .main-title p { font-size: 11px; margin-top: 5px; }
+    .title-heart, .title-lines, .title-paw { display: none; }
+
+    /* Action buttons */
     .actions {
         position: relative;
         left: auto;
         transform: none;
         bottom: auto;
         width: 92%;
-        margin: 10px auto 20px;
+        margin: 10px auto 18px;
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
         z-index: 50;
     }
 
     .action {
-        min-height: 75px;
-        padding: 14px 18px;
+        min-height: 72px;
+        padding: 12px 16px;
         border-radius: 16px;
         gap: 14px;
     }
@@ -720,16 +725,16 @@ nav .active::after {
     .action-text h3 { font-size: 22px; }
     .action-text p { font-size: 12px; margin-top: 3px; }
 
-    /* Bottom green bar */
+    /* Bottom bar */
     .bottom {
         position: relative;
         height: 55px;
-        margin-top: 15px;
+        margin-top: 10px;
     }
-    .bottom p { font-size: 14px; padding: 0 40px; text-align: center; }
-    .bottom-decoration { font-size: 26px; }
-    .bottom-decoration.left { left: 32px; }
-    .bottom-decoration.right { right: 32px; }
+    .bottom p { font-size: 14px; padding: 0 36px; text-align: center; }
+    .bottom-decoration { font-size: 24px; }
+    .bottom-decoration.left { left: 28px; }
+    .bottom-decoration.right { right: 28px; }
 }
 
 /* =====================================================
@@ -737,9 +742,9 @@ nav .active::after {
 ===================================================== */
 @media (max-width: 480px) {
     
-    .side-border { width: 24px; gap: 14px; }
-    .side-border-text { font-size: 9px; letter-spacing: 0; }
-    .side-border-icon { font-size: 9px; }
+    .side-border { width: 22px; gap: 10px; }
+    .side-border-text { font-size: 8px; }
+    .side-border-icon { font-size: 8px; }
     
     .navbar { padding: 10px 12px; gap: 8px; }
     .brand-logo { width: 42px; height: 42px; }
@@ -749,51 +754,51 @@ nav .active::after {
     nav a { font-size: 13px; }
     .donate { padding: 6px 12px; font-size: 12px; }
     
-    .hero-image { height: 48vh; min-height: 300px; }
+    .hero-image { height: 42vh; min-height: 300px; }
+
+    /* Even smaller cards on very small phones */
+    .left-card { 
+        width: 64px; height: 76px; 
+        top: 12px; left: 28px; 
+        padding: 3px 3px 16px 3px; 
+    }
+    .left-card img { height: 42px; }
+    .left-card .photo-label { font-size: 6px; padding: 2px 5px; bottom: 3px; }
+
+    .right-top-card { 
+        width: 62px; height: 74px; 
+        top: 12px; right: 28px; 
+        padding: 3px 3px 16px 3px; 
+    }
+    .right-top-card img { height: 40px; }
+    .right-top-card p { font-size: 5px; bottom: 3px; }
+
+    .center-heart { font-size: 24px; }
 
     .main-title {
         max-width: 94%;
         padding: 12px 15px;
-        margin: -20px auto 18px auto;
+        margin: -18px auto 14px auto;
         border-radius: 25px 25px 25px 8px;
     }
     .main-title h2 { font-size: 19px; }
     .main-title p { font-size: 10px; }
 
-    /* Even smaller cards */
-    .left-card { 
-        width: 65px; height: 78px; 
-        top: 35px; left: 32px; 
-        padding: 3px 3px 16px 3px; 
-    }
-    .left-card img { height: 44px; }
-    .left-card .photo-label { font-size: 6px; padding: 2px 5px; bottom: 3px; }
-
-    .right-top-card { 
-        width: 63px; height: 76px; 
-        top: 35px; right: 32px; 
-        padding: 3px 3px 16px 3px; 
-    }
-    .right-top-card img { height: 42px; }
-    .right-top-card p { font-size: 5px; bottom: 3px; }
-
-    .center-heart { font-size: 24px; }
-
     .actions { 
         width: 94%; 
-        gap: 10px; 
-        margin: 10px auto 16px;
+        gap: 8px; 
+        margin: 8px auto 14px;
     }
-    .action { min-height: 66px; padding: 12px 15px; border-radius: 14px; gap: 12px; }
+    .action { min-height: 64px; padding: 10px 14px; border-radius: 14px; gap: 12px; }
     .action-icon { width: 38px; min-width: 38px; height: 38px; font-size: 16px; }
     .action-text h3 { font-size: 20px; }
     .action-text p { font-size: 11px; }
 
     .bottom { height: 50px; }
-    .bottom p { font-size: 12px; padding: 0 28px; }
+    .bottom p { font-size: 12px; padding: 0 26px; }
     .bottom-decoration { font-size: 22px; }
-    .bottom-decoration.left { left: 26px; }
-    .bottom-decoration.right { right: 26px; }
+    .bottom-decoration.left { left: 22px; }
+    .bottom-decoration.right { right: 22px; }
 }
 
 /* =====================================================
