@@ -1,280 +1,212 @@
 /* =========================================================
-   RESET
-========================================================= */
+   FINAL RESPONSIVE FIX
+   Keeps the desktop design and makes Android/Safari match
+   ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
     width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
 }
 
 body {
     width: 100%;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: #315d3d;
-    color: #214b35;
-    font-family: "DM Sans", sans-serif;
-}
-
-img {
-    display: block;
     max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-
-/* =========================================================
-   PAGE
-========================================================= */
 
 .page {
     width: 100%;
-    min-height: 100vh;
+    max-width: 100%;
     overflow-x: hidden;
 }
 
 
 /* =========================================================
    NAVBAR
-========================================================= */
+   ========================================================= */
 
 .navbar {
-    position: relative;
-    z-index: 1000;
-
     width: 100%;
-    min-height: 100px;
-
-    background: #f8f8e9;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 4.5%;
-
-    border-top: 3px solid #244d35;
-}
-
-.brand-area {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-shrink: 0;
-}
-
-.brand-logo {
-    width: 74px;
-    height: 68px;
-    background: white;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.brand-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.brand-text h1 {
-    font-family: Georgia, serif;
-    font-size: 28px;
-    line-height: 1;
-    white-space: nowrap;
-}
-
-.brand-text h1 span {
-    color: #ed7040;
-}
-
-.brand-text h1 b {
-    color: #396b3e;
-}
-
-.brand-text p {
-    margin-top: 9px;
-
-    font-family: "Kalam", cursive;
-    font-size: 16px;
-
-    color: #729263;
-}
-
-.brand-text p span {
-    color: #d93636;
-    font-size: 19px;
-    margin: 0 5px;
-}
-
-
-/* NAVIGATION */
-
-.navbar nav {
-    display: flex;
-    align-items: center;
-    gap: 34px;
-}
-
-.navbar nav a {
-    position: relative;
-
-    font-size: 17px;
-    font-weight: 600;
-
-    color: #173e2b;
-
-    padding: 10px 0;
-
-    white-space: nowrap;
-}
-
-.navbar nav a.active::after {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    width: 50px;
-    height: 3px;
-
-    margin: auto;
-
-    background: #174d36;
-    border-radius: 20px;
-}
-
-.navbar nav .donate {
-    padding: 15px 25px;
-
-    background: #164d35;
-    color: white;
-
-    border-radius: 15px;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    box-shadow: 0 5px 14px rgba(0,0,0,.15);
-}
-
-.nav-paw {
-    font-size: 25px;
-    color: #769552;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .hero {
     position: relative;
-
     width: 100%;
-    min-height: calc(100vh - 100px);
-
-    background: #809668;
-
-    overflow: hidden;
-
-    padding-bottom: 40px;
+    max-width: 100%;
+    overflow-x: clip;
 }
 
 
 /* =========================================================
-   HERO IMAGE
-========================================================= */
+   MAIN HERO IMAGE
+   ========================================================= */
 
 .hero-image {
     position: relative;
-
-    width: calc(100% - 200px);
-
-    max-width: 1285px;
-
+    width: min(84vw, 1280px);
+    max-width: 100%;
     margin: 0 auto;
 
-    height: 780px;
-
+    /* IMPORTANT:
+       Cards must NOT be clipped by the image container */
     overflow: visible;
-
-    z-index: 2;
 }
 
 .hero-image > img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center center;
-
     display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 
-/* LIGHT EFFECT */
+/* =========================================================
+   FLOATING PHOTO CARDS
+   ========================================================= */
 
-.hero-overlay {
+.photo-card {
     position: absolute;
-    inset: 0;
+    z-index: 20;
 
-    pointer-events: none;
+    background: #f8f6df;
+    padding: 12px;
+    border-radius: 3px;
 
-    background:
-        radial-gradient(
-            circle at 50% 30%,
-            rgba(255,255,255,.08),
-            transparent 45%
-        );
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.20);
 
-    z-index: 3;
+    overflow: visible;
+
+    transform-origin: center center;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   LEFT PHOTO
+   ========================================================= */
+
+.left-card {
+    width: clamp(180px, 18vw, 300px);
+
+    left: clamp(10px, 2vw, 30px);
+    top: 8%;
+
+    transform: rotate(-4deg);
+}
+
+
+/* =========================================================
+   RIGHT TOP PHOTO
+   ========================================================= */
+
+.right-top-card {
+    width: clamp(180px, 18vw, 300px);
+
+    right: clamp(10px, 2vw, 30px);
+    top: 8%;
+
+    transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   RIGHT BOTTOM PHOTO
+   ========================================================= */
+
+.right-bottom-card {
+    width: clamp(180px, 18vw, 300px);
+
+    right: clamp(10px, 2vw, 30px);
+    top: 42%;
+
+    transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   PHOTO TEXT
+   ========================================================= */
+
+.photo-card p {
+    margin: 10px 5px 3px;
+    text-align: center;
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   MAIN CLOUD / TITLE
+   ========================================================= */
+
+.main-title {
+    position: absolute;
+    z-index: 30;
+
+    left: 3%;
+    bottom: 4%;
+
+    width: clamp(330px, 30vw, 500px);
+    max-width: 40%;
+
+    padding: clamp(25px, 3vw, 45px);
+
+    border-radius: 45px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CENTER HEART
+   ========================================================= */
+
+.center-heart {
+    position: absolute;
+    z-index: 25;
+
+    left: 50%;
+    top: 67%;
+
+    transform: translate(-50%, -50%);
 }
 
 
 /* =========================================================
    SIDE BORDERS
-========================================================= */
+   ========================================================= */
 
 .side-border {
     position: absolute;
+    z-index: 50;
 
     top: 0;
     bottom: 0;
 
-    width: 100px;
-
-    background: #285c3b;
-
-    z-index: 20;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: space-around;
-
-    padding: 30px 8px;
-
-    color: #f6f5dd;
+    width: clamp(35px, 3.5vw, 65px);
 
     overflow: hidden;
 }
@@ -287,947 +219,296 @@ a {
     right: 0;
 }
 
-.side-border-text {
-    writing-mode: vertical-rl;
-
-    transform: rotate(180deg);
-
-    font-family: "Kalam", cursive;
-
-    font-size: 17px;
-
-    text-align: center;
-
-    letter-spacing: 1px;
-}
-
-.side-border-icon {
-    font-size: 22px;
-}
-
-.side-border-dot {
-    width: 5px;
-    height: 5px;
-
-    background: #e7e7c8;
-
-    border-radius: 50%;
-}
-
-
-/* =========================================================
-   PHOTO CARDS
-========================================================= */
-
-.photo-card {
-    position: absolute;
-
-    z-index: 30;
-
-    background: #f7f5df;
-
-    padding: 12px;
-
-    border: 2px solid rgba(255,255,255,.8);
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,.25),
-        0 3px 5px rgba(0,0,0,.15);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-
-    animation: floatingCard 5s ease-in-out infinite;
-}
-
-.photo-card:hover {
-    transform: translateY(-8px) rotate(0deg) !important;
-
-    box-shadow:
-        0 18px 35px rgba(0,0,0,.30);
-}
-
-.photo-card img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border: 4px solid #f7f5df;
-}
-
-
-/* LEFT PHOTO */
-
-.left-card {
-    width: 290px;
-    height: 355px;
-
-    left: -110px;
-    top: 65px;
-
-    transform: rotate(-5deg);
-}
-
-
-/* RIGHT TOP */
-
-.right-top-card {
-    width: 285px;
-    height: 345px;
-
-    right: -105px;
-    top: 55px;
-
-    transform: rotate(4deg);
-
-    animation-delay: .7s;
-}
-
-
-/* RIGHT BOTTOM */
-
-.right-bottom-card {
-    width: 300px;
-    height: 350px;
-
-    right: -100px;
-    top: 370px;
-
-    transform: rotate(5deg);
-
-    animation-delay: 1.4s;
-}
-
-
-/* PHOTO CARD TEXT */
-
-.photo-card p {
-    font-family: "Kalam", cursive;
-
-    color: #5c8056;
-
-    text-align: center;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    line-height: 1.2;
-
-    padding: 7px 4px 2px;
-}
-
-.photo-label {
-    position: absolute;
-
-    bottom: 20px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: #28613c;
-
-    color: white;
-
-    border-radius: 20px;
-
-    padding: 10px 18px;
-
-    font-family: "Kalam", cursive;
-
-    font-size: 15px;
-
-    text-align: center;
-
-    line-height: 1.1;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,.2);
-}
-
-
-/* =========================================================
-   FLOATING ANIMATION
-========================================================= */
-
-@keyframes floatingCard {
-
-    0% {
-        margin-top: 0;
-    }
-
-    50% {
-        margin-top: -9px;
-    }
-
-    100% {
-        margin-top: 0;
-    }
-}
-
-
-/* =========================================================
-   MAIN CLOUD / TITLE
-========================================================= */
-
-.main-title {
-    position: absolute;
-
-    z-index: 50;
-
-    left: -105px;
-    bottom: 25px;
-
-    width: 430px;
-
-    min-height: 220px;
-
-    padding: 35px 35px 28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,245,.98),
-            rgba(237,240,213,.97)
-        );
-
-    border-radius: 45px;
-
-    border: 2px solid rgba(255,255,255,.85);
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,.20);
-
-    text-align: center;
-
-    animation: floatingCloud 6s ease-in-out infinite;
-}
-
-
-/* CLOUD BUBBLES */
-
-.main-title::before,
-.main-title::after {
-    content: "";
-
-    position: absolute;
-
-    background: #f1f2dc;
-
-    border-radius: 50%;
-
-    z-index: -1;
-}
-
-.main-title::before {
-    width: 85px;
-    height: 55px;
-
-    left: 45px;
-    top: -25px;
-}
-
-.main-title::after {
-    width: 75px;
-    height: 50px;
-
-    right: 40px;
-    top: -20px;
-}
-
-
-@keyframes floatingCloud {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-
-/* TITLE DECORATIONS */
-
-.title-heart {
-    position: absolute;
-
-    top: 15px;
-    left: 20px;
-
-    font-size: 28px;
-
-    color: #6b965d;
-}
-
-.title-lines {
-    position: absolute;
-
-    top: 16px;
-    right: 20px;
-
-    color: #71915f;
-
-    font-size: 20px;
-}
-
-.title-paw {
-    position: absolute;
-
-    bottom: 15px;
-    right: 22px;
-
-    font-size: 19px;
-
-    opacity: .7;
-}
-
-
-/* TITLE */
-
-.main-title h2 {
-    font-family: "Kalam", cursive;
-
-    color: #5c8754;
-
-    font-size: 34px;
-
-    line-height: 1.08;
-
-    margin-bottom: 18px;
-}
-
-.main-title p {
-    color: #345c45;
-
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    font-weight: 600;
-}
-
-.title-underline {
-    width: 115px;
-    height: 3px;
-
-    margin: 15px auto 0;
-
-    background: #72995d;
-
-    border-radius: 50%;
-}
-
-
-/* =========================================================
-   CENTER HEART
-========================================================= */
-
-.center-heart {
-    position: absolute;
-
-    z-index: 40;
-
-    left: 50%;
-    bottom: 190px;
-
-    transform: translateX(-50%);
-
-    color: white;
-
-    font-size: 50px;
-
-    text-shadow: 0 3px 10px rgba(0,0,0,.25);
-
-    animation: heartFloat 3s ease-in-out infinite;
-}
-
-@keyframes heartFloat {
-
-    0%,
-    100% {
-        transform: translate(-50%, 0);
-    }
-
-    50% {
-        transform: translate(-50%, -8px);
-    }
-}
-
 
 /* =========================================================
    ACTION CARDS
-========================================================= */
+   ========================================================= */
 
 .actions {
     position: relative;
+    z-index: 40;
 
-    z-index: 100;
+    width: min(900px, 90%);
+    margin: -25px auto 0;
 
-    width: calc(100% - 200px);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 
-    max-width: 1100px;
-
-    margin: -5px auto 0;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
+    flex-wrap: nowrap;
 }
 
 .action {
-    min-height: 160px;
-
-    background: #f7f6df;
-
-    border: 2px solid rgba(255,255,255,.9);
-
-    border-radius: 28px;
-
-    padding: 24px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 22px;
-
-    box-shadow:
-        0 10px 20px rgba(0,0,0,.18);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-.action:hover {
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 18px 30px rgba(0,0,0,.25);
-}
-
-
-/* ACTION ICON */
-
-.action-icon {
-    flex: 0 0 70px;
-
-    width: 70px;
-    height: 70px;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-
-    font-size: 28px;
-
-    border: 4px solid rgba(255,255,255,.6);
-
-    box-shadow:
-        0 5px 12px rgba(0,0,0,.15);
-}
-
-.action-icon.orange {
-    background: #f57a4c;
-}
-
-.action-icon.green {
-    background: #70a258;
-}
-
-
-/* ACTION TEXT */
-
-.action-text h3 {
-    font-family: "Kalam", cursive;
-
-    font-size: 27px;
-
-    color: #668c59;
-
-    margin-bottom: 4px;
-}
-
-.action-text p {
-    font-size: 15px;
-
-    line-height: 1.4;
-
-    color: #456349;
-}
-
-.action-text strong {
-    display: block;
-
-    font-size: 27px;
-
-    margin-top: 6px;
-
-    color: #1f3525;
+    min-width: 0;
 }
 
 
 /* =========================================================
-   BOTTOM
-========================================================= */
+   DESKTOP
+   ========================================================= */
 
-.bottom {
-    position: relative;
+@media (min-width: 1100px) {
 
-    z-index: 50;
+    .hero-image {
+        width: 84vw;
+        max-width: 1350px;
+    }
 
-    width: 100%;
+    .left-card {
+        left: -3%;
+        width: clamp(220px, 18vw, 300px);
+    }
 
-    min-height: 80px;
+    .right-top-card {
+        right: -3%;
+        width: clamp(220px, 18vw, 300px);
+    }
 
-    display: flex;
+    .right-bottom-card {
+        right: -3%;
+        width: clamp(220px, 18vw, 300px);
+        top: 43%;
+    }
 
-    align-items: center;
-    justify-content: center;
+    /*
+       Prevent the cards from being cut at the browser edge.
+       They remain inside the overall page.
+    */
+    .hero {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
 
-    color: #f5f3dc;
-
-    font-family: "Kalam", cursive;
-
-    font-size: 18px;
-
-    padding: 25px;
-}
-
-.bottom-decoration {
-    position: absolute;
-
-    font-size: 40px;
-
-    color: #6e9559;
-}
-
-.bottom-decoration.left {
-    left: 25px;
-}
-
-.bottom-decoration.right {
-    right: 25px;
 }
 
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 1200px) {
+@media (max-width: 1099px) and (min-width: 701px) {
 
     .hero-image {
-        width: calc(100% - 150px);
+        width: 88vw;
     }
 
-    .side-border {
-        width: 75px;
+    .left-card,
+    .right-top-card,
+    .right-bottom-card {
+        width: 190px;
     }
 
     .left-card {
-        left: -75px;
-        width: 240px;
-        height: 300px;
+        left: -10px;
     }
 
-    .right-top-card {
-        right: -75px;
-        width: 240px;
-        height: 295px;
-    }
-
+    .right-top-card,
     .right-bottom-card {
-        right: -75px;
-        width: 250px;
-        height: 300px;
+        right: -10px;
     }
 
     .main-title {
-        left: -75px;
-        width: 390px;
+        width: 360px;
+        max-width: 45%;
     }
 
-    .actions {
-        width: calc(100% - 150px);
-    }
 }
 
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
 
     html,
-    body {
+    body,
+    .page {
         width: 100%;
+        max-width: 100%;
+        overflow-x: hidden !important;
+    }
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
         overflow-x: hidden;
     }
 
 
     /* -----------------------------------------
-       NAVBAR
-    ----------------------------------------- */
-
-    .navbar {
-        min-height: auto;
-
-        padding: 12px 15px 10px;
-
-        display: block;
-
-        text-align: center;
-    }
-
-    .brand-area {
-        justify-content: center;
-
-        gap: 9px;
-    }
-
-    .brand-logo {
-        width: 58px;
-        height: 52px;
-    }
-
-    .brand-text h1 {
-        font-size: 22px;
-    }
-
-    .brand-text p {
-        font-size: 13px;
-
-        margin-top: 5px;
-    }
-
-    .brand-text p span {
-        font-size: 16px;
-    }
-
-
-    /* MOBILE NAV */
-
-    .navbar nav {
-        margin-top: 10px;
-
-        width: 100%;
-
-        display: flex;
-
-        justify-content: center;
-
-        gap: 15px;
-
-        flex-wrap: nowrap;
-    }
-
-    .navbar nav a {
-        font-size: 14px;
-
-        padding: 8px 0;
-    }
-
-    .navbar nav .donate {
-        padding: 10px 14px;
-
-        border-radius: 12px;
-
-        font-size: 14px;
-    }
-
-    .nav-paw {
-        font-size: 20px;
-    }
-
-
-    /* -----------------------------------------
-       HERO
-    ----------------------------------------- */
-
-    .hero {
-        min-height: auto;
-
-        padding-bottom: 30px;
-
-        overflow: hidden;
-    }
-
-
-    /* -----------------------------------------
        HERO IMAGE
-    ----------------------------------------- */
+       ----------------------------------------- */
 
     .hero-image {
-        width: 100%;
+        position: relative;
 
-        height: 720px;
+        width: 100%;
+        max-width: 100%;
 
         margin: 0;
-
         overflow: visible;
     }
 
     .hero-image > img {
         width: 100%;
-        height: 100%;
+        height: auto;
+
+        min-height: 0;
 
         object-fit: cover;
+    }
 
-        object-position: center center;
+
+    /* -----------------------------------------
+       FLOATING PHOTO 1
+       ----------------------------------------- */
+
+    .left-card {
+        width: 23vw;
+        max-width: 105px;
+        min-width: 78px;
+
+        left: 4%;
+        top: 5%;
+
+        padding: 5px;
+
+        transform: rotate(-4deg);
+
+        z-index: 30;
+    }
+
+
+    /* -----------------------------------------
+       FLOATING PHOTO 2
+       ----------------------------------------- */
+
+    .right-top-card {
+        width: 23vw;
+        max-width: 105px;
+        min-width: 78px;
+
+        right: 4%;
+        top: 5%;
+
+        padding: 5px;
+
+        transform: rotate(4deg);
+
+        z-index: 30;
+    }
+
+
+    /* -----------------------------------------
+       FLOATING PHOTO 3
+       ----------------------------------------- */
+
+    .right-bottom-card {
+        width: 23vw;
+        max-width: 105px;
+        min-width: 78px;
+
+        right: 4%;
+        top: 31%;
+
+        padding: 5px;
+
+        transform: rotate(4deg);
+
+        z-index: 30;
+    }
+
+
+    /* -----------------------------------------
+       PHOTO TEXT MOBILE
+       ----------------------------------------- */
+
+    .photo-card p {
+        font-size: 8px;
+        line-height: 1.15;
+        margin: 4px 2px 2px;
+    }
+
+    .photo-label {
+        font-size: 9px !important;
+        line-height: 1.1;
+    }
+
+
+    /* -----------------------------------------
+       CLOUD / TITLE
+       ----------------------------------------- */
+
+    .main-title {
+        left: 50%;
+        bottom: 3%;
+
+        transform: translateX(-50%);
+
+        width: 78%;
+        max-width: 330px;
+
+        padding: 25px 18px;
+
+        border-radius: 35px;
+
+        z-index: 40;
+    }
+
+
+    .main-title h2 {
+        font-size: clamp(25px, 7vw, 34px);
+        line-height: 1.05;
+    }
+
+    .main-title p {
+        font-size: clamp(12px, 3.4vw, 16px);
+        line-height: 1.4;
+    }
+
+
+    /* -----------------------------------------
+       CENTER HEART
+       ----------------------------------------- */
+
+    .center-heart {
+        left: 50%;
+        top: 62%;
+
+        font-size: 30px;
+
+        z-index: 35;
     }
 
 
     /* -----------------------------------------
        SIDE BORDERS
-    ----------------------------------------- */
+       ----------------------------------------- */
 
     .side-border {
-        position: absolute;
+        width: 32px;
 
-        width: 34px;
-
-        padding: 20px 2px;
-
-        z-index: 80;
+        z-index: 60;
     }
 
     .side-border-text {
         font-size: 11px;
-
-        letter-spacing: .5px;
+        white-space: nowrap;
     }
 
     .side-border-icon {
         font-size: 15px;
     }
 
-    .side-border-dot {
-        width: 3px;
-        height: 3px;
-    }
-
 
     /* -----------------------------------------
-       PHOTO CARDS
-    ----------------------------------------- */
-
-    .photo-card {
-        padding: 6px;
-
-        border-width: 1px;
-
-        box-shadow:
-            0 7px 15px rgba(0,0,0,.25);
-    }
-
-    .photo-card img {
-        border-width: 2px;
-    }
-
-
-    /* LEFT */
-
-    .left-card {
-        left: 42px;
-        top: 22px;
-
-        width: 125px;
-        height: 165px;
-
-        transform: rotate(-4deg);
-
-        z-index: 60;
-    }
-
-
-    /* RIGHT TOP */
-
-    .right-top-card {
-        right: 42px;
-        top: 25px;
-
-        width: 125px;
-        height: 160px;
-
-        transform: rotate(4deg);
-
-        z-index: 60;
-    }
-
-
-    /* RIGHT BOTTOM */
-
-    .right-bottom-card {
-        right: 40px;
-        top: 190px;
-
-        width: 125px;
-        height: 160px;
-
-        transform: rotate(4deg);
-
-        z-index: 61;
-    }
-
-
-    /* PHOTO TEXT */
-
-    .photo-card p {
-        font-size: 9px;
-
-        line-height: 1.05;
-
-        padding: 3px 1px 0;
-    }
-
-    .photo-label {
-        bottom: 8px;
-
-        padding: 5px 8px;
-
-        font-size: 9px;
-
-        border-radius: 10px;
-    }
-
-
-    /* -----------------------------------------
-       MAIN CLOUD
-    ----------------------------------------- */
-
-    .main-title {
-        left: 50%;
-
-        bottom: 25px;
-
-        transform: translateX(-50%);
-
-        width: calc(100% - 80px);
-
-        min-height: 190px;
-
-        padding: 28px 18px 20px;
-
-        border-radius: 35px;
-
-        animation: floatingCloudMobile 6s ease-in-out infinite;
-
-        z-index: 70;
-    }
-
-    @keyframes floatingCloudMobile {
-
-        0% {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        50% {
-            transform: translateX(-50%) translateY(-6px);
-        }
-
-        100% {
-            transform: translateX(-50%) translateY(0);
-        }
-    }
-
-    .main-title::before {
-        width: 55px;
-        height: 35px;
-
-        left: 35px;
-        top: -17px;
-    }
-
-    .main-title::after {
-        width: 50px;
-        height: 32px;
-
-        right: 30px;
-        top: -14px;
-    }
-
-    .main-title h2 {
-        font-size: 28px;
-
-        line-height: 1.05;
-
-        margin-bottom: 12px;
-    }
-
-    .main-title p {
-        font-size: 12px;
-
-        line-height: 1.5;
-    }
-
-    .title-heart {
-        top: 10px;
-        left: 14px;
-
-        font-size: 21px;
-    }
-
-    .title-lines {
-        top: 10px;
-        right: 15px;
-
-        font-size: 15px;
-    }
-
-    .title-paw {
-        bottom: 10px;
-        right: 13px;
-
-        font-size: 13px;
-    }
-
-    .title-underline {
-        width: 85px;
-
-        margin-top: 10px;
-    }
-
-
-    /* -----------------------------------------
-       CENTER HEART
-    ----------------------------------------- */
-
-    .center-heart {
-        left: 50%;
-
-        bottom: 205px;
-
-        font-size: 35px;
-
-        z-index: 65;
-    }
-
-
-    /* -----------------------------------------
-       ACTIONS
-       IMPORTANT:
-       They are now BELOW the hero image.
-    ----------------------------------------- */
+       ACTION CARDS
+       ----------------------------------------- */
 
     .actions {
-        position: relative;
-
-        width: calc(100% - 70px);
+        width: 92%;
 
         margin: 20px auto 0;
 
@@ -1235,316 +516,123 @@ a {
 
         flex-direction: column;
 
-        gap: 14px;
+        gap: 12px;
 
-        z-index: 100;
+        position: relative;
+
+        z-index: 50;
     }
 
     .action {
         width: 100%;
-
-        min-height: 125px;
-
-        padding: 18px;
-
-        border-radius: 25px;
-
-        gap: 17px;
-
-        animation: floatingAction 5s ease-in-out infinite;
-    }
-
-    .action:nth-child(2) {
-        animation-delay: .7s;
-    }
-
-    .action:nth-child(3) {
-        animation-delay: 1.4s;
-    }
-
-    @keyframes floatingAction {
-
-        0% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-5px);
-        }
-
-        100% {
-            transform: translateY(0);
-        }
-    }
-
-    .action-icon {
-        width: 58px;
-        height: 58px;
-
-        flex-basis: 58px;
-
-        font-size: 23px;
-    }
-
-    .action-text h3 {
-        font-size: 25px;
-    }
-
-    .action-text p {
-        font-size: 13px;
-    }
-
-    .action-text strong {
-        font-size: 22px;
+        min-height: 130px;
     }
 
 
     /* -----------------------------------------
        BOTTOM
-    ----------------------------------------- */
+       ----------------------------------------- */
 
     .bottom {
-        min-height: 70px;
-
-        font-size: 14px;
-
-        padding: 20px 40px;
-
-        text-align: center;
+        width: 100%;
+        max-width: 100%;
     }
 
-    .bottom-decoration {
-        font-size: 25px;
-    }
-
-    .bottom-decoration.left {
-        left: 8px;
-    }
-
-    .bottom-decoration.right {
-        right: 8px;
-    }
 }
 
 
 /* =========================================================
    SMALL PHONES
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 430px) {
 
     .navbar {
-        padding-left: 8px;
-        padding-right: 8px;
+        width: 100%;
+        max-width: 100%;
     }
-
-    .brand-logo {
-        width: 48px;
-        height: 45px;
-    }
-
-    .brand-text h1 {
-        font-size: 19px;
-    }
-
-    .brand-text p {
-        font-size: 11px;
-    }
-
-    .navbar nav {
-        gap: 10px;
-    }
-
-    .navbar nav a {
-        font-size: 12px;
-    }
-
-    .navbar nav .donate {
-        padding: 9px 11px;
-        font-size: 12px;
-    }
-
-    .nav-paw {
-        font-size: 17px;
-    }
-
-
-    /* HERO */
 
     .hero-image {
-        height: 690px;
+        width: 100%;
     }
 
-
-    /* SIDE BORDERS */
-
-    .side-border {
-        width: 29px;
+    .left-card,
+    .right-top-card,
+    .right-bottom-card {
+        width: 22vw;
+        min-width: 72px;
+        max-width: 92px;
     }
-
-
-    /* PHOTO CARDS */
 
     .left-card {
-        left: 34px;
-
-        width: 108px;
-        height: 145px;
-
-        top: 18px;
+        left: 5%;
+        top: 5%;
     }
 
     .right-top-card {
-        right: 34px;
-
-        width: 108px;
-        height: 140px;
-
-        top: 20px;
+        right: 5%;
+        top: 5%;
     }
 
     .right-bottom-card {
-        right: 33px;
-
-        width: 108px;
-        height: 140px;
-
-        top: 170px;
+        right: 5%;
+        top: 30%;
     }
-
-    .photo-card p {
-        font-size: 8px;
-    }
-
-    .photo-label {
-        font-size: 8px;
-
-        padding: 4px 6px;
-    }
-
-
-    /* CLOUD */
 
     .main-title {
-        width: calc(100% - 70px);
+        width: 76%;
+        max-width: 310px;
 
-        min-height: 175px;
-
-        padding: 25px 12px 18px;
-
-        bottom: 22px;
+        padding: 22px 14px;
     }
 
     .main-title h2 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .main-title p {
-        font-size: 11px;
-    }
-
-
-    /* ACTIONS */
-
-    .actions {
-        width: calc(100% - 58px);
-
-        margin-top: 18px;
-    }
-
-    .action {
-        min-height: 115px;
-
-        padding: 15px;
-    }
-
-    .action-icon {
-        width: 52px;
-        height: 52px;
-
-        flex-basis: 52px;
-
-        font-size: 21px;
-    }
-
-    .action-text h3 {
-        font-size: 23px;
-    }
-
-    .action-text p {
         font-size: 12px;
     }
+
+    .center-heart {
+        font-size: 25px;
+    }
+
 }
 
 
 /* =========================================================
    VERY SMALL PHONES
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 360px) {
 
-    .brand-text h1 {
-        font-size: 17px;
-    }
-
-    .brand-text p {
-        font-size: 10px;
-    }
-
-    .navbar nav {
-        gap: 7px;
-    }
-
-    .navbar nav a {
-        font-size: 11px;
-    }
-
-    .navbar nav .donate {
-        padding: 8px 9px;
-    }
-
-    .hero-image {
-        height: 650px;
-    }
-
-    .left-card {
-        left: 32px;
-
-        width: 92px;
-        height: 125px;
-    }
-
-    .right-top-card {
-        right: 32px;
-
-        width: 92px;
-        height: 120px;
-    }
-
+    .left-card,
+    .right-top-card,
     .right-bottom-card {
-        right: 30px;
+        width: 21vw;
+        min-width: 65px;
+    }
 
-        width: 92px;
-        height: 120px;
+    .photo-card p {
+        font-size: 7px;
+    }
 
-        top: 150px;
+    .photo-label {
+        font-size: 7px !important;
     }
 
     .main-title {
-        width: calc(100% - 62px);
-
-        min-height: 160px;
+        width: 74%;
+        padding: 18px 10px;
     }
 
     .main-title h2 {
-        font-size: 21px;
+        font-size: 22px;
     }
 
     .main-title p {
         font-size: 10px;
     }
 
-    .actions {
-        width: calc(100% - 50px);
-    }
 }
