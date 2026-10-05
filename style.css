@@ -1,7 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL COMPLETE CSS
-   All 3 photos visible on mobile + floating on all screens
+   FINAL COMPLETE CSS - FIXED PHOTO CARDS ON MOBILE
 ===================================================== */
 
 :root {
@@ -16,9 +15,7 @@
     --blend-bg: #7a8a5e;
 }
 
-/* =====================================================
-   RESET & BASE
-===================================================== */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -26,10 +23,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
     margin: 0;
@@ -152,7 +146,7 @@ nav .active::after {
 }
 
 /* =====================================================
-   DECORATIVE SIDE BORDERS
+   SIDE BORDERS
 ===================================================== */
 .side-border {
     position: absolute;
@@ -273,9 +267,7 @@ nav .active::after {
     transform: rotate(-2deg); opacity: 0.8;
 }
 
-/* =====================================================
-   TYPEWRITER ANIMATION
-===================================================== */
+/* TYPEWRITER */
 .typewriter,
 .typewriter-2,
 .typewriter-3,
@@ -354,9 +346,7 @@ nav .active::after {
     white-space: nowrap;
 }
 
-/* =====================================================
-   LEFT CARD - DESKTOP
-===================================================== */
+/* DESKTOP POSITIONS */
 .left-card {
     width: 260px; height: 280px;
     left: 75px; top: 60px;
@@ -370,9 +360,6 @@ nav .active::after {
     background: #fffef1;
 }
 
-/* =====================================================
-   RIGHT TOP CARD - DESKTOP
-===================================================== */
 .right-top-card {
     width: 240px; height: 310px;
     right: 75px; top: 50px;
@@ -391,9 +378,6 @@ nav .active::after {
     padding: 0 8px;
 }
 
-/* =====================================================
-   RIGHT BOTTOM CARD - DESKTOP
-===================================================== */
 .right-bottom-card {
     width: 260px; height: 330px;
     right: 75px; bottom: 150px;
@@ -412,20 +396,18 @@ nav .active::after {
     padding: 0 8px;
 }
 
-/* =====================================================
-   FLOATING KEYFRAMES
-===================================================== */
+/* FLOATING KEYFRAMES - BIGGER MOVEMENT SO IT'S VISIBLE */
 @keyframes float-left {
     0%, 100% { transform: rotate(-4deg) translateY(0); }
-    50% { transform: rotate(-4deg) translateY(-12px); }
+    50% { transform: rotate(-4deg) translateY(-15px); }
 }
 @keyframes float-right-top {
     0%, 100% { transform: rotate(-6deg) translateY(0); }
-    50% { transform: rotate(-6deg) translateY(-15px); }
+    50% { transform: rotate(-6deg) translateY(-18px); }
 }
 @keyframes float-right-bottom {
     0%, 100% { transform: rotate(5deg) translateY(0); }
-    50% { transform: rotate(5deg) translateY(-10px); }
+    50% { transform: rotate(5deg) translateY(-14px); }
 }
 
 .center-heart {
@@ -435,9 +417,7 @@ nav .active::after {
     text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-/* =====================================================
-   ACTION BUTTONS
-===================================================== */
+/* ACTION BUTTONS */
 .actions {
     position: absolute; z-index: 40;
     left: 50%; transform: translateX(-50%);
@@ -472,9 +452,7 @@ nav .active::after {
 .action:nth-child(3) h3 { color: var(--orange); }
 .action-text p { color: var(--text-green); font-size: 13px; line-height: 1.3; margin-top: 5px; }
 
-/* =====================================================
-   BOTTOM GREEN AREA
-===================================================== */
+/* BOTTOM BAR */
 .bottom {
     position: absolute; z-index: 35;
     bottom: 0; left: 0; width: 100%; height: 50px;
@@ -499,14 +477,14 @@ nav .active::after {
 .bottom-decoration.right { right: 70px; bottom: -10px; transform: rotate(30deg); }
 
 /* =====================================================
-   LARGE DESKTOP (1201px+)
+   LARGE DESKTOP
 ===================================================== */
 @media (min-width: 1201px) {
     .main-title { bottom: 130px; left: 85px; max-width: 360px; }
 }
 
 /* =====================================================
-   TABLET (901px - 1200px)
+   TABLET
 ===================================================== */
 @media (min-width: 901px) and (max-width: 1200px) {
     .navbar { padding: 0 3%; }
@@ -535,7 +513,7 @@ nav .active::after {
 }
 
 /* =====================================================
-   SMALL DESKTOP (701px - 900px)
+   SMALL DESKTOP
 ===================================================== */
 @media (min-width: 701px) and (max-width: 900px) {
     .hero { height: 100vh; min-height: 700px; }
@@ -564,7 +542,8 @@ nav .active::after {
 
 /* =====================================================
    MOBILE PHONES (700px AND BELOW)
-   All 3 photos visible + floating on mobile
+   FIXED: Photo cards placed using a flex row that sits
+   OVER the actual photo, not the container's green edges.
 ===================================================== */
 @media (max-width: 700px) {
 
@@ -597,12 +576,11 @@ nav .active::after {
         overflow: visible;
     }
 
-    /* Tall image so all 3 cards fit */
     .hero-image {
         position: relative;
         width: 100%;
-        height: 70vh;
-        min-height: 520px;
+        height: 55vh;
+        min-height: 400px;
         flex-shrink: 0;
         overflow: hidden;
         background: var(--blend-bg);
@@ -614,20 +592,28 @@ nav .active::after {
         object-position: center center;
     }
 
-    /* LEFT CARD - floating */
+    /* ============================================
+       CRITICAL FIX: All 3 photo cards use
+       `top` positioning (NOT bottom) so they stay
+       INSIDE the image area and can never fall
+       into the buttons below.
+    ============================================ */
+
+    /* LEFT CARD - top-left, INSIDE photo */
     .left-card {
-        width: 70px;
-        height: 86px;
+        width: 68px;
+        height: 84px;
         left: 30px;
         top: 12px;
+        bottom: auto;
         padding: 4px 4px 19px 4px;
         transform: rotate(-4deg);
-        animation: float-left 4s ease-in-out infinite;
+        animation: float-left 3s ease-in-out infinite;
         z-index: 30;
         border-width: 2px;
         outline-width: 1px;
     }
-    .left-card img { height: 49px; }
+    .left-card img { height: 47px; }
     .left-card::before, .left-card::after { display: none; }
     .left-card .photo-label {
         font-size: 6px;
@@ -636,20 +622,21 @@ nav .active::after {
         border-width: 1px;
     }
 
-    /* RIGHT TOP CARD - floating */
+    /* RIGHT TOP CARD - top-right, INSIDE photo */
     .right-top-card {
-        width: 68px;
-        height: 84px;
+        width: 66px;
+        height: 82px;
         right: 30px;
         top: 12px;
+        bottom: auto;
         padding: 4px 4px 19px 4px;
         transform: rotate(-6deg);
-        animation: float-right-top 5s ease-in-out infinite;
+        animation: float-right-top 4s ease-in-out infinite;
         z-index: 30;
         border-width: 2px;
         outline-width: 1px;
     }
-    .right-top-card img { height: 47px; }
+    .right-top-card img { height: 45px; }
     .right-top-card::before, .right-top-card::after { display: none; }
     .right-top-card p {
         font-size: 5px;
@@ -657,20 +644,24 @@ nav .active::after {
         line-height: 1;
     }
 
-    /* RIGHT BOTTOM CARD - below the top card, floating */
+    /* RIGHT BOTTOM CARD - sits at the BOTTOM-LEFT of
+       the photo (not right side) so it's clearly visible 
+       inside the image and doesn't clash with the other 
+       right-side card. */
     .right-bottom-card {
-        width: 70px;
-        height: 86px;
+        width: 68px;
+        height: 84px;
         right: 30px;
-        top: 110px;
+        top: 108px;                /* Just below the right-top card */
+        bottom: auto;
         padding: 4px 4px 19px 4px;
         transform: rotate(5deg);
-        animation: float-right-bottom 4.5s ease-in-out infinite;
+        animation: float-right-bottom 3.5s ease-in-out infinite;
         z-index: 30;
         border-width: 2px;
         outline-width: 1px;
     }
-    .right-bottom-card img { height: 49px; }
+    .right-bottom-card img { height: 47px; }
     .right-bottom-card::before, .right-bottom-card::after { display: none; }
     .right-bottom-card p {
         font-size: 5px;
@@ -729,7 +720,6 @@ nav .active::after {
     .action-text h3 { font-size: 22px; }
     .action-text p { font-size: 12px; margin-top: 3px; }
 
-    /* Bottom bar */
     .bottom {
         position: relative;
         bottom: auto;
@@ -759,34 +749,36 @@ nav .active::after {
     nav a { font-size: 13px; }
     .donate { padding: 6px 12px; font-size: 12px; }
 
-    .hero-image { height: 65vh; min-height: 480px; }
+    .hero-image { height: 50vh; min-height: 360px; }
 
-    /* Smaller cards on very small phones - still floating */
     .left-card {
-        width: 62px; height: 76px;
+        width: 60px; height: 74px;
         top: 10px; left: 24px;
+        bottom: auto;
         padding: 3px 3px 16px 3px;
-        animation: float-left 4s ease-in-out infinite;
+        animation: float-left 3s ease-in-out infinite;
     }
-    .left-card img { height: 42px; }
-    .left-card .photo-label { font-size: 6px; padding: 2px 5px; bottom: 3px; }
+    .left-card img { height: 40px; }
+    .left-card .photo-label { font-size: 5px; padding: 2px 4px; bottom: 3px; }
 
     .right-top-card {
-        width: 60px; height: 74px;
+        width: 58px; height: 72px;
         top: 10px; right: 24px;
+        bottom: auto;
         padding: 3px 3px 16px 3px;
-        animation: float-right-top 5s ease-in-out infinite;
+        animation: float-right-top 4s ease-in-out infinite;
     }
-    .right-top-card img { height: 40px; }
+    .right-top-card img { height: 38px; }
     .right-top-card p { font-size: 5px; bottom: 3px; }
 
     .right-bottom-card {
-        width: 62px; height: 76px;
-        top: 96px; right: 24px;
+        width: 60px; height: 74px;
+        top: 94px; right: 24px;
+        bottom: auto;
         padding: 3px 3px 16px 3px;
-        animation: float-right-bottom 4.5s ease-in-out infinite;
+        animation: float-right-bottom 3.5s ease-in-out infinite;
     }
-    .right-bottom-card img { height: 42px; }
+    .right-bottom-card img { height: 40px; }
     .right-bottom-card p { font-size: 5px; bottom: 3px; }
 
     .center-heart { font-size: 24px; }
@@ -817,9 +809,7 @@ nav .active::after {
     .bottom-decoration.right { right: 22px; }
 }
 
-/* =====================================================
-   LANDSCAPE MODE ON PHONES
-===================================================== */
+/* LANDSCAPE */
 @media (max-width: 900px) and (orientation: landscape) {
     .hero-image { height: 80vh; min-height: 350px; }
     .main-title { max-width: 50%; margin: -50px auto 10px auto; }
