@@ -10,18 +10,16 @@
 
 html {
     width: 100%;
-    min-height: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
     width: 100%;
-    min-height: 100%;
-    margin: 0;
+    min-height: 100vh;
     overflow-x: hidden;
-    background: #7f9467;
-    color: #214d35;
+    background: #1f512f;
+    color: #234d31;
     font-family: "DM Sans", sans-serif;
 }
 
@@ -37,7 +35,7 @@ a {
 
 
 /* =========================================================
-   PAGE
+   MAIN PAGE
 ========================================================= */
 
 .page {
@@ -54,29 +52,34 @@ a {
 .navbar {
     width: 100%;
     min-height: 100px;
-    background: #f8f8e8;
+    background: #faf9e9;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 15px 5%;
+    padding: 18px 5%;
     position: relative;
     z-index: 100;
+
+    border-top: 3px solid #243f30;
 }
+
+
+/* BRAND */
 
 .brand-area {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0;
+    min-width: 0;
 }
 
 .brand-logo {
-    width: 65px;
-    height: 65px;
+    width: 66px;
+    height: 66px;
     background: white;
-    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .brand-logo img {
@@ -89,26 +92,32 @@ a {
     font-family: Georgia, serif;
     font-size: 27px;
     line-height: 1;
-    color: #ed7040;
     white-space: nowrap;
 }
 
+.brand-text h1 span {
+    color: #e86f32;
+}
+
 .brand-text h1 b {
-    color: #50733c;
+    color: #4c733e;
 }
 
 .brand-text p {
-    margin-top: 8px;
+    margin-top: 9px;
     font-family: "Kalam", cursive;
-    font-size: 15px;
-    color: #77935e;
+    font-size: 16px;
+    color: #6e8652;
 }
 
 .brand-text p span {
-    color: #e54d38;
+    color: #d72828;
     font-size: 20px;
     margin: 0 5px;
 }
+
+
+/* NAVIGATION */
 
 .navbar nav {
     display: flex;
@@ -120,7 +129,7 @@ a {
 .navbar nav a {
     font-size: 17px;
     font-weight: 600;
-    color: #173e2c;
+    color: #123f2c;
     position: relative;
     white-space: nowrap;
 }
@@ -128,28 +137,29 @@ a {
 .navbar nav a.active::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -15px;
+    width: 48px;
     height: 3px;
-    border-radius: 10px;
-    background: #24563b;
+    background: #1c5438;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    border-radius: 50%;
 }
 
-.navbar .donate {
-    background: #1f5137;
+.navbar nav .donate {
+    background: #1c5438;
     color: white;
-    padding: 16px 24px;
-    border-radius: 16px;
+    padding: 15px 24px;
+    border-radius: 15px;
 }
 
-.navbar .donate i {
+.navbar nav .donate i {
     margin-right: 8px;
 }
 
 .nav-paw {
-    color: #6b954e;
-    font-size: 25px;
+    color: #71964f;
+    font-size: 26px;
 }
 
 
@@ -159,13 +169,11 @@ a {
 
 .hero {
     width: 100%;
-    min-height: calc(100vh - 100px);
-
-    background: #7f9467;
-
+    min-height: 1000px;
+    background: #71885d;
     position: relative;
-
     overflow: hidden;
+    padding-bottom: 130px;
 }
 
 
@@ -176,8 +184,8 @@ a {
 .hero-image {
     position: relative;
 
-    width: calc(100% - 210px);
-    max-width: 1220px;
+    width: min(1200px, calc(100% - 260px));
+    height: 760px;
 
     margin: 0 auto;
 
@@ -187,13 +195,9 @@ a {
 
 .hero-image > img {
     width: 100%;
-    height: auto;
-    min-height: 700px;
-
+    height: 100%;
     object-fit: cover;
     object-position: center;
-
-    display: block;
 }
 
 
@@ -204,15 +208,15 @@ a {
 .hero-overlay {
     position: absolute;
     inset: 0;
-
     pointer-events: none;
     z-index: 3;
 
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.02),
-        rgba(255,255,255,0)
-    );
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.04),
+            rgba(0,0,0,0.04)
+        );
 }
 
 
@@ -221,25 +225,21 @@ a {
 ========================================================= */
 
 .side-border {
-    position: fixed;
-
-    top: 100px;
+    position: absolute;
+    top: 0;
     bottom: 0;
 
-    width: 105px;
+    width: 70px;
 
-    background: #28553b;
+    background: #255838;
+    color: #f5f5df;
 
-    color: #f6f5dc;
+    z-index: 20;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-around;
-
-    padding: 20px 10px;
-
-    z-index: 20;
+    align-items: center;
 
     overflow: hidden;
 }
@@ -258,21 +258,20 @@ a {
 
     font-family: "Kalam", cursive;
     font-size: 19px;
-
     letter-spacing: 1px;
 
     text-align: center;
 }
 
 .side-border-icon {
-    font-size: 22px;
+    font-size: 21px;
 }
 
 .side-border-dot {
     width: 5px;
     height: 5px;
+    background: #d9d6a9;
     border-radius: 50%;
-    background: #d7d8bd;
 }
 
 
@@ -283,15 +282,15 @@ a {
 .photo-card {
     position: absolute;
 
-    background: #f8f5df;
+    background: #fbf8dc;
+    border: 4px solid #f8f6df;
 
     padding: 12px;
 
-    border: 2px solid rgba(255,255,255,0.7);
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.25);
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.20);
-
-    z-index: 10;
+    z-index: 15;
 
     overflow: hidden;
 }
@@ -299,109 +298,78 @@ a {
 .photo-card img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
 }
 
-.photo-card p {
-    font-family: "Kalam", cursive;
-    color: #537745;
-    text-align: center;
-}
 
-
-/* =========================================================
-   LEFT PHOTO
-========================================================= */
+/* LEFT PHOTO */
 
 .left-card {
-    width: 285px;
+    width: 270px;
     height: 310px;
 
-    left: -125px;
+    left: -110px;
     top: 70px;
 
-    transform: rotate(-5deg);
-
-    border-radius: 4px;
+    transform: rotate(-4deg);
 }
 
-.left-card img {
-    height: 190px;
-}
+.left-card .photo-label {
+    margin: 12px auto 0;
 
-.photo-label {
-    width: 90px;
+    width: 105px;
+    padding: 10px;
 
-    margin: 15px auto 0;
-
-    padding: 12px 8px;
-
-    background: #2e6944;
+    background: #23603b;
+    color: white;
 
     border-radius: 20px;
 
-    color: white;
-
     text-align: center;
 
     font-family: "Kalam", cursive;
-
     font-size: 16px;
 
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    line-height: 1.1;
 }
 
 
-/* =========================================================
-   RIGHT TOP PHOTO
-========================================================= */
+/* RIGHT TOP PHOTO */
 
 .right-top-card {
-    width: 280px;
-    height: 320px;
+    width: 275px;
+    height: 315px;
 
-    right: -125px;
-    top: 65px;
+    right: -115px;
+    top: 70px;
 
-    transform: rotate(5deg);
-
-    border-radius: 4px;
+    transform: rotate(-4deg);
 }
 
-.right-top-card img {
-    height: 220px;
+.right-top-card p,
+.right-bottom-card p {
+    font-family: "Kalam", cursive;
+    text-align: center;
+    color: #55744b;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
-.right-top-card p {
-    padding-top: 12px;
-    font-size: 15px;
-}
 
-
-/* =========================================================
-   RIGHT BOTTOM PHOTO
-========================================================= */
+/* RIGHT BOTTOM PHOTO */
 
 .right-bottom-card {
-    width: 280px;
-    height: 320px;
+    width: 275px;
+    height: 340px;
 
-    right: -125px;
-    top: 390px;
+    right: -105px;
+    top: 330px;
 
-    transform: rotate(5deg);
-
-    border-radius: 4px;
+    transform: rotate(4deg);
 }
 
 .right-bottom-card img {
-    height: 220px;
-}
-
-.right-bottom-card p {
-    padding-top: 12px;
-    font-size: 15px;
+    height: 270px;
 }
 
 
@@ -413,81 +381,70 @@ a {
     position: absolute;
 
     left: -100px;
-    bottom: 45px;
+    bottom: -20px;
 
-    width: 420px;
+    width: 410px;
     min-height: 185px;
 
-    padding: 25px 35px;
+    padding: 30px 35px;
 
-    background: rgba(246, 247, 232, 0.94);
+    background: rgba(245, 247, 232, 0.95);
 
     border-radius: 45px;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 
-    z-index: 15;
+    z-index: 30;
 
     text-align: center;
 }
 
 .main-title h2 {
-    font-family: "Caveat", cursive;
-
-    font-size: 36px;
-
+    font-family: "Kalam", cursive;
+    color: #608b4e;
+    font-size: 31px;
     line-height: 1.05;
-
-    color: #60844c;
-
-    font-weight: 700;
 }
 
 .main-title p {
     margin-top: 15px;
 
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    color: #315d42;
-
+    font-size: 15px;
+    line-height: 1.5;
     font-weight: 600;
+
+    color: #365942;
 }
 
 .title-heart {
     position: absolute;
-    left: 20px;
     top: 15px;
-
-    font-size: 25px;
-
-    color: #668c55;
-}
-
-.title-paw {
-    position: absolute;
-    right: 25px;
-    bottom: 20px;
-
-    font-size: 17px;
+    left: 20px;
+    font-size: 23px;
+    color: #648d57;
 }
 
 .title-lines {
     position: absolute;
-    right: 25px;
-    top: 20px;
+    top: 12px;
+    right: 20px;
+    color: #648d57;
+}
 
-    color: #668c55;
+.title-paw {
+    position: absolute;
+    right: 20px;
+    bottom: 18px;
+    font-size: 17px;
 }
 
 .title-underline {
     width: 105px;
     height: 3px;
 
-    margin: 12px auto 0;
+    background: #75985e;
 
-    background: #73965d;
+    margin: 12px auto 0;
 
     border-radius: 50%;
 }
@@ -501,17 +458,17 @@ a {
     position: absolute;
 
     left: 50%;
-    top: 63%;
+    top: 70%;
 
     transform: translate(-50%, -50%);
 
+    z-index: 25;
+
+    font-size: 55px;
     color: white;
 
-    font-size: 50px;
-
-    z-index: 12;
-
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.25);
 }
 
 
@@ -520,53 +477,50 @@ a {
 ========================================================= */
 
 .actions {
-    width: calc(100% - 180px);
-
-    max-width: 1000px;
-
-    margin: -25px auto 0;
-
     position: relative;
+    z-index: 40;
 
-    z-index: 30;
+    width: min(950px, calc(100% - 180px));
+
+    margin: -15px auto 0;
 
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
+    gap: 15px;
 }
 
 .action {
-    min-height: 135px;
+    min-height: 170px;
 
-    background: #f5f4d8;
+    background: #f8f6df;
 
-    border: 2px solid white;
-
+    border: 3px solid white;
     border-radius: 25px;
 
-    padding: 22px;
+    padding: 25px;
 
     display: flex;
-
     align-items: center;
-
     gap: 20px;
 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 7px 18px rgba(0,0,0,0.12);
+
+    transition: transform 0.25s ease;
+}
+
+.action:hover {
+    transform: translateY(-6px);
 }
 
 .action-icon {
-    width: 65px;
-    height: 65px;
+    width: 62px;
+    height: 62px;
 
-    flex: 0 0 65px;
+    flex-shrink: 0;
 
     border-radius: 50%;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -578,39 +532,35 @@ a {
 }
 
 .action-icon.orange {
-    background: #f47c48;
+    background: #f2783c;
 }
 
 .action-icon.green {
-    background: #70a34e;
+    background: #68994d;
 }
 
 .action-text h3 {
-    font-family: "Caveat", cursive;
+    font-family: "Kalam", cursive;
+    font-size: 27px;
+    color: #608b4e;
+}
 
-    font-size: 28px;
-
-    color: #62844c;
+.action:nth-child(3) h3 {
+    color: #ef6e38;
 }
 
 .action-text p {
-    margin-top: 3px;
-
+    margin-top: 4px;
     font-size: 14px;
-
-    line-height: 1.5;
-
-    color: #315d42;
+    line-height: 1.35;
+    color: #416044;
 }
 
 .action-text strong {
     display: block;
-
-    margin-top: 5px;
-
-    font-size: 24px;
-
-    color: #111;
+    margin-top: 8px;
+    font-size: 22px;
+    color: #222;
 }
 
 
@@ -619,44 +569,36 @@ a {
 ========================================================= */
 
 .bottom {
-    min-height: 110px;
-
     position: relative;
+    z-index: 30;
 
-    background: #245c38;
+    width: 100%;
+    height: 100px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     color: white;
-
-    margin-top: 0;
-
-    z-index: 10;
 }
 
 .bottom p {
     font-family: "Kalam", cursive;
-
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .bottom-decoration {
     position: absolute;
-
-    font-size: 35px;
-
-    color: #76a55a;
+    font-size: 45px;
+    color: #82a765;
 }
 
 .bottom-decoration.left {
-    left: 30px;
+    left: 5%;
 }
 
 .bottom-decoration.right {
-    right: 30px;
+    right: 5%;
 }
 
 
@@ -664,53 +606,50 @@ a {
    TABLET
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .navbar {
-        padding: 12px 20px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .navbar nav {
-        gap: 18px;
+        gap: 20px;
     }
 
     .navbar nav a {
-        font-size: 14px;
-    }
-
-    .brand-text h1 {
-        font-size: 22px;
-    }
-
-    .brand-text p {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .hero-image {
-        width: calc(100% - 130px);
-    }
-
-    .side-border {
-        width: 65px;
+        width: calc(100% - 150px);
     }
 
     .left-card {
         left: -70px;
-        transform: scale(.8) rotate(-5deg);
-        transform-origin: top left;
+        width: 220px;
+        height: 270px;
     }
 
-    .right-top-card,
-    .right-bottom-card {
+    .right-top-card {
         right: -70px;
-        transform: scale(.8) rotate(5deg);
-        transform-origin: top right;
+        width: 220px;
+        height: 270px;
+    }
+
+    .right-bottom-card {
+        right: -65px;
+        width: 220px;
+        height: 290px;
     }
 
     .main-title {
-        left: -50px;
-        transform: scale(.85);
-        transform-origin: bottom left;
+        left: -60px;
+        width: 350px;
+    }
+
+    .actions {
+        width: calc(100% - 120px);
     }
 }
 
@@ -721,77 +660,70 @@ a {
 
 @media (max-width: 700px) {
 
-    html,
     body {
         width: 100%;
-        max-width: 100%;
         overflow-x: hidden;
     }
 
     .page {
         width: 100%;
-        overflow-x: hidden;
-    }
-
-
-    /* -------------------------
-       MOBILE NAVBAR
-    ------------------------- */
-
-    .navbar {
-        width: 100%;
-
-        min-height: auto;
-
-        padding: 10px 12px;
-
-        display: block;
-
         overflow: hidden;
     }
 
-    .brand-area {
-        justify-content: center;
 
+    /* -----------------------------------------------------
+       MOBILE NAVBAR
+    ----------------------------------------------------- */
+
+    .navbar {
+        width: 100%;
+        min-height: auto;
+
+        padding: 10px 12px 12px;
+
+        display: block;
+    }
+
+    .brand-area {
+        width: 100%;
+        justify-content: center;
         gap: 8px;
     }
 
     .brand-logo {
-        width: 45px;
-        height: 45px;
+        width: 48px;
+        height: 48px;
     }
 
     .brand-text h1 {
-        font-size: 21px;
+        font-size: 20px;
     }
 
     .brand-text p {
-        font-size: 11px;
-        margin-top: 3px;
+        font-size: 12px;
+        margin-top: 4px;
     }
 
     .brand-text p span {
-        font-size: 15px;
+        font-size: 14px;
         margin: 0 2px;
     }
 
 
-    /* -------------------------
-       MOBILE NAVIGATION
-    ------------------------- */
+    /* NAV ON ONE LINE */
 
     .navbar nav {
         width: 100%;
 
-        margin-top: 10px;
+        margin-top: 13px;
 
         display: flex;
-
         justify-content: center;
 
-        gap: 15px;
+        gap: 13px;
 
         overflow-x: auto;
+        overflow-y: hidden;
 
         scrollbar-width: none;
     }
@@ -802,78 +734,49 @@ a {
 
     .navbar nav a {
         font-size: 13px;
+        flex-shrink: 0;
     }
 
     .navbar nav a.active::after {
-        bottom: -7px;
+        bottom: -8px;
+        height: 2px;
+        width: 35px;
     }
 
-    .navbar .donate {
+    .navbar nav .donate {
         padding: 9px 13px;
         border-radius: 12px;
     }
 
     .nav-paw {
         font-size: 19px;
+        flex-shrink: 0;
     }
 
 
-    /* -------------------------
+    /* -----------------------------------------------------
        HERO
-    ------------------------- */
+    ----------------------------------------------------- */
 
     .hero {
-        width: 100%;
-        min-height: auto;
-
+        min-height: 0;
+        padding-bottom: 30px;
+        background: #71885d;
         overflow: hidden;
-
-        padding-bottom: 0;
     }
 
 
-    /* -------------------------
-       SIDE BORDERS
-    ------------------------- */
-
-    .side-border {
-        position: absolute;
-
-        top: 0;
-        bottom: 0;
-
-        width: 27px;
-
-        padding: 10px 3px;
-
-        z-index: 40;
-    }
-
-    .side-border-text {
-        font-size: 10px;
-        letter-spacing: .4px;
-    }
-
-    .side-border-icon {
-        font-size: 13px;
-    }
-
-    .side-border-dot {
-        width: 3px;
-        height: 3px;
-    }
-
-
-    /* -------------------------
-       HERO IMAGE
-    ------------------------- */
+    /* -----------------------------------------------------
+       MAIN IMAGE
+       IMPORTANT: FULL WIDTH ON PHONE
+    ----------------------------------------------------- */
 
     .hero-image {
-        width: calc(100% - 54px);
+        width: calc(100% - 70px);
+        height: 430px;
 
-        max-width: none;
-
-        margin: 0 27px;
+        margin-left: 35px;
+        margin-right: 35px;
 
         position: relative;
 
@@ -882,212 +785,211 @@ a {
 
     .hero-image > img {
         width: 100%;
-
-        height: auto;
-
-        min-height: 0;
-
-        aspect-ratio: 4 / 5;
+        height: 100%;
 
         object-fit: cover;
-
         object-position: center;
 
-        display: block;
+        position: relative;
+        z-index: 1;
     }
 
 
-    /* -------------------------
-       LEFT PHOTO
-       small and inside hero
-    ------------------------- */
+    /* -----------------------------------------------------
+       SIDE BORDERS
+    ----------------------------------------------------- */
+
+    .side-border {
+        width: 35px;
+        top: 0;
+        bottom: 0;
+    }
+
+    .side-border-text {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    .side-border-icon {
+        font-size: 14px;
+    }
+
+    .side-border-dot {
+        width: 3px;
+        height: 3px;
+    }
+
+
+    /* -----------------------------------------------------
+       PHOTO 1 - LEFT
+    ----------------------------------------------------- */
 
     .left-card {
-        width: 90px;
-        height: 105px;
+        width: 92px;
+        height: 115px;
 
         left: 8px;
         top: 18px;
 
         padding: 5px;
+        border-width: 2px;
 
-        transform: rotate(-4deg);
+        transform: rotate(-3deg);
 
-        border-radius: 3px;
+        z-index: 10;
     }
 
-    .left-card img {
-        width: 100%;
-        height: 68px;
+    .left-card .photo-label {
+        width: 62px;
 
-        object-fit: cover;
-    }
+        padding: 4px;
 
-    .photo-label {
-        width: 55px;
+        margin-top: 4px;
 
-        margin: 4px auto 0;
+        font-size: 9px;
 
-        padding: 3px 2px;
-
-        border-radius: 8px;
-
-        font-size: 8px;
-
-        line-height: 1.05;
+        border-radius: 10px;
     }
 
 
-    /* -------------------------
-       RIGHT TOP PHOTO
-    ------------------------- */
+    /* -----------------------------------------------------
+       PHOTO 2 - RIGHT TOP
+    ----------------------------------------------------- */
 
     .right-top-card {
-        width: 90px;
-        height: 105px;
+        width: 92px;
+        height: 115px;
 
         right: 8px;
         top: 18px;
 
         padding: 5px;
+        border-width: 2px;
 
-        transform: rotate(4deg);
-    }
+        transform: rotate(3deg);
 
-    .right-top-card img {
-        height: 68px;
+        z-index: 10;
     }
 
     .right-top-card p {
-        padding-top: 3px;
-
         font-size: 7px;
-
         line-height: 1;
+        margin-top: 4px;
     }
 
 
-    /* -------------------------
-       RIGHT BOTTOM PHOTO
-    ------------------------- */
+    /* -----------------------------------------------------
+       PHOTO 3 - RIGHT BOTTOM
+       KEEP IT VISIBLE
+    ----------------------------------------------------- */
 
     .right-bottom-card {
-        width: 90px;
-        height: 105px;
+        width: 92px;
+        height: 125px;
 
         right: 8px;
-        top: 135px;
+        top: auto;
+        bottom: 25px;
 
         padding: 5px;
+        border-width: 2px;
 
-        transform: rotate(4deg);
+        transform: rotate(3deg);
+
+        z-index: 12;
     }
 
     .right-bottom-card img {
-        height: 68px;
+        width: 100%;
+        height: 91px;
+
+        object-fit: cover;
     }
 
     .right-bottom-card p {
-        padding-top: 3px;
-
         font-size: 7px;
-
         line-height: 1;
+        margin-top: 3px;
     }
 
 
-    /* -------------------------
-       CENTER HEART
-    ------------------------- */
-
-    .center-heart {
-        top: 48%;
-
-        font-size: 25px;
-
-        z-index: 20;
-    }
-
-
-    /* -------------------------
-       TITLE CLOUD
-    ------------------------- */
+    /* -----------------------------------------------------
+       CLOUD TITLE
+       PUT IT INSIDE IMAGE BOTTOM
+    ----------------------------------------------------- */
 
     .main-title {
-        position: absolute;
-
         width: calc(100% - 30px);
 
-        min-height: 145px;
+        min-height: 125px;
 
         left: 15px;
-
-        bottom: 18px;
-
-        transform: none;
+        bottom: -45px;
 
         padding: 20px 15px;
 
-        border-radius: 30px;
+        border-radius: 28px;
 
-        z-index: 25;
+        z-index: 30;
     }
 
     .main-title h2 {
-        font-size: 27px;
-
-        line-height: 1;
+        font-size: 23px;
+        line-height: 1.05;
     }
 
     .main-title p {
         font-size: 11px;
-
-        margin-top: 10px;
-
-        line-height: 1.45;
+        margin-top: 9px;
     }
 
     .title-heart {
-        left: 12px;
+        font-size: 16px;
         top: 10px;
-
-        font-size: 17px;
+        left: 12px;
     }
 
     .title-lines {
-        right: 15px;
+        font-size: 12px;
         top: 10px;
-
-        font-size: 13px;
+        right: 12px;
     }
 
     .title-paw {
-        right: 15px;
-        bottom: 12px;
-
-        font-size: 11px;
+        font-size: 12px;
+        right: 12px;
+        bottom: 10px;
     }
 
     .title-underline {
         width: 70px;
-
-        margin-top: 8px;
+        height: 2px;
+        margin-top: 7px;
     }
 
 
-    /* -------------------------
+    /* -----------------------------------------------------
+       HEART
+    ----------------------------------------------------- */
+
+    .center-heart {
+        top: 65%;
+        font-size: 32px;
+        z-index: 25;
+    }
+
+
+    /* -----------------------------------------------------
        ACTION CARDS
-    ------------------------- */
+       THREE CARDS STACKED
+    ----------------------------------------------------- */
 
     .actions {
-        width: calc(100% - 30px);
+        width: calc(100% - 55px);
 
-        max-width: none;
-
-        margin: 18px auto 0;
+        margin: 70px auto 0;
 
         display: flex;
-
         flex-direction: column;
 
         gap: 12px;
@@ -1097,10 +999,9 @@ a {
 
     .action {
         width: 100%;
-
         min-height: 105px;
 
-        padding: 15px;
+        padding: 15px 16px;
 
         border-radius: 20px;
 
@@ -1108,55 +1009,43 @@ a {
     }
 
     .action-icon {
-        width: 52px;
-        height: 52px;
-
-        flex-basis: 52px;
+        width: 50px;
+        height: 50px;
 
         font-size: 20px;
     }
 
     .action-text h3 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .action-text p {
         font-size: 12px;
+        line-height: 1.25;
     }
 
     .action-text strong {
-        font-size: 18px;
+        font-size: 17px;
+        margin-top: 3px;
     }
 
 
-    /* -------------------------
+    /* -----------------------------------------------------
        BOTTOM
-    ------------------------- */
+    ----------------------------------------------------- */
 
     .bottom {
-        min-height: 80px;
-
-        margin-top: 15px;
+        height: 75px;
     }
 
     .bottom p {
-        font-size: 12px;
-
+        font-size: 14px;
         text-align: center;
     }
 
     .bottom-decoration {
-        font-size: 20px;
+        font-size: 25px;
     }
-
-    .bottom-decoration.left {
-        left: 10px;
-    }
-
-    .bottom-decoration.right {
-        right: 10px;
-    }
-
 }
 
 
@@ -1167,57 +1056,72 @@ a {
 @media (max-width: 390px) {
 
     .brand-text h1 {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .brand-text p {
-        font-size: 9px;
+        font-size: 10px;
     }
 
     .navbar nav {
-        gap: 11px;
+        gap: 9px;
     }
 
     .navbar nav a {
         font-size: 11px;
     }
 
-    .navbar .donate {
+    .navbar nav .donate {
         padding: 8px 10px;
     }
 
-    .hero-image > img {
-        aspect-ratio: 4 / 5;
+    .hero-image {
+        width: calc(100% - 62px);
+        margin-left: 31px;
+        margin-right: 31px;
+        height: 390px;
+    }
+
+    .side-border {
+        width: 31px;
+    }
+
+    .side-border-text {
+        font-size: 9px;
     }
 
     .left-card,
-    .right-top-card,
+    .right-top-card {
+        width: 78px;
+        height: 100px;
+    }
+
     .right-bottom-card {
-        width: 75px;
-        height: 90px;
+        width: 78px;
+        height: 108px;
     }
 
-    .left-card img,
-    .right-top-card img,
     .right-bottom-card img {
-        height: 58px;
+        height: 78px;
     }
 
-    .photo-label {
-        font-size: 7px;
-        width: 48px;
-    }
-
-    .right-top-card p,
-    .right-bottom-card p {
-        font-size: 6px;
+    .main-title {
+        width: calc(100% - 20px);
+        left: 10px;
+        min-height: 115px;
+        padding: 17px 10px;
     }
 
     .main-title h2 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .main-title p {
         font-size: 10px;
+    }
+
+    .actions {
+        width: calc(100% - 45px);
+        margin-top: 65px;
     }
 }
