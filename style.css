@@ -1318,12 +1318,8 @@ nav .active::after {
 
 
 /* =====================================================
-   MOBILE
-   ONLY MOBILE IS CHANGED
-===================================================== */
-/* =====================================================
-   MOBILE
-   SAME DESKTOP DESIGN - ONLY SCALED DOWN
+   MOBILE — EXACT DESKTOP LAYOUT, JUST SCALED
+   Uses a fixed 1280x800 stage scaled to fit phone width.
 ===================================================== */
 
 @media (max-width: 700px) {
@@ -1336,533 +1332,293 @@ nav .active::after {
     .page {
         width: 100%;
         max-width: none;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
+
     /* =========================
-       NAVBAR
-       SAME DESIGN, SCALED
+       NAVBAR — scaled down
     ========================= */
 
     .navbar {
-        height: 70px;
-        padding: 0 15px;
-        gap: 10px;
+        height: 60px;
+        padding: 0 12px;
+        gap: 8px;
     }
 
-    .brand-area {
-        gap: 7px;
-    }
+    .brand-area { gap: 6px; }
 
     .brand-logo {
-        width: 45px;
-        height: 45px;
+        width: 38px;
+        height: 38px;
     }
 
-    .brand-text h1 {
-        font-size: 17px;
-    }
+    .brand-text h1 { font-size: 14px; }
+    .brand-text p  { font-size: 10px; margin-top: 2px; }
 
-    .brand-text p {
-        font-size: 12px;
-        margin-top: 4px;
-    }
+    nav { gap: 10px; }
 
-    nav {
-        gap: 12px;
-    }
-
-    nav a {
-        font-size: 11px;
-    }
+    nav a { font-size: 10px; }
 
     nav .active::after {
-        bottom: -7px;
+        bottom: -6px;
         height: 2px;
     }
 
     .donate {
-        padding: 7px 10px;
-        border-radius: 8px;
-        gap: 5px;
-    }
-
-    .nav-paw {
-        font-size: 15px;
-    }
-
-
-    /* =========================
-       HERO
-       SAME DESKTOP CANVAS
-    ========================= */
-
-    .hero {
-        width: 100%;
-        height: calc(100vw * 0.6667);
-        min-height: 0;
-        max-height: none;
-
-        position: relative;
-
-        overflow: hidden;
-
-        background: var(--blend-bg);
-    }
-
-
-    /* =========================
-       HERO IMAGE
-       EXACT SAME POSITION
-    ========================= */
-
-    .hero-image {
-        position: absolute;
-
-        inset: 0;
-
-        width: 100%;
-        height: 100%;
-
-        z-index: 1;
-
-        overflow: hidden;
-
-        background: var(--blend-bg);
-    }
-
-    .hero-image img {
-        width: 100%;
-        height: 100%;
-
-        display: block;
-
-        object-fit: contain;
-        object-position: center center;
-
-        filter:
-            brightness(1.02)
-            saturate(1.05)
-            contrast(1.02);
-    }
-
-
-    /* =========================
-       OVERLAY
-       SAME DESKTOP POSITION
-    ========================= */
-
-    .hero-overlay {
-        position: absolute;
-
-        inset: 0;
-
-        z-index: 2;
-
-        pointer-events: none;
-
-        background:
-            linear-gradient(
-                to bottom,
-                rgba(0,0,0,0.2) 0%,
-                transparent 20%,
-                transparent 80%,
-                rgba(0,0,0,0.3) 100%
-            );
-    }
-
-
-    /* =========================
-       GREEN SIDE BORDERS
-       KEEP THEM
-    ========================= */
-
-    .side-border {
-        display: flex;
-
-        width: 28px;
-
-        top: 0;
-        bottom: 0;
-
-        gap: 15px;
-
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-    }
-
-    .side-border-text {
-        font-size: 11px;
-        letter-spacing: 1px;
-    }
-
-    .side-border-icon {
+        padding: 6px 9px;
+        border-radius: 7px;
+        gap: 4px;
         font-size: 10px;
     }
 
-    .side-border-dot {
-        width: 3px;
-        height: 3px;
+    .nav-paw { font-size: 13px; }
+
+
+    /* =========================
+       HERO — SCALE DESKTOP STAGE
+       A 1280x800 desktop canvas shrunk to fit the phone.
+       Everything inside keeps its desktop position/size.
+    ========================= */
+
+    .hero {
+        position: relative;
+
+        width: 1280px;
+        height: 800px;
+
+        min-height: 0;
+        max-height: none;
+
+        transform: scale(calc(100vw / 1280));
+        transform-origin: top left;
+
+        /* remove leftover space from scaling */
+        margin-bottom: calc((100vw / 1280) * 800 - 800px);
+
+        overflow: hidden;
+
+        background: var(--blend-bg);
     }
 
 
     /* =========================
-       CLOUD
-       SAME DESKTOP POSITION
+       SIDE BORDERS — keep desktop size
+    ========================= */
+
+    .side-border {
+        width: 55px;
+        gap: 30px;
+    }
+
+    .side-border-text {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .side-border-icon { font-size: 18px; }
+
+
+    /* =========================
+       CLOUD TITLE — desktop values
     ========================= */
 
     .main-title {
-        position: absolute;
+        bottom: 120px;
+        left: 75px;
 
-        z-index: 30;
+        width: 100%;
+        min-width: 260px;
+        max-width: 340px;
 
-        bottom: 75px;
-        left: 35px;
-
-        width: 260px;
-
-        min-width: 0;
-        max-width: 260px;
-
-        padding: 10px 12px;
-
-        background:
-            rgba(255,255,255,0.35);
-
-        border-radius:
-            40px 40px 40px 12px;
-
-        box-shadow:
-            0 10px 30px rgba(33,71,47,0.12);
-
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-
-        border:
-            1px solid rgba(255,255,255,0.5);
+        padding: 18px 22px;
     }
 
     .main-title h2 {
-        font-size: 20px;
+        font-size: 30px;
         line-height: 0.95;
     }
 
     .main-title p {
-        margin-top: 6px;
-        font-size: 9px;
+        margin-top: 8px;
+        font-size: 12px;
         line-height: 1.35;
     }
 
-    .title-heart {
-        display: block;
-
-        top: 7px;
-        left: 12px;
-
-        font-size: 17px;
-    }
-
-    .title-lines {
-        display: block;
-
-        top: 10px;
-        left: 32px;
-
-        font-size: 12px;
-    }
-
-    .title-paw {
-        display: block;
-
-        right: 12px;
-        bottom: 12px;
-
-        font-size: 13px;
-    }
+    .title-heart { top: 10px; left: 18px; font-size: 24px; }
+    .title-lines { top: 15px; left: 45px; font-size: 16px; }
+    .title-paw   { right: 18px; bottom: 18px; font-size: 18px; }
 
     .title-underline {
-        width: 75px;
-        height: 2px;
-        margin: 6px auto 0;
+        width: 100px;
+        height: 3px;
+        margin: 8px auto 0;
     }
 
 
     /* =========================
-       PHOTO CARDS
-       SAME DESKTOP POSITIONS
+       PHOTO CARDS — desktop values
     ========================= */
 
     .photo-card {
-        z-index: 25;
-
-        padding: 7px 7px 32px 7px;
-
-        border-radius: 3px;
-
-        border: 2px solid #ffffff;
-
-        max-width: none;
-
-        box-shadow:
-            0 3px 6px rgba(38,60,31,0.15),
-            0 7px 15px rgba(38,60,31,0.25),
-            0 12px 25px rgba(38,60,31,0.15),
-            inset 0 0 0 1px rgba(255,255,255,0.8);
+        padding: 12px 12px 55px 12px;
+        border-radius: 4px;
+        border: 3px solid #ffffff;
+        max-width: calc(100% - 20px);
     }
-
-
-    /* LEFT PHOTO */
-
-    .left-card {
-        position: absolute;
-
-        width: 150px;
-        height: 162px;
-
-        left: 35px;
-        top: 30px;
-
-        transform: rotate(-4deg);
-
-        animation:
-            float-left 4s ease-in-out infinite;
-    }
-
-    .left-card img {
-        height: 112px;
-
-        border:
-            1px dashed rgba(33,71,47,0.2);
-
-        padding: 2px;
-    }
-
-
-    /* RIGHT TOP PHOTO */
-
-    .right-top-card {
-        position: absolute;
-
-        width: 140px;
-        height: 180px;
-
-        right: 35px;
-        top: 25px;
-
-        transform: rotate(-6deg);
-
-        animation:
-            float-right-top 5s ease-in-out infinite;
-    }
-
-    .right-top-card img {
-        height: 125px;
-    }
-
-
-    /* RIGHT BOTTOM PHOTO */
-
-    .right-bottom-card {
-        position: absolute;
-
-        width: 150px;
-        height: 190px;
-
-        right: 35px;
-        bottom: 85px;
-
-        transform: rotate(5deg);
-
-        animation:
-            float-right-bottom 4.5s ease-in-out infinite;
-    }
-
-    .right-bottom-card img {
-        height: 138px;
-    }
-
-
-    /* =========================
-       PHOTO TEXT
-    ========================= */
-
-    .photo-label {
-        bottom: 9px;
-
-        padding: 4px 9px;
-
-        font-size: 11px;
-    }
-
-    .right-top-card p,
-    .right-bottom-card p {
-        bottom: 9px;
-
-        font-size: 9px;
-
-        padding: 0 4px;
-    }
-
-
-    /* =========================
-       KEEP TAPE
-    ========================= */
 
     .photo-card::before,
     .photo-card::after {
-        display: block;
-
-        width: 27px;
-        height: 11px;
-
-        top: -5px;
+        width: 45px;
+        height: 18px;
+        top: -8px;
     }
 
-    .photo-card::before {
-        left: 10px;
+    .photo-card::before { left: 20px; }
+    .photo-card::after  { right: 20px; }
+
+
+    .left-card {
+        width: 260px;
+        height: 280px;
+        left: 75px;
+        top: 60px;
+        transform: rotate(-4deg);
+        animation: float-left 4s ease-in-out infinite;
     }
 
-    .photo-card::after {
-        right: 10px;
-    }
-
-
-    /* =========================
-       CENTER HEART
-       SAME DESIGN
-    ========================= */
-
-    .center-heart {
-        display: block;
-
-        left: 48%;
-        top: 230px;
-
-        font-size: 38px;
+    .left-card img {
+        height: 195px;
+        border: 2px dashed rgba(33,71,47,0.2);
+        padding: 3px;
     }
 
 
-    /* =========================
-       ACTION CARDS
-       SAME 3-COLUMN DESIGN
-    ========================= */
-
-    .actions {
-        position: absolute;
-
-        z-index: 40;
-
-        left: 50%;
-
-        transform:
-            translateX(-50%);
-
-        bottom: 25px;
-
-        width: 75%;
-
-        max-width: 650px;
-
-        display: grid;
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-        gap: 8px;
+    .right-top-card {
+        width: 240px;
+        height: 310px;
+        right: 75px;
+        top: 50px;
+        transform: rotate(-6deg);
+        animation: float-right-top 5s ease-in-out infinite;
     }
 
-    .action {
-        min-height: 65px;
+    .right-top-card img { height: 215px; }
 
-        padding: 8px 9px;
-
-        border-radius: 12px;
-
-        gap: 7px;
-
-        border:
-            1px solid rgba(255,255,255,0.8);
+    .right-top-card p {
+        bottom: 14px;
+        font-size: 15px;
+        padding: 0 8px;
     }
 
-    .action-icon {
-        width: 32px;
-        min-width: 32px;
 
-        height: 32px;
-
-        font-size: 14px;
-
-        border-width: 1px;
+    .right-bottom-card {
+        width: 260px;
+        height: 330px;
+        right: 75px;
+        bottom: 150px;
+        transform: rotate(5deg);
+        animation: float-right-bottom 4.5s ease-in-out infinite;
     }
 
-    .action-text h3 {
+    .right-bottom-card img { height: 240px; }
+
+    .right-bottom-card p {
+        bottom: 15px;
+        font-size: 15px;
+        padding: 0 8px;
+    }
+
+
+    .photo-label {
+        bottom: 15px;
+        padding: 8px 18px;
         font-size: 17px;
     }
 
-    .action-text p {
-        font-size: 7px;
 
-        line-height: 1.2;
+    /* =========================
+       CENTER HEART — desktop values
+    ========================= */
 
-        margin-top: 3px;
-    }
-
-    .action-text strong {
-        font-size: 10px;
+    .center-heart {
+        left: 48%;
+        top: 420px;
+        font-size: 65px;
     }
 
 
     /* =========================
-       BOTTOM GREEN BAR
-       SAME POSITION
+       ACTIONS — desktop 3-column
+    ========================= */
+
+    .actions {
+        left: 50%;
+        bottom: 45px;
+        width: 75%;
+        max-width: 850px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        transform: translateX(-50%);
+    }
+
+    .action {
+        min-height: 110px;
+        padding: 15px 20px;
+        border-radius: 20px;
+        gap: 15px;
+        border: 2px solid rgba(255,255,255,0.8);
+    }
+
+    .action-icon {
+        width: 55px;
+        min-width: 55px;
+        height: 55px;
+        font-size: 25px;
+        border-width: 2px;
+    }
+
+    .action-text h3 { font-size: 28px; }
+
+    .action-text p {
+        font-size: 13px;
+        line-height: 1.3;
+        margin-top: 5px;
+    }
+
+
+    /* =========================
+       BOTTOM GREEN BAR — desktop values
     ========================= */
 
     .bottom {
-        position: absolute;
-
-        z-index: 35;
-
-        bottom: 0;
-        left: 0;
-
-        width: 100%;
-
-        height: 32px;
-
-        background: var(--forest-green);
-
-        display: flex;
-
-        justify-content: center;
-        align-items: center;
+        height: 50px;
     }
 
     .bottom::before {
-        top: -9px;
-
-        height: 12px;
+        top: -15px;
+        left: -5%;
+        width: 110%;
+        height: 20px;
     }
 
     .bottom p {
-        font-size: 13px;
-
-        letter-spacing: 0.5px;
+        font-size: 22px;
+        letter-spacing: 1px;
     }
 
     .bottom-decoration {
-        display: block;
-
-        font-size: 30px;
+        font-size: 50px;
     }
 
     .bottom-decoration.left {
-        left: 35px;
-        bottom: -7px;
+        left: 70px;
+        bottom: -10px;
     }
 
     .bottom-decoration.right {
-        right: 35px;
-        bottom: -7px;
+        right: 70px;
+        bottom: -10px;
     }
 
 }
