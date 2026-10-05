@@ -1,44 +1,34 @@
-/* =====================================================
-   ANIMAL CONNECT TRUST
-   FINAL CSS - Mobile: Cloud upar + 3 photos ek row me
-===================================================== */
+/* ============================================
+   ANIMAL CONNECT TRUST - SIMPLE FIX
+   ============================================ */
 
 :root {
     --dark-green: #21472f;
     --forest-green: #315b36;
     --olive-green: #668744;
-    --light-olive: #78964d;
     --orange: #ef7538;
     --cream: #f8f8e8;
     --paper: #fffef1;
     --text-green: #315638;
-    --blend-bg: #7a8a5e;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
-
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
     margin: 0;
     background: #000;
     font-family: "DM Sans", sans-serif;
-    overflow-x: hidden;
 }
-
-a { text-decoration: none; color: inherit; }
 
 .page {
     width: 100%;
     max-width: 1500px;
     margin: auto;
     background: var(--cream);
-    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -49,21 +39,17 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 100;
 }
 
 .brand-area { display: flex; align-items: center; gap: 12px; }
 
-.brand-logo {
-    width: 62px; height: 62px;
-    overflow: hidden; flex-shrink: 0;
-}
+.brand-logo { width: 62px; height: 62px; }
 .brand-logo img { width: 100%; height: 100%; object-fit: contain; }
 
 .brand-text h1 {
     font-family: Georgia, serif;
-    font-size: 23px; line-height: 1; white-space: nowrap;
+    font-size: 23px;
+    line-height: 1;
 }
 .brand-text h1 span { color: var(--orange); }
 .brand-text h1 b { color: var(--olive-green); }
@@ -74,32 +60,27 @@ a { text-decoration: none; color: inherit; }
     color: var(--olive-green);
     font-size: 16px;
 }
-.brand-text p span { color: var(--orange); margin: 0 3px; }
 
 nav { display: flex; align-items: center; gap: 34px; }
-
-nav a {
-    color: var(--dark-green);
-    font-size: 16px; font-weight: 600;
-    position: relative; transition: 0.25s ease;
-}
-nav a:hover { color: var(--orange); }
-
-nav .active::after {
-    content: ""; position: absolute;
-    left: 0; right: 0; bottom: -12px;
-    height: 3px; background: var(--dark-green);
-    border-radius: 50%;
+nav a { color: var(--dark-green); font-size: 16px; font-weight: 600; }
+nav a.active::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background: var(--dark-green);
+    margin-top: 8px;
 }
 
 .donate {
-    color: white !important;
+    color: white;
     background: var(--dark-green);
-    padding: 13px 21px; border-radius: 12px;
-    display: flex; align-items: center; gap: 9px;
-    transition: 0.25s ease;
+    padding: 13px 21px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
 }
-.donate:hover { background: var(--forest-green); transform: translateY(-2px); }
+
 .nav-paw { color: var(--olive-green); font-size: 22px; }
 
 /* HERO */
@@ -107,10 +88,9 @@ nav .active::after {
     position: relative;
     width: 100%;
     height: 100vh;
-    height: 100dvh;
     min-height: 700px;
     overflow: hidden;
-    background: var(--blend-bg);
+    background: #7a8a5e;
 }
 
 .hero-image {
@@ -119,17 +99,13 @@ nav .active::after {
     width: 100%;
     height: 100%;
     z-index: 1;
-    overflow: hidden;
-    background: var(--blend-bg);
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: contain;
     object-position: center center;
-    filter: brightness(1.02) saturate(1.05) contrast(1.02);
 }
 
 .hero-overlay {
@@ -137,65 +113,52 @@ nav .active::after {
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.3) 100%);
 }
 
 /* SIDE BORDERS */
 .side-border {
     position: absolute;
     z-index: 20;
-    top: 0; bottom: 0;
+    top: 0;
+    bottom: 0;
     width: 55px;
-    background: linear-gradient(to bottom,
-        rgba(33, 71, 47, 0.85) 0%,
-        rgba(49, 91, 54, 0.90) 50%,
-        rgba(33, 71, 47, 0.85) 100%);
+    background: rgba(33, 71, 47, 0.88);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.side-border.left { left: 0; border-right: 2px solid rgba(255, 255, 255, 0.15); }
-.side-border.right { right: 0; border-left: 2px solid rgba(255, 255, 255, 0.15); }
+.side-border.left { left: 0; }
+.side-border.right { right: 0; }
 
 .side-border-text {
     font-family: "Caveat", cursive;
-    font-size: 22px; font-weight: 700;
-    color: rgba(255, 255, 255, 0.95);
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
     writing-mode: vertical-rl;
-    text-orientation: mixed;
     transform: rotate(180deg);
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-    white-space: nowrap;
 }
 
 .side-border.right .side-border-text { transform: rotate(0deg); }
 
 .side-border-icon {
-    color: rgba(255, 255, 255, 0.85);
+    color: white;
     font-size: 18px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    animation: pulse-icon 3s ease-in-out infinite;
+    animation: pulse 3s infinite;
 }
 
-.side-border-icon:nth-child(2) { animation-delay: 0.5s; }
-.side-border-icon:nth-child(3) { animation-delay: 1s; }
-
-@keyframes pulse-icon {
-    0%, 100% { transform: scale(1); opacity: 0.85; }
-    50% { transform: scale(1.2); opacity: 1; color: var(--orange); }
+@keyframes pulse {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; color: var(--orange); }
 }
 
 .side-border-dot {
     width: 5px; height: 5px;
-    background: rgba(255, 255, 255, 0.5);
+    background: white;
     border-radius: 50%;
 }
 
@@ -203,72 +166,57 @@ nav .active::after {
 .main-title {
     position: absolute;
     z-index: 30;
-    bottom: 120px; left: 75px;
-    width: 100%;
-    min-width: 260px;
-    max-width: 340px;
-    padding: 18px 22px;
+    bottom: 130px;
+    left: 80px;
+    width: 340px;
+    padding: 22px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 40px 40px 40px 12px;
-    box-shadow: 0 10px 30px rgba(33, 71, 47, 0.12);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(33, 71, 47, 0.2);
+    backdrop-filter: blur(15px);
 }
 
 .main-title h2 {
-    margin: 0;
     font-family: "Kalam", cursive;
-    font-size: clamp(22px, 2.5vw, 30px);
-    line-height: 0.95; font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
     color: var(--dark-green);
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(255, 255, 255, 0.7);
 }
-.main-title h2 span { color: var(--olive-green); }
 
 .main-title p {
-    margin-top: 8px;
+    margin-top: 10px;
     color: var(--text-green);
-    font-size: 12px; line-height: 1.35; font-weight: 600;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 0 6px rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 600;
 }
 
-.title-heart, .title-lines, .title-paw {
-    position: absolute; color: var(--dark-green); opacity: 0.7;
-}
-.title-heart { top: 10px; left: 18px; font-size: 24px; transform: rotate(-15deg); }
-.title-lines { top: 15px; left: 45px; font-size: 16px; transform: rotate(-20deg); }
-.title-paw { right: 18px; bottom: 18px; font-size: 18px; transform: rotate(-15deg); }
+.title-heart, .title-lines, .title-paw { display: none; }
 
 .title-underline {
-    width: 100px; height: 3px;
-    margin: 8px auto 0;
+    width: 100px;
+    height: 3px;
+    margin: 10px auto 0;
     background: var(--olive-green);
-    border-radius: 50%;
-    transform: rotate(-2deg); opacity: 0.8;
 }
 
 /* TYPEWRITER */
-.typewriter,
-.typewriter-2,
-.typewriter-3,
-.typewriter-4 {
+.typewriter, .typewriter-2, .typewriter-3, .typewriter-4 {
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 3px solid transparent;
+    border-right: 2px solid transparent;
     width: 0;
     animation-fill-mode: forwards;
 }
 
-.typewriter { animation: typing 2s steps(20, end) 0.5s forwards, blink-caret 0.75s step-end infinite; }
-.typewriter-2 { animation: typing 1.5s steps(15, end) 2.5s forwards, blink-caret 0.75s step-end infinite; }
-.typewriter-3 { animation: typing 2.5s steps(30, end) 4s forwards, blink-caret 0.75s step-end infinite; }
-.typewriter-4 { animation: typing 1.5s steps(15, end) 6.5s forwards, blink-caret 0.75s step-end infinite; }
+.typewriter { animation: type 2s steps(20) 0.5s forwards, blink 0.75s infinite; }
+.typewriter-2 { animation: type 1.5s steps(15) 2.5s forwards, blink 0.75s infinite; }
+.typewriter-3 { animation: type 2.5s steps(30) 4s forwards, blink 0.75s infinite; }
+.typewriter-4 { animation: type 1.5s steps(15) 6.5s forwards, blink 0.75s infinite; }
 
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink-caret {
+@keyframes type { from { width: 0; } to { width: 100%; } }
+@keyframes blink {
     from, to { border-color: transparent; }
     50% { border-color: var(--olive-green); }
 }
@@ -278,384 +226,353 @@ nav .active::after {
     position: absolute;
     z-index: 25;
     background: var(--paper);
-    padding: 12px 12px 55px 12px;
+    padding: 10px 10px 45px 10px;
     border-radius: 4px;
-    border: 3px solid #ffffff;
-    outline: 1px solid rgba(33, 71, 47, 0.15);
-    outline-offset: 3px;
-    box-shadow:
-        0 4px 8px rgba(38, 60, 31, 0.15),
-        0 10px 25px rgba(38, 60, 31, 0.25),
-        0 20px 40px rgba(38, 60, 31, 0.15),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
-    max-width: calc(100% - 20px);
+    border: 3px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
-
-.photo-card::before,
-.photo-card::after {
-    content: "";
-    position: absolute;
-    width: 45px; height: 18px;
-    background: rgba(255, 249, 200, 0.75);
-    border: 1px solid rgba(200, 190, 140, 0.5);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    z-index: 5;
-}
-.photo-card::before { top: -8px; left: 20px; transform: rotate(-8deg); }
-.photo-card::after { top: -8px; right: 20px; transform: rotate(8deg); }
 
 .photo-card img {
-    display: block; width: 100%;
+    display: block;
+    width: 100%;
     object-fit: cover;
-    border-radius: 2px;
-    border: 1px solid rgba(33, 71, 47, 0.1);
 }
 
 .photo-label {
     position: absolute;
-    left: 50%; transform: translateX(-50%);
-    bottom: 15px;
-    padding: 8px 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    padding: 5px 12px;
     background: var(--forest-green);
-    color: white; border-radius: 20px;
+    color: white;
+    border-radius: 15px;
     font-family: "Caveat", cursive;
-    font-size: 17px; line-height: 1.05;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
-    border: 2px solid rgba(255, 255, 255, 0.9);
+    font-size: 15px;
     text-align: center;
     white-space: nowrap;
 }
 
-/* DESKTOP CARD POSITIONS */
 .left-card {
-    width: 260px; height: 280px;
-    left: 75px; top: 60px;
+    width: 240px;
+    height: 260px;
+    left: 80px;
+    top: 60px;
     transform: rotate(-4deg);
-    animation: float-left 4s ease-in-out infinite;
-}
-.left-card img {
-    height: 195px;
-    border: 2px dashed rgba(33, 71, 47, 0.2);
-    padding: 3px;
-    background: #fffef1;
+    animation: floatLeft 4s infinite;
 }
 
+.left-card img { height: 180px; }
+
 .right-top-card {
-    width: 240px; height: 310px;
-    right: 75px; top: 50px;
+    width: 220px;
+    height: 280px;
+    right: 80px;
+    top: 50px;
     transform: rotate(-6deg);
-    animation: float-right-top 5s ease-in-out infinite;
-    border-color: #f5e6a8;
+    animation: floatRightTop 5s infinite;
 }
-.right-top-card img { height: 215px; }
+
+.right-top-card img { height: 200px; }
+
 .right-top-card p {
     position: absolute;
-    bottom: 14px; left: 0; right: 0;
+    bottom: 10px;
+    left: 0;
+    right: 0;
     text-align: center;
     font-family: "Caveat", cursive;
     color: var(--text-green);
-    font-size: 15px; line-height: 1.1;
-    padding: 0 8px;
+    font-size: 14px;
 }
 
 .right-bottom-card {
-    width: 260px; height: 330px;
-    right: 75px; bottom: 150px;
+    width: 240px;
+    height: 300px;
+    right: 80px;
+    bottom: 150px;
     transform: rotate(5deg);
-    animation: float-right-bottom 4.5s ease-in-out infinite;
-    border-color: #d4e5b8;
+    animation: floatRightBottom 4.5s infinite;
 }
-.right-bottom-card img { height: 240px; }
+
+.right-bottom-card img { height: 220px; }
+
 .right-bottom-card p {
     position: absolute;
-    bottom: 15px; left: 0; right: 0;
+    bottom: 10px;
+    left: 0;
+    right: 0;
     text-align: center;
     font-family: "Caveat", cursive;
     color: var(--text-green);
-    font-size: 15px;
-    padding: 0 8px;
+    font-size: 14px;
 }
 
-/* FLOATING KEYFRAMES */
-@keyframes float-left {
+@keyframes floatLeft {
     0%, 100% { transform: rotate(-4deg) translateY(0); }
     50% { transform: rotate(-4deg) translateY(-12px); }
 }
-@keyframes float-right-top {
+
+@keyframes floatRightTop {
     0%, 100% { transform: rotate(-6deg) translateY(0); }
     50% { transform: rotate(-6deg) translateY(-15px); }
 }
-@keyframes float-right-bottom {
+
+@keyframes floatRightBottom {
     0%, 100% { transform: rotate(5deg) translateY(0); }
     50% { transform: rotate(5deg) translateY(-10px); }
 }
 
 .center-heart {
-    position: absolute; z-index: 15; left: 48%; top: 420px;
-    color: white; font-family: "Caveat", cursive;
-    font-size: 65px; transform: rotate(-10deg);
-    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    position: absolute;
+    z-index: 15;
+    left: 48%;
+    top: 420px;
+    color: white;
+    font-family: "Caveat", cursive;
+    font-size: 60px;
+    transform: rotate(-10deg);
 }
 
 /* ACTION BUTTONS */
 .actions {
-    position: absolute; z-index: 40;
-    left: 50%; transform: translateX(-50%);
-    bottom: 45px; width: 75%; max-width: 850px;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    position: absolute;
+    z-index: 40;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 45px;
+    width: 75%;
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .action {
-    min-height: 110px; padding: 15px 20px;
+    min-height: 110px;
+    padding: 15px 20px;
     background: rgba(248, 247, 219, 0.95);
     border-radius: 20px;
-    display: flex; align-items: center; gap: 15px;
-    box-shadow: 0 8px 25px rgba(36, 61, 33, 0.15), inset 0 1px 0 rgba(255,255,255,0.5);
-    transition: 0.3s ease;
-    backdrop-filter: blur(5px);
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid white;
 }
-.action:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(36, 61, 33, 0.25); }
 
 .action-icon {
-    width: 55px; min-width: 55px; height: 55px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    color: white; font-size: 25px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 25px;
 }
+
 .action-icon.orange { background: var(--orange); }
 .action-icon.green { background: var(--olive-green); }
 
-.action-text h3 { font-family: "Caveat", cursive; font-size: 28px; line-height: 1; color: var(--olive-green); }
-.action:nth-child(3) h3 { color: var(--orange); }
-.action-text p { color: var(--text-green); font-size: 13px; line-height: 1.3; margin-top: 5px; }
+.action-text h3 {
+    font-family: "Caveat", cursive;
+    font-size: 26px;
+    color: var(--olive-green);
+}
+
+.action-text p {
+    color: var(--text-green);
+    font-size: 13px;
+    margin-top: 5px;
+}
 
 /* BOTTOM BAR */
 .bottom {
-    position: absolute; z-index: 35;
-    bottom: 0; left: 0; width: 100%; height: 50px;
+    position: absolute;
+    z-index: 35;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
     background: var(--forest-green);
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bottom::before {
-    content: ""; position: absolute; top: -15px; left: -5%;
-    width: 110%; height: 20px;
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -5%;
+    width: 110%;
+    height: 20px;
     background: var(--forest-green);
     border-radius: 50% 50% 0 0;
 }
 
 .bottom p {
-    position: relative; z-index: 5; color: white;
-    font-family: "Caveat", cursive; font-size: 22px; letter-spacing: 1px;
+    color: white;
+    font-family: "Caveat", cursive;
+    font-size: 22px;
 }
 
-.bottom-decoration { position: absolute; z-index: 5; color: var(--olive-green); font-size: 50px; }
-.bottom-decoration.left { left: 70px; bottom: -10px; transform: rotate(-30deg); }
-.bottom-decoration.right { right: 70px; bottom: -10px; transform: rotate(30deg); }
+.bottom-decoration { display: none; }
 
-/* LARGE DESKTOP */
-@media (min-width: 1201px) {
-    .main-title { bottom: 130px; left: 85px; max-width: 360px; }
-}
-
-/* TABLET */
-@media (min-width: 901px) and (max-width: 1200px) {
-    .navbar { padding: 0 3%; }
-    nav { gap: 18px; }
-    nav a { font-size: 14px; }
-    .hero { height: 100vh; min-height: 700px; }
-
-    .side-border { width: 45px; }
-    .side-border-text { font-size: 18px; letter-spacing: 2px; }
-    .side-border-icon { font-size: 15px; }
-
-    .main-title { bottom: 110px; left: 60px; max-width: 320px; padding: 15px 18px; }
-    .main-title h2 { font-size: 26px; }
-    .main-title p { font-size: 11px; }
-
-    .left-card { width: 200px; height: 220px; left: 60px; top: 50px; padding: 10px 10px 45px 10px; }
-    .left-card img { height: 155px; }
-    .right-top-card { width: 190px; height: 250px; right: 60px; top: 40px; padding: 10px 10px 45px 10px; }
-    .right-top-card img { height: 175px; }
-    .right-bottom-card { width: 200px; height: 270px; right: 60px; bottom: 130px; padding: 10px 10px 45px 10px; }
-    .right-bottom-card img { height: 190px; }
-
-    .actions { width: 80%; bottom: 40px; }
-    .photo-label { font-size: 15px; padding: 7px 14px; }
-    .right-top-card p, .right-bottom-card p { font-size: 14px; }
-}
-
-/* SMALL DESKTOP */
-@media (min-width: 701px) and (max-width: 900px) {
-    .hero { height: 100vh; min-height: 700px; }
-
-    .side-border { width: 40px; }
-    .side-border-text { font-size: 15px; letter-spacing: 1px; }
-    .side-border-icon { font-size: 13px; }
-
-    .main-title { bottom: 100px; left: 50px; max-width: 300px; padding: 14px 18px; }
-    .main-title h2 { font-size: 24px; }
-    .main-title p { font-size: 11px; }
-
-    .left-card { width: 170px; height: 190px; left: 50px; top: 40px; padding: 8px 8px 40px 8px; }
-    .left-card img { height: 130px; }
-    .right-top-card { width: 160px; height: 210px; right: 50px; top: 35px; padding: 8px 8px 40px 8px; }
-    .right-top-card img { height: 145px; }
-    .right-bottom-card { width: 170px; height: 230px; right: 50px; bottom: 100px; padding: 8px 8px 40px 8px; }
-    .right-bottom-card img { height: 160px; }
-
-    .actions { width: 85%; bottom: 35px; gap: 12px; }
-    .action { padding: 12px; min-height: 95px; }
-    .action-text h3 { font-size: 22px; }
-    .photo-label { font-size: 13px; padding: 6px 12px; }
-    .right-top-card p, .right-bottom-card p { font-size: 12px; }
-}
-
-/* =====================================================
-   MOBILE (700px AND BELOW)
-   Cloud upar, 3 photos ek row me, hero image neeche
-===================================================== */
+/* ============================================
+   MOBILE - THE ONLY PART THAT MATTERS
+   ============================================ */
 @media (max-width: 700px) {
 
     /* Hide side borders */
     .side-border { display: none; }
 
-    /* Navbar stacked */
+    /* Navbar */
     .navbar {
-        height: auto; padding: 12px 15px;
-        flex-direction: column; gap: 10px;
+        height: auto;
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 12px;
     }
-    .brand-area { width: 100%; justify-content: center; }
-    .brand-logo { width: 50px; height: 50px; }
     .brand-text h1 { font-size: 18px; }
-    .brand-text p { font-size: 14px; }
-    nav { flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%; }
-    nav a { font-size: 14px; padding: 4px 0; }
-    nav .active::after { bottom: -6px; }
-    .donate { padding: 8px 16px; font-size: 14px; border-radius: 10px; }
+    .brand-text p { font-size: 13px; }
+    nav { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    nav a { font-size: 14px; }
+    .donate { padding: 8px 14px; font-size: 13px; }
     .nav-paw { font-size: 18px; }
 
-    /* Hero stacked layout */
+    /* HERO - stack everything */
     .hero {
         height: auto;
-        min-height: 100vh;
-        position: relative;
+        min-height: auto;
+        padding: 0;
+        overflow: visible;
         display: flex;
         flex-direction: column;
-        padding-bottom: 0;
-        overflow: visible;
         background: var(--cream);
     }
 
-    /* Mobile wrapper: cloud first, then photos */
-    .mobile-top-block {
-        position: relative;
-        z-index: 50;
-        padding: 12px 12px 0 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    /* CLOUD (top of mobile) */
+    /* 1. CLOUD FIRST (top) */
     .main-title {
         position: relative;
-        bottom: auto; left: auto;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 14px 18px;
-        border-radius: 30px 30px 30px 10px;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
-        z-index: 50;
+        bottom: auto;
+        left: auto;
+        width: 92%;
+        max-width: 92%;
+        margin: 15px auto 15px auto;
+        padding: 15px;
+        border-radius: 25px;
+        background: white;
+        order: 1;
     }
-    .main-title h2 { font-size: 22px; line-height: 1.05; }
-    .main-title p { font-size: 11px; margin-top: 5px; }
-    .title-heart, .title-lines, .title-paw { display: none; }
-    .title-underline { width: 80px; }
+    .main-title h2 { font-size: 20px; }
+    .main-title p { font-size: 11px; }
 
-    /* 3 photos side-by-side row */
-    .photo-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 6px;
+    /* 2. HERO IMAGE SECOND */
+    .hero-image {
+        position: relative;
         width: 100%;
+        height: 50vh;
+        min-height: 320px;
+        order: 2;
+        background: #7a8a5e;
+    }
+    .hero-image img {
+        object-fit: cover;
+        object-position: 30% center;
     }
 
-    /* Reset absolute positioning on all 3 cards */
+    /* 3. THREE PHOTOS IN A ROW - AS A GRID */
     .left-card,
     .right-top-card,
     .right-bottom-card {
-        position: relative;
-        top: auto; left: auto;
-        right: auto; bottom: auto;
-        width: 32%;
-        height: auto;
-        margin: 0;
-        padding: 4px 4px 22px 4px;
-        transform: rotate(-3deg);
-        animation: none;
-        border-width: 2px;
-        outline-width: 1px;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        animation: none !important;
+        width: 32% !important;
+        height: auto !important;
+        padding: 5px 5px 25px 5px !important;
+        border-width: 2px !important;
+        margin: 0 !important;
     }
-    .right-top-card { transform: rotate(2deg); }
-    .right-bottom-card { transform: rotate(-2deg); }
 
+    /* Mobile photo row layout */
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Wrap photos: override to make them appear in a row after image */
+    .photo-card {
+        flex: 0 0 32%;
+    }
+
+    /* We need a wrapper - use body order trick */
+    .left-card { order: 3; margin-left: 15px; margin-top: 15px; }
+    .right-top-card { order: 4; margin-top: 15px; }
+    .right-bottom-card { order: 5; margin-right: 15px; margin-top: 15px; }
+
+    /* Make photo row using flex on hero */
+    .hero {
+        flex-wrap: wrap;
+    }
+    .main-title { flex: 0 0 100%; }
+    .hero-image { flex: 0 0 100%; }
+
+    /* Photo cards smaller */
     .left-card img,
     .right-top-card img,
     .right-bottom-card img {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1;
+        width: 100% !important;
+        height: 60px !important;
         object-fit: cover;
     }
 
-    /* Remove the dashed border on left-card for cleaner mobile look */
-    .left-card img { border: 1px solid rgba(33, 71, 47, 0.15); padding: 0; background: transparent; }
-
-    /* Hide the tape decorations */
-    .left-card::before, .left-card::after,
-    .right-top-card::before, .right-top-card::after,
-    .right-bottom-card::before, .right-bottom-card::after { display: none; }
-
-    /* Photo labels - smaller */
     .photo-label {
-        font-size: 7px;
-        padding: 2px 5px;
-        bottom: 4px;
-        border-width: 1px;
+        font-size: 8px !important;
+        padding: 2px 6px !important;
+        bottom: 5px !important;
     }
 
     .right-top-card p,
     .right-bottom-card p {
-        font-size: 6px;
-        bottom: 4px;
-        padding: 0 2px;
-        line-height: 1;
+        font-size: 7px !important;
+        bottom: 4px !important;
+        padding: 0 3px !important;
     }
 
-    /* HERO IMAGE - below the photo row */
-    .hero-image {
+    /* Center heart hide */
+    .center-heart { display: none; }
+
+    /* 6. ACTION BUTTONS */
+    .actions {
         position: relative;
-        width: 100%;
-        height: 55vh;
-        min-height: 380px;
-        flex-shrink: 0;
-        overflow: hidden;
-        background: var(--blend-bg);
-        order: 3;
-        margin-top: 10px;
+        left: auto;
+        transform: none;
+        bottom: auto;
+        width: 92%;
+        margin: 20px auto 15px auto;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        order: 6;
     }
 
-    .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position:
+    .action {
+        min-height: 70px;
+        padding: 12px 15px;
+    }
+    .action-icon { width: 42px; height: 42px; font-size: 18px; }
+    .action-text h3 { font-size: 22px; }
+    .action-text p { font-size: 11px; }
+
+    /* 7. BOTTOM BAR */
+    .bottom {
+        position: relative;
+        height: 55px;
+        order: 7;
+    }
+    .bottom p { font-size: 14px; }
+}
