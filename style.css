@@ -1,7 +1,6 @@
 /* =====================================================
    ANIMAL CONNECT TRUST
-   FINAL CSS - COW VISIBLE + SIDE BORDERS ON ALL SCREENS
-   Fixed: Mobile overlap + visible borders
+   FINAL CSS - COW VISIBLE + SIDE BORDERS + NO OVERLAP
 ===================================================== */
 
 :root {
@@ -152,7 +151,7 @@ nav .active::after {
 }
 
 /* =====================================================
-   DECORATIVE SIDE BORDERS - VISIBLE ON ALL SCREENS
+   DECORATIVE SIDE BORDERS
 ===================================================== */
 .side-border {
     position: absolute;
@@ -575,11 +574,10 @@ nav .active::after {
 
 /* =====================================================
    MOBILE PHONES (700px AND BELOW)
-   FIX: Side borders now VISIBLE + No photo card overlap
+   FIX: Last photo moved higher so it never overlaps buttons
 ===================================================== */
 @media (max-width: 700px) {
     
-    /* Side borders - now VISIBLE but thinner on mobile */
     .side-border { 
         width: 32px;
         gap: 20px;
@@ -647,7 +645,7 @@ nav .active::after {
         bottom: auto;
         left: auto;
         max-width: 92%;
-        margin: -30px auto 10px auto;
+        margin: -30px auto 20px auto;   /* Increased bottom margin */
         padding: 14px 18px;
         border-radius: 30px 30px 30px 10px;
         background: rgba(255, 255, 255, 0.75);
@@ -662,11 +660,11 @@ nav .active::after {
     
     .title-heart, .title-lines, .title-paw { display: none; }
 
-    /* LEFT CARD - repositioned to avoid side borders */
+    /* LEFT CARD */
     .left-card {
         width: 90px;
         height: 105px;
-        left: 42px;              /* pushed right to clear the 32px border */
+        left: 42px;
         top: 10px;
         padding: 4px 4px 22px 4px;
         transform: rotate(-4deg);
@@ -687,7 +685,7 @@ nav .active::after {
     .right-top-card {
         width: 88px;
         height: 108px;
-        right: 42px;             /* pushed left to clear the border */
+        right: 42px;
         top: 10px;
         padding: 4px 4px 22px 4px;
         transform: rotate(-6deg);
@@ -703,13 +701,16 @@ nav .active::after {
         line-height: 1;
     }
 
-    /* RIGHT BOTTOM CARD - FIXED: Now sits INSIDE the image area, 
-       never overlaps the action buttons below */
+    /* 
+       RIGHT BOTTOM CARD - FIXED!
+       Now positioned at bottom: 55% so it sits HIGH 
+       inside the image, never overlapping buttons.
+    */
     .right-bottom-card {
         width: 90px;
         height: 108px;
         right: 42px;
-        bottom: 10px;             /* sits at the bottom INSIDE the image */
+        bottom: 55%;              /* Sits high inside image */
         padding: 4px 4px 22px 4px;
         transform: rotate(5deg);
         animation: none;
@@ -730,13 +731,17 @@ nav .active::after {
         z-index: 30; 
     }
 
+    /* 
+       ACTIONS - Pushed down with more top margin so they 
+       can never overlap the image area.
+    */
     .actions {
         position: relative;
         left: auto;
         transform: none;
         bottom: auto;
         width: 92%;
-        margin: 15px auto 10px;
+        margin: 30px auto 15px;   /* Increased top margin - clear gap */
         grid-template-columns: 1fr;
         gap: 10px;
         z-index: 50;
@@ -756,7 +761,7 @@ nav .active::after {
     .bottom {
         position: relative;
         height: 55px;
-        margin-top: 10px;
+        margin-top: 15px;
     }
     .bottom p { font-size: 14px; padding: 0 40px; text-align: center; }
     .bottom-decoration { font-size: 28px; }
@@ -789,7 +794,7 @@ nav .active::after {
     .main-title {
         max-width: 94%;
         padding: 12px 15px;
-        margin: -25px auto 8px auto;
+        margin: -25px auto 18px auto;   /* Extra gap */
         border-radius: 25px 25px 25px 8px;
     }
     .main-title h2 { font-size: 19px; }
@@ -803,13 +808,24 @@ nav .active::after {
     .right-top-card img { height: 52px; }
     .right-top-card p { font-size: 6px; bottom: 4px; }
 
-    .right-bottom-card { width: 78px; height: 92px; bottom: 8px; right: 36px; padding: 3px 3px 18px 3px; }
+    /* Right bottom card - also moved higher */
+    .right-bottom-card { 
+        width: 78px; 
+        height: 92px; 
+        bottom: 55%; 
+        right: 36px; 
+        padding: 3px 3px 18px 3px; 
+    }
     .right-bottom-card img { height: 52px; }
     .right-bottom-card p { font-size: 6px; bottom: 4px; }
 
     .center-heart { font-size: 26px; }
 
-    .actions { width: 94%; gap: 8px; }
+    .actions { 
+        width: 94%; 
+        gap: 8px; 
+        margin: 25px auto 12px;   /* Extra gap */
+    }
     .action { min-height: 62px; padding: 10px 12px; border-radius: 14px; gap: 10px; }
     .action-icon { width: 38px; min-width: 38px; height: 38px; font-size: 16px; }
     .action-text h3 { font-size: 20px; }
