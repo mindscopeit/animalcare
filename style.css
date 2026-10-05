@@ -335,6 +335,31 @@ a {
 
 
 /* =========================================================
+   FLOATING KEYFRAMES — DESKTOP / BIG SCREEN
+========================================================= */
+
+@keyframes floatLeft {
+    0%, 100% { transform: rotate(-5deg) translateY(0); }
+    50%      { transform: rotate(-5deg) translateY(-14px); }
+}
+
+@keyframes floatRightTop {
+    0%, 100% { transform: rotate(4deg) translateY(0); }
+    50%      { transform: rotate(4deg) translateY(-12px); }
+}
+
+@keyframes floatRightBottom {
+    0%, 100% { transform: rotate(5deg) translateY(0); }
+    50%      { transform: rotate(5deg) translateY(-16px); }
+}
+
+/* pause float on hover so the lift effect takes over cleanly */
+.photo-card:hover {
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
    LEFT PHOTO
 ========================================================= */
 
@@ -426,31 +451,6 @@ a {
 
 .right-bottom-card img {
     height: 220px;
-}
-
-
-/* =========================================================
-   FLOATING KEYFRAMES
-========================================================= */
-
-@keyframes floatLeft {
-    0%, 100% { transform: rotate(-5deg) translateY(0); }
-    50%      { transform: rotate(-5deg) translateY(-10px); }
-}
-
-@keyframes floatRightTop {
-    0%, 100% { transform: rotate(4deg) translateY(0); }
-    50%      { transform: rotate(4deg) translateY(-8px); }
-}
-
-@keyframes floatRightBottom {
-    0%, 100% { transform: rotate(5deg) translateY(0); }
-    50%      { transform: rotate(5deg) translateY(-12px); }
-}
-
-/* pause float on hover so the lift effect takes over */
-.photo-card:hover {
-    animation-play-state: paused;
 }
 
 
@@ -1129,17 +1129,17 @@ a {
 
     @keyframes floatLeftMobile {
         0%, 100% { transform: rotate(-5deg) translateY(0); }
-        50%      { transform: rotate(-5deg) translateY(-5px); }
+        50%      { transform: rotate(-5deg) translateY(-6px); }
     }
 
     @keyframes floatRightTopMobile {
         0%, 100% { transform: rotate(4deg) translateY(0); }
-        50%      { transform: rotate(4deg) translateY(-4px); }
+        50%      { transform: rotate(4deg) translateY(-5px); }
     }
 
     @keyframes floatRightBottomMobile {
         0%, 100% { transform: rotate(4deg) translateY(0); }
-        50%      { transform: rotate(4deg) translateY(-6px); }
+        50%      { transform: rotate(4deg) translateY(-7px); }
     }
 
 
