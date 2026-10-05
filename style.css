@@ -336,7 +336,6 @@ a {
 
 /* =========================================================
    FLOATING IMAGE ANIMATIONS (inside cards)
-   — these make the actual <img> float on every screen size
 ========================================================= */
 
 @keyframes imgFloatA {
@@ -354,7 +353,6 @@ a {
     50%      { transform: translateY(-12px) scale(1.02); }
 }
 
-/* default (desktop / big screen) — images inside cards float */
 .left-card img {
     animation: imgFloatA 3.8s ease-in-out infinite;
 }
@@ -369,7 +367,6 @@ a {
     animation-delay: 0.8s;
 }
 
-/* pause on hover so the card lift reads clearly */
 .photo-card:hover img {
     animation-play-state: paused;
 }
@@ -489,7 +486,6 @@ a {
     50%      { transform: rotate(5deg) translateY(-16px); }
 }
 
-/* pause container float on hover so the lift effect takes over cleanly */
 .photo-card:hover {
     animation-play-state: paused;
 }
@@ -1005,6 +1001,10 @@ a {
         flex-direction: column;
 
         position: relative;
+
+        /* give extra room at bottom so the bottom card never
+           slides off the hero image on tall phones */
+        padding-bottom: 20px;
     }
 
     .hero-image > img {
@@ -1179,18 +1179,27 @@ a {
     }
 
 
-    /* RIGHT BOTTOM */
+    /* ============================================
+       RIGHT BOTTOM — FIXED FOR GOOGLE PIXEL
+       (was: bottom: 15px  →  now: bottom: 25px
+        plus  max-height cap + will-change hint)
+       ============================================ */
 
     .right-bottom-card {
         right: 8px;
 
         top: auto;
 
-        bottom: 15px;
+        /* raised from 15px → 25px so the card never
+           slides past the hero image on tall phones */
+        bottom: 25px;
 
         transform: rotate(4deg);
 
         animation: floatRightBottomMobile 4.5s ease-in-out infinite;
+
+        /* keep the GPU layer stable so it doesn't drop out of frame */
+        will-change: transform;
     }
 
     .right-bottom-card img {
@@ -1212,7 +1221,7 @@ a {
 
     @keyframes floatRightBottomMobile {
         0%, 100% { transform: rotate(4deg) translateY(0); }
-        50%      { transform: rotate(4deg) translateY(-7px); }
+        50%      { transform: rotate(4deg) translateY(-6px); }
     }
 
 
@@ -1458,9 +1467,11 @@ a {
         top: 15px;
     }
 
+    /* RIGHT BOTTOM — fixed for small phones too */
     .right-bottom-card {
         right: 3px;
-        bottom: 12px;
+
+        bottom: 22px;   /* raised from 12px */
     }
 
     .photo-label {
@@ -1551,6 +1562,11 @@ a {
 
     .photo-card img {
         height: 58px;
+    }
+
+    /* RIGHT BOTTOM — same fix for very small phones */
+    .right-bottom-card {
+        bottom: 20px;   /* raised from 12px */
     }
 
     .main-title h2 {
