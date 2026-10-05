@@ -1,6 +1,6 @@
 /* =====================================================
-   ANIMAL CONNECT TRUST - FINAL FIX
-   Mobile: 3 images sahi jagah + no green band + cloud upar
+   ANIMAL CONNECT TRUST
+   FINAL CSS - Mobile: Cloud upar + 3 photos ek row me
 ===================================================== */
 
 :root {
@@ -144,8 +144,7 @@ nav .active::after {
 .side-border {
     position: absolute;
     z-index: 20;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     width: 55px;
     background: linear-gradient(to bottom,
         rgba(33, 71, 47, 0.85) 0%,
@@ -158,9 +157,7 @@ nav .active::after {
     gap: 30px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    box-shadow:
-        inset 0 0 30px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .side-border.left { left: 0; border-right: 2px solid rgba(255, 255, 255, 0.15); }
@@ -168,8 +165,7 @@ nav .active::after {
 
 .side-border-text {
     font-family: "Caveat", cursive;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 22px; font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -203,12 +199,11 @@ nav .active::after {
     border-radius: 50%;
 }
 
-/* MAIN TITLE (CLOUD) */
+/* MAIN TITLE - CLOUD */
 .main-title {
     position: absolute;
     z-index: 30;
-    bottom: 120px;
-    left: 75px;
+    bottom: 120px; left: 75px;
     width: 100%;
     min-width: 260px;
     max-width: 340px;
@@ -235,9 +230,7 @@ nav .active::after {
 .main-title p {
     margin-top: 8px;
     color: var(--text-green);
-    font-size: 12px;
-    line-height: 1.35;
-    font-weight: 600;
+    font-size: 12px; line-height: 1.35; font-weight: 600;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 0 6px rgba(255, 255, 255, 0.7);
 }
 
@@ -302,8 +295,7 @@ nav .active::after {
 .photo-card::after {
     content: "";
     position: absolute;
-    width: 45px;
-    height: 18px;
+    width: 45px; height: 18px;
     background: rgba(255, 249, 200, 0.75);
     border: 1px solid rgba(200, 190, 140, 0.5);
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -313,8 +305,7 @@ nav .active::after {
 .photo-card::after { top: -8px; right: 20px; transform: rotate(8deg); }
 
 .photo-card img {
-    display: block;
-    width: 100%;
+    display: block; width: 100%;
     object-fit: cover;
     border-radius: 2px;
     border: 1px solid rgba(33, 71, 47, 0.1);
@@ -322,16 +313,13 @@ nav .active::after {
 
 .photo-label {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50%; transform: translateX(-50%);
     bottom: 15px;
     padding: 8px 18px;
     background: var(--forest-green);
-    color: white;
-    border-radius: 20px;
+    color: white; border-radius: 20px;
     font-family: "Caveat", cursive;
-    font-size: 17px;
-    line-height: 1.05;
+    font-size: 17px; line-height: 1.05;
     box-shadow: 0 3px 8px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
     border: 2px solid rgba(255, 255, 255, 0.9);
     text-align: center;
@@ -403,39 +391,25 @@ nav .active::after {
 }
 
 .center-heart {
-    position: absolute;
-    z-index: 15;
-    left: 48%;
-    top: 420px;
-    color: white;
-    font-family: "Caveat", cursive;
-    font-size: 65px;
-    transform: rotate(-10deg);
+    position: absolute; z-index: 15; left: 48%; top: 420px;
+    color: white; font-family: "Caveat", cursive;
+    font-size: 65px; transform: rotate(-10deg);
     text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 /* ACTION BUTTONS */
 .actions {
-    position: absolute;
-    z-index: 40;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 45px;
-    width: 75%;
-    max-width: 850px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    position: absolute; z-index: 40;
+    left: 50%; transform: translateX(-50%);
+    bottom: 45px; width: 75%; max-width: 850px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
 
 .action {
-    min-height: 110px;
-    padding: 15px 20px;
+    min-height: 110px; padding: 15px 20px;
     background: rgba(248, 247, 219, 0.95);
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    display: flex; align-items: center; gap: 15px;
     box-shadow: 0 8px 25px rgba(36, 61, 33, 0.15), inset 0 1px 0 rgba(255,255,255,0.5);
     transition: 0.3s ease;
     backdrop-filter: blur(5px);
@@ -444,15 +418,10 @@ nav .active::after {
 .action:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(36, 61, 33, 0.25); }
 
 .action-icon {
-    width: 55px;
-    min-width: 55px;
-    height: 55px;
+    width: 55px; min-width: 55px; height: 55px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 25px;
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-size: 25px;
     border: 2px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
@@ -465,36 +434,22 @@ nav .active::after {
 
 /* BOTTOM BAR */
 .bottom {
-    position: absolute;
-    z-index: 35;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
+    position: absolute; z-index: 35;
+    bottom: 0; left: 0; width: 100%; height: 50px;
     background: var(--forest-green);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
 }
 
 .bottom::before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: -5%;
-    width: 110%;
-    height: 20px;
+    content: ""; position: absolute; top: -15px; left: -5%;
+    width: 110%; height: 20px;
     background: var(--forest-green);
     border-radius: 50% 50% 0 0;
 }
 
 .bottom p {
-    position: relative;
-    z-index: 5;
-    color: white;
-    font-family: "Caveat", cursive;
-    font-size: 22px;
-    letter-spacing: 1px;
+    position: relative; z-index: 5; color: white;
+    font-family: "Caveat", cursive; font-size: 22px; letter-spacing: 1px;
 }
 
 .bottom-decoration { position: absolute; z-index: 5; color: var(--olive-green); font-size: 50px; }
@@ -561,33 +516,29 @@ nav .active::after {
 
 /* =====================================================
    MOBILE (700px AND BELOW)
-   - No green band above image (object-fit: cover)
-   - Cloud moved ABOVE the image
-   - Image 1 → top left
-   - Image 2 → top right
-   - Image 3 → right, just below Image 2
+   Cloud upar, 3 photos ek row me, hero image neeche
 ===================================================== */
 @media (max-width: 700px) {
 
+    /* Hide side borders */
     .side-border { display: none; }
 
+    /* Navbar stacked */
     .navbar {
-        height: auto;
-        padding: 12px 15px;
-        flex-direction: column;
-        gap: 10px;
+        height: auto; padding: 12px 15px;
+        flex-direction: column; gap: 10px;
     }
     .brand-area { width: 100%; justify-content: center; }
     .brand-logo { width: 50px; height: 50px; }
     .brand-text h1 { font-size: 18px; }
     .brand-text p { font-size: 14px; }
-
     nav { flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%; }
     nav a { font-size: 14px; padding: 4px 0; }
     nav .active::after { bottom: -6px; }
     .donate { padding: 8px 16px; font-size: 14px; border-radius: 10px; }
     .nav-paw { font-size: 18px; }
 
+    /* Hero stacked layout */
     .hero {
         height: auto;
         min-height: 100vh;
@@ -595,237 +546,116 @@ nav .active::after {
         display: flex;
         flex-direction: column;
         padding-bottom: 0;
+        overflow: visible;
         background: var(--cream);
     }
 
-    /* CLOUD moves ABOVE image on mobile */
+    /* Mobile wrapper: cloud first, then photos */
+    .mobile-top-block {
+        position: relative;
+        z-index: 50;
+        padding: 12px 12px 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* CLOUD (top of mobile) */
     .main-title {
         position: relative;
-        bottom: auto;
-        left: auto;
-        width: 92%;
-        max-width: 92%;
-        margin: 10px auto 12px auto;
+        bottom: auto; left: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
         padding: 14px 18px;
         border-radius: 30px 30px 30px 10px;
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         box-shadow: 0 8px 25px rgba(33, 71, 47, 0.2);
         z-index: 50;
-        order: 1;
     }
     .main-title h2 { font-size: 22px; line-height: 1.05; }
     .main-title p { font-size: 11px; margin-top: 5px; }
     .title-heart, .title-lines, .title-paw { display: none; }
+    .title-underline { width: 80px; }
 
-    /* IMAGE FILLS THE CONTAINER - no green band */
+    /* 3 photos side-by-side row */
+    .photo-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 6px;
+        width: 100%;
+    }
+
+    /* Reset absolute positioning on all 3 cards */
+    .left-card,
+    .right-top-card,
+    .right-bottom-card {
+        position: relative;
+        top: auto; left: auto;
+        right: auto; bottom: auto;
+        width: 32%;
+        height: auto;
+        margin: 0;
+        padding: 4px 4px 22px 4px;
+        transform: rotate(-3deg);
+        animation: none;
+        border-width: 2px;
+        outline-width: 1px;
+    }
+    .right-top-card { transform: rotate(2deg); }
+    .right-bottom-card { transform: rotate(-2deg); }
+
+    .left-card img,
+    .right-top-card img,
+    .right-bottom-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    /* Remove the dashed border on left-card for cleaner mobile look */
+    .left-card img { border: 1px solid rgba(33, 71, 47, 0.15); padding: 0; background: transparent; }
+
+    /* Hide the tape decorations */
+    .left-card::before, .left-card::after,
+    .right-top-card::before, .right-top-card::after,
+    .right-bottom-card::before, .right-bottom-card::after { display: none; }
+
+    /* Photo labels - smaller */
+    .photo-label {
+        font-size: 7px;
+        padding: 2px 5px;
+        bottom: 4px;
+        border-width: 1px;
+    }
+
+    .right-top-card p,
+    .right-bottom-card p {
+        font-size: 6px;
+        bottom: 4px;
+        padding: 0 2px;
+        line-height: 1;
+    }
+
+    /* HERO IMAGE - below the photo row */
     .hero-image {
         position: relative;
         width: 100%;
-        height: 60vh;
-        min-height: 420px;
+        height: 55vh;
+        min-height: 380px;
         flex-shrink: 0;
         overflow: hidden;
         background: var(--blend-bg);
-        order: 2;
+        order: 3;
+        margin-top: 10px;
     }
 
     .hero-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 30% center;
-        filter: brightness(1.02) saturate(1.05) contrast(1.02);
-    }
-
-    .hero-overlay { display: none; }
-
-    /* IMAGE 1 - LEFT CARD top-left */
-    .left-card {
-        width: 82px;
-        height: 96px;
-        left: 15px;
-        top: 15px;
-        bottom: auto;
-        right: auto;
-        padding: 4px 4px 22px 4px;
-        transform: rotate(-4deg);
-        animation: float-left 4s ease-in-out infinite;
-        z-index: 30;
-        border-width: 2px;
-    }
-    .left-card img { height: 56px; }
-    .left-card::before, .left-card::after { display: none; }
-    .left-card .photo-label {
-        font-size: 8px;
-        padding: 3px 7px;
-        bottom: 5px;
-        border-width: 1px;
-    }
-
-    /* IMAGE 2 - RIGHT TOP CARD top-right */
-    .right-top-card {
-        width: 80px;
-        height: 94px;
-        right: 15px;
-        top: 15px;
-        bottom: auto;
-        left: auto;
-        padding: 4px 4px 22px 4px;
-        transform: rotate(-6deg);
-        animation: float-right-top 5s ease-in-out infinite;
-        z-index: 30;
-        border-width: 2px;
-    }
-    .right-top-card img { height: 54px; }
-    .right-top-card::before, .right-top-card::after { display: none; }
-    .right-top-card p {
-        font-size: 7px;
-        bottom: 5px;
-        line-height: 1;
-    }
-
-    /* IMAGE 3 - RIGHT BOTTOM CARD just below Image 2 */
-    .right-bottom-card {
-        width: 82px;
-        height: 96px;
-        right: 15px;
-        top: 130px;       /* directly below Image 2 (which is at 15px + 94px height + 20px gap) */
-        bottom: auto;
-        left: auto;
-        padding: 4px 4px 22px 4px;
-        transform: rotate(5deg);
-        animation: float-right-bottom 4.5s ease-in-out infinite;
-        z-index: 30;
-        border-width: 2px;
-    }
-    .right-bottom-card img { height: 56px; }
-    .right-bottom-card::before, .right-bottom-card::after { display: none; }
-    .right-bottom-card p {
-        font-size: 7px;
-        bottom: 5px;
-    }
-
-    .center-heart {
-        left: 45%;
-        top: 50%;
-        font-size: 32px;
-        z-index: 30;
-    }
-
-    /* ACTION BUTTONS below image */
-    .actions {
-        position: relative;
-        left: auto;
-        transform: none;
-        bottom: auto;
-        width: 92%;
-        margin: 15px auto 10px;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        z-index: 50;
-        order: 3;
-    }
-
-    .action {
-        min-height: 70px;
-        padding: 12px 15px;
-        border-radius: 16px;
-        gap: 12px;
-    }
-    .action-icon { width: 42px; min-width: 42px; height: 42px; font-size: 18px; }
-    .action-text h3 { font-size: 22px; }
-    .action-text p { font-size: 11px; margin-top: 3px; }
-
-    /* BOTTOM GREEN BAR */
-    .bottom {
-        position: relative;
-        height: 55px;
-        margin-top: 10px;
-        order: 4;
-    }
-    .bottom p { font-size: 14px; padding: 0 30px; text-align: center; }
-    .bottom-decoration { font-size: 28px; }
-    .bottom-decoration.left { left: 20px; }
-    .bottom-decoration.right { right: 20px; }
-}
-
-/* VERY SMALL PHONES */
-@media (max-width: 480px) {
-
-    .navbar { padding: 10px 12px; gap: 8px; }
-    .brand-logo { width: 42px; height: 42px; }
-    .brand-text h1 { font-size: 16px; }
-    .brand-text p { font-size: 12px; }
-    nav { gap: 10px; }
-    nav a { font-size: 13px; }
-    .donate { padding: 6px 12px; font-size: 12px; }
-
-    .hero-image { height: 55vh; min-height: 380px; }
-
-    .hero-image img {
-        object-fit: cover;
-        object-position: 25% center;
-    }
-
-    .main-title {
-        width: 94%;
-        padding: 12px 15px;
-        margin: 8px auto 10px auto;
-        border-radius: 25px 25px 25px 8px;
-    }
-    .main-title h2 { font-size: 19px; }
-    .main-title p { font-size: 10px; }
-
-    /* IMAGE 1 - left card */
-    .left-card {
-        width: 72px; height: 86px;
-        top: 12px; left: 12px;
-        bottom: auto; right: auto;
-        padding: 3px 3px 20px 3px;
-    }
-    .left-card img { height: 50px; }
-    .left-card .photo-label { font-size: 7px; padding: 2px 5px; bottom: 4px; }
-
-    /* IMAGE 2 - right top card */
-    .right-top-card {
-        width: 70px; height: 84px;
-        top: 12px; right: 12px;
-        bottom: auto; left: auto;
-        padding: 3px 3px 20px 3px;
-    }
-    .right-top-card img { height: 48px; }
-    .right-top-card p { font-size: 6px; bottom: 4px; }
-
-    /* IMAGE 3 - right bottom card directly below Image 2 */
-    .right-bottom-card {
-        width: 72px; height: 86px;
-        top: 116px; right: 12px;
-        bottom: auto; left: auto;
-        padding: 3px 3px 20px 3px;
-    }
-    .right-bottom-card img { height: 50px; }
-    .right-bottom-card p { font-size: 6px; bottom: 4px; }
-
-    .center-heart { font-size: 26px; }
-
-    .actions { width: 94%; gap: 8px; }
-    .action { min-height: 62px; padding: 10px 12px; border-radius: 14px; gap: 10px; }
-    .action-icon { width: 38px; min-width: 38px; height: 38px; font-size: 16px; }
-    .action-text h3 { font-size: 20px; }
-    .action-text p { font-size: 10px; }
-
-    .bottom { height: 50px; }
-    .bottom p { font-size: 12px; padding: 0 25px; }
-    .bottom-decoration { font-size: 22px; }
-    .bottom-decoration.left { left: 15px; }
-    .bottom-decoration.right { right: 15px; }
-}
-
-/* LANDSCAPE */
-@media (max-width: 900px) and (orientation: landscape) {
-    .hero-image { height: 80vh; min-height: 350px; }
-    .main-title { max-width: 50%; }
-    .actions { grid-template-columns: repeat(3, 1fr); }
-}
+        object-position:
